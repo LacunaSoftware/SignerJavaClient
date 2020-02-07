@@ -19,15 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.lacunasoftware.signer.client.LacunaSignerApiDocumentsCreatorModel;
-import com.lacunasoftware.signer.client.LacunaSignerApiDocumentsDocumentPermissionsModel;
-import com.lacunasoftware.signer.client.LacunaSignerApiFlowActionsFlowActionModel;
-import com.lacunasoftware.signer.client.LacunaSignerApiFoldersFolderInfoModel;
-import com.lacunasoftware.signer.client.LacunaSignerApiObserversObserverModel;
-import com.lacunasoftware.signer.client.LacunaSignerApiOrganizationsOrganizationInfoModel;
+import com.lacunasoftware.signer.LacunaSignerApiDocumentsCreatorModel;
+import com.lacunasoftware.signer.LacunaSignerApiDocumentsDocumentPermissionsModel;
+import com.lacunasoftware.signer.LacunaSignerApiFlowActionsFlowActionModel;
+import com.lacunasoftware.signer.LacunaSignerApiFoldersFolderInfoModel;
+import com.lacunasoftware.signer.LacunaSignerApiObserversObserverModel;
+import com.lacunasoftware.signer.LacunaSignerApiOrganizationsOrganizationInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-
 
 /**
  * LacunaSignerApiDocumentsDocumentModel
@@ -35,442 +34,470 @@ import java.io.IOException;
 
 class LacunaSignerApiDocumentsDocumentModel {
 
-  @SerializedName("checksumMd5")
-  private String checksumMd5 = null;
+	@SerializedName("checksumMd5")
+	private String checksumMd5 = null;
 
-  @SerializedName("isDeleted")
-  private Boolean isDeleted = null;
+	@SerializedName("isDeleted")
+	private Boolean isDeleted = null;
 
-  @SerializedName("flowActions")
-  private List<LacunaSignerApiFlowActionsFlowActionModel> flowActions = null;
+	@SerializedName("flowActions")
+	private List<LacunaSignerApiFlowActionsFlowActionModel> flowActions = null;
 
-  @SerializedName("observers")
-  private List<LacunaSignerApiObserversObserverModel> observers = null;
+	@SerializedName("observers")
+	private List<LacunaSignerApiObserversObserverModel> observers = null;
 
-  @SerializedName("permissions")
-  private LacunaSignerApiDocumentsDocumentPermissionsModel permissions = null;
+	@SerializedName("permissions")
+	private LacunaSignerApiDocumentsDocumentPermissionsModel permissions = null;
 
-  @SerializedName("id")
-  private UUID id = null;
+	@SerializedName("id")
+	private UUID id = null;
 
-  @SerializedName("name")
-  private String name = null;
+	@SerializedName("name")
+	private String name = null;
 
-  @SerializedName("filename")
-  private String filename = null;
+	@SerializedName("filename")
+	private String filename = null;
 
-  @SerializedName("fileSize")
-  private Long fileSize = null;
+	@SerializedName("fileSize")
+	private Long fileSize = null;
 
-  @SerializedName("mimeType")
-  private String mimeType = null;
+	@SerializedName("mimeType")
+	private String mimeType = null;
 
-  @SerializedName("hasSignature")
-  private Boolean hasSignature = null;
+	@SerializedName("hasSignature")
+	private Boolean hasSignature = null;
 
-  @SerializedName("isConcluded")
-  private Boolean isConcluded = null;
+	@SerializedName("isConcluded")
+	private Boolean isConcluded = null;
 
-  @SerializedName("folder")
-  private LacunaSignerApiFoldersFolderInfoModel folder = null;
+	@SerializedName("folder")
+	private LacunaSignerApiFoldersFolderInfoModel folder = null;
 
-  @SerializedName("organization")
-  private LacunaSignerApiOrganizationsOrganizationInfoModel organization = null;
+	@SerializedName("organization")
+	private LacunaSignerApiOrganizationsOrganizationInfoModel organization = null;
 
-  @SerializedName("creationDate")
-  private Date creationDate = null;
+	@SerializedName("creationDate")
+	private Date creationDate = null;
 
-  @SerializedName("updateDate")
-  private Date updateDate = null;
+	@SerializedName("updateDate")
+	private Date updateDate = null;
 
-  @SerializedName("createdBy")
-  private LacunaSignerApiDocumentsCreatorModel createdBy = null;
-  public LacunaSignerApiDocumentsDocumentModel checksumMd5(String checksumMd5) {
-    this.checksumMd5 = checksumMd5;
-    return this;
-  }
+	@SerializedName("createdBy")
+	private LacunaSignerApiDocumentsCreatorModel createdBy = null;
 
-  
+	public LacunaSignerApiDocumentsDocumentModel checksumMd5(String checksumMd5) {
+		this.checksumMd5 = checksumMd5;
+		return this;
+	}
 
-  /**
-  * MD5 checksum of the document&#x27;s file.
-  * @return checksumMd5
-  **/
-  @Schema(description = "MD5 checksum of the document's file.")
-  public String getChecksumMd5() {
-    return checksumMd5;
-  }
-  public void setChecksumMd5(String checksumMd5) {
-    this.checksumMd5 = checksumMd5;
-  }
-  public LacunaSignerApiDocumentsDocumentModel isDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-    return this;
-  }
+	/**
+	 * MD5 checksum of the document&#x27;s file.
+	 * 
+	 * @return checksumMd5
+	 **/
+	@Schema(description = "MD5 checksum of the document's file.")
+	public String getChecksumMd5() {
+		return checksumMd5;
+	}
 
-  
+	public void setChecksumMd5(String checksumMd5) {
+		this.checksumMd5 = checksumMd5;
+	}
 
-  /**
-  * True if the document is deleted.
-  * @return isDeleted
-  **/
-  @Schema(description = "True if the document is deleted.")
-  public Boolean isIsDeleted() {
-    return isDeleted;
-  }
-  public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-  }
-  public LacunaSignerApiDocumentsDocumentModel flowActions(List<LacunaSignerApiFlowActionsFlowActionModel> flowActions) {
-    this.flowActions = flowActions;
-    return this;
-  }
+	public LacunaSignerApiDocumentsDocumentModel isDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+		return this;
+	}
 
-  public LacunaSignerApiDocumentsDocumentModel addFlowActionsItem(LacunaSignerApiFlowActionsFlowActionModel flowActionsItem) {
-    if (this.flowActions == null) {
-      this.flowActions = new ArrayList<LacunaSignerApiFlowActionsFlowActionModel>();
-    }
-    this.flowActions.add(flowActionsItem);
-    return this;
-  }
+	/**
+	 * True if the document is deleted.
+	 * 
+	 * @return isDeleted
+	 **/
+	@Schema(description = "True if the document is deleted.")
+	public Boolean isIsDeleted() {
+		return isDeleted;
+	}
 
-  /**
-  * Signers and approvers of the document.
-  * @return flowActions
-  **/
-  @Schema(description = "Signers and approvers of the document.")
-  public List<LacunaSignerApiFlowActionsFlowActionModel> getFlowActions() {
-    return flowActions;
-  }
-  public void setFlowActions(List<LacunaSignerApiFlowActionsFlowActionModel> flowActions) {
-    this.flowActions = flowActions;
-  }
-  public LacunaSignerApiDocumentsDocumentModel observers(List<LacunaSignerApiObserversObserverModel> observers) {
-    this.observers = observers;
-    return this;
-  }
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
 
-  public LacunaSignerApiDocumentsDocumentModel addObserversItem(LacunaSignerApiObserversObserverModel observersItem) {
-    if (this.observers == null) {
-      this.observers = new ArrayList<LacunaSignerApiObserversObserverModel>();
-    }
-    this.observers.add(observersItem);
-    return this;
-  }
+	public LacunaSignerApiDocumentsDocumentModel flowActions(
+			List<LacunaSignerApiFlowActionsFlowActionModel> flowActions) {
+		this.flowActions = flowActions;
+		return this;
+	}
 
-  /**
-  * Observers of the document.
-  * @return observers
-  **/
-  @Schema(description = "Observers of the document.")
-  public List<LacunaSignerApiObserversObserverModel> getObservers() {
-    return observers;
-  }
-  public void setObservers(List<LacunaSignerApiObserversObserverModel> observers) {
-    this.observers = observers;
-  }
-  public LacunaSignerApiDocumentsDocumentModel permissions(LacunaSignerApiDocumentsDocumentPermissionsModel permissions) {
-    this.permissions = permissions;
-    return this;
-  }
+	public LacunaSignerApiDocumentsDocumentModel addFlowActionsItem(
+			LacunaSignerApiFlowActionsFlowActionModel flowActionsItem) {
+		if (this.flowActions == null) {
+			this.flowActions = new ArrayList<LacunaSignerApiFlowActionsFlowActionModel>();
+		}
+		this.flowActions.add(flowActionsItem);
+		return this;
+	}
 
-  
+	/**
+	 * Signers and approvers of the document.
+	 * 
+	 * @return flowActions
+	 **/
+	@Schema(description = "Signers and approvers of the document.")
+	public List<LacunaSignerApiFlowActionsFlowActionModel> getFlowActions() {
+		return flowActions;
+	}
 
-  /**
-  * Get permissions
-  * @return permissions
-  **/
-  @Schema(description = "")
-  public LacunaSignerApiDocumentsDocumentPermissionsModel getPermissions() {
-    return permissions;
-  }
-  public void setPermissions(LacunaSignerApiDocumentsDocumentPermissionsModel permissions) {
-    this.permissions = permissions;
-  }
-  public LacunaSignerApiDocumentsDocumentModel id(UUID id) {
-    this.id = id;
-    return this;
-  }
+	public void setFlowActions(List<LacunaSignerApiFlowActionsFlowActionModel> flowActions) {
+		this.flowActions = flowActions;
+	}
 
-  
+	public LacunaSignerApiDocumentsDocumentModel observers(List<LacunaSignerApiObserversObserverModel> observers) {
+		this.observers = observers;
+		return this;
+	}
 
-  /**
-  * Get id
-  * @return id
-  **/
-  @Schema(description = "")
-  public UUID getId() {
-    return id;
-  }
-  public void setId(UUID id) {
-    this.id = id;
-  }
-  public LacunaSignerApiDocumentsDocumentModel name(String name) {
-    this.name = name;
-    return this;
-  }
+	public LacunaSignerApiDocumentsDocumentModel addObserversItem(LacunaSignerApiObserversObserverModel observersItem) {
+		if (this.observers == null) {
+			this.observers = new ArrayList<LacunaSignerApiObserversObserverModel>();
+		}
+		this.observers.add(observersItem);
+		return this;
+	}
 
-  
+	/**
+	 * Observers of the document.
+	 * 
+	 * @return observers
+	 **/
+	@Schema(description = "Observers of the document.")
+	public List<LacunaSignerApiObserversObserverModel> getObservers() {
+		return observers;
+	}
 
-  /**
-  * Get name
-  * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
-  public LacunaSignerApiDocumentsDocumentModel filename(String filename) {
-    this.filename = filename;
-    return this;
-  }
+	public void setObservers(List<LacunaSignerApiObserversObserverModel> observers) {
+		this.observers = observers;
+	}
 
-  
+	public LacunaSignerApiDocumentsDocumentModel permissions(
+			LacunaSignerApiDocumentsDocumentPermissionsModel permissions) {
+		this.permissions = permissions;
+		return this;
+	}
 
-  /**
-  * The document&#x27;s file name.
-  * @return filename
-  **/
-  @Schema(description = "The document's file name.")
-  public String getFilename() {
-    return filename;
-  }
-  public void setFilename(String filename) {
-    this.filename = filename;
-  }
-  public LacunaSignerApiDocumentsDocumentModel fileSize(Long fileSize) {
-    this.fileSize = fileSize;
-    return this;
-  }
+	/**
+	 * Get permissions
+	 * 
+	 * @return permissions
+	 **/
+	@Schema(description = "")
+	public LacunaSignerApiDocumentsDocumentPermissionsModel getPermissions() {
+		return permissions;
+	}
 
-  
+	public void setPermissions(LacunaSignerApiDocumentsDocumentPermissionsModel permissions) {
+		this.permissions = permissions;
+	}
 
-  /**
-  * The document&#x27;s file size in bytes.
-  * @return fileSize
-  **/
-  @Schema(description = "The document's file size in bytes.")
-  public Long getFileSize() {
-    return fileSize;
-  }
-  public void setFileSize(Long fileSize) {
-    this.fileSize = fileSize;
-  }
-  public LacunaSignerApiDocumentsDocumentModel mimeType(String mimeType) {
-    this.mimeType = mimeType;
-    return this;
-  }
+	public LacunaSignerApiDocumentsDocumentModel id(UUID id) {
+		this.id = id;
+		return this;
+	}
 
-  
+	/**
+	 * Get id
+	 * 
+	 * @return id
+	 **/
+	@Schema(description = "")
+	public UUID getId() {
+		return id;
+	}
 
-  /**
-  * The document&#x27;s file mime type.
-  * @return mimeType
-  **/
-  @Schema(description = "The document's file mime type.")
-  public String getMimeType() {
-    return mimeType;
-  }
-  public void setMimeType(String mimeType) {
-    this.mimeType = mimeType;
-  }
-  public LacunaSignerApiDocumentsDocumentModel hasSignature(Boolean hasSignature) {
-    this.hasSignature = hasSignature;
-    return this;
-  }
+	public void setId(UUID id) {
+		this.id = id;
+	}
 
-  
+	public LacunaSignerApiDocumentsDocumentModel name(String name) {
+		this.name = name;
+		return this;
+	}
 
-  /**
-  * True if the document was already signed once.
-  * @return hasSignature
-  **/
-  @Schema(description = "True if the document was already signed once.")
-  public Boolean isHasSignature() {
-    return hasSignature;
-  }
-  public void setHasSignature(Boolean hasSignature) {
-    this.hasSignature = hasSignature;
-  }
-  public LacunaSignerApiDocumentsDocumentModel isConcluded(Boolean isConcluded) {
-    this.isConcluded = isConcluded;
-    return this;
-  }
+	/**
+	 * Get name
+	 * 
+	 * @return name
+	 **/
+	@Schema(description = "")
+	public String getName() {
+		return name;
+	}
 
-  
+	public void setName(String name) {
+		this.name = name;
+	}
 
-  /**
-  * True if all actions requested in the document are concluded.
-  * @return isConcluded
-  **/
-  @Schema(description = "True if all actions requested in the document are concluded.")
-  public Boolean isIsConcluded() {
-    return isConcluded;
-  }
-  public void setIsConcluded(Boolean isConcluded) {
-    this.isConcluded = isConcluded;
-  }
-  public LacunaSignerApiDocumentsDocumentModel folder(LacunaSignerApiFoldersFolderInfoModel folder) {
-    this.folder = folder;
-    return this;
-  }
+	public LacunaSignerApiDocumentsDocumentModel filename(String filename) {
+		this.filename = filename;
+		return this;
+	}
 
-  
+	/**
+	 * The document&#x27;s file name.
+	 * 
+	 * @return filename
+	 **/
+	@Schema(description = "The document's file name.")
+	public String getFilename() {
+		return filename;
+	}
 
-  /**
-  * Get folder
-  * @return folder
-  **/
-  @Schema(description = "")
-  public LacunaSignerApiFoldersFolderInfoModel getFolder() {
-    return folder;
-  }
-  public void setFolder(LacunaSignerApiFoldersFolderInfoModel folder) {
-    this.folder = folder;
-  }
-  public LacunaSignerApiDocumentsDocumentModel organization(LacunaSignerApiOrganizationsOrganizationInfoModel organization) {
-    this.organization = organization;
-    return this;
-  }
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 
-  
+	public LacunaSignerApiDocumentsDocumentModel fileSize(Long fileSize) {
+		this.fileSize = fileSize;
+		return this;
+	}
 
-  /**
-  * Get organization
-  * @return organization
-  **/
-  @Schema(description = "")
-  public LacunaSignerApiOrganizationsOrganizationInfoModel getOrganization() {
-    return organization;
-  }
-  public void setOrganization(LacunaSignerApiOrganizationsOrganizationInfoModel organization) {
-    this.organization = organization;
-  }
-  public LacunaSignerApiDocumentsDocumentModel creationDate(Date creationDate) {
-    this.creationDate = creationDate;
-    return this;
-  }
+	/**
+	 * The document&#x27;s file size in bytes.
+	 * 
+	 * @return fileSize
+	 **/
+	@Schema(description = "The document's file size in bytes.")
+	public Long getFileSize() {
+		return fileSize;
+	}
 
-  
+	public void setFileSize(Long fileSize) {
+		this.fileSize = fileSize;
+	}
 
-  /**
-  * The date the document was created.
-  * @return creationDate
-  **/
-  @Schema(description = "The date the document was created.")
-  public Date getCreationDate() {
-    return creationDate;
-  }
-  public void setCreationDate(Date creationDate) {
-    this.creationDate = creationDate;
-  }
-  public LacunaSignerApiDocumentsDocumentModel updateDate(Date updateDate) {
-    this.updateDate = updateDate;
-    return this;
-  }
+	public LacunaSignerApiDocumentsDocumentModel mimeType(String mimeType) {
+		this.mimeType = mimeType;
+		return this;
+	}
 
-  
+	/**
+	 * The document&#x27;s file mime type.
+	 * 
+	 * @return mimeType
+	 **/
+	@Schema(description = "The document's file mime type.")
+	public String getMimeType() {
+		return mimeType;
+	}
 
-  /**
-  * The date of the last update to the document. This includes the following actions: moving to folder, signing, approving, deleting and editing the flow.
-  * @return updateDate
-  **/
-  @Schema(description = "The date of the last update to the document. This includes the following actions: moving to folder, signing, approving, deleting and editing the flow.")
-  public Date getUpdateDate() {
-    return updateDate;
-  }
-  public void setUpdateDate(Date updateDate) {
-    this.updateDate = updateDate;
-  }
-  public LacunaSignerApiDocumentsDocumentModel createdBy(LacunaSignerApiDocumentsCreatorModel createdBy) {
-    this.createdBy = createdBy;
-    return this;
-  }
+	public void setMimeType(String mimeType) {
+		this.mimeType = mimeType;
+	}
 
-  
+	public LacunaSignerApiDocumentsDocumentModel hasSignature(Boolean hasSignature) {
+		this.hasSignature = hasSignature;
+		return this;
+	}
 
-  /**
-  * Get createdBy
-  * @return createdBy
-  **/
-  @Schema(description = "")
-  public LacunaSignerApiDocumentsCreatorModel getCreatedBy() {
-    return createdBy;
-  }
-  public void setCreatedBy(LacunaSignerApiDocumentsCreatorModel createdBy) {
-    this.createdBy = createdBy;
-  }
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LacunaSignerApiDocumentsDocumentModel lacunaSignerApiDocumentsDocumentModel = (LacunaSignerApiDocumentsDocumentModel) o;
-    return Objects.equals(this.checksumMd5, lacunaSignerApiDocumentsDocumentModel.checksumMd5) &&
-        Objects.equals(this.isDeleted, lacunaSignerApiDocumentsDocumentModel.isDeleted) &&
-        Objects.equals(this.flowActions, lacunaSignerApiDocumentsDocumentModel.flowActions) &&
-        Objects.equals(this.observers, lacunaSignerApiDocumentsDocumentModel.observers) &&
-        Objects.equals(this.permissions, lacunaSignerApiDocumentsDocumentModel.permissions) &&
-        Objects.equals(this.id, lacunaSignerApiDocumentsDocumentModel.id) &&
-        Objects.equals(this.name, lacunaSignerApiDocumentsDocumentModel.name) &&
-        Objects.equals(this.filename, lacunaSignerApiDocumentsDocumentModel.filename) &&
-        Objects.equals(this.fileSize, lacunaSignerApiDocumentsDocumentModel.fileSize) &&
-        Objects.equals(this.mimeType, lacunaSignerApiDocumentsDocumentModel.mimeType) &&
-        Objects.equals(this.hasSignature, lacunaSignerApiDocumentsDocumentModel.hasSignature) &&
-        Objects.equals(this.isConcluded, lacunaSignerApiDocumentsDocumentModel.isConcluded) &&
-        Objects.equals(this.folder, lacunaSignerApiDocumentsDocumentModel.folder) &&
-        Objects.equals(this.organization, lacunaSignerApiDocumentsDocumentModel.organization) &&
-        Objects.equals(this.creationDate, lacunaSignerApiDocumentsDocumentModel.creationDate) &&
-        Objects.equals(this.updateDate, lacunaSignerApiDocumentsDocumentModel.updateDate) &&
-        Objects.equals(this.createdBy, lacunaSignerApiDocumentsDocumentModel.createdBy);
-  }
+	/**
+	 * True if the document was already signed once.
+	 * 
+	 * @return hasSignature
+	 **/
+	@Schema(description = "True if the document was already signed once.")
+	public Boolean isHasSignature() {
+		return hasSignature;
+	}
 
-  @Override
-  public int hashCode() {
-    return java.util.Objects.hash(checksumMd5, isDeleted, flowActions, observers, permissions, id, name, filename, fileSize, mimeType, hasSignature, isConcluded, folder, organization, creationDate, updateDate, createdBy);
-  }
+	public void setHasSignature(Boolean hasSignature) {
+		this.hasSignature = hasSignature;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LacunaSignerApiDocumentsDocumentModel {\n");
-    
-    sb.append("    checksumMd5: ").append(toIndentedString(checksumMd5)).append("\n");
-    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
-    sb.append("    flowActions: ").append(toIndentedString(flowActions)).append("\n");
-    sb.append("    observers: ").append(toIndentedString(observers)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
-    sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
-    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
-    sb.append("    hasSignature: ").append(toIndentedString(hasSignature)).append("\n");
-    sb.append("    isConcluded: ").append(toIndentedString(isConcluded)).append("\n");
-    sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
-    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
-    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
-    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
-    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public LacunaSignerApiDocumentsDocumentModel isConcluded(Boolean isConcluded) {
+		this.isConcluded = isConcluded;
+		return this;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * True if all actions requested in the document are concluded.
+	 * 
+	 * @return isConcluded
+	 **/
+	@Schema(description = "True if all actions requested in the document are concluded.")
+	public Boolean isIsConcluded() {
+		return isConcluded;
+	}
+
+	public void setIsConcluded(Boolean isConcluded) {
+		this.isConcluded = isConcluded;
+	}
+
+	public LacunaSignerApiDocumentsDocumentModel folder(LacunaSignerApiFoldersFolderInfoModel folder) {
+		this.folder = folder;
+		return this;
+	}
+
+	/**
+	 * Get folder
+	 * 
+	 * @return folder
+	 **/
+	@Schema(description = "")
+	public LacunaSignerApiFoldersFolderInfoModel getFolder() {
+		return folder;
+	}
+
+	public void setFolder(LacunaSignerApiFoldersFolderInfoModel folder) {
+		this.folder = folder;
+	}
+
+	public LacunaSignerApiDocumentsDocumentModel organization(
+			LacunaSignerApiOrganizationsOrganizationInfoModel organization) {
+		this.organization = organization;
+		return this;
+	}
+
+	/**
+	 * Get organization
+	 * 
+	 * @return organization
+	 **/
+	@Schema(description = "")
+	public LacunaSignerApiOrganizationsOrganizationInfoModel getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(LacunaSignerApiOrganizationsOrganizationInfoModel organization) {
+		this.organization = organization;
+	}
+
+	public LacunaSignerApiDocumentsDocumentModel creationDate(Date creationDate) {
+		this.creationDate = creationDate;
+		return this;
+	}
+
+	/**
+	 * The date the document was created.
+	 * 
+	 * @return creationDate
+	 **/
+	@Schema(description = "The date the document was created.")
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public LacunaSignerApiDocumentsDocumentModel updateDate(Date updateDate) {
+		this.updateDate = updateDate;
+		return this;
+	}
+
+	/**
+	 * The date of the last update to the document. This includes the following
+	 * actions: moving to folder, signing, approving, deleting and editing the flow.
+	 * 
+	 * @return updateDate
+	 **/
+	@Schema(description = "The date of the last update to the document. This includes the following actions: moving to folder, signing, approving, deleting and editing the flow.")
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public LacunaSignerApiDocumentsDocumentModel createdBy(LacunaSignerApiDocumentsCreatorModel createdBy) {
+		this.createdBy = createdBy;
+		return this;
+	}
+
+	/**
+	 * Get createdBy
+	 * 
+	 * @return createdBy
+	 **/
+	@Schema(description = "")
+	public LacunaSignerApiDocumentsCreatorModel getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(LacunaSignerApiDocumentsCreatorModel createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		LacunaSignerApiDocumentsDocumentModel lacunaSignerApiDocumentsDocumentModel = (LacunaSignerApiDocumentsDocumentModel) o;
+		return Objects.equals(this.checksumMd5, lacunaSignerApiDocumentsDocumentModel.checksumMd5)
+				&& Objects.equals(this.isDeleted, lacunaSignerApiDocumentsDocumentModel.isDeleted)
+				&& Objects.equals(this.flowActions, lacunaSignerApiDocumentsDocumentModel.flowActions)
+				&& Objects.equals(this.observers, lacunaSignerApiDocumentsDocumentModel.observers)
+				&& Objects.equals(this.permissions, lacunaSignerApiDocumentsDocumentModel.permissions)
+				&& Objects.equals(this.id, lacunaSignerApiDocumentsDocumentModel.id)
+				&& Objects.equals(this.name, lacunaSignerApiDocumentsDocumentModel.name)
+				&& Objects.equals(this.filename, lacunaSignerApiDocumentsDocumentModel.filename)
+				&& Objects.equals(this.fileSize, lacunaSignerApiDocumentsDocumentModel.fileSize)
+				&& Objects.equals(this.mimeType, lacunaSignerApiDocumentsDocumentModel.mimeType)
+				&& Objects.equals(this.hasSignature, lacunaSignerApiDocumentsDocumentModel.hasSignature)
+				&& Objects.equals(this.isConcluded, lacunaSignerApiDocumentsDocumentModel.isConcluded)
+				&& Objects.equals(this.folder, lacunaSignerApiDocumentsDocumentModel.folder)
+				&& Objects.equals(this.organization, lacunaSignerApiDocumentsDocumentModel.organization)
+				&& Objects.equals(this.creationDate, lacunaSignerApiDocumentsDocumentModel.creationDate)
+				&& Objects.equals(this.updateDate, lacunaSignerApiDocumentsDocumentModel.updateDate)
+				&& Objects.equals(this.createdBy, lacunaSignerApiDocumentsDocumentModel.createdBy);
+	}
+
+	@Override
+	public int hashCode() {
+		return java.util.Objects.hash(checksumMd5, isDeleted, flowActions, observers, permissions, id, name, filename,
+				fileSize, mimeType, hasSignature, isConcluded, folder, organization, creationDate, updateDate, createdBy);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class LacunaSignerApiDocumentsDocumentModel {\n");
+
+		sb.append("    checksumMd5: ").append(toIndentedString(checksumMd5)).append("\n");
+		sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+		sb.append("    flowActions: ").append(toIndentedString(flowActions)).append("\n");
+		sb.append("    observers: ").append(toIndentedString(observers)).append("\n");
+		sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+		sb.append("    id: ").append(toIndentedString(id)).append("\n");
+		sb.append("    name: ").append(toIndentedString(name)).append("\n");
+		sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+		sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
+		sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
+		sb.append("    hasSignature: ").append(toIndentedString(hasSignature)).append("\n");
+		sb.append("    isConcluded: ").append(toIndentedString(isConcluded)).append("\n");
+		sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
+		sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+		sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+		sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+		sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }

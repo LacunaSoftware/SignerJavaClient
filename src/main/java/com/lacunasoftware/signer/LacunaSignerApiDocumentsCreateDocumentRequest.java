@@ -18,9 +18,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.lacunasoftware.signer.client.LacunaSignerApiFileUploadModel;
-import com.lacunasoftware.signer.client.LacunaSignerApiFlowActionsFlowActionCreateModel;
-import com.lacunasoftware.signer.client.LacunaSignerApiObserversObserverCreateModel;
+import com.lacunasoftware.signer.LacunaSignerApiFileUploadModel;
+import com.lacunasoftware.signer.LacunaSignerApiFlowActionsFlowActionCreateModel;
+import com.lacunasoftware.signer.LacunaSignerApiObserversObserverCreateModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,166 +33,184 @@ import java.util.UUID;
 
 class LacunaSignerApiDocumentsCreateDocumentRequest {
 
-  @SerializedName("files")
-  private List<LacunaSignerApiFileUploadModel> files = new ArrayList<LacunaSignerApiFileUploadModel>();
+	@SerializedName("files")
+	private List<LacunaSignerApiFileUploadModel> files = new ArrayList<LacunaSignerApiFileUploadModel>();
 
-  @SerializedName("folderId")
-  private UUID folderId = null;
+	@SerializedName("folderId")
+	private UUID folderId = null;
 
-  @SerializedName("flowActions")
-  private List<LacunaSignerApiFlowActionsFlowActionCreateModel> flowActions = new ArrayList<LacunaSignerApiFlowActionsFlowActionCreateModel>();
+	@SerializedName("flowActions")
+	private List<LacunaSignerApiFlowActionsFlowActionCreateModel> flowActions = new ArrayList<LacunaSignerApiFlowActionsFlowActionCreateModel>();
 
-  @SerializedName("observers")
-  private List<LacunaSignerApiObserversObserverCreateModel> observers = null;
+	@SerializedName("observers")
+	private List<LacunaSignerApiObserversObserverCreateModel> observers = null;
 
-  @SerializedName("newFolderName")
-  private String newFolderName = null;
-  public LacunaSignerApiDocumentsCreateDocumentRequest files(List<LacunaSignerApiFileUploadModel> files) {
-    this.files = files;
-    return this;
-  }
+	@SerializedName("newFolderName")
+	private String newFolderName = null;
 
-  public LacunaSignerApiDocumentsCreateDocumentRequest addFilesItem(LacunaSignerApiFileUploadModel filesItem) {
-    this.files.add(filesItem);
-    return this;
-  }
+	public LacunaSignerApiDocumentsCreateDocumentRequest files(List<LacunaSignerApiFileUploadModel> files) {
+		this.files = files;
+		return this;
+	}
 
-  /**
-  * The files to submit. Each file will create a document.
-  * @return files
-  **/
-  @Schema(required = true, description = "The files to submit. Each file will create a document.")
-  public List<LacunaSignerApiFileUploadModel> getFiles() {
-    return files;
-  }
-  public void setFiles(List<LacunaSignerApiFileUploadModel> files) {
-    this.files = files;
-  }
-  public LacunaSignerApiDocumentsCreateDocumentRequest folderId(UUID folderId) {
-    this.folderId = folderId;
-    return this;
-  }
+	public LacunaSignerApiDocumentsCreateDocumentRequest addFilesItem(LacunaSignerApiFileUploadModel filesItem) {
+		this.files.add(filesItem);
+		return this;
+	}
 
-  
+	/**
+	 * The files to submit. Each file will create a document.
+	 * 
+	 * @return files
+	 **/
+	@Schema(required = true, description = "The files to submit. Each file will create a document.")
+	public List<LacunaSignerApiFileUploadModel> getFiles() {
+		return files;
+	}
 
-  /**
-  * The id of the folder in which the document should be placed or null if it should not be placed in any specific folder.
-  * @return folderId
-  **/
-  @Schema(description = "The id of the folder in which the document should be placed or null if it should not be placed in any specific folder.")
-  public UUID getFolderId() {
-    return folderId;
-  }
-  public void setFolderId(UUID folderId) {
-    this.folderId = folderId;
-  }
-  public LacunaSignerApiDocumentsCreateDocumentRequest flowActions(List<LacunaSignerApiFlowActionsFlowActionCreateModel> flowActions) {
-    this.flowActions = flowActions;
-    return this;
-  }
+	public void setFiles(List<LacunaSignerApiFileUploadModel> files) {
+		this.files = files;
+	}
 
-  public LacunaSignerApiDocumentsCreateDocumentRequest addFlowActionsItem(LacunaSignerApiFlowActionsFlowActionCreateModel flowActionsItem) {
-    this.flowActions.add(flowActionsItem);
-    return this;
-  }
+	public LacunaSignerApiDocumentsCreateDocumentRequest folderId(UUID folderId) {
+		this.folderId = folderId;
+		return this;
+	}
 
-  /**
-  * The list of actions (signers and approvers) that will be in the document.
-  * @return flowActions
-  **/
-  @Schema(required = true, description = "The list of actions (signers and approvers) that will be in the document.")
-  public List<LacunaSignerApiFlowActionsFlowActionCreateModel> getFlowActions() {
-    return flowActions;
-  }
-  public void setFlowActions(List<LacunaSignerApiFlowActionsFlowActionCreateModel> flowActions) {
-    this.flowActions = flowActions;
-  }
-  public LacunaSignerApiDocumentsCreateDocumentRequest observers(List<LacunaSignerApiObserversObserverCreateModel> observers) {
-    this.observers = observers;
-    return this;
-  }
+	/**
+	 * The id of the folder in which the document should be placed or null if it
+	 * should not be placed in any specific folder.
+	 * 
+	 * @return folderId
+	 **/
+	@Schema(description = "The id of the folder in which the document should be placed or null if it should not be placed in any specific folder.")
+	public UUID getFolderId() {
+		return folderId;
+	}
 
-  public LacunaSignerApiDocumentsCreateDocumentRequest addObserversItem(LacunaSignerApiObserversObserverCreateModel observersItem) {
-    if (this.observers == null) {
-      this.observers = new ArrayList<LacunaSignerApiObserversObserverCreateModel>();
-    }
-    this.observers.add(observersItem);
-    return this;
-  }
+	public void setFolderId(UUID folderId) {
+		this.folderId = folderId;
+	}
 
-  /**
-  * Get observers
-  * @return observers
-  **/
-  @Schema(description = "")
-  public List<LacunaSignerApiObserversObserverCreateModel> getObservers() {
-    return observers;
-  }
-  public void setObservers(List<LacunaSignerApiObserversObserverCreateModel> observers) {
-    this.observers = observers;
-  }
-  public LacunaSignerApiDocumentsCreateDocumentRequest newFolderName(String newFolderName) {
-    this.newFolderName = newFolderName;
-    return this;
-  }
+	public LacunaSignerApiDocumentsCreateDocumentRequest flowActions(
+			List<LacunaSignerApiFlowActionsFlowActionCreateModel> flowActions) {
+		this.flowActions = flowActions;
+		return this;
+	}
 
-  
+	public LacunaSignerApiDocumentsCreateDocumentRequest addFlowActionsItem(
+			LacunaSignerApiFlowActionsFlowActionCreateModel flowActionsItem) {
+		this.flowActions.add(flowActionsItem);
+		return this;
+	}
 
-  /**
-  * The name of a new folder to be created and associated to the document. If you do not wish to create a new folder you may set this as null.
-  * @return newFolderName
-  **/
-  @Schema(description = "The name of a new folder to be created and associated to the document. If you do not wish to create a new folder you may set this as null.")
-  public String getNewFolderName() {
-    return newFolderName;
-  }
-  public void setNewFolderName(String newFolderName) {
-    this.newFolderName = newFolderName;
-  }
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LacunaSignerApiDocumentsCreateDocumentRequest lacunaSignerApiDocumentsCreateDocumentRequest = (LacunaSignerApiDocumentsCreateDocumentRequest) o;
-    return Objects.equals(this.files, lacunaSignerApiDocumentsCreateDocumentRequest.files) &&
-        Objects.equals(this.folderId, lacunaSignerApiDocumentsCreateDocumentRequest.folderId) &&
-        Objects.equals(this.flowActions, lacunaSignerApiDocumentsCreateDocumentRequest.flowActions) &&
-        Objects.equals(this.observers, lacunaSignerApiDocumentsCreateDocumentRequest.observers) &&
-        Objects.equals(this.newFolderName, lacunaSignerApiDocumentsCreateDocumentRequest.newFolderName);
-  }
+	/**
+	 * The list of actions (signers and approvers) that will be in the document.
+	 * 
+	 * @return flowActions
+	 **/
+	@Schema(required = true, description = "The list of actions (signers and approvers) that will be in the document.")
+	public List<LacunaSignerApiFlowActionsFlowActionCreateModel> getFlowActions() {
+		return flowActions;
+	}
 
-  @Override
-  public int hashCode() {
-    return java.util.Objects.hash(files, folderId, flowActions, observers, newFolderName);
-  }
+	public void setFlowActions(List<LacunaSignerApiFlowActionsFlowActionCreateModel> flowActions) {
+		this.flowActions = flowActions;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LacunaSignerApiDocumentsCreateDocumentRequest {\n");
-    
-    sb.append("    files: ").append(toIndentedString(files)).append("\n");
-    sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
-    sb.append("    flowActions: ").append(toIndentedString(flowActions)).append("\n");
-    sb.append("    observers: ").append(toIndentedString(observers)).append("\n");
-    sb.append("    newFolderName: ").append(toIndentedString(newFolderName)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public LacunaSignerApiDocumentsCreateDocumentRequest observers(
+			List<LacunaSignerApiObserversObserverCreateModel> observers) {
+		this.observers = observers;
+		return this;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public LacunaSignerApiDocumentsCreateDocumentRequest addObserversItem(
+			LacunaSignerApiObserversObserverCreateModel observersItem) {
+		if (this.observers == null) {
+			this.observers = new ArrayList<LacunaSignerApiObserversObserverCreateModel>();
+		}
+		this.observers.add(observersItem);
+		return this;
+	}
+
+	/**
+	 * Get observers
+	 * 
+	 * @return observers
+	 **/
+	@Schema(description = "")
+	public List<LacunaSignerApiObserversObserverCreateModel> getObservers() {
+		return observers;
+	}
+
+	public void setObservers(List<LacunaSignerApiObserversObserverCreateModel> observers) {
+		this.observers = observers;
+	}
+
+	public LacunaSignerApiDocumentsCreateDocumentRequest newFolderName(String newFolderName) {
+		this.newFolderName = newFolderName;
+		return this;
+	}
+
+	/**
+	 * The name of a new folder to be created and associated to the document. If you
+	 * do not wish to create a new folder you may set this as null.
+	 * 
+	 * @return newFolderName
+	 **/
+	@Schema(description = "The name of a new folder to be created and associated to the document. If you do not wish to create a new folder you may set this as null.")
+	public String getNewFolderName() {
+		return newFolderName;
+	}
+
+	public void setNewFolderName(String newFolderName) {
+		this.newFolderName = newFolderName;
+	}
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		LacunaSignerApiDocumentsCreateDocumentRequest lacunaSignerApiDocumentsCreateDocumentRequest = (LacunaSignerApiDocumentsCreateDocumentRequest) o;
+		return Objects.equals(this.files, lacunaSignerApiDocumentsCreateDocumentRequest.files)
+				&& Objects.equals(this.folderId, lacunaSignerApiDocumentsCreateDocumentRequest.folderId)
+				&& Objects.equals(this.flowActions, lacunaSignerApiDocumentsCreateDocumentRequest.flowActions)
+				&& Objects.equals(this.observers, lacunaSignerApiDocumentsCreateDocumentRequest.observers)
+				&& Objects.equals(this.newFolderName, lacunaSignerApiDocumentsCreateDocumentRequest.newFolderName);
+	}
+
+	@Override
+	public int hashCode() {
+		return java.util.Objects.hash(files, folderId, flowActions, observers, newFolderName);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class LacunaSignerApiDocumentsCreateDocumentRequest {\n");
+
+		sb.append("    files: ").append(toIndentedString(files)).append("\n");
+		sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
+		sb.append("    flowActions: ").append(toIndentedString(flowActions)).append("\n");
+		sb.append("    observers: ").append(toIndentedString(observers)).append("\n");
+		sb.append("    newFolderName: ").append(toIndentedString(newFolderName)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }

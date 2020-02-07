@@ -18,7 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.lacunasoftware.signer.client.LacunaSignerApiUsersParticipantUserModel;
+import com.lacunasoftware.signer.LacunaSignerApiUsersParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 
@@ -28,62 +28,64 @@ import java.io.IOException;
 
 class LacunaSignerApiObserversObserverCreateModel {
 
-  @SerializedName("user")
-  private LacunaSignerApiUsersParticipantUserModel user = null;
-  public LacunaSignerApiObserversObserverCreateModel user(LacunaSignerApiUsersParticipantUserModel user) {
-    this.user = user;
-    return this;
-  }
+	@SerializedName("user")
+	private LacunaSignerApiUsersParticipantUserModel user = null;
 
-  
+	public LacunaSignerApiObserversObserverCreateModel user(LacunaSignerApiUsersParticipantUserModel user) {
+		this.user = user;
+		return this;
+	}
 
-  /**
-  * Get user
-  * @return user
-  **/
-  @Schema(required = true, description = "")
-  public LacunaSignerApiUsersParticipantUserModel getUser() {
-    return user;
-  }
-  public void setUser(LacunaSignerApiUsersParticipantUserModel user) {
-    this.user = user;
-  }
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LacunaSignerApiObserversObserverCreateModel lacunaSignerApiObserversObserverCreateModel = (LacunaSignerApiObserversObserverCreateModel) o;
-    return Objects.equals(this.user, lacunaSignerApiObserversObserverCreateModel.user);
-  }
+	/**
+	 * Get user
+	 * 
+	 * @return user
+	 **/
+	@Schema(required = true, description = "")
+	public LacunaSignerApiUsersParticipantUserModel getUser() {
+		return user;
+	}
 
-  @Override
-  public int hashCode() {
-    return java.util.Objects.hash(user);
-  }
+	public void setUser(LacunaSignerApiUsersParticipantUserModel user) {
+		this.user = user;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LacunaSignerApiObserversObserverCreateModel {\n");
-    
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		LacunaSignerApiObserversObserverCreateModel lacunaSignerApiObserversObserverCreateModel = (LacunaSignerApiObserversObserverCreateModel) o;
+		return Objects.equals(this.user, lacunaSignerApiObserversObserverCreateModel.user);
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	@Override
+	public int hashCode() {
+		return java.util.Objects.hash(user);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class LacunaSignerApiObserversObserverCreateModel {\n");
+
+		sb.append("    user: ").append(toIndentedString(user)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }

@@ -19,11 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.lacunasoftware.signer.client.LacunaSignerApiFlowActionsSignRuleUserModel;
-import com.lacunasoftware.signer.client.LacunaSignerApiUsersParticipantUserModel;
+import com.lacunasoftware.signer.LacunaSignerApiFlowActionsSignRuleUserModel;
+import com.lacunasoftware.signer.LacunaSignerApiUsersParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-
 
 /**
  * LacunaSignerApiFlowActionsFlowActionModel
@@ -31,382 +30,408 @@ import java.io.IOException;
 
 class LacunaSignerApiFlowActionsFlowActionModel {
 
-  @SerializedName("id")
-  private UUID id = null;
-  /**
-   * Gets or Sets type
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    SIGNER("Signer"),
-    APPROVER("Approver"),
-    SIGNRULE("SignRule");
+	@SerializedName("id")
+	private UUID id = null;
 
-    private String value;
+	/**
+	 * Gets or Sets type
+	 */
+	@JsonAdapter(TypeEnum.Adapter.class)
+	public enum TypeEnum {
+		SIGNER("Signer"), APPROVER("Approver"), SIGNRULE("SignRule");
 
-    TypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
+		private String value;
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TypeEnum fromValue(String text) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+		TypeEnum(String value) {
+			this.value = value;
+		}
 
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-  @SerializedName("type")
-  private TypeEnum type = null;
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    CREATED("Created"),
-    PENDING("Pending"),
-    COMPLETED("Completed");
+		public String getValue() {
+			return value;
+		}
 
-    private String value;
+		@Override
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
+		public static TypeEnum fromValue(String text) {
+			for (TypeEnum b : TypeEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			return null;
+		}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String text) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+		public static class Adapter extends TypeAdapter<TypeEnum> {
+			@Override
+			public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+				jsonWriter.value(enumeration.getValue());
+			}
 
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StatusEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-  @SerializedName("status")
-  private StatusEnum status = null;
+			@Override
+			public TypeEnum read(final JsonReader jsonReader) throws IOException {
+				String value = jsonReader.nextString();
+				return TypeEnum.fromValue(String.valueOf(value));
+			}
+		}
+	}
 
-  @SerializedName("step")
-  private Integer step = null;
+	@SerializedName("type")
+	private TypeEnum type = null;
 
-  @SerializedName("creationDate")
-  private Date creationDate = null;
+	/**
+	 * Gets or Sets status
+	 */
+	@JsonAdapter(StatusEnum.Adapter.class)
+	public enum StatusEnum {
+		CREATED("Created"), PENDING("Pending"), COMPLETED("Completed");
 
-  @SerializedName("pendingDate")
-  private Date pendingDate = null;
+		private String value;
 
-  @SerializedName("updateDate")
-  private Date updateDate = null;
+		StatusEnum(String value) {
+			this.value = value;
+		}
 
-  @SerializedName("user")
-  private LacunaSignerApiUsersParticipantUserModel user = null;
+		public String getValue() {
+			return value;
+		}
 
-  @SerializedName("numberRequiredSignatures")
-  private Integer numberRequiredSignatures = null;
+		@Override
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-  @SerializedName("signRuleUsers")
-  private List<LacunaSignerApiFlowActionsSignRuleUserModel> signRuleUsers = null;
+		public static StatusEnum fromValue(String text) {
+			for (StatusEnum b : StatusEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			return null;
+		}
 
-  @SerializedName("allowElectronicSignature")
-  private Boolean allowElectronicSignature = null;
-  public LacunaSignerApiFlowActionsFlowActionModel id(UUID id) {
-    this.id = id;
-    return this;
-  }
+		public static class Adapter extends TypeAdapter<StatusEnum> {
+			@Override
+			public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+				jsonWriter.value(enumeration.getValue());
+			}
 
-  
+			@Override
+			public StatusEnum read(final JsonReader jsonReader) throws IOException {
+				String value = jsonReader.nextString();
+				return StatusEnum.fromValue(String.valueOf(value));
+			}
+		}
+	}
 
-  /**
-  * Get id
-  * @return id
-  **/
-  @Schema(description = "")
-  public UUID getId() {
-    return id;
-  }
-  public void setId(UUID id) {
-    this.id = id;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
+	@SerializedName("status")
+	private StatusEnum status = null;
 
-  
+	@SerializedName("step")
+	private Integer step = null;
 
-  /**
-  * Get type
-  * @return type
-  **/
-  @Schema(description = "")
-  public TypeEnum getType() {
-    return type;
-  }
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
+	@SerializedName("creationDate")
+	private Date creationDate = null;
 
-  
+	@SerializedName("pendingDate")
+	private Date pendingDate = null;
 
-  /**
-  * Get status
-  * @return status
-  **/
-  @Schema(description = "")
-  public StatusEnum getStatus() {
-    return status;
-  }
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel step(Integer step) {
-    this.step = step;
-    return this;
-  }
+	@SerializedName("updateDate")
+	private Date updateDate = null;
 
-  
+	@SerializedName("user")
+	private LacunaSignerApiUsersParticipantUserModel user = null;
 
-  /**
-  * Get step
-  * @return step
-  **/
-  @Schema(description = "")
-  public Integer getStep() {
-    return step;
-  }
-  public void setStep(Integer step) {
-    this.step = step;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel creationDate(Date creationDate) {
-    this.creationDate = creationDate;
-    return this;
-  }
+	@SerializedName("numberRequiredSignatures")
+	private Integer numberRequiredSignatures = null;
 
-  
+	@SerializedName("signRuleUsers")
+	private List<LacunaSignerApiFlowActionsSignRuleUserModel> signRuleUsers = null;
 
-  /**
-  * Get creationDate
-  * @return creationDate
-  **/
-  @Schema(description = "")
-  public Date getCreationDate() {
-    return creationDate;
-  }
-  public void setCreationDate(Date creationDate) {
-    this.creationDate = creationDate;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel pendingDate(Date pendingDate) {
-    this.pendingDate = pendingDate;
-    return this;
-  }
+	@SerializedName("allowElectronicSignature")
+	private Boolean allowElectronicSignature = null;
 
-  
+	public LacunaSignerApiFlowActionsFlowActionModel id(UUID id) {
+		this.id = id;
+		return this;
+	}
 
-  /**
-  * Get pendingDate
-  * @return pendingDate
-  **/
-  @Schema(description = "")
-  public Date getPendingDate() {
-    return pendingDate;
-  }
-  public void setPendingDate(Date pendingDate) {
-    this.pendingDate = pendingDate;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel updateDate(Date updateDate) {
-    this.updateDate = updateDate;
-    return this;
-  }
+	/**
+	 * Get id
+	 * 
+	 * @return id
+	 **/
+	@Schema(description = "")
+	public UUID getId() {
+		return id;
+	}
 
-  
+	public void setId(UUID id) {
+		this.id = id;
+	}
 
-  /**
-  * Get updateDate
-  * @return updateDate
-  **/
-  @Schema(description = "")
-  public Date getUpdateDate() {
-    return updateDate;
-  }
-  public void setUpdateDate(Date updateDate) {
-    this.updateDate = updateDate;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel user(LacunaSignerApiUsersParticipantUserModel user) {
-    this.user = user;
-    return this;
-  }
+	public LacunaSignerApiFlowActionsFlowActionModel type(TypeEnum type) {
+		this.type = type;
+		return this;
+	}
 
-  
+	/**
+	 * Get type
+	 * 
+	 * @return type
+	 **/
+	@Schema(description = "")
+	public TypeEnum getType() {
+		return type;
+	}
 
-  /**
-  * Get user
-  * @return user
-  **/
-  @Schema(description = "")
-  public LacunaSignerApiUsersParticipantUserModel getUser() {
-    return user;
-  }
-  public void setUser(LacunaSignerApiUsersParticipantUserModel user) {
-    this.user = user;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel numberRequiredSignatures(Integer numberRequiredSignatures) {
-    this.numberRequiredSignatures = numberRequiredSignatures;
-    return this;
-  }
+	public void setType(TypeEnum type) {
+		this.type = type;
+	}
 
-  
+	public LacunaSignerApiFlowActionsFlowActionModel status(StatusEnum status) {
+		this.status = status;
+		return this;
+	}
 
-  /**
-  * Number of required signatures if type is SignRule
-  * @return numberRequiredSignatures
-  **/
-  @Schema(description = "Number of required signatures if type is SignRule")
-  public Integer getNumberRequiredSignatures() {
-    return numberRequiredSignatures;
-  }
-  public void setNumberRequiredSignatures(Integer numberRequiredSignatures) {
-    this.numberRequiredSignatures = numberRequiredSignatures;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel signRuleUsers(List<LacunaSignerApiFlowActionsSignRuleUserModel> signRuleUsers) {
-    this.signRuleUsers = signRuleUsers;
-    return this;
-  }
+	/**
+	 * Get status
+	 * 
+	 * @return status
+	 **/
+	@Schema(description = "")
+	public StatusEnum getStatus() {
+		return status;
+	}
 
-  public LacunaSignerApiFlowActionsFlowActionModel addSignRuleUsersItem(LacunaSignerApiFlowActionsSignRuleUserModel signRuleUsersItem) {
-    if (this.signRuleUsers == null) {
-      this.signRuleUsers = new ArrayList<LacunaSignerApiFlowActionsSignRuleUserModel>();
-    }
-    this.signRuleUsers.add(signRuleUsersItem);
-    return this;
-  }
+	public void setStatus(StatusEnum status) {
+		this.status = status;
+	}
 
-  /**
-  * Users that are allowed to sign if type is SignRule
-  * @return signRuleUsers
-  **/
-  @Schema(description = "Users that are allowed to sign if type is SignRule")
-  public List<LacunaSignerApiFlowActionsSignRuleUserModel> getSignRuleUsers() {
-    return signRuleUsers;
-  }
-  public void setSignRuleUsers(List<LacunaSignerApiFlowActionsSignRuleUserModel> signRuleUsers) {
-    this.signRuleUsers = signRuleUsers;
-  }
-  public LacunaSignerApiFlowActionsFlowActionModel allowElectronicSignature(Boolean allowElectronicSignature) {
-    this.allowElectronicSignature = allowElectronicSignature;
-    return this;
-  }
+	public LacunaSignerApiFlowActionsFlowActionModel step(Integer step) {
+		this.step = step;
+		return this;
+	}
 
-  
+	/**
+	 * Get step
+	 * 
+	 * @return step
+	 **/
+	@Schema(description = "")
+	public Integer getStep() {
+		return step;
+	}
 
-  /**
-  * True if the electronic signature option is available for this action (only if the type of the action is Signer or SignRule)
-  * @return allowElectronicSignature
-  **/
-  @Schema(description = "True if the electronic signature option is available for this action (only if the type of the action is Signer or SignRule)")
-  public Boolean isAllowElectronicSignature() {
-    return allowElectronicSignature;
-  }
-  public void setAllowElectronicSignature(Boolean allowElectronicSignature) {
-    this.allowElectronicSignature = allowElectronicSignature;
-  }
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LacunaSignerApiFlowActionsFlowActionModel lacunaSignerApiFlowActionsFlowActionModel = (LacunaSignerApiFlowActionsFlowActionModel) o;
-    return Objects.equals(this.id, lacunaSignerApiFlowActionsFlowActionModel.id) &&
-        Objects.equals(this.type, lacunaSignerApiFlowActionsFlowActionModel.type) &&
-        Objects.equals(this.status, lacunaSignerApiFlowActionsFlowActionModel.status) &&
-        Objects.equals(this.step, lacunaSignerApiFlowActionsFlowActionModel.step) &&
-        Objects.equals(this.creationDate, lacunaSignerApiFlowActionsFlowActionModel.creationDate) &&
-        Objects.equals(this.pendingDate, lacunaSignerApiFlowActionsFlowActionModel.pendingDate) &&
-        Objects.equals(this.updateDate, lacunaSignerApiFlowActionsFlowActionModel.updateDate) &&
-        Objects.equals(this.user, lacunaSignerApiFlowActionsFlowActionModel.user) &&
-        Objects.equals(this.numberRequiredSignatures, lacunaSignerApiFlowActionsFlowActionModel.numberRequiredSignatures) &&
-        Objects.equals(this.signRuleUsers, lacunaSignerApiFlowActionsFlowActionModel.signRuleUsers) &&
-        Objects.equals(this.allowElectronicSignature, lacunaSignerApiFlowActionsFlowActionModel.allowElectronicSignature);
-  }
+	public void setStep(Integer step) {
+		this.step = step;
+	}
 
-  @Override
-  public int hashCode() {
-    return java.util.Objects.hash(id, type, status, step, creationDate, pendingDate, updateDate, user, numberRequiredSignatures, signRuleUsers, allowElectronicSignature);
-  }
+	public LacunaSignerApiFlowActionsFlowActionModel creationDate(Date creationDate) {
+		this.creationDate = creationDate;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LacunaSignerApiFlowActionsFlowActionModel {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    step: ").append(toIndentedString(step)).append("\n");
-    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
-    sb.append("    pendingDate: ").append(toIndentedString(pendingDate)).append("\n");
-    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    numberRequiredSignatures: ").append(toIndentedString(numberRequiredSignatures)).append("\n");
-    sb.append("    signRuleUsers: ").append(toIndentedString(signRuleUsers)).append("\n");
-    sb.append("    allowElectronicSignature: ").append(toIndentedString(allowElectronicSignature)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	/**
+	 * Get creationDate
+	 * 
+	 * @return creationDate
+	 **/
+	@Schema(description = "")
+	public Date getCreationDate() {
+		return creationDate;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public LacunaSignerApiFlowActionsFlowActionModel pendingDate(Date pendingDate) {
+		this.pendingDate = pendingDate;
+		return this;
+	}
+
+	/**
+	 * Get pendingDate
+	 * 
+	 * @return pendingDate
+	 **/
+	@Schema(description = "")
+	public Date getPendingDate() {
+		return pendingDate;
+	}
+
+	public void setPendingDate(Date pendingDate) {
+		this.pendingDate = pendingDate;
+	}
+
+	public LacunaSignerApiFlowActionsFlowActionModel updateDate(Date updateDate) {
+		this.updateDate = updateDate;
+		return this;
+	}
+
+	/**
+	 * Get updateDate
+	 * 
+	 * @return updateDate
+	 **/
+	@Schema(description = "")
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public LacunaSignerApiFlowActionsFlowActionModel user(LacunaSignerApiUsersParticipantUserModel user) {
+		this.user = user;
+		return this;
+	}
+
+	/**
+	 * Get user
+	 * 
+	 * @return user
+	 **/
+	@Schema(description = "")
+	public LacunaSignerApiUsersParticipantUserModel getUser() {
+		return user;
+	}
+
+	public void setUser(LacunaSignerApiUsersParticipantUserModel user) {
+		this.user = user;
+	}
+
+	public LacunaSignerApiFlowActionsFlowActionModel numberRequiredSignatures(Integer numberRequiredSignatures) {
+		this.numberRequiredSignatures = numberRequiredSignatures;
+		return this;
+	}
+
+	/**
+	 * Number of required signatures if type is SignRule
+	 * 
+	 * @return numberRequiredSignatures
+	 **/
+	@Schema(description = "Number of required signatures if type is SignRule")
+	public Integer getNumberRequiredSignatures() {
+		return numberRequiredSignatures;
+	}
+
+	public void setNumberRequiredSignatures(Integer numberRequiredSignatures) {
+		this.numberRequiredSignatures = numberRequiredSignatures;
+	}
+
+	public LacunaSignerApiFlowActionsFlowActionModel signRuleUsers(
+			List<LacunaSignerApiFlowActionsSignRuleUserModel> signRuleUsers) {
+		this.signRuleUsers = signRuleUsers;
+		return this;
+	}
+
+	public LacunaSignerApiFlowActionsFlowActionModel addSignRuleUsersItem(
+			LacunaSignerApiFlowActionsSignRuleUserModel signRuleUsersItem) {
+		if (this.signRuleUsers == null) {
+			this.signRuleUsers = new ArrayList<LacunaSignerApiFlowActionsSignRuleUserModel>();
+		}
+		this.signRuleUsers.add(signRuleUsersItem);
+		return this;
+	}
+
+	/**
+	 * Users that are allowed to sign if type is SignRule
+	 * 
+	 * @return signRuleUsers
+	 **/
+	@Schema(description = "Users that are allowed to sign if type is SignRule")
+	public List<LacunaSignerApiFlowActionsSignRuleUserModel> getSignRuleUsers() {
+		return signRuleUsers;
+	}
+
+	public void setSignRuleUsers(List<LacunaSignerApiFlowActionsSignRuleUserModel> signRuleUsers) {
+		this.signRuleUsers = signRuleUsers;
+	}
+
+	public LacunaSignerApiFlowActionsFlowActionModel allowElectronicSignature(Boolean allowElectronicSignature) {
+		this.allowElectronicSignature = allowElectronicSignature;
+		return this;
+	}
+
+	/**
+	 * True if the electronic signature option is available for this action (only if
+	 * the type of the action is Signer or SignRule)
+	 * 
+	 * @return allowElectronicSignature
+	 **/
+	@Schema(description = "True if the electronic signature option is available for this action (only if the type of the action is Signer or SignRule)")
+	public Boolean isAllowElectronicSignature() {
+		return allowElectronicSignature;
+	}
+
+	public void setAllowElectronicSignature(Boolean allowElectronicSignature) {
+		this.allowElectronicSignature = allowElectronicSignature;
+	}
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		LacunaSignerApiFlowActionsFlowActionModel lacunaSignerApiFlowActionsFlowActionModel = (LacunaSignerApiFlowActionsFlowActionModel) o;
+		return Objects.equals(this.id, lacunaSignerApiFlowActionsFlowActionModel.id)
+				&& Objects.equals(this.type, lacunaSignerApiFlowActionsFlowActionModel.type)
+				&& Objects.equals(this.status, lacunaSignerApiFlowActionsFlowActionModel.status)
+				&& Objects.equals(this.step, lacunaSignerApiFlowActionsFlowActionModel.step)
+				&& Objects.equals(this.creationDate, lacunaSignerApiFlowActionsFlowActionModel.creationDate)
+				&& Objects.equals(this.pendingDate, lacunaSignerApiFlowActionsFlowActionModel.pendingDate)
+				&& Objects.equals(this.updateDate, lacunaSignerApiFlowActionsFlowActionModel.updateDate)
+				&& Objects.equals(this.user, lacunaSignerApiFlowActionsFlowActionModel.user)
+				&& Objects.equals(this.numberRequiredSignatures,
+						lacunaSignerApiFlowActionsFlowActionModel.numberRequiredSignatures)
+				&& Objects.equals(this.signRuleUsers, lacunaSignerApiFlowActionsFlowActionModel.signRuleUsers)
+				&& Objects.equals(this.allowElectronicSignature,
+						lacunaSignerApiFlowActionsFlowActionModel.allowElectronicSignature);
+	}
+
+	@Override
+	public int hashCode() {
+		return java.util.Objects.hash(id, type, status, step, creationDate, pendingDate, updateDate, user,
+				numberRequiredSignatures, signRuleUsers, allowElectronicSignature);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class LacunaSignerApiFlowActionsFlowActionModel {\n");
+
+		sb.append("    id: ").append(toIndentedString(id)).append("\n");
+		sb.append("    type: ").append(toIndentedString(type)).append("\n");
+		sb.append("    status: ").append(toIndentedString(status)).append("\n");
+		sb.append("    step: ").append(toIndentedString(step)).append("\n");
+		sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+		sb.append("    pendingDate: ").append(toIndentedString(pendingDate)).append("\n");
+		sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+		sb.append("    user: ").append(toIndentedString(user)).append("\n");
+		sb.append("    numberRequiredSignatures: ").append(toIndentedString(numberRequiredSignatures)).append("\n");
+		sb.append("    signRuleUsers: ").append(toIndentedString(signRuleUsers)).append("\n");
+		sb.append("    allowElectronicSignature: ").append(toIndentedString(allowElectronicSignature)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }

@@ -18,7 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.lacunasoftware.signer.client.LacunaSignerApiUsersParticipantUserModel;
+import com.lacunasoftware.signer.LacunaSignerApiUsersParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.UUID;
@@ -29,85 +29,88 @@ import java.util.UUID;
 
 class LacunaSignerApiObserversObserverModel {
 
-  @SerializedName("id")
-  private UUID id = null;
+	@SerializedName("id")
+	private UUID id = null;
 
-  @SerializedName("user")
-  private LacunaSignerApiUsersParticipantUserModel user = null;
-  public LacunaSignerApiObserversObserverModel id(UUID id) {
-    this.id = id;
-    return this;
-  }
+	@SerializedName("user")
+	private LacunaSignerApiUsersParticipantUserModel user = null;
 
-  
+	public LacunaSignerApiObserversObserverModel id(UUID id) {
+		this.id = id;
+		return this;
+	}
 
-  /**
-  * Get id
-  * @return id
-  **/
-  @Schema(description = "")
-  public UUID getId() {
-    return id;
-  }
-  public void setId(UUID id) {
-    this.id = id;
-  }
-  public LacunaSignerApiObserversObserverModel user(LacunaSignerApiUsersParticipantUserModel user) {
-    this.user = user;
-    return this;
-  }
+	/**
+	 * Get id
+	 * 
+	 * @return id
+	 **/
+	@Schema(description = "")
+	public UUID getId() {
+		return id;
+	}
 
-  
+	public void setId(UUID id) {
+		this.id = id;
+	}
 
-  /**
-  * Get user
-  * @return user
-  **/
-  @Schema(description = "")
-  public LacunaSignerApiUsersParticipantUserModel getUser() {
-    return user;
-  }
-  public void setUser(LacunaSignerApiUsersParticipantUserModel user) {
-    this.user = user;
-  }
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LacunaSignerApiObserversObserverModel lacunaSignerApiObserversObserverModel = (LacunaSignerApiObserversObserverModel) o;
-    return Objects.equals(this.id, lacunaSignerApiObserversObserverModel.id) &&
-        Objects.equals(this.user, lacunaSignerApiObserversObserverModel.user);
-  }
+	public LacunaSignerApiObserversObserverModel user(LacunaSignerApiUsersParticipantUserModel user) {
+		this.user = user;
+		return this;
+	}
 
-  @Override
-  public int hashCode() {
-    return java.util.Objects.hash(id, user);
-  }
+	/**
+	 * Get user
+	 * 
+	 * @return user
+	 **/
+	@Schema(description = "")
+	public LacunaSignerApiUsersParticipantUserModel getUser() {
+		return user;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LacunaSignerApiObserversObserverModel {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public void setUser(LacunaSignerApiUsersParticipantUserModel user) {
+		this.user = user;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		LacunaSignerApiObserversObserverModel lacunaSignerApiObserversObserverModel = (LacunaSignerApiObserversObserverModel) o;
+		return Objects.equals(this.id, lacunaSignerApiObserversObserverModel.id)
+				&& Objects.equals(this.user, lacunaSignerApiObserversObserverModel.user);
+	}
+
+	@Override
+	public int hashCode() {
+		return java.util.Objects.hash(id, user);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class LacunaSignerApiObserversObserverModel {\n");
+
+		sb.append("    id: ").append(toIndentedString(id)).append("\n");
+		sb.append("    user: ").append(toIndentedString(user)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }

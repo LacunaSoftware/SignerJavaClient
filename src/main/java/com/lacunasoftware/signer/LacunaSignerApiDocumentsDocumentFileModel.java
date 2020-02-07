@@ -16,8 +16,6 @@ import java.util.Objects;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.UUID;
@@ -28,108 +26,112 @@ import java.util.UUID;
 
 class LacunaSignerApiDocumentsDocumentFileModel {
 
-  @SerializedName("id")
-  private UUID id = null;
+	@SerializedName("id")
+	private UUID id = null;
 
-  @SerializedName("name")
-  private String name = null;
+	@SerializedName("name")
+	private String name = null;
 
-  @SerializedName("isSigned")
-  private Boolean isSigned = null;
-  public LacunaSignerApiDocumentsDocumentFileModel id(UUID id) {
-    this.id = id;
-    return this;
-  }
+	@SerializedName("isSigned")
+	private Boolean isSigned = null;
 
-  
+	public LacunaSignerApiDocumentsDocumentFileModel id(UUID id) {
+		this.id = id;
+		return this;
+	}
 
-  /**
-  * Get id
-  * @return id
-  **/
-  @Schema(description = "")
-  public UUID getId() {
-    return id;
-  }
-  public void setId(UUID id) {
-    this.id = id;
-  }
-  public LacunaSignerApiDocumentsDocumentFileModel name(String name) {
-    this.name = name;
-    return this;
-  }
+	/**
+	 * Get id
+	 * 
+	 * @return id
+	 **/
+	@Schema(description = "")
+	public UUID getId() {
+		return id;
+	}
 
-  
+	public void setId(UUID id) {
+		this.id = id;
+	}
 
-  /**
-  * Get name
-  * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
-  public LacunaSignerApiDocumentsDocumentFileModel isSigned(Boolean isSigned) {
-    this.isSigned = isSigned;
-    return this;
-  }
+	public LacunaSignerApiDocumentsDocumentFileModel name(String name) {
+		this.name = name;
+		return this;
+	}
 
-  
+	/**
+	 * Get name
+	 * 
+	 * @return name
+	 **/
+	@Schema(description = "")
+	public String getName() {
+		return name;
+	}
 
-  /**
-  * Get isSigned
-  * @return isSigned
-  **/
-  @Schema(description = "")
-  public Boolean isIsSigned() {
-    return isSigned;
-  }
-  public void setIsSigned(Boolean isSigned) {
-    this.isSigned = isSigned;
-  }
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LacunaSignerApiDocumentsDocumentFileModel lacunaSignerApiDocumentsDocumentFileModel = (LacunaSignerApiDocumentsDocumentFileModel) o;
-    return Objects.equals(this.id, lacunaSignerApiDocumentsDocumentFileModel.id) &&
-        Objects.equals(this.name, lacunaSignerApiDocumentsDocumentFileModel.name) &&
-        Objects.equals(this.isSigned, lacunaSignerApiDocumentsDocumentFileModel.isSigned);
-  }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-  @Override
-  public int hashCode() {
-    return java.util.Objects.hash(id, name, isSigned);
-  }
+	public LacunaSignerApiDocumentsDocumentFileModel isSigned(Boolean isSigned) {
+		this.isSigned = isSigned;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LacunaSignerApiDocumentsDocumentFileModel {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    isSigned: ").append(toIndentedString(isSigned)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	/**
+	 * Get isSigned
+	 * 
+	 * @return isSigned
+	 **/
+	@Schema(description = "")
+	public Boolean isIsSigned() {
+		return isSigned;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public void setIsSigned(Boolean isSigned) {
+		this.isSigned = isSigned;
+	}
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		LacunaSignerApiDocumentsDocumentFileModel lacunaSignerApiDocumentsDocumentFileModel = (LacunaSignerApiDocumentsDocumentFileModel) o;
+		return Objects.equals(this.id, lacunaSignerApiDocumentsDocumentFileModel.id)
+				&& Objects.equals(this.name, lacunaSignerApiDocumentsDocumentFileModel.name)
+				&& Objects.equals(this.isSigned, lacunaSignerApiDocumentsDocumentFileModel.isSigned);
+	}
+
+	@Override
+	public int hashCode() {
+		return java.util.Objects.hash(id, name, isSigned);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class LacunaSignerApiDocumentsDocumentFileModel {\n");
+
+		sb.append("    id: ").append(toIndentedString(id)).append("\n");
+		sb.append("    name: ").append(toIndentedString(name)).append("\n");
+		sb.append("    isSigned: ").append(toIndentedString(isSigned)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
