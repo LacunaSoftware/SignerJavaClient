@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.lacunasoftware.signer.LacunaSignerApiOrganizationsOrganizationOwnerInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
@@ -28,101 +27,55 @@ import java.util.UUID;
 
 
 /**
- * LacunaSignerApiOrganizationsOrganizationInfoModel
+ * LacunaSignerApiDocumentsCreateDocumentResult
  */
 
-class LacunaSignerApiOrganizationsOrganizationInfoModel {
+class LacunaSignerApiDocumentsCreateDocumentResult {
 
-	@SerializedName("id")
-	private UUID id = null;
+	@SerializedName("uploadId")
+	private String uploadId = null;
 
-	@SerializedName("name")
-	private String name = null;
+	@SerializedName("documentId")
+	private UUID documentId = null;
 
-	@SerializedName("identifier")
-	private String identifier = null;
-
-	@SerializedName("owner")
-	private LacunaSignerApiOrganizationsOrganizationOwnerInfoModel owner = null;
-
-	public LacunaSignerApiOrganizationsOrganizationInfoModel id(UUID id) {
-		this.id = id;
+	public LacunaSignerApiDocumentsCreateDocumentResult uploadId(String uploadId) {
+		this.uploadId = uploadId;
 		return this;
 	}
 
 
 	/**
-	 * Get id
+	 * The Id of the uploaded file, from the request Lacuna.Signer.Api.UploadModel.Id.
 	 *
-	 * @return id
+	 * @return uploadId
 	 **/
-	@Schema(description = "")
-	public UUID getId() {
-		return id;
+	@Schema(description = "The Id of the uploaded file, from the request Lacuna.Signer.Api.UploadModel.Id.")
+	public String getUploadId() {
+		return uploadId;
 	}
 
-	public void setId(UUID id) {
-		this.id = id;
+	public void setUploadId(String uploadId) {
+		this.uploadId = uploadId;
 	}
 
-	public LacunaSignerApiOrganizationsOrganizationInfoModel name(String name) {
-		this.name = name;
+	public LacunaSignerApiDocumentsCreateDocumentResult documentId(UUID documentId) {
+		this.documentId = documentId;
 		return this;
 	}
 
 
 	/**
-	 * Get name
+	 * The Id of the newly created document.
 	 *
-	 * @return name
+	 * @return documentId
 	 **/
-	@Schema(description = "")
-	public String getName() {
-		return name;
+	@Schema(description = "The Id of the newly created document.")
+	public UUID getDocumentId() {
+		return documentId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public LacunaSignerApiOrganizationsOrganizationInfoModel identifier(String identifier) {
-		this.identifier = identifier;
-		return this;
-	}
-
-
-	/**
-	 * The organization identifier (CNPJ)
-	 *
-	 * @return identifier
-	 **/
-	@Schema(description = "The organization identifier (CNPJ)")
-	public String getIdentifier() {
-		return identifier;
-	}
-
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
-	}
-
-	public LacunaSignerApiOrganizationsOrganizationInfoModel owner(LacunaSignerApiOrganizationsOrganizationOwnerInfoModel owner) {
-		this.owner = owner;
-		return this;
-	}
-
-
-	/**
-	 * Get owner
-	 *
-	 * @return owner
-	 **/
-	@Schema(description = "")
-	public LacunaSignerApiOrganizationsOrganizationOwnerInfoModel getOwner() {
-		return owner;
-	}
-
-	public void setOwner(LacunaSignerApiOrganizationsOrganizationOwnerInfoModel owner) {
-		this.owner = owner;
+	public void setDocumentId(UUID documentId) {
+		this.documentId = documentId;
 	}
 
 	@Override
@@ -133,27 +86,23 @@ class LacunaSignerApiOrganizationsOrganizationInfoModel {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		LacunaSignerApiOrganizationsOrganizationInfoModel lacunaSignerApiOrganizationsOrganizationInfoModel = (LacunaSignerApiOrganizationsOrganizationInfoModel) o;
-		return Objects.equals(this.id, lacunaSignerApiOrganizationsOrganizationInfoModel.id) &&
-			Objects.equals(this.name, lacunaSignerApiOrganizationsOrganizationInfoModel.name) &&
-			Objects.equals(this.identifier, lacunaSignerApiOrganizationsOrganizationInfoModel.identifier) &&
-			Objects.equals(this.owner, lacunaSignerApiOrganizationsOrganizationInfoModel.owner);
+		LacunaSignerApiDocumentsCreateDocumentResult lacunaSignerApiDocumentsCreateDocumentResult = (LacunaSignerApiDocumentsCreateDocumentResult) o;
+		return Objects.equals(this.uploadId, lacunaSignerApiDocumentsCreateDocumentResult.uploadId) &&
+			Objects.equals(this.documentId, lacunaSignerApiDocumentsCreateDocumentResult.documentId);
 	}
 
 	@Override
 	public int hashCode() {
-		return java.util.Objects.hash(id, name, identifier, owner);
+		return java.util.Objects.hash(uploadId, documentId);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("class LacunaSignerApiOrganizationsOrganizationInfoModel {\n");
+		sb.append("class LacunaSignerApiDocumentsCreateDocumentResult {\n");
 
-		sb.append("    id: ").append(toIndentedString(id)).append("\n");
-		sb.append("    name: ").append(toIndentedString(name)).append("\n");
-		sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-		sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+		sb.append("    uploadId: ").append(toIndentedString(uploadId)).append("\n");
+		sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

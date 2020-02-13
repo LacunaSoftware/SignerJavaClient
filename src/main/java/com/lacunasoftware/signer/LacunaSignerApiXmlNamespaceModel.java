@@ -20,109 +20,61 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.lacunasoftware.signer.LacunaSignerApiOrganizationsOrganizationOwnerInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
-import java.util.UUID;
 
 
 /**
- * LacunaSignerApiOrganizationsOrganizationInfoModel
+ * LacunaSignerApiXmlNamespaceModel
  */
 
-class LacunaSignerApiOrganizationsOrganizationInfoModel {
+class LacunaSignerApiXmlNamespaceModel {
 
-	@SerializedName("id")
-	private UUID id = null;
+	@SerializedName("prefix")
+	private String prefix = null;
 
-	@SerializedName("name")
-	private String name = null;
+	@SerializedName("uri")
+	private String uri = null;
 
-	@SerializedName("identifier")
-	private String identifier = null;
-
-	@SerializedName("owner")
-	private LacunaSignerApiOrganizationsOrganizationOwnerInfoModel owner = null;
-
-	public LacunaSignerApiOrganizationsOrganizationInfoModel id(UUID id) {
-		this.id = id;
+	public LacunaSignerApiXmlNamespaceModel prefix(String prefix) {
+		this.prefix = prefix;
 		return this;
 	}
 
 
 	/**
-	 * Get id
+	 * Get prefix
 	 *
-	 * @return id
+	 * @return prefix
 	 **/
-	@Schema(description = "")
-	public UUID getId() {
-		return id;
+	@Schema(required = true, description = "")
+	public String getPrefix() {
+		return prefix;
 	}
 
-	public void setId(UUID id) {
-		this.id = id;
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
 	}
 
-	public LacunaSignerApiOrganizationsOrganizationInfoModel name(String name) {
-		this.name = name;
+	public LacunaSignerApiXmlNamespaceModel uri(String uri) {
+		this.uri = uri;
 		return this;
 	}
 
 
 	/**
-	 * Get name
+	 * Get uri
 	 *
-	 * @return name
+	 * @return uri
 	 **/
-	@Schema(description = "")
-	public String getName() {
-		return name;
+	@Schema(required = true, description = "")
+	public String getUri() {
+		return uri;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public LacunaSignerApiOrganizationsOrganizationInfoModel identifier(String identifier) {
-		this.identifier = identifier;
-		return this;
-	}
-
-
-	/**
-	 * The organization identifier (CNPJ)
-	 *
-	 * @return identifier
-	 **/
-	@Schema(description = "The organization identifier (CNPJ)")
-	public String getIdentifier() {
-		return identifier;
-	}
-
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
-	}
-
-	public LacunaSignerApiOrganizationsOrganizationInfoModel owner(LacunaSignerApiOrganizationsOrganizationOwnerInfoModel owner) {
-		this.owner = owner;
-		return this;
-	}
-
-
-	/**
-	 * Get owner
-	 *
-	 * @return owner
-	 **/
-	@Schema(description = "")
-	public LacunaSignerApiOrganizationsOrganizationOwnerInfoModel getOwner() {
-		return owner;
-	}
-
-	public void setOwner(LacunaSignerApiOrganizationsOrganizationOwnerInfoModel owner) {
-		this.owner = owner;
+	public void setUri(String uri) {
+		this.uri = uri;
 	}
 
 	@Override
@@ -133,27 +85,23 @@ class LacunaSignerApiOrganizationsOrganizationInfoModel {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		LacunaSignerApiOrganizationsOrganizationInfoModel lacunaSignerApiOrganizationsOrganizationInfoModel = (LacunaSignerApiOrganizationsOrganizationInfoModel) o;
-		return Objects.equals(this.id, lacunaSignerApiOrganizationsOrganizationInfoModel.id) &&
-			Objects.equals(this.name, lacunaSignerApiOrganizationsOrganizationInfoModel.name) &&
-			Objects.equals(this.identifier, lacunaSignerApiOrganizationsOrganizationInfoModel.identifier) &&
-			Objects.equals(this.owner, lacunaSignerApiOrganizationsOrganizationInfoModel.owner);
+		LacunaSignerApiXmlNamespaceModel lacunaSignerApiXmlNamespaceModel = (LacunaSignerApiXmlNamespaceModel) o;
+		return Objects.equals(this.prefix, lacunaSignerApiXmlNamespaceModel.prefix) &&
+			Objects.equals(this.uri, lacunaSignerApiXmlNamespaceModel.uri);
 	}
 
 	@Override
 	public int hashCode() {
-		return java.util.Objects.hash(id, name, identifier, owner);
+		return java.util.Objects.hash(prefix, uri);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("class LacunaSignerApiOrganizationsOrganizationInfoModel {\n");
+		sb.append("class LacunaSignerApiXmlNamespaceModel {\n");
 
-		sb.append("    id: ").append(toIndentedString(id)).append("\n");
-		sb.append("    name: ").append(toIndentedString(name)).append("\n");
-		sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-		sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+		sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
+		sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
