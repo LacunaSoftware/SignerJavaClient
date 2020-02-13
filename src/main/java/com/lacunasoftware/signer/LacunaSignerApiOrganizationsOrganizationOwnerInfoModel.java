@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.lacunasoftware.signer.LacunaSignerApiOrganizationsOrganizationOwnerInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
@@ -28,10 +27,10 @@ import java.util.UUID;
 
 
 /**
- * LacunaSignerApiOrganizationsOrganizationInfoModel
+ * LacunaSignerApiOrganizationsOrganizationOwnerInfoModel
  */
 
-class LacunaSignerApiOrganizationsOrganizationInfoModel {
+class LacunaSignerApiOrganizationsOrganizationOwnerInfoModel {
 
 	@SerializedName("id")
 	private UUID id = null;
@@ -39,13 +38,7 @@ class LacunaSignerApiOrganizationsOrganizationInfoModel {
 	@SerializedName("name")
 	private String name = null;
 
-	@SerializedName("identifier")
-	private String identifier = null;
-
-	@SerializedName("owner")
-	private LacunaSignerApiOrganizationsOrganizationOwnerInfoModel owner = null;
-
-	public LacunaSignerApiOrganizationsOrganizationInfoModel id(UUID id) {
+	public LacunaSignerApiOrganizationsOrganizationOwnerInfoModel id(UUID id) {
 		this.id = id;
 		return this;
 	}
@@ -65,7 +58,7 @@ class LacunaSignerApiOrganizationsOrganizationInfoModel {
 		this.id = id;
 	}
 
-	public LacunaSignerApiOrganizationsOrganizationInfoModel name(String name) {
+	public LacunaSignerApiOrganizationsOrganizationOwnerInfoModel name(String name) {
 		this.name = name;
 		return this;
 	}
@@ -85,46 +78,6 @@ class LacunaSignerApiOrganizationsOrganizationInfoModel {
 		this.name = name;
 	}
 
-	public LacunaSignerApiOrganizationsOrganizationInfoModel identifier(String identifier) {
-		this.identifier = identifier;
-		return this;
-	}
-
-
-	/**
-	 * The organization identifier (CNPJ)
-	 *
-	 * @return identifier
-	 **/
-	@Schema(description = "The organization identifier (CNPJ)")
-	public String getIdentifier() {
-		return identifier;
-	}
-
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
-	}
-
-	public LacunaSignerApiOrganizationsOrganizationInfoModel owner(LacunaSignerApiOrganizationsOrganizationOwnerInfoModel owner) {
-		this.owner = owner;
-		return this;
-	}
-
-
-	/**
-	 * Get owner
-	 *
-	 * @return owner
-	 **/
-	@Schema(description = "")
-	public LacunaSignerApiOrganizationsOrganizationOwnerInfoModel getOwner() {
-		return owner;
-	}
-
-	public void setOwner(LacunaSignerApiOrganizationsOrganizationOwnerInfoModel owner) {
-		this.owner = owner;
-	}
-
 	@Override
 	public boolean equals(java.lang.Object o) {
 		if (this == o) {
@@ -133,27 +86,23 @@ class LacunaSignerApiOrganizationsOrganizationInfoModel {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		LacunaSignerApiOrganizationsOrganizationInfoModel lacunaSignerApiOrganizationsOrganizationInfoModel = (LacunaSignerApiOrganizationsOrganizationInfoModel) o;
-		return Objects.equals(this.id, lacunaSignerApiOrganizationsOrganizationInfoModel.id) &&
-			Objects.equals(this.name, lacunaSignerApiOrganizationsOrganizationInfoModel.name) &&
-			Objects.equals(this.identifier, lacunaSignerApiOrganizationsOrganizationInfoModel.identifier) &&
-			Objects.equals(this.owner, lacunaSignerApiOrganizationsOrganizationInfoModel.owner);
+		LacunaSignerApiOrganizationsOrganizationOwnerInfoModel lacunaSignerApiOrganizationsOrganizationOwnerInfoModel = (LacunaSignerApiOrganizationsOrganizationOwnerInfoModel) o;
+		return Objects.equals(this.id, lacunaSignerApiOrganizationsOrganizationOwnerInfoModel.id) &&
+			Objects.equals(this.name, lacunaSignerApiOrganizationsOrganizationOwnerInfoModel.name);
 	}
 
 	@Override
 	public int hashCode() {
-		return java.util.Objects.hash(id, name, identifier, owner);
+		return java.util.Objects.hash(id, name);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("class LacunaSignerApiOrganizationsOrganizationInfoModel {\n");
+		sb.append("class LacunaSignerApiOrganizationsOrganizationOwnerInfoModel {\n");
 
 		sb.append("    id: ").append(toIndentedString(id)).append("\n");
 		sb.append("    name: ").append(toIndentedString(name)).append("\n");
-		sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-		sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

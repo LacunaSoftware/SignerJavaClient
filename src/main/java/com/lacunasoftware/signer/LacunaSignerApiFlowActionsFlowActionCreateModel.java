@@ -1,9 +1,9 @@
 /*
  * Lacuna.Signer.Site API
- * <!--------------------------------------------------------------------------------------------------------------------->  <h2>Authentication</h2>  <p>  In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>: </p>  <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>  <!---------------------------------------------------------------------------------------------------------------------> <br />  <h2>HTTP Codes</h2>  <p>   The APIs will return the following HTTP codes:  </p>  <table>  <thead>   <tr>     <th>Code</th>     <th>Description</th>    </tr>  </thead>  <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-Lacuna.Signer.Api.ErrorModel\">Lacuna.Signer.Api.ErrorModel</a></td>    </tr>   </tbody> </table>  <br />  <h3>Error Codes</h3>  <p>Some of the error codes returned in a 422 response are provided bellow*:</p>  <ul>  <li>CertificateNotFound</li>  <li>DocumentNotFound</li>  <li>FolderNotFound</li>  <li>CpfMismatch</li>  <li>CpfNotExpected</li>  <li>InvalidFlowAction</li>  <li>DocumentInvalidKey</li> </ul>  <p style=\"font-size: 0.9em\">  *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning. </p>  <!--------------------------------------------------------------------------------------------------------------------->  <br />  <h2>Webhooks</h2>  <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p> <p>   All requests have the format described in <a href=\"#model-Lacuna.Signer.Api.Webhooks.WebhookModel\">WebhookModel</a>.   The data field varies according to the webhook event type:  </p>   <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Lacuna.Signer.Api.Webhooks.DocumentConcludedModel\">DocumentConcludedModel</a></td>    </tr>   </tbody>  </table>  <p>  To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>. </p> 
+ * <!--------------------------------------------------------------------------------------------------------------------->  <h2>Authentication</h2>  <p>  In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>: </p>  <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>  <!---------------------------------------------------------------------------------------------------------------------> <br />  <h2>HTTP Codes</h2>  <p>   The APIs will return the following HTTP codes:  </p>  <table>  <thead>   <tr>     <th>Code</th>     <th>Description</th>    </tr>  </thead>  <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-Lacuna.Signer.Api.ErrorModel\">Lacuna.Signer.Api.ErrorModel</a></td>    </tr>   </tbody> </table>  <br />  <h3>Error Codes</h3>  <p>Some of the error codes returned in a 422 response are provided bellow*:</p>  <ul>  <li>CertificateNotFound</li>  <li>DocumentNotFound</li>  <li>FolderNotFound</li>  <li>CpfMismatch</li>  <li>CpfNotExpected</li>  <li>InvalidFlowAction</li>  <li>DocumentInvalidKey</li> </ul>  <p style=\"font-size: 0.9em\">  *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning. </p>  <!--------------------------------------------------------------------------------------------------------------------->  <br />  <h2>Webhooks</h2>  <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p> <p>   All requests have the format described in <a href=\"#model-Lacuna.Signer.Api.Webhooks.WebhookModel\">WebhookModel</a>.   The data field varies according to the webhook event type:  </p>   <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Lacuna.Signer.Api.Webhooks.DocumentConcludedModel\">DocumentConcludedModel</a></td>    </tr>   </tbody>  </table>  <p>  To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>. </p>
  *
- * OpenAPI spec version: 0.34.0
- * 
+ * OpenAPI spec version: 0.40.0
+ *
  *
  * NOTE: This class is auto generated by the swagger code generator program.
  * https://github.com/swagger-api/swagger-codegen.git
@@ -12,17 +12,23 @@
 
 package com.lacunasoftware.signer;
 
+
 import java.util.Objects;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.LacunaSignerApiDocumentMarkPrePositionedDocumentMarkModel;
+import com.lacunasoftware.signer.LacunaSignerApiFlowActionsXadesOptionsModel;
 import com.lacunasoftware.signer.LacunaSignerApiUsersParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * LacunaSignerApiFlowActionsFlowActionCreateModel
@@ -34,7 +40,9 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 	 */
 	@JsonAdapter(TypeEnum.Adapter.class)
 	public enum TypeEnum {
-		SIGNER("Signer"), APPROVER("Approver"), SIGNRULE("SignRule");
+		SIGNER("Signer"),
+		APPROVER("Approver"),
+		SIGNRULE("SignRule");
 
 		private String value;
 
@@ -92,17 +100,24 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 	@SerializedName("signRuleUsers")
 	private List<LacunaSignerApiUsersParticipantUserModel> signRuleUsers = null;
 
+	@SerializedName("prePositionedMarks")
+	private List<LacunaSignerApiDocumentMarkPrePositionedDocumentMarkModel> prePositionedMarks = null;
+
 	@SerializedName("allowElectronicSignature")
 	private Boolean allowElectronicSignature = null;
+
+	@SerializedName("xadesOptions")
+	private LacunaSignerApiFlowActionsXadesOptionsModel xadesOptions = null;
 
 	public LacunaSignerApiFlowActionsFlowActionCreateModel type(TypeEnum type) {
 		this.type = type;
 		return this;
 	}
 
+
 	/**
 	 * Get type
-	 * 
+	 *
 	 * @return type
 	 **/
 	@Schema(description = "")
@@ -119,9 +134,10 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 		return this;
 	}
 
+
 	/**
 	 * The order in which this action should take place.
-	 * 
+	 *
 	 * @return step
 	 **/
 	@Schema(description = "The order in which this action should take place.")
@@ -138,9 +154,10 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 		return this;
 	}
 
+
 	/**
 	 * Get user
-	 * 
+	 *
 	 * @return user
 	 **/
 	@Schema(description = "")
@@ -157,9 +174,10 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 		return this;
 	}
 
+
 	/**
 	 * Number of required signatures (if type is SignRule)
-	 * 
+	 *
 	 * @return numberRequiredSignatures
 	 **/
 	@Schema(description = "Number of required signatures (if type is SignRule)")
@@ -176,9 +194,10 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 		return this;
 	}
 
+
 	/**
 	 * Name of the rule (if type is SignRule)
-	 * 
+	 *
 	 * @return ruleName
 	 **/
 	@Schema(description = "Name of the rule (if type is SignRule)")
@@ -190,14 +209,12 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 		this.ruleName = ruleName;
 	}
 
-	public LacunaSignerApiFlowActionsFlowActionCreateModel signRuleUsers(
-			List<LacunaSignerApiUsersParticipantUserModel> signRuleUsers) {
+	public LacunaSignerApiFlowActionsFlowActionCreateModel signRuleUsers(List<LacunaSignerApiUsersParticipantUserModel> signRuleUsers) {
 		this.signRuleUsers = signRuleUsers;
 		return this;
 	}
 
-	public LacunaSignerApiFlowActionsFlowActionCreateModel addSignRuleUsersItem(
-			LacunaSignerApiUsersParticipantUserModel signRuleUsersItem) {
+	public LacunaSignerApiFlowActionsFlowActionCreateModel addSignRuleUsersItem(LacunaSignerApiUsersParticipantUserModel signRuleUsersItem) {
 		if (this.signRuleUsers == null) {
 			this.signRuleUsers = new ArrayList<LacunaSignerApiUsersParticipantUserModel>();
 		}
@@ -207,7 +224,7 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 
 	/**
 	 * Get signRuleUsers
-	 * 
+	 *
 	 * @return signRuleUsers
 	 **/
 	@Schema(description = "")
@@ -219,15 +236,42 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 		this.signRuleUsers = signRuleUsers;
 	}
 
+	public LacunaSignerApiFlowActionsFlowActionCreateModel prePositionedMarks(List<LacunaSignerApiDocumentMarkPrePositionedDocumentMarkModel> prePositionedMarks) {
+		this.prePositionedMarks = prePositionedMarks;
+		return this;
+	}
+
+	public LacunaSignerApiFlowActionsFlowActionCreateModel addPrePositionedMarksItem(LacunaSignerApiDocumentMarkPrePositionedDocumentMarkModel prePositionedMarksItem) {
+		if (this.prePositionedMarks == null) {
+			this.prePositionedMarks = new ArrayList<LacunaSignerApiDocumentMarkPrePositionedDocumentMarkModel>();
+		}
+		this.prePositionedMarks.add(prePositionedMarksItem);
+		return this;
+	}
+
+	/**
+	 * Get prePositionedMarks
+	 *
+	 * @return prePositionedMarks
+	 **/
+	@Schema(description = "")
+	public List<LacunaSignerApiDocumentMarkPrePositionedDocumentMarkModel> getPrePositionedMarks() {
+		return prePositionedMarks;
+	}
+
+	public void setPrePositionedMarks(List<LacunaSignerApiDocumentMarkPrePositionedDocumentMarkModel> prePositionedMarks) {
+		this.prePositionedMarks = prePositionedMarks;
+	}
+
 	public LacunaSignerApiFlowActionsFlowActionCreateModel allowElectronicSignature(Boolean allowElectronicSignature) {
 		this.allowElectronicSignature = allowElectronicSignature;
 		return this;
 	}
 
+
 	/**
-	 * Set to true if the electronic signature option should be available. (only if
-	 * the type of the action is Signer or SignRule)
-	 * 
+	 * Set to true if the electronic signature option should be available. (only if the type of the action is Signer or SignRule)
+	 *
 	 * @return allowElectronicSignature
 	 **/
 	@Schema(description = "Set to true if the electronic signature option should be available. (only if the type of the action is Signer or SignRule)")
@@ -239,6 +283,26 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 		this.allowElectronicSignature = allowElectronicSignature;
 	}
 
+	public LacunaSignerApiFlowActionsFlowActionCreateModel xadesOptions(LacunaSignerApiFlowActionsXadesOptionsModel xadesOptions) {
+		this.xadesOptions = xadesOptions;
+		return this;
+	}
+
+
+	/**
+	 * Get xadesOptions
+	 *
+	 * @return xadesOptions
+	 **/
+	@Schema(description = "")
+	public LacunaSignerApiFlowActionsXadesOptionsModel getXadesOptions() {
+		return xadesOptions;
+	}
+
+	public void setXadesOptions(LacunaSignerApiFlowActionsXadesOptionsModel xadesOptions) {
+		this.xadesOptions = xadesOptions;
+	}
+
 	@Override
 	public boolean equals(java.lang.Object o) {
 		if (this == o) {
@@ -248,21 +312,20 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 			return false;
 		}
 		LacunaSignerApiFlowActionsFlowActionCreateModel lacunaSignerApiFlowActionsFlowActionCreateModel = (LacunaSignerApiFlowActionsFlowActionCreateModel) o;
-		return Objects.equals(this.type, lacunaSignerApiFlowActionsFlowActionCreateModel.type)
-				&& Objects.equals(this.step, lacunaSignerApiFlowActionsFlowActionCreateModel.step)
-				&& Objects.equals(this.user, lacunaSignerApiFlowActionsFlowActionCreateModel.user)
-				&& Objects.equals(this.numberRequiredSignatures,
-						lacunaSignerApiFlowActionsFlowActionCreateModel.numberRequiredSignatures)
-				&& Objects.equals(this.ruleName, lacunaSignerApiFlowActionsFlowActionCreateModel.ruleName)
-				&& Objects.equals(this.signRuleUsers, lacunaSignerApiFlowActionsFlowActionCreateModel.signRuleUsers)
-				&& Objects.equals(this.allowElectronicSignature,
-						lacunaSignerApiFlowActionsFlowActionCreateModel.allowElectronicSignature);
+		return Objects.equals(this.type, lacunaSignerApiFlowActionsFlowActionCreateModel.type) &&
+			Objects.equals(this.step, lacunaSignerApiFlowActionsFlowActionCreateModel.step) &&
+			Objects.equals(this.user, lacunaSignerApiFlowActionsFlowActionCreateModel.user) &&
+			Objects.equals(this.numberRequiredSignatures, lacunaSignerApiFlowActionsFlowActionCreateModel.numberRequiredSignatures) &&
+			Objects.equals(this.ruleName, lacunaSignerApiFlowActionsFlowActionCreateModel.ruleName) &&
+			Objects.equals(this.signRuleUsers, lacunaSignerApiFlowActionsFlowActionCreateModel.signRuleUsers) &&
+			Objects.equals(this.prePositionedMarks, lacunaSignerApiFlowActionsFlowActionCreateModel.prePositionedMarks) &&
+			Objects.equals(this.allowElectronicSignature, lacunaSignerApiFlowActionsFlowActionCreateModel.allowElectronicSignature) &&
+			Objects.equals(this.xadesOptions, lacunaSignerApiFlowActionsFlowActionCreateModel.xadesOptions);
 	}
 
 	@Override
 	public int hashCode() {
-		return java.util.Objects.hash(type, step, user, numberRequiredSignatures, ruleName, signRuleUsers,
-				allowElectronicSignature);
+		return java.util.Objects.hash(type, step, user, numberRequiredSignatures, ruleName, signRuleUsers, prePositionedMarks, allowElectronicSignature, xadesOptions);
 	}
 
 	@Override
@@ -276,7 +339,9 @@ class LacunaSignerApiFlowActionsFlowActionCreateModel {
 		sb.append("    numberRequiredSignatures: ").append(toIndentedString(numberRequiredSignatures)).append("\n");
 		sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
 		sb.append("    signRuleUsers: ").append(toIndentedString(signRuleUsers)).append("\n");
+		sb.append("    prePositionedMarks: ").append(toIndentedString(prePositionedMarks)).append("\n");
 		sb.append("    allowElectronicSignature: ").append(toIndentedString(allowElectronicSignature)).append("\n");
+		sb.append("    xadesOptions: ").append(toIndentedString(xadesOptions)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
