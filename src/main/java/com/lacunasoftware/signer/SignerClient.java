@@ -54,9 +54,14 @@ public class SignerClient {
 	// region DOCUMENT
 
 	@SuppressWarnings("unchecked")
-	public List<UUID> createDocument(CreateDocumentRequest request) throws RestException {
-		return (List<UUID>) getRestClient().post("/api/documents", request.toModel(),
-				TypeToken.getParameterized(List.class, UUID.class));
+	public List<CreateDocumentResult> createDocument(CreateDocumentRequest request) throws RestException {
+		List<LacunaSignerApiDocumentsCreateDocumentResult> resultModels = (List<LacunaSignerApiDocumentsCreateDocumentResult>) getRestClient().post("/api/documents", request.toModel(),
+				TypeToken.getParameterized(List.class, LacunaSignerApiDocumentsCreateDocumentResult.class));
+		List<CreateDocumentResult> results = new ArrayList<>();
+		for (LacunaSignerApiDocumentsCreateDocumentResult r : resultModels) {
+			results.add(new CreateDocumentResult(r));
+		}
+		return results;
 	}
 
 	public DocumentModel getDocumentDetails(UUID id) throws RestException {
