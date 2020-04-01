@@ -22,91 +22,58 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 
 /**
- * LacunaSignerApiErrorModel
+ * LacunaSignerApiFlowActionsSignRuleUserEditModel
  */
 
-class LacunaSignerApiErrorModel {
+class LacunaSignerApiFlowActionsSignRuleUserEditModel {
 
-	@SerializedName("code")
-	private String code = null;
+	@SerializedName("userId")
+	private UUID userId = null;
 
-	@SerializedName("message")
-	private String message = null;
+	@SerializedName("emailAddress")
+	private String emailAddress = null;
 
-	@SerializedName("details")
-	private Map<String, String> details = null;
-
-	public LacunaSignerApiErrorModel code(String code) {
-		this.code = code;
+	public LacunaSignerApiFlowActionsSignRuleUserEditModel userId(UUID userId) {
+		this.userId = userId;
 		return this;
 	}
 
 
 	/**
-	 * Get code
+	 * Get userId
 	 *
-	 * @return code
+	 * @return userId
 	 **/
 	@Schema(description = "")
-	public String getCode() {
-		return code;
+	public UUID getUserId() {
+		return userId;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setUserId(UUID userId) {
+		this.userId = userId;
 	}
 
-	public LacunaSignerApiErrorModel message(String message) {
-		this.message = message;
+	public LacunaSignerApiFlowActionsSignRuleUserEditModel emailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 		return this;
 	}
 
 
 	/**
-	 * Get message
+	 * Get emailAddress
 	 *
-	 * @return message
+	 * @return emailAddress
 	 **/
 	@Schema(description = "")
-	public String getMessage() {
-		return message;
+	public String getEmailAddress() {
+		return emailAddress;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public LacunaSignerApiErrorModel details(Map<String, String> details) {
-		this.details = details;
-		return this;
-	}
-
-
-	public LacunaSignerApiErrorModel putDetailsItem(String key, String detailsItem) {
-		if (this.details == null) {
-			this.details = new HashMap<String, String>();
-		}
-		this.details.put(key, detailsItem);
-		return this;
-	}
-
-	/**
-	 * Get details
-	 *
-	 * @return details
-	 **/
-	@Schema(description = "")
-	public Map<String, String> getDetails() {
-		return details;
-	}
-
-	public void setDetails(Map<String, String> details) {
-		this.details = details;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 
 	@Override
@@ -117,25 +84,23 @@ class LacunaSignerApiErrorModel {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		LacunaSignerApiErrorModel lacunaSignerApiErrorModel = (LacunaSignerApiErrorModel) o;
-		return Objects.equals(this.code, lacunaSignerApiErrorModel.code) &&
-			Objects.equals(this.message, lacunaSignerApiErrorModel.message) &&
-			Objects.equals(this.details, lacunaSignerApiErrorModel.details);
+		LacunaSignerApiFlowActionsSignRuleUserEditModel lacunaSignerApiFlowActionsSignRuleUserEditModel = (LacunaSignerApiFlowActionsSignRuleUserEditModel) o;
+		return Objects.equals(this.userId, lacunaSignerApiFlowActionsSignRuleUserEditModel.userId) &&
+			Objects.equals(this.emailAddress, lacunaSignerApiFlowActionsSignRuleUserEditModel.emailAddress);
 	}
 
 	@Override
 	public int hashCode() {
-		return java.util.Objects.hash(code, message, details);
+		return java.util.Objects.hash(userId, emailAddress);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("class LacunaSignerApiErrorModel {\n");
+		sb.append("class LacunaSignerApiFlowActionsSignRuleUserEditModel {\n");
 
-		sb.append("    code: ").append(toIndentedString(code)).append("\n");
-		sb.append("    message: ").append(toIndentedString(message)).append("\n");
-		sb.append("    details: ").append(toIndentedString(details)).append("\n");
+		sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+		sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

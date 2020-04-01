@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.UUID;
 
 
-public class LacunaSignerApiUsersUserDisplayModel {
+class LacunaSignerApiUsersUserDisplayModel {
 
 	@SerializedName("id")
 	private UUID id;

@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.UUID;
 
 
-public class LacunaSignerApiSignatureElectronicSignatureRequest {
+class LacunaSignerApiSignatureElectronicSignatureRequest {
 	public enum AuthenticationTypes {
 		SMS("SMS"),
 		AUTHENTICATION_APP("AuthenticationApp");

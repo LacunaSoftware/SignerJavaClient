@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.UUID;
 
 
-public class LacunaSignerApiFoldersFolderCreateRequest {
+class LacunaSignerApiFoldersFolderCreateRequest {
 
 	@SerializedName("name")
 	private String name;

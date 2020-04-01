@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 
-public class LacunaSignerApiFoldersFolderDetailsModel {
+class LacunaSignerApiFoldersFolderDetailsModel {
 
 	@SerializedName("id")
 	private UUID id;

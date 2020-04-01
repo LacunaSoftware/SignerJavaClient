@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 
-public class LacunaSignerApiValidationResultsModel {
+class LacunaSignerApiValidationResultsModel {
 
 	@SerializedName("passedChecks")
 	private List<LacunaSignerApiValidationItemModel> passedChecks;

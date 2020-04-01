@@ -22,91 +22,58 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 
 /**
- * LacunaSignerApiErrorModel
+ * LacunaSignerApiObserversObserverEditModel
  */
 
-class LacunaSignerApiErrorModel {
+class LacunaSignerApiObserversObserverEditModel {
 
-	@SerializedName("code")
-	private String code = null;
+	@SerializedName("observerId")
+	private UUID observerId = null;
 
-	@SerializedName("message")
-	private String message = null;
+	@SerializedName("emailAddress")
+	private String emailAddress = null;
 
-	@SerializedName("details")
-	private Map<String, String> details = null;
-
-	public LacunaSignerApiErrorModel code(String code) {
-		this.code = code;
+	public LacunaSignerApiObserversObserverEditModel observerId(UUID observerId) {
+		this.observerId = observerId;
 		return this;
 	}
 
 
 	/**
-	 * Get code
+	 * Id of the observer being modified.
 	 *
-	 * @return code
+	 * @return observerId
 	 **/
-	@Schema(description = "")
-	public String getCode() {
-		return code;
+	@Schema(description = "Id of the observer being modified.")
+	public UUID getObserverId() {
+		return observerId;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setObserverId(UUID observerId) {
+		this.observerId = observerId;
 	}
 
-	public LacunaSignerApiErrorModel message(String message) {
-		this.message = message;
+	public LacunaSignerApiObserversObserverEditModel emailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 		return this;
 	}
 
 
 	/**
-	 * Get message
+	 * The new email of the observer.
 	 *
-	 * @return message
+	 * @return emailAddress
 	 **/
-	@Schema(description = "")
-	public String getMessage() {
-		return message;
+	@Schema(description = "The new email of the observer.")
+	public String getEmailAddress() {
+		return emailAddress;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public LacunaSignerApiErrorModel details(Map<String, String> details) {
-		this.details = details;
-		return this;
-	}
-
-
-	public LacunaSignerApiErrorModel putDetailsItem(String key, String detailsItem) {
-		if (this.details == null) {
-			this.details = new HashMap<String, String>();
-		}
-		this.details.put(key, detailsItem);
-		return this;
-	}
-
-	/**
-	 * Get details
-	 *
-	 * @return details
-	 **/
-	@Schema(description = "")
-	public Map<String, String> getDetails() {
-		return details;
-	}
-
-	public void setDetails(Map<String, String> details) {
-		this.details = details;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 
 	@Override
@@ -117,25 +84,23 @@ class LacunaSignerApiErrorModel {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		LacunaSignerApiErrorModel lacunaSignerApiErrorModel = (LacunaSignerApiErrorModel) o;
-		return Objects.equals(this.code, lacunaSignerApiErrorModel.code) &&
-			Objects.equals(this.message, lacunaSignerApiErrorModel.message) &&
-			Objects.equals(this.details, lacunaSignerApiErrorModel.details);
+		LacunaSignerApiObserversObserverEditModel lacunaSignerApiObserversObserverEditModel = (LacunaSignerApiObserversObserverEditModel) o;
+		return Objects.equals(this.observerId, lacunaSignerApiObserversObserverEditModel.observerId) &&
+			Objects.equals(this.emailAddress, lacunaSignerApiObserversObserverEditModel.emailAddress);
 	}
 
 	@Override
 	public int hashCode() {
-		return java.util.Objects.hash(code, message, details);
+		return java.util.Objects.hash(observerId, emailAddress);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("class LacunaSignerApiErrorModel {\n");
+		sb.append("class LacunaSignerApiObserversObserverEditModel {\n");
 
-		sb.append("    code: ").append(toIndentedString(code)).append("\n");
-		sb.append("    message: ").append(toIndentedString(message)).append("\n");
-		sb.append("    details: ").append(toIndentedString(details)).append("\n");
+		sb.append("    observerId: ").append(toIndentedString(observerId)).append("\n");
+		sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

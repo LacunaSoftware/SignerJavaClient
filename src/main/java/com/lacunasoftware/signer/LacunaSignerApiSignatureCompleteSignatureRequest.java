@@ -4,7 +4,7 @@ package com.lacunasoftware.signer;
 import com.google.gson.annotations.SerializedName;
 
 
-public class LacunaSignerApiSignatureCompleteSignatureRequest {
+class LacunaSignerApiSignatureCompleteSignatureRequest {
 
 	@SerializedName("signature")
 	private byte[] signature;

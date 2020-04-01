@@ -4,7 +4,7 @@ package com.lacunasoftware.signer;
 import com.google.gson.annotations.SerializedName;
 
 
-public class LacunaSignerApiSignatureGeolocationModel {
+class LacunaSignerApiSignatureGeolocationModel {
 
 	@SerializedName("latitude")
 	private Double latitude;

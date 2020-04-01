@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 
-public class LacunaSignerApiFoldersFolderAccessModel {
+class LacunaSignerApiFoldersFolderAccessModel {
 	public enum Roles {
 		ADMIN("Admin"),
 		MANAGER("Manager"),

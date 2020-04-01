@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.UUID;
 
 
-public class LacunaSignerApiSignatureStartSignatureRequest {
+class LacunaSignerApiSignatureStartSignatureRequest {
 
 	@SerializedName("flowActionId")
 	private UUID flowActionId;

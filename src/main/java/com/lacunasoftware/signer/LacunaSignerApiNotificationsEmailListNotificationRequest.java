@@ -22,91 +22,40 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
- * LacunaSignerApiErrorModel
+ * LacunaSignerApiNotificationsEmailListNotificationRequest
  */
 
-class LacunaSignerApiErrorModel {
+class LacunaSignerApiNotificationsEmailListNotificationRequest {
 
-	@SerializedName("code")
-	private String code = null;
+	@SerializedName("emails")
+	private List<String> emails = new ArrayList<String>();
 
-	@SerializedName("message")
-	private String message = null;
-
-	@SerializedName("details")
-	private Map<String, String> details = null;
-
-	public LacunaSignerApiErrorModel code(String code) {
-		this.code = code;
+	public LacunaSignerApiNotificationsEmailListNotificationRequest emails(List<String> emails) {
+		this.emails = emails;
 		return this;
 	}
 
-
-	/**
-	 * Get code
-	 *
-	 * @return code
-	 **/
-	@Schema(description = "")
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public LacunaSignerApiErrorModel message(String message) {
-		this.message = message;
-		return this;
-	}
-
-
-	/**
-	 * Get message
-	 *
-	 * @return message
-	 **/
-	@Schema(description = "")
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public LacunaSignerApiErrorModel details(Map<String, String> details) {
-		this.details = details;
-		return this;
-	}
-
-
-	public LacunaSignerApiErrorModel putDetailsItem(String key, String detailsItem) {
-		if (this.details == null) {
-			this.details = new HashMap<String, String>();
-		}
-		this.details.put(key, detailsItem);
+	public LacunaSignerApiNotificationsEmailListNotificationRequest addEmailsItem(String emailsItem) {
+		this.emails.add(emailsItem);
 		return this;
 	}
 
 	/**
-	 * Get details
+	 * Get emails
 	 *
-	 * @return details
+	 * @return emails
 	 **/
-	@Schema(description = "")
-	public Map<String, String> getDetails() {
-		return details;
+	@Schema(required = true, description = "")
+	public List<String> getEmails() {
+		return emails;
 	}
 
-	public void setDetails(Map<String, String> details) {
-		this.details = details;
+	public void setEmails(List<String> emails) {
+		this.emails = emails;
 	}
 
 	@Override
@@ -117,25 +66,21 @@ class LacunaSignerApiErrorModel {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		LacunaSignerApiErrorModel lacunaSignerApiErrorModel = (LacunaSignerApiErrorModel) o;
-		return Objects.equals(this.code, lacunaSignerApiErrorModel.code) &&
-			Objects.equals(this.message, lacunaSignerApiErrorModel.message) &&
-			Objects.equals(this.details, lacunaSignerApiErrorModel.details);
+		LacunaSignerApiNotificationsEmailListNotificationRequest lacunaSignerApiNotificationsEmailListNotificationRequest = (LacunaSignerApiNotificationsEmailListNotificationRequest) o;
+		return Objects.equals(this.emails, lacunaSignerApiNotificationsEmailListNotificationRequest.emails);
 	}
 
 	@Override
 	public int hashCode() {
-		return java.util.Objects.hash(code, message, details);
+		return java.util.Objects.hash(emails);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("class LacunaSignerApiErrorModel {\n");
+		sb.append("class LacunaSignerApiNotificationsEmailListNotificationRequest {\n");
 
-		sb.append("    code: ").append(toIndentedString(code)).append("\n");
-		sb.append("    message: ").append(toIndentedString(message)).append("\n");
-		sb.append("    details: ").append(toIndentedString(details)).append("\n");
+		sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

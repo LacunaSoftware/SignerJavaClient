@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 
-public class LacunaSignerApiPaginatedSearchResponse<T> {
+class LacunaSignerApiPaginatedSearchResponse<T> {
 
 	@SerializedName("items")
 	private List<T> items;

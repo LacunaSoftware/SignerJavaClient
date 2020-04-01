@@ -4,7 +4,7 @@ package com.lacunasoftware.signer;
 import com.google.gson.annotations.SerializedName;
 
 
-public class LacunaSignerApiSignaturePdfMarkPosition {
+class LacunaSignerApiSignaturePdfMarkPosition {
 
 	@SerializedName("page")
 	private int page;

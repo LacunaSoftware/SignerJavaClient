@@ -4,7 +4,7 @@ package com.lacunasoftware.signer;
 import com.google.gson.annotations.SerializedName;
 
 
-public class LacunaSignerApiValidationItemModel {
+class LacunaSignerApiValidationItemModel {
 
 	@SerializedName("type")
 	private String type;

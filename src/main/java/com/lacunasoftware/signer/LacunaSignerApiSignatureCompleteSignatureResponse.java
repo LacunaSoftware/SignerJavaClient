@@ -4,7 +4,7 @@ package com.lacunasoftware.signer;
 import com.google.gson.annotations.SerializedName;
 
 
-public class LacunaSignerApiSignatureCompleteSignatureResponse {
+class LacunaSignerApiSignatureCompleteSignatureResponse {
 
 	@SerializedName("success")
 	private boolean success;
