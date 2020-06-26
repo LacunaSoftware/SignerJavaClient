@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package io.swagger.client.model;
+package com.lacunasoftware.signer;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,18 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.CreatorModel;
-import io.swagger.client.model.DocumentPermissionsModel;
-import io.swagger.client.model.FlowActionModel;
-import io.swagger.client.model.FolderInfoModel;
-import io.swagger.client.model.ObserverModel;
-import io.swagger.client.model.OrganizationInfoModel;
+import com.lacunasoftware.signer.CreatorModel;
+import com.lacunasoftware.signer.DocumentPermissionsModel;
+import com.lacunasoftware.signer.FlowActionModel;
+import com.lacunasoftware.signer.FolderInfoModel;
+import com.lacunasoftware.signer.ObserverModel;
+import com.lacunasoftware.signer.OrganizationInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 /**
  * DocumentModel
  */

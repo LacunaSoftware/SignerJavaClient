@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package io.swagger.client.model;
+package com.lacunasoftware.signer;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.XadesElementIdentifierTypes;
-import io.swagger.client.model.XadesInsertionOptions;
-import io.swagger.client.model.XadesSignatureTypes;
+import com.lacunasoftware.signer.XadesElementIdentifierTypes;
+import com.lacunasoftware.signer.XadesInsertionOptions;
+import com.lacunasoftware.signer.XadesSignatureTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**

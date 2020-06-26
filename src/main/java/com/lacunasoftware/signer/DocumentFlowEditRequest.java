@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package io.swagger.client.model;
+package com.lacunasoftware.signer;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,10 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.FlowActionCreateModel;
-import io.swagger.client.model.FlowActionEditModel;
-import io.swagger.client.model.ObserverCreateModel;
-import io.swagger.client.model.ObserverEditModel;
+import com.lacunasoftware.signer.FlowActionCreateModel;
+import com.lacunasoftware.signer.FlowActionEditModel;
+import com.lacunasoftware.signer.ObserverCreateModel;
+import com.lacunasoftware.signer.ObserverEditModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;

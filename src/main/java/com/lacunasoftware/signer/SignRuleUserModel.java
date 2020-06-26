@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package io.swagger.client.model;
+package com.lacunasoftware.signer;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 /**
  * SignRuleUserModel
  */

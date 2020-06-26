@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package io.swagger.client.model;
+package com.lacunasoftware.signer;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,13 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.AttributeCertificateInfoModel;
-import io.swagger.client.model.ValidationResultsModel;
+import com.lacunasoftware.signer.AttributeCertificateInfoModel;
+import com.lacunasoftware.signer.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 /**
  * SignerModel
  */
