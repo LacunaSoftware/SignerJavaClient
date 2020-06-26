@@ -19,54 +19,56 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.DeleteAction;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * FolderDeleteRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class FolderDeleteRequest {
+  @SerializedName("deleteAction")
+  private DeleteAction deleteAction = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("destinationFolderId")
+  private UUID destinationFolderId = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public FolderDeleteRequest deleteAction(DeleteAction deleteAction) {
+    this.deleteAction = deleteAction;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get deleteAction
+   * @return deleteAction
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public DeleteAction getDeleteAction() {
+    return deleteAction;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setDeleteAction(DeleteAction deleteAction) {
+    this.deleteAction = deleteAction;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public FolderDeleteRequest destinationFolderId(UUID destinationFolderId) {
+    this.destinationFolderId = destinationFolderId;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * The folder to which the documents will be moved (if Lacuna.Signer.Api.FolderDeleteRequest.DeleteAction is Lacuna.Signer.Api.DeleteAction.MoveContent).  This value can be null if you want to keep the documents with no folder.
+   * @return destinationFolderId
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(description = "The folder to which the documents will be moved (if Lacuna.Signer.Api.FolderDeleteRequest.DeleteAction is Lacuna.Signer.Api.DeleteAction.MoveContent).  This value can be null if you want to keep the documents with no folder.")
+  public UUID getDestinationFolderId() {
+    return destinationFolderId;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setDestinationFolderId(UUID destinationFolderId) {
+    this.destinationFolderId = destinationFolderId;
   }
 
 
@@ -78,24 +80,24 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    FolderDeleteRequest folderDeleteRequest = (FolderDeleteRequest) o;
+    return Objects.equals(this.deleteAction, folderDeleteRequest.deleteAction) &&
+        Objects.equals(this.destinationFolderId, folderDeleteRequest.destinationFolderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(deleteAction, destinationFolderId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class FolderDeleteRequest {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    deleteAction: ").append(toIndentedString(deleteAction)).append("\n");
+    sb.append("    destinationFolderId: ").append(toIndentedString(destinationFolderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

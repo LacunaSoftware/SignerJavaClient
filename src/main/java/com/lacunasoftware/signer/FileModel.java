@@ -21,52 +21,95 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * FileModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class FileModel {
+  @SerializedName("location")
+  private String location = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("id")
+  private UUID id = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("contentType")
+  private String contentType = null;
+
+  public FileModel location(String location) {
+    this.location = location;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get location
+   * @return location
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public String getLocation() {
+    return location;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setLocation(String location) {
+    this.location = location;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public FileModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public UUID getId() {
+    return id;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public FileModel name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public FileModel contentType(String contentType) {
+    this.contentType = contentType;
+    return this;
+  }
+
+   /**
+   * Get contentType
+   * @return contentType
+  **/
+  @Schema(required = true, description = "")
+  public String getContentType() {
+    return contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
   }
 
 
@@ -78,24 +121,28 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    FileModel fileModel = (FileModel) o;
+    return Objects.equals(this.location, fileModel.location) &&
+        Objects.equals(this.id, fileModel.id) &&
+        Objects.equals(this.name, fileModel.name) &&
+        Objects.equals(this.contentType, fileModel.contentType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(location, id, name, contentType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class FileModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

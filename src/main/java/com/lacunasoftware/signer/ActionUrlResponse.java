@@ -22,51 +22,51 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * DocumentPermissionsModel
+ * ActionUrlResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class ActionUrlResponse {
+  @SerializedName("url")
+  private String url = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("embedUrl")
+  private String embedUrl = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public ActionUrlResponse url(String url) {
+    this.url = url;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * The URL to redirect the user to the first pending action found.
+   * @return url
   **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  @Schema(description = "The URL to redirect the user to the first pending action found.")
+  public String getUrl() {
+    return url;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setUrl(String url) {
+    this.url = url;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public ActionUrlResponse embedUrl(String embedUrl) {
+    this.embedUrl = embedUrl;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * The URL to embed the action in a iframe to use in your own application.
+   * @return embedUrl
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(description = "The URL to embed the action in a iframe to use in your own application.")
+  public String getEmbedUrl() {
+    return embedUrl;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setEmbedUrl(String embedUrl) {
+    this.embedUrl = embedUrl;
   }
 
 
@@ -78,24 +78,24 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    ActionUrlResponse actionUrlResponse = (ActionUrlResponse) o;
+    return Objects.equals(this.url, actionUrlResponse.url) &&
+        Objects.equals(this.embedUrl, actionUrlResponse.embedUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(url, embedUrl);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class ActionUrlResponse {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    embedUrl: ").append(toIndentedString(embedUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

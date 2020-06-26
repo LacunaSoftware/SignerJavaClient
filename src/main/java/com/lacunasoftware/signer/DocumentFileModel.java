@@ -21,52 +21,74 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * DocumentFileModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class DocumentFileModel {
+  @SerializedName("id")
+  private UUID id = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("name")
+  private String name = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("isSigned")
+  private Boolean isSigned = null;
+
+  public DocumentFileModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public UUID getId() {
+    return id;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setId(UUID id) {
+    this.id = id;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public DocumentFileModel name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public String getName() {
+    return name;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public DocumentFileModel isSigned(Boolean isSigned) {
+    this.isSigned = isSigned;
+    return this;
+  }
+
+   /**
+   * Get isSigned
+   * @return isSigned
+  **/
+  @Schema(description = "")
+  public Boolean isIsSigned() {
+    return isSigned;
+  }
+
+  public void setIsSigned(Boolean isSigned) {
+    this.isSigned = isSigned;
   }
 
 
@@ -78,24 +100,26 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    DocumentFileModel documentFileModel = (DocumentFileModel) o;
+    return Objects.equals(this.id, documentFileModel.id) &&
+        Objects.equals(this.name, documentFileModel.name) &&
+        Objects.equals(this.isSigned, documentFileModel.isSigned);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(id, name, isSigned);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class DocumentFileModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    isSigned: ").append(toIndentedString(isSigned)).append("\n");
     sb.append("}");
     return sb.toString();
   }

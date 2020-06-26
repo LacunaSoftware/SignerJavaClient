@@ -21,52 +21,53 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * ObserverEditModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class ObserverEditModel {
+  @SerializedName("observerId")
+  private UUID observerId = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("emailAddress")
+  private String emailAddress = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public ObserverEditModel observerId(UUID observerId) {
+    this.observerId = observerId;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Id of the observer being modified.
+   * @return observerId
   **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  @Schema(description = "Id of the observer being modified.")
+  public UUID getObserverId() {
+    return observerId;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setObserverId(UUID observerId) {
+    this.observerId = observerId;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public ObserverEditModel emailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * The new email of the observer.
+   * @return emailAddress
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(description = "The new email of the observer.")
+  public String getEmailAddress() {
+    return emailAddress;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
   }
 
 
@@ -78,24 +79,24 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    ObserverEditModel observerEditModel = (ObserverEditModel) o;
+    return Objects.equals(this.observerId, observerEditModel.observerId) &&
+        Objects.equals(this.emailAddress, observerEditModel.emailAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(observerId, emailAddress);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class ObserverEditModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    observerId: ").append(toIndentedString(observerId)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("}");
     return sb.toString();
   }

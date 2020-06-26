@@ -21,52 +21,38 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
- * DocumentPermissionsModel
+ * EmailListNotificationRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class EmailListNotificationRequest {
+  @SerializedName("emails")
+  private List<String> emails = new ArrayList<String>();
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  public EmailListNotificationRequest emails(List<String> emails) {
+    this.emails = emails;
+    return this;
+  }
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public EmailListNotificationRequest addEmailsItem(String emailsItem) {
+    this.emails.add(emailsItem);
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get emails
+   * @return emails
   **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  @Schema(required = true, description = "")
+  public List<String> getEmails() {
+    return emails;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
-  }
-
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
-    return this;
-  }
-
-   /**
-   * Get editFlow
-   * @return editFlow
-  **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
-  }
-
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setEmails(List<String> emails) {
+    this.emails = emails;
   }
 
 
@@ -78,24 +64,22 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    EmailListNotificationRequest emailListNotificationRequest = (EmailListNotificationRequest) o;
+    return Objects.equals(this.emails, emailListNotificationRequest.emails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(emails);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class EmailListNotificationRequest {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

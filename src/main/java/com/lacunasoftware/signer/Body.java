@@ -20,53 +20,33 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.File;
 import java.io.IOException;
 /**
- * DocumentPermissionsModel
+ * Body
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class Body {
+  @SerializedName("file")
+  private File file = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
-
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public Body file(File file) {
+    this.file = file;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * File to upload
+   * @return file
   **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  @Schema(description = "File to upload")
+  public File getFile() {
+    return file;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
-  }
-
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
-    return this;
-  }
-
-   /**
-   * Get editFlow
-   * @return editFlow
-  **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
-  }
-
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setFile(File file) {
+    this.file = file;
   }
 
 
@@ -78,24 +58,22 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    Body body = (Body) o;
+    return Objects.equals(this.file, body.file);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(file);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class Body {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("}");
     return sb.toString();
   }

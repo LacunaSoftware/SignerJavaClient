@@ -19,54 +19,114 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.ValidationItemModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
- * DocumentPermissionsModel
+ * ValidationResultsModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class ValidationResultsModel {
+  @SerializedName("passedChecks")
+  private List<ValidationItemModel> passedChecks = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("errors")
+  private List<ValidationItemModel> errors = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("warnings")
+  private List<ValidationItemModel> warnings = null;
+
+  @SerializedName("isValid")
+  private Boolean isValid = null;
+
+  public ValidationResultsModel passedChecks(List<ValidationItemModel> passedChecks) {
+    this.passedChecks = passedChecks;
+    return this;
+  }
+
+  public ValidationResultsModel addPassedChecksItem(ValidationItemModel passedChecksItem) {
+    if (this.passedChecks == null) {
+      this.passedChecks = new ArrayList<ValidationItemModel>();
+    }
+    this.passedChecks.add(passedChecksItem);
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get passedChecks
+   * @return passedChecks
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public List<ValidationItemModel> getPassedChecks() {
+    return passedChecks;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setPassedChecks(List<ValidationItemModel> passedChecks) {
+    this.passedChecks = passedChecks;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public ValidationResultsModel errors(List<ValidationItemModel> errors) {
+    this.errors = errors;
+    return this;
+  }
+
+  public ValidationResultsModel addErrorsItem(ValidationItemModel errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<ValidationItemModel>();
+    }
+    this.errors.add(errorsItem);
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get errors
+   * @return errors
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public List<ValidationItemModel> getErrors() {
+    return errors;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setErrors(List<ValidationItemModel> errors) {
+    this.errors = errors;
+  }
+
+  public ValidationResultsModel warnings(List<ValidationItemModel> warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  public ValidationResultsModel addWarningsItem(ValidationItemModel warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<ValidationItemModel>();
+    }
+    this.warnings.add(warningsItem);
+    return this;
+  }
+
+   /**
+   * Get warnings
+   * @return warnings
+  **/
+  @Schema(description = "")
+  public List<ValidationItemModel> getWarnings() {
+    return warnings;
+  }
+
+  public void setWarnings(List<ValidationItemModel> warnings) {
+    this.warnings = warnings;
+  }
+
+   /**
+   * Get isValid
+   * @return isValid
+  **/
+  @Schema(description = "")
+  public Boolean isIsValid() {
+    return isValid;
   }
 
 
@@ -78,24 +138,28 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    ValidationResultsModel validationResultsModel = (ValidationResultsModel) o;
+    return Objects.equals(this.passedChecks, validationResultsModel.passedChecks) &&
+        Objects.equals(this.errors, validationResultsModel.errors) &&
+        Objects.equals(this.warnings, validationResultsModel.warnings) &&
+        Objects.equals(this.isValid, validationResultsModel.isValid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(passedChecks, errors, warnings, isValid);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class ValidationResultsModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    passedChecks: ").append(toIndentedString(passedChecks)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+    sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

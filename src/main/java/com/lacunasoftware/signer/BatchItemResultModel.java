@@ -21,52 +21,74 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * BatchItemResultModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class BatchItemResultModel {
+  @SerializedName("id")
+  private UUID id = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("success")
+  private Boolean success = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("errorMessage")
+  private String errorMessage = null;
+
+  public BatchItemResultModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public UUID getId() {
+    return id;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setId(UUID id) {
+    this.id = id;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public BatchItemResultModel success(Boolean success) {
+    this.success = success;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get success
+   * @return success
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public Boolean isSuccess() {
+    return success;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
+  public BatchItemResultModel errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Get errorMessage
+   * @return errorMessage
+  **/
+  @Schema(description = "")
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 
 
@@ -78,24 +100,26 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    BatchItemResultModel batchItemResultModel = (BatchItemResultModel) o;
+    return Objects.equals(this.id, batchItemResultModel.id) &&
+        Objects.equals(this.success, batchItemResultModel.success) &&
+        Objects.equals(this.errorMessage, batchItemResultModel.errorMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(id, success, errorMessage);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class BatchItemResultModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

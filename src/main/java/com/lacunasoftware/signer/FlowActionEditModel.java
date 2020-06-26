@@ -19,119 +19,150 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.SignRuleUserEditModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 /**
- * SignRuleUserModel
+ * FlowActionEditModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class SignRuleUserModel {
-  @SerializedName("id")
-  private UUID id = null;
+public class FlowActionEditModel {
+  @SerializedName("flowActionId")
+  private UUID flowActionId = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("step")
+  private Integer step = null;
 
-  @SerializedName("identifier")
-  private String identifier = null;
+  @SerializedName("participantEmailAddress")
+  private String participantEmailAddress = null;
 
-  @SerializedName("email")
-  private String email = null;
+  @SerializedName("ruleName")
+  private String ruleName = null;
 
-  @SerializedName("signatureDate")
-  private OffsetDateTime signatureDate = null;
+  @SerializedName("signRuleUsers")
+  private List<SignRuleUserEditModel> signRuleUsers = null;
 
-  public SignRuleUserModel id(UUID id) {
-    this.id = id;
+  @SerializedName("title")
+  private String title = null;
+
+  public FlowActionEditModel flowActionId(UUID flowActionId) {
+    this.flowActionId = flowActionId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * The Id of the flow action being modified.
+   * @return flowActionId
+  **/
+  @Schema(description = "The Id of the flow action being modified.")
+  public UUID getFlowActionId() {
+    return flowActionId;
+  }
+
+  public void setFlowActionId(UUID flowActionId) {
+    this.flowActionId = flowActionId;
+  }
+
+  public FlowActionEditModel step(Integer step) {
+    this.step = step;
+    return this;
+  }
+
+   /**
+   * The new step of the action.  This must be greater or equal to the current pending step.
+   * @return step
+  **/
+  @Schema(description = "The new step of the action.  This must be greater or equal to the current pending step.")
+  public Integer getStep() {
+    return step;
+  }
+
+  public void setStep(Integer step) {
+    this.step = step;
+  }
+
+  public FlowActionEditModel participantEmailAddress(String participantEmailAddress) {
+    this.participantEmailAddress = participantEmailAddress;
+    return this;
+  }
+
+   /**
+   * The new email address of the action&#x27;s participant (if the type is Lacuna.Signer.Api.FlowActionType.Signer or Lacuna.Signer.Api.FlowActionType.Approver).
+   * @return participantEmailAddress
+  **/
+  @Schema(description = "The new email address of the action's participant (if the type is Lacuna.Signer.Api.FlowActionType.Signer or Lacuna.Signer.Api.FlowActionType.Approver).")
+  public String getParticipantEmailAddress() {
+    return participantEmailAddress;
+  }
+
+  public void setParticipantEmailAddress(String participantEmailAddress) {
+    this.participantEmailAddress = participantEmailAddress;
+  }
+
+  public FlowActionEditModel ruleName(String ruleName) {
+    this.ruleName = ruleName;
+    return this;
+  }
+
+   /**
+   * The new rule name (if the type is Lacuna.Signer.Api.FlowActionType.SignRule).
+   * @return ruleName
+  **/
+  @Schema(description = "The new rule name (if the type is Lacuna.Signer.Api.FlowActionType.SignRule).")
+  public String getRuleName() {
+    return ruleName;
+  }
+
+  public void setRuleName(String ruleName) {
+    this.ruleName = ruleName;
+  }
+
+  public FlowActionEditModel signRuleUsers(List<SignRuleUserEditModel> signRuleUsers) {
+    this.signRuleUsers = signRuleUsers;
+    return this;
+  }
+
+  public FlowActionEditModel addSignRuleUsersItem(SignRuleUserEditModel signRuleUsersItem) {
+    if (this.signRuleUsers == null) {
+      this.signRuleUsers = new ArrayList<SignRuleUserEditModel>();
+    }
+    this.signRuleUsers.add(signRuleUsersItem);
+    return this;
+  }
+
+   /**
+   * The rule users to be edited (if the type is Lacuna.Signer.Api.FlowActionType.SignRule).
+   * @return signRuleUsers
+  **/
+  @Schema(description = "The rule users to be edited (if the type is Lacuna.Signer.Api.FlowActionType.SignRule).")
+  public List<SignRuleUserEditModel> getSignRuleUsers() {
+    return signRuleUsers;
+  }
+
+  public void setSignRuleUsers(List<SignRuleUserEditModel> signRuleUsers) {
+    this.signRuleUsers = signRuleUsers;
+  }
+
+  public FlowActionEditModel title(String title) {
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * Get title
+   * @return title
   **/
   @Schema(description = "")
-  public UUID getId() {
-    return id;
+  public String getTitle() {
+    return title;
   }
 
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-  public SignRuleUserModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SignRuleUserModel identifier(String identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
-   /**
-   * The user identifier (CPF).
-   * @return identifier
-  **/
-  @Schema(description = "The user identifier (CPF).")
-  public String getIdentifier() {
-    return identifier;
-  }
-
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
-
-  public SignRuleUserModel email(String email) {
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * Get email
-   * @return email
-  **/
-  @Schema(description = "")
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public SignRuleUserModel signatureDate(OffsetDateTime signatureDate) {
-    this.signatureDate = signatureDate;
-    return this;
-  }
-
-   /**
-   * Get signatureDate
-   * @return signatureDate
-  **/
-  @Schema(description = "")
-  public OffsetDateTime getSignatureDate() {
-    return signatureDate;
-  }
-
-  public void setSignatureDate(OffsetDateTime signatureDate) {
-    this.signatureDate = signatureDate;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -143,30 +174,32 @@ public class SignRuleUserModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignRuleUserModel signRuleUserModel = (SignRuleUserModel) o;
-    return Objects.equals(this.id, signRuleUserModel.id) &&
-        Objects.equals(this.name, signRuleUserModel.name) &&
-        Objects.equals(this.identifier, signRuleUserModel.identifier) &&
-        Objects.equals(this.email, signRuleUserModel.email) &&
-        Objects.equals(this.signatureDate, signRuleUserModel.signatureDate);
+    FlowActionEditModel flowActionEditModel = (FlowActionEditModel) o;
+    return Objects.equals(this.flowActionId, flowActionEditModel.flowActionId) &&
+        Objects.equals(this.step, flowActionEditModel.step) &&
+        Objects.equals(this.participantEmailAddress, flowActionEditModel.participantEmailAddress) &&
+        Objects.equals(this.ruleName, flowActionEditModel.ruleName) &&
+        Objects.equals(this.signRuleUsers, flowActionEditModel.signRuleUsers) &&
+        Objects.equals(this.title, flowActionEditModel.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, identifier, email, signatureDate);
+    return Objects.hash(flowActionId, step, participantEmailAddress, ruleName, signRuleUsers, title);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignRuleUserModel {\n");
+    sb.append("class FlowActionEditModel {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    signatureDate: ").append(toIndentedString(signatureDate)).append("\n");
+    sb.append("    flowActionId: ").append(toIndentedString(flowActionId)).append("\n");
+    sb.append("    step: ").append(toIndentedString(step)).append("\n");
+    sb.append("    participantEmailAddress: ").append(toIndentedString(participantEmailAddress)).append("\n");
+    sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
+    sb.append("    signRuleUsers: ").append(toIndentedString(signRuleUsers)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }

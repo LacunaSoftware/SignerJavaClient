@@ -19,54 +19,164 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.CreatorModel;
+import io.swagger.client.model.FolderInfoModel;
+import io.swagger.client.model.OrganizationInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
+import org.threeten.bp.OffsetDateTime;
 /**
- * DocumentPermissionsModel
+ * DocumentConcludedModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class DocumentConcludedModel {
+  @SerializedName("id")
+  private UUID id = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("name")
+  private String name = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("creationDate")
+  private OffsetDateTime creationDate = null;
+
+  @SerializedName("updateDate")
+  private OffsetDateTime updateDate = null;
+
+  @SerializedName("folder")
+  private FolderInfoModel folder = null;
+
+  @SerializedName("organization")
+  private OrganizationInfoModel organization = null;
+
+  @SerializedName("createdBy")
+  private CreatorModel createdBy = null;
+
+  public DocumentConcludedModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * The document&#x27;s id
+   * @return id
   **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  @Schema(description = "The document's id")
+  public UUID getId() {
+    return id;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setId(UUID id) {
+    this.id = id;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public DocumentConcludedModel name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * The document&#x27;s name
+   * @return name
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(description = "The document's name")
+  public String getName() {
+    return name;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public DocumentConcludedModel creationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+    return this;
+  }
+
+   /**
+   * The date the document was created.
+   * @return creationDate
+  **/
+  @Schema(description = "The date the document was created.")
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
+  }
+
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+  public DocumentConcludedModel updateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
+    return this;
+  }
+
+   /**
+   * The date of the last update to the document.
+   * @return updateDate
+  **/
+  @Schema(description = "The date of the last update to the document.")
+  public OffsetDateTime getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
+  }
+
+  public DocumentConcludedModel folder(FolderInfoModel folder) {
+    this.folder = folder;
+    return this;
+  }
+
+   /**
+   * Get folder
+   * @return folder
+  **/
+  @Schema(description = "")
+  public FolderInfoModel getFolder() {
+    return folder;
+  }
+
+  public void setFolder(FolderInfoModel folder) {
+    this.folder = folder;
+  }
+
+  public DocumentConcludedModel organization(OrganizationInfoModel organization) {
+    this.organization = organization;
+    return this;
+  }
+
+   /**
+   * Get organization
+   * @return organization
+  **/
+  @Schema(description = "")
+  public OrganizationInfoModel getOrganization() {
+    return organization;
+  }
+
+  public void setOrganization(OrganizationInfoModel organization) {
+    this.organization = organization;
+  }
+
+  public DocumentConcludedModel createdBy(CreatorModel createdBy) {
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Get createdBy
+   * @return createdBy
+  **/
+  @Schema(description = "")
+  public CreatorModel getCreatedBy() {
+    return createdBy;
+  }
+
+  public void setCreatedBy(CreatorModel createdBy) {
+    this.createdBy = createdBy;
   }
 
 
@@ -78,24 +188,34 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    DocumentConcludedModel documentConcludedModel = (DocumentConcludedModel) o;
+    return Objects.equals(this.id, documentConcludedModel.id) &&
+        Objects.equals(this.name, documentConcludedModel.name) &&
+        Objects.equals(this.creationDate, documentConcludedModel.creationDate) &&
+        Objects.equals(this.updateDate, documentConcludedModel.updateDate) &&
+        Objects.equals(this.folder, documentConcludedModel.folder) &&
+        Objects.equals(this.organization, documentConcludedModel.organization) &&
+        Objects.equals(this.createdBy, documentConcludedModel.createdBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(id, name, creationDate, updateDate, folder, organization, createdBy);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class DocumentConcludedModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+    sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
+    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,54 +19,139 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.DocumentMarkType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * DocumentPermissionsModel
+ * Model used to set the position of a document mark before it&#x27;s associated flow action is completed.
  */
-
+@Schema(description = "Model used to set the position of a document mark before it's associated flow action is completed.")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class PrePositionedDocumentMarkModel {
+  @SerializedName("type")
+  private DocumentMarkType type = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("topLeftX")
+  private Double topLeftX = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("topLeftY")
+  private Double topLeftY = null;
+
+  @SerializedName("width")
+  private Double width = null;
+
+  @SerializedName("height")
+  private Double height = null;
+
+  @SerializedName("pageNumber")
+  private Integer pageNumber = null;
+
+  public PrePositionedDocumentMarkModel type(DocumentMarkType type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public DocumentMarkType getType() {
+    return type;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setType(DocumentMarkType type) {
+    this.type = type;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public PrePositionedDocumentMarkModel topLeftX(Double topLeftX) {
+    this.topLeftX = topLeftX;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * X position of the top left point of the mark (in PDF points).
+   * @return topLeftX
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(description = "X position of the top left point of the mark (in PDF points).")
+  public Double getTopLeftX() {
+    return topLeftX;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setTopLeftX(Double topLeftX) {
+    this.topLeftX = topLeftX;
+  }
+
+  public PrePositionedDocumentMarkModel topLeftY(Double topLeftY) {
+    this.topLeftY = topLeftY;
+    return this;
+  }
+
+   /**
+   * Y position of the top left point of the mark (in PDF points).
+   * @return topLeftY
+  **/
+  @Schema(description = "Y position of the top left point of the mark (in PDF points).")
+  public Double getTopLeftY() {
+    return topLeftY;
+  }
+
+  public void setTopLeftY(Double topLeftY) {
+    this.topLeftY = topLeftY;
+  }
+
+  public PrePositionedDocumentMarkModel width(Double width) {
+    this.width = width;
+    return this;
+  }
+
+   /**
+   * Width of the mark (in PDF points).
+   * @return width
+  **/
+  @Schema(description = "Width of the mark (in PDF points).")
+  public Double getWidth() {
+    return width;
+  }
+
+  public void setWidth(Double width) {
+    this.width = width;
+  }
+
+  public PrePositionedDocumentMarkModel height(Double height) {
+    this.height = height;
+    return this;
+  }
+
+   /**
+   * Height of the mark (in PDF points).
+   * @return height
+  **/
+  @Schema(description = "Height of the mark (in PDF points).")
+  public Double getHeight() {
+    return height;
+  }
+
+  public void setHeight(Double height) {
+    this.height = height;
+  }
+
+  public PrePositionedDocumentMarkModel pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * The page number of the mark.
+   * @return pageNumber
+  **/
+  @Schema(description = "The page number of the mark.")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
   }
 
 
@@ -78,24 +163,32 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    PrePositionedDocumentMarkModel prePositionedDocumentMarkModel = (PrePositionedDocumentMarkModel) o;
+    return Objects.equals(this.type, prePositionedDocumentMarkModel.type) &&
+        Objects.equals(this.topLeftX, prePositionedDocumentMarkModel.topLeftX) &&
+        Objects.equals(this.topLeftY, prePositionedDocumentMarkModel.topLeftY) &&
+        Objects.equals(this.width, prePositionedDocumentMarkModel.width) &&
+        Objects.equals(this.height, prePositionedDocumentMarkModel.height) &&
+        Objects.equals(this.pageNumber, prePositionedDocumentMarkModel.pageNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(type, topLeftX, topLeftY, width, height, pageNumber);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class PrePositionedDocumentMarkModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    topLeftX: ").append(toIndentedString(topLeftX)).append("\n");
+    sb.append("    topLeftY: ").append(toIndentedString(topLeftY)).append("\n");
+    sb.append("    width: ").append(toIndentedString(width)).append("\n");
+    sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }

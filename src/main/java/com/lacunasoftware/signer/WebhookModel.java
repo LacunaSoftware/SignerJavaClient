@@ -19,54 +19,55 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.WebhookTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * DocumentPermissionsModel
+ * WebhookModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class WebhookModel {
+  @SerializedName("type")
+  private WebhookTypes type = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("data")
+  private Object data = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public WebhookModel type(WebhookTypes type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public WebhookTypes getType() {
+    return type;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setType(WebhookTypes type) {
+    this.type = type;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public WebhookModel data(Object data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * The type-specific data of this webhook event. Check the documentation to see the corresponding model for an event type.
+   * @return data
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(description = "The type-specific data of this webhook event. Check the documentation to see the corresponding model for an event type.")
+  public Object getData() {
+    return data;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setData(Object data) {
+    this.data = data;
   }
 
 
@@ -78,24 +79,24 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    WebhookModel webhookModel = (WebhookModel) o;
+    return Objects.equals(this.type, webhookModel.type) &&
+        Objects.equals(this.data, webhookModel.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(type, data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class WebhookModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

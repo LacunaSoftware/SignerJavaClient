@@ -21,52 +21,53 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * SignaturesInfoRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class SignaturesInfoRequest {
+  @SerializedName("fileId")
+  private UUID fileId = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("mimeType")
+  private String mimeType = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public SignaturesInfoRequest fileId(UUID fileId) {
+    this.fileId = fileId;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Id of the uploaded file.
+   * @return fileId
   **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  @Schema(required = true, description = "Id of the uploaded file.")
+  public UUID getFileId() {
+    return fileId;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setFileId(UUID fileId) {
+    this.fileId = fileId;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public SignaturesInfoRequest mimeType(String mimeType) {
+    this.mimeType = mimeType;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get mimeType
+   * @return mimeType
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(required = true, description = "")
+  public String getMimeType() {
+    return mimeType;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
   }
 
 
@@ -78,24 +79,24 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    SignaturesInfoRequest signaturesInfoRequest = (SignaturesInfoRequest) o;
+    return Objects.equals(this.fileId, signaturesInfoRequest.fileId) &&
+        Objects.equals(this.mimeType, signaturesInfoRequest.mimeType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(fileId, mimeType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class SignaturesInfoRequest {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
+    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

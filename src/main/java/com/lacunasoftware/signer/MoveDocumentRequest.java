@@ -21,52 +21,53 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * MoveDocumentRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class MoveDocumentRequest {
+  @SerializedName("folderId")
+  private UUID folderId = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("newFolderName")
+  private String newFolderName = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public MoveDocumentRequest folderId(UUID folderId) {
+    this.folderId = folderId;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.MoveDocumentRequest.NewFolderName.
+   * @return folderId
   **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  @Schema(description = "The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.MoveDocumentRequest.NewFolderName.")
+  public UUID getFolderId() {
+    return folderId;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setFolderId(UUID folderId) {
+    this.folderId = folderId;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public MoveDocumentRequest newFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.MoveDocumentRequest.FolderId is null)
+   * @return newFolderName
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(description = "The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.MoveDocumentRequest.FolderId is null)")
+  public String getNewFolderName() {
+    return newFolderName;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setNewFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
   }
 
 
@@ -78,24 +79,24 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    MoveDocumentRequest moveDocumentRequest = (MoveDocumentRequest) o;
+    return Objects.equals(this.folderId, moveDocumentRequest.folderId) &&
+        Objects.equals(this.newFolderName, moveDocumentRequest.newFolderName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(folderId, newFolderName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class MoveDocumentRequest {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
+    sb.append("    newFolderName: ").append(toIndentedString(newFolderName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

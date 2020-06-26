@@ -22,51 +22,51 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * DocumentPermissionsModel
+ * XmlNamespaceModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class XmlNamespaceModel {
+  @SerializedName("prefix")
+  private String prefix = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("uri")
+  private String uri = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public XmlNamespaceModel prefix(String prefix) {
+    this.prefix = prefix;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get prefix
+   * @return prefix
   **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  @Schema(required = true, description = "")
+  public String getPrefix() {
+    return prefix;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setPrefix(String prefix) {
+    this.prefix = prefix;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public XmlNamespaceModel uri(String uri) {
+    this.uri = uri;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get uri
+   * @return uri
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(required = true, description = "")
+  public String getUri() {
+    return uri;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setUri(String uri) {
+    this.uri = uri;
   }
 
 
@@ -78,24 +78,24 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    XmlNamespaceModel xmlNamespaceModel = (XmlNamespaceModel) o;
+    return Objects.equals(this.prefix, xmlNamespaceModel.prefix) &&
+        Objects.equals(this.uri, xmlNamespaceModel.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(prefix, uri);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class XmlNamespaceModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
+    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("}");
     return sb.toString();
   }

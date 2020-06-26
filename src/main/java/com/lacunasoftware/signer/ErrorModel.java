@@ -21,52 +21,84 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /**
- * DocumentPermissionsModel
+ * ErrorModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class ErrorModel {
+  @SerializedName("code")
+  private String code = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("message")
+  private String message = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("details")
+  private Map<String, String> details = null;
+
+  public ErrorModel code(String code) {
+    this.code = code;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get code
+   * @return code
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public String getCode() {
+    return code;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setCode(String code) {
+    this.code = code;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public ErrorModel message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get message
+   * @return message
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public String getMessage() {
+    return message;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public ErrorModel details(Map<String, String> details) {
+    this.details = details;
+    return this;
+  }
+
+  public ErrorModel putDetailsItem(String key, String detailsItem) {
+    if (this.details == null) {
+      this.details = new HashMap<String, String>();
+    }
+    this.details.put(key, detailsItem);
+    return this;
+  }
+
+   /**
+   * Get details
+   * @return details
+  **/
+  @Schema(description = "")
+  public Map<String, String> getDetails() {
+    return details;
+  }
+
+  public void setDetails(Map<String, String> details) {
+    this.details = details;
   }
 
 
@@ -78,24 +110,26 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    ErrorModel errorModel = (ErrorModel) o;
+    return Objects.equals(this.code, errorModel.code) &&
+        Objects.equals(this.message, errorModel.message) &&
+        Objects.equals(this.details, errorModel.details);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(code, message, details);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class ErrorModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("}");
     return sb.toString();
   }

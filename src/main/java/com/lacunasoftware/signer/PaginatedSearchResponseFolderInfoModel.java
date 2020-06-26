@@ -19,54 +19,65 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.FolderInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
- * DocumentPermissionsModel
+ * PaginatedSearchResponseFolderInfoModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class PaginatedSearchResponseFolderInfoModel {
+  @SerializedName("items")
+  private List<FolderInfoModel> items = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public PaginatedSearchResponseFolderInfoModel items(List<FolderInfoModel> items) {
+    this.items = items;
+    return this;
+  }
+
+  public PaginatedSearchResponseFolderInfoModel addItemsItem(FolderInfoModel itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<FolderInfoModel>();
+    }
+    this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get items
+   * @return items
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public List<FolderInfoModel> getItems() {
+    return items;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setItems(List<FolderInfoModel> items) {
+    this.items = items;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public PaginatedSearchResponseFolderInfoModel totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get totalCount
+   * @return totalCount
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public Integer getTotalCount() {
+    return totalCount;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
   }
 
 
@@ -78,24 +89,24 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    PaginatedSearchResponseFolderInfoModel paginatedSearchResponseFolderInfoModel = (PaginatedSearchResponseFolderInfoModel) o;
+    return Objects.equals(this.items, paginatedSearchResponseFolderInfoModel.items) &&
+        Objects.equals(this.totalCount, paginatedSearchResponseFolderInfoModel.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(items, totalCount);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class PaginatedSearchResponseFolderInfoModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

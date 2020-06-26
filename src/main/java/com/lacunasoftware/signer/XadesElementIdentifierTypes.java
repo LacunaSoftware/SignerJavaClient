@@ -14,101 +14,55 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.annotations.SerializedName;
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
+
 /**
- * DocumentPermissionsModel
+ * Gets or Sets XadesElementIdentifierTypes
  */
+@JsonAdapter(XadesElementIdentifierTypes.Adapter.class)
+public enum XadesElementIdentifierTypes {
+  ID("Id"),
+  XPATH("XPath");
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+  private String value;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
-
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
-    return this;
+  XadesElementIdentifierTypes(String value) {
+    this.value = value;
   }
 
-   /**
-   * Get move
-   * @return move
-  **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public String getValue() {
+    return value;
   }
-
-  public void setMove(Boolean move) {
-    this.move = move;
-  }
-
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
-    return this;
-  }
-
-   /**
-   * Get editFlow
-   * @return editFlow
-  **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
-  }
-
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(move, editFlow);
-  }
-
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
-    
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return String.valueOf(value);
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+  public static XadesElementIdentifierTypes fromValue(String text) {
+    for (XadesElementIdentifierTypes b : XadesElementIdentifierTypes.values()) {
+      if (String.valueOf(b.value).equals(text)) {
+        return b;
+      }
     }
-    return o.toString().replace("\n", "\n    ");
+    return null;
   }
 
+  public static class Adapter extends TypeAdapter<XadesElementIdentifierTypes> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final XadesElementIdentifierTypes enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
+    }
+
+    @Override
+    public XadesElementIdentifierTypes read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return XadesElementIdentifierTypes.fromValue(String.valueOf(value));
+    }
+  }
 }

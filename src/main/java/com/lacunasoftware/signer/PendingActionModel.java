@@ -21,52 +21,74 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * Contains the ids of the pending actions if there are any.
  */
-
+@Schema(description = "Contains the ids of the pending actions if there are any.")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class PendingActionModel {
+  @SerializedName("signerId")
+  private UUID signerId = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("signRuleId")
+  private UUID signRuleId = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("approverId")
+  private UUID approverId = null;
+
+  public PendingActionModel signerId(UUID signerId) {
+    this.signerId = signerId;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get signerId
+   * @return signerId
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public UUID getSignerId() {
+    return signerId;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setSignerId(UUID signerId) {
+    this.signerId = signerId;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public PendingActionModel signRuleId(UUID signRuleId) {
+    this.signRuleId = signRuleId;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get signRuleId
+   * @return signRuleId
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public UUID getSignRuleId() {
+    return signRuleId;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setSignRuleId(UUID signRuleId) {
+    this.signRuleId = signRuleId;
+  }
+
+  public PendingActionModel approverId(UUID approverId) {
+    this.approverId = approverId;
+    return this;
+  }
+
+   /**
+   * Get approverId
+   * @return approverId
+  **/
+  @Schema(description = "")
+  public UUID getApproverId() {
+    return approverId;
+  }
+
+  public void setApproverId(UUID approverId) {
+    this.approverId = approverId;
   }
 
 
@@ -78,24 +100,26 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    PendingActionModel pendingActionModel = (PendingActionModel) o;
+    return Objects.equals(this.signerId, pendingActionModel.signerId) &&
+        Objects.equals(this.signRuleId, pendingActionModel.signRuleId) &&
+        Objects.equals(this.approverId, pendingActionModel.approverId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(signerId, signRuleId, approverId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class PendingActionModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    signerId: ").append(toIndentedString(signerId)).append("\n");
+    sb.append("    signRuleId: ").append(toIndentedString(signRuleId)).append("\n");
+    sb.append("    approverId: ").append(toIndentedString(approverId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

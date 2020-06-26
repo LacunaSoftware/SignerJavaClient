@@ -22,51 +22,51 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * DocumentPermissionsModel
+ * AttributeCertificateInfoModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class AttributeCertificateInfoModel {
+  @SerializedName("details")
+  private String details = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("issuer")
+  private String issuer = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  public AttributeCertificateInfoModel details(String details) {
+    this.details = details;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get details
+   * @return details
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public String getDetails() {
+    return details;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setDetails(String details) {
+    this.details = details;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public AttributeCertificateInfoModel issuer(String issuer) {
+    this.issuer = issuer;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get issuer
+   * @return issuer
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public String getIssuer() {
+    return issuer;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setIssuer(String issuer) {
+    this.issuer = issuer;
   }
 
 
@@ -78,24 +78,24 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    AttributeCertificateInfoModel attributeCertificateInfoModel = (AttributeCertificateInfoModel) o;
+    return Objects.equals(this.details, attributeCertificateInfoModel.details) &&
+        Objects.equals(this.issuer, attributeCertificateInfoModel.issuer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(details, issuer);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class AttributeCertificateInfoModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("}");
     return sb.toString();
   }

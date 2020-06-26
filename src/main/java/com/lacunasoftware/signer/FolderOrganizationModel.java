@@ -19,54 +19,77 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.OrganizationInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * FolderOrganizationModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class FolderOrganizationModel {
+  @SerializedName("organization")
+  private OrganizationInfoModel organization = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("id")
+  private UUID id = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("name")
+  private String name = null;
+
+  public FolderOrganizationModel organization(OrganizationInfoModel organization) {
+    this.organization = organization;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get organization
+   * @return organization
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public OrganizationInfoModel getOrganization() {
+    return organization;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setOrganization(OrganizationInfoModel organization) {
+    this.organization = organization;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public FolderOrganizationModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public UUID getId() {
+    return id;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public FolderOrganizationModel name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -78,24 +101,26 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    FolderOrganizationModel folderOrganizationModel = (FolderOrganizationModel) o;
+    return Objects.equals(this.organization, folderOrganizationModel.organization) &&
+        Objects.equals(this.id, folderOrganizationModel.id) &&
+        Objects.equals(this.name, folderOrganizationModel.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(organization, id, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class FolderOrganizationModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

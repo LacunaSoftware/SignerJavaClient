@@ -19,54 +19,97 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * DocumentPermissionsModel
+ * ValidationItemModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class ValidationItemModel {
+  @SerializedName("type")
+  private String type = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("message")
+  private String message = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("detail")
+  private String detail = null;
+
+  @SerializedName("innerValidationResults")
+  private ValidationResultsModel innerValidationResults = null;
+
+  public ValidationItemModel type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  public String getType() {
+    return type;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setType(String type) {
+    this.type = type;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public ValidationItemModel message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * Get message
+   * @return message
   **/
   @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  public String getMessage() {
+    return message;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public ValidationItemModel detail(String detail) {
+    this.detail = detail;
+    return this;
+  }
+
+   /**
+   * Get detail
+   * @return detail
+  **/
+  @Schema(description = "")
+  public String getDetail() {
+    return detail;
+  }
+
+  public void setDetail(String detail) {
+    this.detail = detail;
+  }
+
+  public ValidationItemModel innerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
+    return this;
+  }
+
+   /**
+   * Get innerValidationResults
+   * @return innerValidationResults
+  **/
+  @Schema(description = "")
+  public ValidationResultsModel getInnerValidationResults() {
+    return innerValidationResults;
+  }
+
+  public void setInnerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
   }
 
 
@@ -78,24 +121,28 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    ValidationItemModel validationItemModel = (ValidationItemModel) o;
+    return Objects.equals(this.type, validationItemModel.type) &&
+        Objects.equals(this.message, validationItemModel.message) &&
+        Objects.equals(this.detail, validationItemModel.detail) &&
+        Objects.equals(this.innerValidationResults, validationItemModel.innerValidationResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(type, message, detail, innerValidationResults);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class ValidationItemModel {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    innerValidationResults: ").append(toIndentedString(innerValidationResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

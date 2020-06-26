@@ -21,52 +21,84 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 /**
- * DocumentPermissionsModel
+ * MoveDocumentBatchRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-06-26T20:34:53.137Z[GMT]")
-public class DocumentPermissionsModel {
-  @SerializedName("move")
-  private Boolean move = null;
+public class MoveDocumentBatchRequest {
+  @SerializedName("documents")
+  private List<UUID> documents = null;
 
-  @SerializedName("editFlow")
-  private Boolean editFlow = null;
+  @SerializedName("folderId")
+  private UUID folderId = null;
 
-  public DocumentPermissionsModel move(Boolean move) {
-    this.move = move;
+  @SerializedName("newFolderName")
+  private String newFolderName = null;
+
+  public MoveDocumentBatchRequest documents(List<UUID> documents) {
+    this.documents = documents;
+    return this;
+  }
+
+  public MoveDocumentBatchRequest addDocumentsItem(UUID documentsItem) {
+    if (this.documents == null) {
+      this.documents = new ArrayList<UUID>();
+    }
+    this.documents.add(documentsItem);
     return this;
   }
 
    /**
-   * Get move
-   * @return move
+   * The Ids of the documents that will be moved.
+   * @return documents
   **/
-  @Schema(description = "")
-  public Boolean isMove() {
-    return move;
+  @Schema(description = "The Ids of the documents that will be moved.")
+  public List<UUID> getDocuments() {
+    return documents;
   }
 
-  public void setMove(Boolean move) {
-    this.move = move;
+  public void setDocuments(List<UUID> documents) {
+    this.documents = documents;
   }
 
-  public DocumentPermissionsModel editFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public MoveDocumentBatchRequest folderId(UUID folderId) {
+    this.folderId = folderId;
     return this;
   }
 
    /**
-   * Get editFlow
-   * @return editFlow
+   * The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.MoveDocumentRequest.NewFolderName.
+   * @return folderId
   **/
-  @Schema(description = "")
-  public Boolean isEditFlow() {
-    return editFlow;
+  @Schema(description = "The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.MoveDocumentRequest.NewFolderName.")
+  public UUID getFolderId() {
+    return folderId;
   }
 
-  public void setEditFlow(Boolean editFlow) {
-    this.editFlow = editFlow;
+  public void setFolderId(UUID folderId) {
+    this.folderId = folderId;
+  }
+
+  public MoveDocumentBatchRequest newFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
+    return this;
+  }
+
+   /**
+   * The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.MoveDocumentRequest.FolderId is null)
+   * @return newFolderName
+  **/
+  @Schema(description = "The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.MoveDocumentRequest.FolderId is null)")
+  public String getNewFolderName() {
+    return newFolderName;
+  }
+
+  public void setNewFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
   }
 
 
@@ -78,24 +110,26 @@ public class DocumentPermissionsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentPermissionsModel documentPermissionsModel = (DocumentPermissionsModel) o;
-    return Objects.equals(this.move, documentPermissionsModel.move) &&
-        Objects.equals(this.editFlow, documentPermissionsModel.editFlow);
+    MoveDocumentBatchRequest moveDocumentBatchRequest = (MoveDocumentBatchRequest) o;
+    return Objects.equals(this.documents, moveDocumentBatchRequest.documents) &&
+        Objects.equals(this.folderId, moveDocumentBatchRequest.folderId) &&
+        Objects.equals(this.newFolderName, moveDocumentBatchRequest.newFolderName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(move, editFlow);
+    return Objects.hash(documents, folderId, newFolderName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentPermissionsModel {\n");
+    sb.append("class MoveDocumentBatchRequest {\n");
     
-    sb.append("    move: ").append(toIndentedString(move)).append("\n");
-    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
+    sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
+    sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
+    sb.append("    newFolderName: ").append(toIndentedString(newFolderName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
