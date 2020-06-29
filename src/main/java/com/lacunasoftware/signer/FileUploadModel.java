@@ -39,6 +39,12 @@ public class FileUploadModel {
   @SerializedName("contentType")
   private String contentType = null;
 
+  public FileUploadModel(UploadModel uploadModel) {
+    this.id = uploadModel.getId();
+    this.name = uploadModel.getName();
+    this.contentType = uploadModel.getContentType();
+  }
+
   public FileUploadModel displayName(String displayName) {
     this.displayName = displayName;
     return this;
