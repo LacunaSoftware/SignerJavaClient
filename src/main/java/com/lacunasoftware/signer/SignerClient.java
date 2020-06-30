@@ -59,7 +59,7 @@ public class SignerClient {
 	}
 
 	public DocumentModel getDocumentDetails(UUID id) throws RestException {
-		String requestUri = String.format("api/documents/%s, id.toString()");
+		String requestUri = String.format("api/documents/%s", id.toString());
 		DocumentModel document = getRestClient().get(requestUri, DocumentModel.class);
 		return document;
 	}
@@ -88,6 +88,16 @@ public class SignerClient {
 			}
 		}
 		return content;
+	}
+
+	// endregion
+
+	// region ACTIONURL
+
+	public ActionUrlResponse getActionUrl(UUID documentId, ActionUrlRequest request) throws RestException {
+		String requestUri = String.format("/api/documents/%s/action-url", documentId.toString());
+		ActionUrlResponse response = getRestClient().post(requestUri, request, ActionUrlResponse.class);
+		return response;
 	}
 
 	// endregion
