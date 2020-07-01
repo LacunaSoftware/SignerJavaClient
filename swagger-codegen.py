@@ -32,7 +32,7 @@ javaFileClassList = os.listdir(dirname)
 for javaFileClass in javaFileClassList:
     with open(dirname + '\\' + javaFileClass, 'rb') as file:
         fileData = file.read()
-    
+
     for className in classNames:
 
         oldImport = bytes('import com.lacunasoftware.signer.' + className, 'utf-8')
@@ -48,6 +48,7 @@ for javaFileClass in javaFileClassList:
         oldNamespace = bytes('package com.lacunasoftware.signer', 'utf-8')
         newNamespace = bytes('package com.lacunasoftware.signer.' + classNames[javaClass]['namespace'], 'utf-8')
         fileData = fileData.replace(oldNamespace, newNamespace)
+
 
     with open(dirname + '\\' + javaFileClass, 'wb') as file:
             file.write(fileData)

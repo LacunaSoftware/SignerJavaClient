@@ -17,6 +17,7 @@
         "\\gradlew.bat", 
         "\\pom.xml",
         "\\src\\main\\java\\com\\lacunasoftware\\signer\\PaginatedSearchResponseFoldersFolderInfoModel.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\signer\\PaginatedSearchResponseDocumentsDocumentListModel.java",
         "\\src\\main\\java\\com\\lacunasoftware\\ApiCallback.java",
         "\\src\\main\\java\\com\\lacunasoftware\\ApiClient.java",
         "\\src\\main\\java\\com\\lacunasoftware\\ApiException.java",
@@ -28,7 +29,7 @@
         "\\src\\main\\java\\com\\lacunasoftware\\ProgressResponseBody.java",
         "\\src\\main\\java\\com\\lacunasoftware\\StringUtil.java",
         "\\src\\main\\java\\com\\lacunasoftware\\Configuration.java",
-        "\\src\\main\\AndroidManifest.xml"
+        "\\src\\main\\AndroidManifest.xml"  
     ],
     "discardChanges": [
         "\\.gitignore",
