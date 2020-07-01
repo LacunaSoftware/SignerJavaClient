@@ -1,0 +1,39 @@
+{
+    "folders": [
+        "\\src\\main\\java\\com\\lacunasoftware\\auth",
+        "\\src\\main\\java\\io",
+        "\\src\\test",
+        "\\.swagger-codegen",
+        "\\docs",
+        "\\gradle"
+    ],
+    "files": [ 
+        "\\.swagger-codegen-ignore", 
+        "\\.travis.yml", 
+        "\\build.sbt", 
+        "\\git_push.sh", 
+        "\\gradle.properties", 
+        "\\gradlew", 
+        "\\gradlew.bat", 
+        "\\pom.xml",
+        "\\src\\main\\java\\com\\lacunasoftware\\signer\\PaginatedSearchResponseFoldersFolderInfoModel.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\ApiCallback.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\ApiClient.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\ApiException.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\ApiResponse.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\GzipRequestInterceptor.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\JSON.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\Pair.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\ProgressRequestBody.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\ProgressResponseBody.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\StringUtil.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\Configuration.java",
+        "\\src\\main\\AndroidManifest.xml"
+    ],
+    "discardChanges": [
+        "\\.gitignore",
+        "\\build.gradle",
+        "\\README.md",
+        "\\settings.gradle"
+    ]
+}

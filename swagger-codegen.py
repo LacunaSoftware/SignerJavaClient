@@ -1,12 +1,7 @@
 import requests
 import os
 import json
-    
-def join(stringList):
-    output = ""
-    for string in stringList:
-        output += string
-    return output
+import shutil
 
 with requests.Session() as session:
     response = session.get('https://signer-lac.azurewebsites.net/swagger/api/swagger.json')
@@ -19,7 +14,7 @@ classNames = {}
 for name in schemaNames:
     if '.' in name:
         classNamespaceAndName = name.split('.')
-        generatedClassName = join(classNamespaceAndName)
+        generatedClassName = "".join(classNamespaceAndName)
 
         if (not generatedClassName in classNames.keys()):
             classNames[generatedClassName] = {}
@@ -28,34 +23,50 @@ for name in schemaNames:
         classNames[generatedClassName]['name'] = classNamespaceAndName[1]
 
 dirname = os.path.dirname(__file__) + '\\src\\main\\java\\com\\lacunasoftware\\signer'
-javaClassList = os.listdir(dirname)
-
 for className in classNames:
-    fileName = className + '.java'
-    if fileName in javaClassList:
-        package = dirname + '\\' + classNames[className]['namespace']
-        if not os.path.exists(package):
-            os.mkdir(package)
-        
-        with open(dirname + '\\' + fileName, 'rb') as file:
-            fileData = file.read()
-        
+    package = dirname + '\\' + classNames[className]['namespace']
+    if os.path.exists(package):
+        shutil.rmtree(package)
+
+javaFileClassList = os.listdir(dirname)
+for javaFileClass in javaFileClassList:
+    with open(dirname + '\\' + javaFileClass, 'rb') as file:
+        fileData = file.read()
+    
+    for className in classNames:
+
+        oldImport = bytes('import com.lacunasoftware.signer.' + className, 'utf-8')
+        newImport = bytes('import com.lacunasoftware.signer.' + classNames[className]['namespace'] + '.' + classNames[className]['name'], 'utf-8')
+        fileData = fileData.replace(oldImport, newImport)
+
+        oldClassReferences = bytes(className, 'utf-8')
+        newClassReferences = bytes(classNames[className]['name'], 'utf-8')
+        fileData = fileData.replace(oldClassReferences, newClassReferences)
+
+    javaClass = javaFileClass[:-5] # Removes .java
+    if javaClass in classNames.keys():
         oldNamespace = bytes('package com.lacunasoftware.signer', 'utf-8')
-        newNamespace = bytes('package com.lacunasoftware.signer.' + classNames[className]['namespace'], 'utf-8')
+        newNamespace = bytes('package com.lacunasoftware.signer.' + classNames[javaClass]['namespace'], 'utf-8')
         fileData = fileData.replace(oldNamespace, newNamespace)
 
-        for otherClassName in classNames:
-            oldImport = bytes('import com.lacunasoftware.signer.' + otherClassName, 'utf-8')
-            newImport = bytes('import com.lacunasoftware.signer.' + classNames[otherClassName]['namespace'] + '.' + classNames[otherClassName]['name'], 'utf-8')
-            fileData = fileData.replace(oldImport, newImport)
-
-            oldClassReferences = bytes(otherClassName, 'utf-8')
-            newClassReferences = bytes(classNames[otherClassName]['name'], 'utf-8')
-            fileData = fileData.replace(oldClassReferences, newClassReferences)
-
-        with open(dirname + '\\' + fileName, 'wb') as file:
+    with open(dirname + '\\' + javaFileClass, 'wb') as file:
             file.write(fileData)
-        
-        os.rename(dirname + '\\' + fileName, dirname + '\\' + classNames[className]['namespace'] + '\\' + classNames[className]['name'] + '.java')
-        
 
+    if javaClass in classNames.keys():
+        folder = dirname + '\\' + classNames[javaClass]['namespace']
+        if not os.path.exists(folder):
+            os.mkdir(folder)
+
+        os.rename(dirname + '\\' + javaFileClass, folder + '\\' + classNames[javaClass]['name'] + '.java')
+
+with open('swagger-discard.json', 'rb') as file:
+    discard = json.loads(file.read())
+
+for folderToDiscard in discard['folders']:
+    shutil.rmtree(os.path.dirname(__file__) + folderToDiscard)
+
+for fileToDiscard in discard['files']:
+    os.remove(os.path.dirname(__file__) + fileToDiscard)
+
+for changeToDiscard in discard['discardChanges']:
+    os.system('git checkout ' + os.path.dirname(__file__) + changeToDiscard)
