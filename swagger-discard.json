@@ -17,6 +17,7 @@
         "\\gradlew.bat", 
         "\\pom.xml",
         "\\src\\main\\java\\com\\lacunasoftware\\signer\\PaginatedSearchResponseFoldersFolderInfoModel.java",
+        "\\src\\main\\java\\com\\lacunasoftware\\signer\\PaginatedSearchResponseFolderInfoModel.java",
         "\\src\\main\\java\\com\\lacunasoftware\\signer\\PaginatedSearchResponseDocumentsDocumentListModel.java",
         "\\src\\main\\java\\com\\lacunasoftware\\ApiCallback.java",
         "\\src\\main\\java\\com\\lacunasoftware\\ApiClient.java",
