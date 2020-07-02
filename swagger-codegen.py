@@ -28,10 +28,15 @@ for className in classNames:
     if os.path.exists(package):
         shutil.rmtree(package)
 
-javaFileClassList = os.listdir(dirname)
+javaFileClassList = [f.name for f in os.scandir(dirname) if f.is_file()]
 for javaFileClass in javaFileClassList:
     with open(dirname + '\\' + javaFileClass, 'rb') as file:
         fileData = file.read()
+
+    OffsetDateTime = 'OffsetDateTime'
+    oldDateTimeImport = bytes('import org.threeten.bp.' + OffsetDateTime, 'utf-8')
+    newDateTimeImport = bytes('import java.time.' + OffsetDateTime, 'utf-8')
+    fileData.replace(oldDateTimeImport, newDateTimeImport)
 
     for className in classNames:
 
