@@ -27,7 +27,7 @@ import java.util.UUID;
  * ObserverModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-01T17:50:57.027-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
 public class ObserverModel {
   @SerializedName("id")
   private UUID id = null;
