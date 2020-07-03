@@ -25,7 +25,7 @@ import java.io.IOException;
  * FileUploadModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
 public class FileUploadModel {
   @SerializedName("displayName")
   private String displayName = null;

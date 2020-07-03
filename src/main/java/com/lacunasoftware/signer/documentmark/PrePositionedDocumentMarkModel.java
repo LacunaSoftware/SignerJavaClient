@@ -26,7 +26,7 @@ import java.io.IOException;
  * Model used to set the position of a document mark before it&#x27;s associated flow action is completed.
  */
 @Schema(description = "Model used to set the position of a document mark before it's associated flow action is completed.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
 public class PrePositionedDocumentMarkModel {
   @SerializedName("type")
   private DocumentMarkType type = null;
