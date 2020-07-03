@@ -1,13 +1,21 @@
 package com.lacunasoftware.signer.javaclient;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.JsonParseException;
+import org.threeten.bp.OffsetDateTime;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonDeserializationContext;
+import org.threeten.bp.format.DateTimeFormatter;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.Scanner;
+import  java.lang.reflect.Type;
 
 import com.lacunasoftware.signer.javaclient.exceptions.RestErrorException;
 import com.lacunasoftware.signer.javaclient.exceptions.RestException;
@@ -109,7 +117,7 @@ class RestClient {
 
 			OutputStream outStream = conn.getOutputStream();
 			if (request != null) {
-				String json = new Gson().toJson(request);
+				String json = getGson().toJson(request);
 				outStream.write(json.getBytes());
 			}
 			outStream.close();
@@ -296,14 +304,14 @@ class RestClient {
 
 	private <T> T readResponse(HttpURLConnection conn, TypeToken<T> typeToken) throws IOException {
 		InputStream inStream = conn.getInputStream();
-		T response = new Gson().fromJson(readJsonStream(inStream), typeToken.getType());
+		T response = getGson().fromJson(readJsonStream(inStream), typeToken.getType());
 		inStream.close();
 		return response;
 	}
 
 	private <T> T readErrorResponse(HttpURLConnection conn, Class<T> valueType) throws IOException {
 		InputStream inStream = conn.getErrorStream();
-		T response = new Gson().fromJson(readJsonStream(inStream), valueType);
+		T response = getGson().fromJson(readJsonStream(inStream), valueType);
 		inStream.close();
 		return response;
 	}
@@ -322,5 +330,23 @@ class RestClient {
 		String processedEndpoint = endpoint.replaceAll("([/]*)$", "");
 		String processedPath = path.replaceAll("^([/]*)", "");
 		return processedEndpoint + "/" + processedPath;
+	}
+
+	private Gson getGson() {
+		Gson gson = new GsonBuilder()
+			.registerTypeAdapter(OffsetDateTime.class, new OffsetDateTimeDeserializer())
+			.create();
+		return gson;
+	}
+
+	private class OffsetDateTimeDeserializer implements JsonDeserializer<OffsetDateTime> {
+		@Override
+		public OffsetDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+			if (json == null) {
+				return null;
+			}
+			String dateString = json.toString().substring(1, 34);
+			return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+		}
 	}
 }
