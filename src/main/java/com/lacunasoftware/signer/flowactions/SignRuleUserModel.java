@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -21,70 +21,57 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
+import org.threeten.bp.OffsetDateTime;
 /**
- * FileUploadModel
+ * SignRuleUserModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
-
+public class SignRuleUserModel {
   @SerializedName("id")
-  private String id = null;
+  private UUID id = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("contentType")
-  private String contentType = null;
+  @SerializedName("identifier")
+  private String identifier = null;
 
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
+  @SerializedName("email")
+  private String email = null;
 
-   /**
-   * This is the name the document will display in the application.
-   * @return displayName
-  **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
-  }
+  @SerializedName("signatureDate")
+  private OffsetDateTime signatureDate = null;
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public FileUploadModel id(String id) {
+  public SignRuleUserModel id(UUID id) {
     this.id = id;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
+   * Get id
    * @return id
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
+  @Schema(description = "")
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public FileUploadModel name(String name) {
+  public SignRuleUserModel name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * The file&#x27;s original name.
+   * Get name
    * @return name
   **/
-  @Schema(required = true, description = "The file's original name.")
+  @Schema(description = "")
   public String getName() {
     return name;
   }
@@ -93,22 +80,58 @@ public class FileUploadModel {
     this.name = name;
   }
 
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
+  public SignRuleUserModel identifier(String identifier) {
+    this.identifier = identifier;
     return this;
   }
 
    /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
+   * The user identifier (CPF in Brazil or Cédula de Identidad in Ecuador).
+   * @return identifier
   **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
+  @Schema(description = "The user identifier (CPF in Brazil or Cédula de Identidad in Ecuador).")
+  public String getIdentifier() {
+    return identifier;
   }
 
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
+  public SignRuleUserModel email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @Schema(description = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public SignRuleUserModel signatureDate(OffsetDateTime signatureDate) {
+    this.signatureDate = signatureDate;
+    return this;
+  }
+
+   /**
+   * Get signatureDate
+   * @return signatureDate
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getSignatureDate() {
+    return signatureDate;
+  }
+
+  public void setSignatureDate(OffsetDateTime signatureDate) {
+    this.signatureDate = signatureDate;
   }
 
 
@@ -120,28 +143,30 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    SignRuleUserModel flowActionsSignRuleUserModel = (SignRuleUserModel) o;
+    return Objects.equals(this.id, flowActionsSignRuleUserModel.id) &&
+        Objects.equals(this.name, flowActionsSignRuleUserModel.name) &&
+        Objects.equals(this.identifier, flowActionsSignRuleUserModel.identifier) &&
+        Objects.equals(this.email, flowActionsSignRuleUserModel.email) &&
+        Objects.equals(this.signatureDate, flowActionsSignRuleUserModel.signatureDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(id, name, identifier, email, signatureDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class SignRuleUserModel {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    signatureDate: ").append(toIndentedString(signatureDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

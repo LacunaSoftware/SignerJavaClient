@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -22,93 +22,51 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * FileUploadModel
+ * DocumentPermissionsModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
+public class DocumentPermissionsModel {
+  @SerializedName("move")
+  private Boolean move = null;
 
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("editFlow")
+  private Boolean editFlow = null;
 
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("contentType")
-  private String contentType = null;
-
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
+  public DocumentPermissionsModel move(Boolean move) {
+    this.move = move;
     return this;
   }
 
    /**
-   * This is the name the document will display in the application.
-   * @return displayName
+   * Get move
+   * @return move
   **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
+  @Schema(description = "")
+  public Boolean isMove() {
+    return move;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setMove(Boolean move) {
+    this.move = move;
   }
 
-  public FileUploadModel id(String id) {
-    this.id = id;
+  public DocumentPermissionsModel editFlow(Boolean editFlow) {
+    this.editFlow = editFlow;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
-   * @return id
+   * Get editFlow
+   * @return editFlow
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public Boolean isEditFlow() {
+    return editFlow;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FileUploadModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s original name.
-   * @return name
-  **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
-  **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
-  }
-
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setEditFlow(Boolean editFlow) {
+    this.editFlow = editFlow;
   }
 
 
@@ -120,28 +78,24 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    DocumentPermissionsModel documentsDocumentPermissionsModel = (DocumentPermissionsModel) o;
+    return Objects.equals(this.move, documentsDocumentPermissionsModel.move) &&
+        Objects.equals(this.editFlow, documentsDocumentPermissionsModel.editFlow);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(move, editFlow);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class DocumentPermissionsModel {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    move: ").append(toIndentedString(move)).append("\n");
+    sb.append("    editFlow: ").append(toIndentedString(editFlow)).append("\n");
     sb.append("}");
     return sb.toString();
   }

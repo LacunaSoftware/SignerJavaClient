@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -21,94 +21,84 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 /**
- * FileUploadModel
+ * MoveDocumentBatchRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
+public class MoveDocumentBatchRequest {
+  @SerializedName("documents")
+  private List<UUID> documents = null;
 
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("folderId")
+  private UUID folderId = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("newFolderName")
+  private String newFolderName = null;
 
-  @SerializedName("contentType")
-  private String contentType = null;
+  public MoveDocumentBatchRequest documents(List<UUID> documents) {
+    this.documents = documents;
+    return this;
+  }
 
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
+  public MoveDocumentBatchRequest addDocumentsItem(UUID documentsItem) {
+    if (this.documents == null) {
+      this.documents = new ArrayList<UUID>();
+    }
+    this.documents.add(documentsItem);
     return this;
   }
 
    /**
-   * This is the name the document will display in the application.
-   * @return displayName
+   * The Ids of the documents that will be moved.
+   * @return documents
   **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
+  @Schema(description = "The Ids of the documents that will be moved.")
+  public List<UUID> getDocuments() {
+    return documents;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setDocuments(List<UUID> documents) {
+    this.documents = documents;
   }
 
-  public FileUploadModel id(String id) {
-    this.id = id;
+  public MoveDocumentBatchRequest folderId(UUID folderId) {
+    this.folderId = folderId;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
-   * @return id
+   * The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.Documents.MoveDocumentRequest.NewFolderName.
+   * @return folderId
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
-    return id;
+  @Schema(description = "The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.Documents.MoveDocumentRequest.NewFolderName.")
+  public UUID getFolderId() {
+    return folderId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setFolderId(UUID folderId) {
+    this.folderId = folderId;
   }
 
-  public FileUploadModel name(String name) {
-    this.name = name;
+  public MoveDocumentBatchRequest newFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
     return this;
   }
 
    /**
-   * The file&#x27;s original name.
-   * @return name
+   * The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.Documents.MoveDocumentRequest.FolderId is null)
+   * @return newFolderName
   **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
+  @Schema(description = "The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.Documents.MoveDocumentRequest.FolderId is null)")
+  public String getNewFolderName() {
+    return newFolderName;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
-  **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
-  }
-
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setNewFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
   }
 
 
@@ -120,28 +110,26 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    MoveDocumentBatchRequest documentsMoveDocumentBatchRequest = (MoveDocumentBatchRequest) o;
+    return Objects.equals(this.documents, documentsMoveDocumentBatchRequest.documents) &&
+        Objects.equals(this.folderId, documentsMoveDocumentBatchRequest.folderId) &&
+        Objects.equals(this.newFolderName, documentsMoveDocumentBatchRequest.newFolderName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(documents, folderId, newFolderName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class MoveDocumentBatchRequest {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
+    sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
+    sb.append("    newFolderName: ").append(toIndentedString(newFolderName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

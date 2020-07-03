@@ -19,96 +19,97 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * FileUploadModel
+ * ValidationItemModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
+public class ValidationItemModel {
+  @SerializedName("type")
+  private String type = null;
 
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("message")
+  private String message = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("detail")
+  private String detail = null;
 
-  @SerializedName("contentType")
-  private String contentType = null;
+  @SerializedName("innerValidationResults")
+  private ValidationResultsModel innerValidationResults = null;
 
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
+  public ValidationItemModel type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * This is the name the document will display in the application.
-   * @return displayName
+   * Get type
+   * @return type
   **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
+  @Schema(description = "")
+  public String getType() {
+    return type;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setType(String type) {
+    this.type = type;
   }
 
-  public FileUploadModel id(String id) {
-    this.id = id;
+  public ValidationItemModel message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
-   * @return id
+   * Get message
+   * @return message
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getMessage() {
+    return message;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
-  public FileUploadModel name(String name) {
-    this.name = name;
+  public ValidationItemModel detail(String detail) {
+    this.detail = detail;
     return this;
   }
 
    /**
-   * The file&#x27;s original name.
-   * @return name
+   * Get detail
+   * @return detail
   **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
+  @Schema(description = "")
+  public String getDetail() {
+    return detail;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setDetail(String detail) {
+    this.detail = detail;
   }
 
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
+  public ValidationItemModel innerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
     return this;
   }
 
    /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
+   * Get innerValidationResults
+   * @return innerValidationResults
   **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
+  @Schema(description = "")
+  public ValidationResultsModel getInnerValidationResults() {
+    return innerValidationResults;
   }
 
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setInnerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
   }
 
 
@@ -120,28 +121,28 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    ValidationItemModel validationItemModel = (ValidationItemModel) o;
+    return Objects.equals(this.type, validationItemModel.type) &&
+        Objects.equals(this.message, validationItemModel.message) &&
+        Objects.equals(this.detail, validationItemModel.detail) &&
+        Objects.equals(this.innerValidationResults, validationItemModel.innerValidationResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(type, message, detail, innerValidationResults);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class ValidationItemModel {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    innerValidationResults: ").append(toIndentedString(innerValidationResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

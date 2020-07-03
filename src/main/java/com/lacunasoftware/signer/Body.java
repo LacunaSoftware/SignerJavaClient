@@ -20,95 +20,33 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.File;
 import java.io.IOException;
 /**
- * FileUploadModel
+ * Body
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
+public class Body {
+  @SerializedName("file")
+  private File file = null;
 
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("contentType")
-  private String contentType = null;
-
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
+  public Body file(File file) {
+    this.file = file;
     return this;
   }
 
    /**
-   * This is the name the document will display in the application.
-   * @return displayName
+   * File to upload
+   * @return file
   **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
+  @Schema(description = "File to upload")
+  public File getFile() {
+    return file;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public FileUploadModel id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
-   * @return id
-  **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FileUploadModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s original name.
-   * @return name
-  **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
-  **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
-  }
-
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setFile(File file) {
+    this.file = file;
   }
 
 
@@ -120,28 +58,22 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    Body body = (Body) o;
+    return Objects.equals(this.file, body.file);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(file);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class Body {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("}");
     return sb.toString();
   }

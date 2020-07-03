@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.folders;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,96 +19,56 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.DeleteAction;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * FileUploadModel
+ * FolderDeleteRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
+public class FolderDeleteRequest {
+  @SerializedName("deleteAction")
+  private DeleteAction deleteAction = null;
 
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("destinationFolderId")
+  private UUID destinationFolderId = null;
 
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("contentType")
-  private String contentType = null;
-
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
+  public FolderDeleteRequest deleteAction(DeleteAction deleteAction) {
+    this.deleteAction = deleteAction;
     return this;
   }
 
    /**
-   * This is the name the document will display in the application.
-   * @return displayName
+   * Get deleteAction
+   * @return deleteAction
   **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
+  @Schema(description = "")
+  public DeleteAction getDeleteAction() {
+    return deleteAction;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setDeleteAction(DeleteAction deleteAction) {
+    this.deleteAction = deleteAction;
   }
 
-  public FileUploadModel id(String id) {
-    this.id = id;
+  public FolderDeleteRequest destinationFolderId(UUID destinationFolderId) {
+    this.destinationFolderId = destinationFolderId;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
-   * @return id
+   * The folder to which the documents will be moved (if Lacuna.Signer.Api.Folders.FolderDeleteRequest.DeleteAction is Lacuna.Signer.Api.DeleteAction.MoveContent).  This value can be null if you want to keep the documents with no folder.
+   * @return destinationFolderId
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
-    return id;
+  @Schema(description = "The folder to which the documents will be moved (if Lacuna.Signer.Api.Folders.FolderDeleteRequest.DeleteAction is Lacuna.Signer.Api.DeleteAction.MoveContent).  This value can be null if you want to keep the documents with no folder.")
+  public UUID getDestinationFolderId() {
+    return destinationFolderId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FileUploadModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s original name.
-   * @return name
-  **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
-  **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
-  }
-
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setDestinationFolderId(UUID destinationFolderId) {
+    this.destinationFolderId = destinationFolderId;
   }
 
 
@@ -120,28 +80,24 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    FolderDeleteRequest foldersFolderDeleteRequest = (FolderDeleteRequest) o;
+    return Objects.equals(this.deleteAction, foldersFolderDeleteRequest.deleteAction) &&
+        Objects.equals(this.destinationFolderId, foldersFolderDeleteRequest.destinationFolderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(deleteAction, destinationFolderId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class FolderDeleteRequest {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    deleteAction: ").append(toIndentedString(deleteAction)).append("\n");
+    sb.append("    destinationFolderId: ").append(toIndentedString(destinationFolderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

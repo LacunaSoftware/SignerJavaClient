@@ -19,96 +19,114 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.ValidationItemModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
- * FileUploadModel
+ * ValidationResultsModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
+public class ValidationResultsModel {
+  @SerializedName("passedChecks")
+  private List<ValidationItemModel> passedChecks = null;
 
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("errors")
+  private List<ValidationItemModel> errors = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("warnings")
+  private List<ValidationItemModel> warnings = null;
 
-  @SerializedName("contentType")
-  private String contentType = null;
+  @SerializedName("isValid")
+  private Boolean isValid = null;
 
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
+  public ValidationResultsModel passedChecks(List<ValidationItemModel> passedChecks) {
+    this.passedChecks = passedChecks;
+    return this;
+  }
+
+  public ValidationResultsModel addPassedChecksItem(ValidationItemModel passedChecksItem) {
+    if (this.passedChecks == null) {
+      this.passedChecks = new ArrayList<ValidationItemModel>();
+    }
+    this.passedChecks.add(passedChecksItem);
     return this;
   }
 
    /**
-   * This is the name the document will display in the application.
-   * @return displayName
+   * Get passedChecks
+   * @return passedChecks
   **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
+  @Schema(description = "")
+  public List<ValidationItemModel> getPassedChecks() {
+    return passedChecks;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setPassedChecks(List<ValidationItemModel> passedChecks) {
+    this.passedChecks = passedChecks;
   }
 
-  public FileUploadModel id(String id) {
-    this.id = id;
+  public ValidationResultsModel errors(List<ValidationItemModel> errors) {
+    this.errors = errors;
+    return this;
+  }
+
+  public ValidationResultsModel addErrorsItem(ValidationItemModel errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<ValidationItemModel>();
+    }
+    this.errors.add(errorsItem);
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
-   * @return id
+   * Get errors
+   * @return errors
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public List<ValidationItemModel> getErrors() {
+    return errors;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setErrors(List<ValidationItemModel> errors) {
+    this.errors = errors;
   }
 
-  public FileUploadModel name(String name) {
-    this.name = name;
+  public ValidationResultsModel warnings(List<ValidationItemModel> warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  public ValidationResultsModel addWarningsItem(ValidationItemModel warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<ValidationItemModel>();
+    }
+    this.warnings.add(warningsItem);
     return this;
   }
 
    /**
-   * The file&#x27;s original name.
-   * @return name
+   * Get warnings
+   * @return warnings
   **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
+  @Schema(description = "")
+  public List<ValidationItemModel> getWarnings() {
+    return warnings;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
-    return this;
+  public void setWarnings(List<ValidationItemModel> warnings) {
+    this.warnings = warnings;
   }
 
    /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
+   * Get isValid
+   * @return isValid
   **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
-  }
-
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  @Schema(description = "")
+  public Boolean isIsValid() {
+    return isValid;
   }
 
 
@@ -120,28 +138,28 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    ValidationResultsModel validationResultsModel = (ValidationResultsModel) o;
+    return Objects.equals(this.passedChecks, validationResultsModel.passedChecks) &&
+        Objects.equals(this.errors, validationResultsModel.errors) &&
+        Objects.equals(this.warnings, validationResultsModel.warnings) &&
+        Objects.equals(this.isValid, validationResultsModel.isValid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(passedChecks, errors, warnings, isValid);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class ValidationResultsModel {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    passedChecks: ").append(toIndentedString(passedChecks)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+    sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

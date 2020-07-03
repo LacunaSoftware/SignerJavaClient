@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -21,94 +21,53 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * FileUploadModel
+ * SignRuleUserEditModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
+public class SignRuleUserEditModel {
+  @SerializedName("userId")
+  private UUID userId = null;
 
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("emailAddress")
+  private String emailAddress = null;
 
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("contentType")
-  private String contentType = null;
-
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
+  public SignRuleUserEditModel userId(UUID userId) {
+    this.userId = userId;
     return this;
   }
 
    /**
-   * This is the name the document will display in the application.
-   * @return displayName
+   * Get userId
+   * @return userId
   **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
+  @Schema(description = "")
+  public UUID getUserId() {
+    return userId;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setUserId(UUID userId) {
+    this.userId = userId;
   }
 
-  public FileUploadModel id(String id) {
-    this.id = id;
+  public SignRuleUserEditModel emailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
-   * @return id
+   * Get emailAddress
+   * @return emailAddress
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getEmailAddress() {
+    return emailAddress;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FileUploadModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s original name.
-   * @return name
-  **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
-  **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
-  }
-
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
   }
 
 
@@ -120,28 +79,24 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    SignRuleUserEditModel flowActionsSignRuleUserEditModel = (SignRuleUserEditModel) o;
+    return Objects.equals(this.userId, flowActionsSignRuleUserEditModel.userId) &&
+        Objects.equals(this.emailAddress, flowActionsSignRuleUserEditModel.emailAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(userId, emailAddress);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class SignRuleUserEditModel {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("}");
     return sb.toString();
   }

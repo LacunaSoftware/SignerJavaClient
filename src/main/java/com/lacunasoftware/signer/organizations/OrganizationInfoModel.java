@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.organizations;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,72 +19,56 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.organizations.OrganizationOwnerInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * FileUploadModel
+ * OrganizationInfoModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
-
+public class OrganizationInfoModel {
   @SerializedName("id")
-  private String id = null;
+  private UUID id = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("contentType")
-  private String contentType = null;
+  @SerializedName("identifier")
+  private String identifier = null;
 
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
+  @SerializedName("owner")
+  private OrganizationOwnerInfoModel owner = null;
 
-   /**
-   * This is the name the document will display in the application.
-   * @return displayName
-  **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public FileUploadModel id(String id) {
+  public OrganizationInfoModel id(UUID id) {
     this.id = id;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
+   * Get id
    * @return id
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
+  @Schema(description = "")
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public FileUploadModel name(String name) {
+  public OrganizationInfoModel name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * The file&#x27;s original name.
+   * Get name
    * @return name
   **/
-  @Schema(required = true, description = "The file's original name.")
+  @Schema(description = "")
   public String getName() {
     return name;
   }
@@ -93,22 +77,40 @@ public class FileUploadModel {
     this.name = name;
   }
 
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
+  public OrganizationInfoModel identifier(String identifier) {
+    this.identifier = identifier;
     return this;
   }
 
    /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
+   * The organization identifier (CNPJ)
+   * @return identifier
   **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
+  @Schema(description = "The organization identifier (CNPJ)")
+  public String getIdentifier() {
+    return identifier;
   }
 
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
+  public OrganizationInfoModel owner(OrganizationOwnerInfoModel owner) {
+    this.owner = owner;
+    return this;
+  }
+
+   /**
+   * Get owner
+   * @return owner
+  **/
+  @Schema(description = "")
+  public OrganizationOwnerInfoModel getOwner() {
+    return owner;
+  }
+
+  public void setOwner(OrganizationOwnerInfoModel owner) {
+    this.owner = owner;
   }
 
 
@@ -120,28 +122,28 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    OrganizationInfoModel organizationsOrganizationInfoModel = (OrganizationInfoModel) o;
+    return Objects.equals(this.id, organizationsOrganizationInfoModel.id) &&
+        Objects.equals(this.name, organizationsOrganizationInfoModel.name) &&
+        Objects.equals(this.identifier, organizationsOrganizationInfoModel.identifier) &&
+        Objects.equals(this.owner, organizationsOrganizationInfoModel.owner);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(id, name, identifier, owner);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class OrganizationInfoModel {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("}");
     return sb.toString();
   }

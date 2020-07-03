@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -21,94 +21,53 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * FileUploadModel
+ * MoveDocumentRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
+public class MoveDocumentRequest {
+  @SerializedName("folderId")
+  private UUID folderId = null;
 
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("newFolderName")
+  private String newFolderName = null;
 
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("contentType")
-  private String contentType = null;
-
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
+  public MoveDocumentRequest folderId(UUID folderId) {
+    this.folderId = folderId;
     return this;
   }
 
    /**
-   * This is the name the document will display in the application.
-   * @return displayName
+   * The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.Documents.MoveDocumentRequest.NewFolderName.
+   * @return folderId
   **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
+  @Schema(description = "The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.Documents.MoveDocumentRequest.NewFolderName.")
+  public UUID getFolderId() {
+    return folderId;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setFolderId(UUID folderId) {
+    this.folderId = folderId;
   }
 
-  public FileUploadModel id(String id) {
-    this.id = id;
+  public MoveDocumentRequest newFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
-   * @return id
+   * The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.Documents.MoveDocumentRequest.FolderId is null)
+   * @return newFolderName
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
-    return id;
+  @Schema(description = "The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.Documents.MoveDocumentRequest.FolderId is null)")
+  public String getNewFolderName() {
+    return newFolderName;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FileUploadModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s original name.
-   * @return name
-  **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
-    return this;
-  }
-
-   /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
-  **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
-  }
-
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setNewFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
   }
 
 
@@ -120,28 +79,24 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    MoveDocumentRequest documentsMoveDocumentRequest = (MoveDocumentRequest) o;
+    return Objects.equals(this.folderId, documentsMoveDocumentRequest.folderId) &&
+        Objects.equals(this.newFolderName, documentsMoveDocumentRequest.newFolderName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(folderId, newFolderName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class MoveDocumentRequest {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
+    sb.append("    newFolderName: ").append(toIndentedString(newFolderName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

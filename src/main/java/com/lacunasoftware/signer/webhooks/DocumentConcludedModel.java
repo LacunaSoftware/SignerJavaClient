@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.webhooks;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,72 +19,68 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.documents.CreatorModel;
+import com.lacunasoftware.signer.folders.FolderInfoModel;
+import com.lacunasoftware.signer.organizations.OrganizationInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
+import org.threeten.bp.OffsetDateTime;
 /**
- * FileUploadModel
+ * DocumentConcludedModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
-
+public class DocumentConcludedModel {
   @SerializedName("id")
-  private String id = null;
+  private UUID id = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("contentType")
-  private String contentType = null;
+  @SerializedName("creationDate")
+  private OffsetDateTime creationDate = null;
 
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
+  @SerializedName("updateDate")
+  private OffsetDateTime updateDate = null;
 
-   /**
-   * This is the name the document will display in the application.
-   * @return displayName
-  **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
-  }
+  @SerializedName("folder")
+  private FolderInfoModel folder = null;
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
+  @SerializedName("organization")
+  private OrganizationInfoModel organization = null;
 
-  public FileUploadModel id(String id) {
+  @SerializedName("createdBy")
+  private CreatorModel createdBy = null;
+
+  public DocumentConcludedModel id(UUID id) {
     this.id = id;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
+   * The document&#x27;s id
    * @return id
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
+  @Schema(description = "The document's id")
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public FileUploadModel name(String name) {
+  public DocumentConcludedModel name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * The file&#x27;s original name.
+   * The document&#x27;s name
    * @return name
   **/
-  @Schema(required = true, description = "The file's original name.")
+  @Schema(description = "The document's name")
   public String getName() {
     return name;
   }
@@ -93,22 +89,94 @@ public class FileUploadModel {
     this.name = name;
   }
 
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
+  public DocumentConcludedModel creationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
     return this;
   }
 
    /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
+   * The date the document was created.
+   * @return creationDate
   **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
+  @Schema(description = "The date the document was created.")
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
   }
 
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+  public DocumentConcludedModel updateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
+    return this;
+  }
+
+   /**
+   * The date of the last update to the document.
+   * @return updateDate
+  **/
+  @Schema(description = "The date of the last update to the document.")
+  public OffsetDateTime getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
+  }
+
+  public DocumentConcludedModel folder(FolderInfoModel folder) {
+    this.folder = folder;
+    return this;
+  }
+
+   /**
+   * Get folder
+   * @return folder
+  **/
+  @Schema(description = "")
+  public FolderInfoModel getFolder() {
+    return folder;
+  }
+
+  public void setFolder(FolderInfoModel folder) {
+    this.folder = folder;
+  }
+
+  public DocumentConcludedModel organization(OrganizationInfoModel organization) {
+    this.organization = organization;
+    return this;
+  }
+
+   /**
+   * Get organization
+   * @return organization
+  **/
+  @Schema(description = "")
+  public OrganizationInfoModel getOrganization() {
+    return organization;
+  }
+
+  public void setOrganization(OrganizationInfoModel organization) {
+    this.organization = organization;
+  }
+
+  public DocumentConcludedModel createdBy(CreatorModel createdBy) {
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Get createdBy
+   * @return createdBy
+  **/
+  @Schema(description = "")
+  public CreatorModel getCreatedBy() {
+    return createdBy;
+  }
+
+  public void setCreatedBy(CreatorModel createdBy) {
+    this.createdBy = createdBy;
   }
 
 
@@ -120,28 +188,34 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    DocumentConcludedModel webhooksDocumentConcludedModel = (DocumentConcludedModel) o;
+    return Objects.equals(this.id, webhooksDocumentConcludedModel.id) &&
+        Objects.equals(this.name, webhooksDocumentConcludedModel.name) &&
+        Objects.equals(this.creationDate, webhooksDocumentConcludedModel.creationDate) &&
+        Objects.equals(this.updateDate, webhooksDocumentConcludedModel.updateDate) &&
+        Objects.equals(this.folder, webhooksDocumentConcludedModel.folder) &&
+        Objects.equals(this.organization, webhooksDocumentConcludedModel.organization) &&
+        Objects.equals(this.createdBy, webhooksDocumentConcludedModel.createdBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(id, name, creationDate, updateDate, folder, organization, createdBy);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class DocumentConcludedModel {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+    sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
+    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

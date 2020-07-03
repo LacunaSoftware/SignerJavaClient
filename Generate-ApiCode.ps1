@@ -25,6 +25,8 @@ try {
 
 	Remove-Item $tempDir -Recurse -Force
 	
+	python .\swagger-codegen.py
+	
 	Write-Host ">>> Done."
 
 } catch {

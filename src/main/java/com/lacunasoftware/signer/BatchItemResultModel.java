@@ -21,94 +21,74 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
 /**
- * FileUploadModel
+ * BatchItemResultModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
-
+public class BatchItemResultModel {
   @SerializedName("id")
-  private String id = null;
+  private UUID id = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("success")
+  private Boolean success = null;
 
-  @SerializedName("contentType")
-  private String contentType = null;
+  @SerializedName("errorMessage")
+  private String errorMessage = null;
 
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * This is the name the document will display in the application.
-   * @return displayName
-  **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public FileUploadModel id(String id) {
+  public BatchItemResultModel id(UUID id) {
     this.id = id;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
+   * Get id
    * @return id
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
+  @Schema(description = "")
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public FileUploadModel name(String name) {
-    this.name = name;
+  public BatchItemResultModel success(Boolean success) {
+    this.success = success;
     return this;
   }
 
    /**
-   * The file&#x27;s original name.
-   * @return name
+   * Get success
+   * @return success
   **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
+  @Schema(description = "")
+  public Boolean isSuccess() {
+    return success;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
+  public BatchItemResultModel errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
     return this;
   }
 
    /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
+   * Get errorMessage
+   * @return errorMessage
   **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
+  @Schema(description = "")
+  public String getErrorMessage() {
+    return errorMessage;
   }
 
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 
 
@@ -120,28 +100,26 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    BatchItemResultModel batchItemResultModel = (BatchItemResultModel) o;
+    return Objects.equals(this.id, batchItemResultModel.id) &&
+        Objects.equals(this.success, batchItemResultModel.success) &&
+        Objects.equals(this.errorMessage, batchItemResultModel.errorMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(id, success, errorMessage);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class BatchItemResultModel {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

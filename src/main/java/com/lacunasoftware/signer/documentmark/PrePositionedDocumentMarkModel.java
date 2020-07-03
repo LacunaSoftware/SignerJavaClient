@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.documentmark;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,96 +19,139 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.DocumentMarkType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * FileUploadModel
+ * Model used to set the position of a document mark before it&#x27;s associated flow action is completed.
  */
-
+@Schema(description = "Model used to set the position of a document mark before it's associated flow action is completed.")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
-public class FileUploadModel {
-  @SerializedName("displayName")
-  private String displayName = null;
+public class PrePositionedDocumentMarkModel {
+  @SerializedName("type")
+  private DocumentMarkType type = null;
 
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("topLeftX")
+  private Double topLeftX = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("topLeftY")
+  private Double topLeftY = null;
 
-  @SerializedName("contentType")
-  private String contentType = null;
+  @SerializedName("width")
+  private Double width = null;
 
-  public FileUploadModel displayName(String displayName) {
-    this.displayName = displayName;
+  @SerializedName("height")
+  private Double height = null;
+
+  @SerializedName("pageNumber")
+  private Integer pageNumber = null;
+
+  public PrePositionedDocumentMarkModel type(DocumentMarkType type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * This is the name the document will display in the application.
-   * @return displayName
+   * Get type
+   * @return type
   **/
-  @Schema(required = true, description = "This is the name the document will display in the application.")
-  public String getDisplayName() {
-    return displayName;
+  @Schema(description = "")
+  public DocumentMarkType getType() {
+    return type;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setType(DocumentMarkType type) {
+    this.type = type;
   }
 
-  public FileUploadModel id(String id) {
-    this.id = id;
+  public PrePositionedDocumentMarkModel topLeftX(Double topLeftX) {
+    this.topLeftX = topLeftX;
     return this;
   }
 
    /**
-   * The upload Id as returned by the &lt;a href&#x3D;\&quot;#operations-Upload-post_api_uploads\&quot;&gt;Upload API&lt;/a&gt;
-   * @return id
+   * X position of the top left point of the mark (in PDF points).
+   * @return topLeftX
   **/
-  @Schema(required = true, description = "The upload Id as returned by the <a href=\"#operations-Upload-post_api_uploads\">Upload API</a>")
-  public String getId() {
-    return id;
+  @Schema(description = "X position of the top left point of the mark (in PDF points).")
+  public Double getTopLeftX() {
+    return topLeftX;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setTopLeftX(Double topLeftX) {
+    this.topLeftX = topLeftX;
   }
 
-  public FileUploadModel name(String name) {
-    this.name = name;
+  public PrePositionedDocumentMarkModel topLeftY(Double topLeftY) {
+    this.topLeftY = topLeftY;
     return this;
   }
 
    /**
-   * The file&#x27;s original name.
-   * @return name
+   * Y position of the top left point of the mark (in PDF points).
+   * @return topLeftY
   **/
-  @Schema(required = true, description = "The file's original name.")
-  public String getName() {
-    return name;
+  @Schema(description = "Y position of the top left point of the mark (in PDF points).")
+  public Double getTopLeftY() {
+    return topLeftY;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setTopLeftY(Double topLeftY) {
+    this.topLeftY = topLeftY;
   }
 
-  public FileUploadModel contentType(String contentType) {
-    this.contentType = contentType;
+  public PrePositionedDocumentMarkModel width(Double width) {
+    this.width = width;
     return this;
   }
 
    /**
-   * The file&#x27;s mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.
-   * @return contentType
+   * Width of the mark (in PDF points).
+   * @return width
   **/
-  @Schema(required = true, description = "The file's mime type. Unless overridden, PDF mime types will be signed as PAdES and all other types as CAdES.")
-  public String getContentType() {
-    return contentType;
+  @Schema(description = "Width of the mark (in PDF points).")
+  public Double getWidth() {
+    return width;
   }
 
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
+  public void setWidth(Double width) {
+    this.width = width;
+  }
+
+  public PrePositionedDocumentMarkModel height(Double height) {
+    this.height = height;
+    return this;
+  }
+
+   /**
+   * Height of the mark (in PDF points).
+   * @return height
+  **/
+  @Schema(description = "Height of the mark (in PDF points).")
+  public Double getHeight() {
+    return height;
+  }
+
+  public void setHeight(Double height) {
+    this.height = height;
+  }
+
+  public PrePositionedDocumentMarkModel pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * The page number of the mark.
+   * @return pageNumber
+  **/
+  @Schema(description = "The page number of the mark.")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
   }
 
 
@@ -120,28 +163,32 @@ public class FileUploadModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileUploadModel fileUploadModel = (FileUploadModel) o;
-    return Objects.equals(this.displayName, fileUploadModel.displayName) &&
-        Objects.equals(this.id, fileUploadModel.id) &&
-        Objects.equals(this.name, fileUploadModel.name) &&
-        Objects.equals(this.contentType, fileUploadModel.contentType);
+    PrePositionedDocumentMarkModel documentMarkPrePositionedDocumentMarkModel = (PrePositionedDocumentMarkModel) o;
+    return Objects.equals(this.type, documentMarkPrePositionedDocumentMarkModel.type) &&
+        Objects.equals(this.topLeftX, documentMarkPrePositionedDocumentMarkModel.topLeftX) &&
+        Objects.equals(this.topLeftY, documentMarkPrePositionedDocumentMarkModel.topLeftY) &&
+        Objects.equals(this.width, documentMarkPrePositionedDocumentMarkModel.width) &&
+        Objects.equals(this.height, documentMarkPrePositionedDocumentMarkModel.height) &&
+        Objects.equals(this.pageNumber, documentMarkPrePositionedDocumentMarkModel.pageNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, id, name, contentType);
+    return Objects.hash(type, topLeftX, topLeftY, width, height, pageNumber);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileUploadModel {\n");
+    sb.append("class PrePositionedDocumentMarkModel {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    topLeftX: ").append(toIndentedString(topLeftX)).append("\n");
+    sb.append("    topLeftY: ").append(toIndentedString(topLeftY)).append("\n");
+    sb.append("    width: ").append(toIndentedString(width)).append("\n");
+    sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
