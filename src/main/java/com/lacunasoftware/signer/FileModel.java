@@ -14,55 +14,148 @@ package com.lacunasoftware.signer;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.UUID;
 /**
- * Gets or Sets PaginationOrders
+ * FileModel
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+public class FileModel {
+  @SerializedName("location")
+  private String location = null;
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @SerializedName("id")
+  private UUID id = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("contentType")
+  private String contentType = null;
+
+  public FileModel location(String location) {
+    this.location = location;
+    return this;
   }
 
-  public String getValue() {
-    return value;
+   /**
+   * Get location
+   * @return location
+  **/
+  @Schema(description = "")
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public FileModel id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public FileModel name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public FileModel contentType(String contentType) {
+    this.contentType = contentType;
+    return this;
+  }
+
+   /**
+   * Get contentType
+   * @return contentType
+  **/
+  @Schema(required = true, description = "")
+  public String getContentType() {
+    return contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    FileModel fileModel = (FileModel) o;
+    return Objects.equals(this.location, fileModel.location) &&
+        Objects.equals(this.id, fileModel.id) &&
+        Objects.equals(this.name, fileModel.name) &&
+        Objects.equals(this.contentType, fileModel.contentType);
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(location, id, name, contentType);
+  }
+
+
+  @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class FileModel {\n");
+    
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
-    }
-  }
 }

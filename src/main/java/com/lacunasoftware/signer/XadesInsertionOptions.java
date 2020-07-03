@@ -22,16 +22,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets PaginationOrders
+ * Gets or Sets XadesInsertionOptions
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
+@JsonAdapter(XadesInsertionOptions.Adapter.class)
+public enum XadesInsertionOptions {
+  APPENDCHILD("AppendChild"),
+  PREPENDCHILD("PrependChild"),
+  APPENDSIBLING("AppendSibling"),
+  PREPENDSIBLING("PrependSibling");
 
   private String value;
 
-  PaginationOrders(String value) {
+  XadesInsertionOptions(String value) {
     this.value = value;
   }
 
@@ -44,8 +46,8 @@ public enum PaginationOrders {
     return String.valueOf(value);
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
+  public static XadesInsertionOptions fromValue(String text) {
+    for (XadesInsertionOptions b : XadesInsertionOptions.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }
@@ -53,16 +55,16 @@ public enum PaginationOrders {
     return null;
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
+  public static class Adapter extends TypeAdapter<XadesInsertionOptions> {
     @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final XadesInsertionOptions enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
+    public XadesInsertionOptions read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
+      return XadesInsertionOptions.fromValue(String.valueOf(value));
     }
   }
 }

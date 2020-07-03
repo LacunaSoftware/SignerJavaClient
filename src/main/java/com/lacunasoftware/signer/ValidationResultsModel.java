@@ -19,33 +19,114 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.ValidationItemModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
- * TicketModel
+ * ValidationResultsModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
-public class TicketModel {
-  @SerializedName("location")
-  private String location = null;
+public class ValidationResultsModel {
+  @SerializedName("passedChecks")
+  private List<ValidationItemModel> passedChecks = null;
 
-  public TicketModel location(String location) {
-    this.location = location;
+  @SerializedName("errors")
+  private List<ValidationItemModel> errors = null;
+
+  @SerializedName("warnings")
+  private List<ValidationItemModel> warnings = null;
+
+  @SerializedName("isValid")
+  private Boolean isValid = null;
+
+  public ValidationResultsModel passedChecks(List<ValidationItemModel> passedChecks) {
+    this.passedChecks = passedChecks;
+    return this;
+  }
+
+  public ValidationResultsModel addPassedChecksItem(ValidationItemModel passedChecksItem) {
+    if (this.passedChecks == null) {
+      this.passedChecks = new ArrayList<ValidationItemModel>();
+    }
+    this.passedChecks.add(passedChecksItem);
     return this;
   }
 
    /**
-   * Get location
-   * @return location
+   * Get passedChecks
+   * @return passedChecks
   **/
   @Schema(description = "")
-  public String getLocation() {
-    return location;
+  public List<ValidationItemModel> getPassedChecks() {
+    return passedChecks;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public void setPassedChecks(List<ValidationItemModel> passedChecks) {
+    this.passedChecks = passedChecks;
+  }
+
+  public ValidationResultsModel errors(List<ValidationItemModel> errors) {
+    this.errors = errors;
+    return this;
+  }
+
+  public ValidationResultsModel addErrorsItem(ValidationItemModel errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<ValidationItemModel>();
+    }
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+   /**
+   * Get errors
+   * @return errors
+  **/
+  @Schema(description = "")
+  public List<ValidationItemModel> getErrors() {
+    return errors;
+  }
+
+  public void setErrors(List<ValidationItemModel> errors) {
+    this.errors = errors;
+  }
+
+  public ValidationResultsModel warnings(List<ValidationItemModel> warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  public ValidationResultsModel addWarningsItem(ValidationItemModel warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<ValidationItemModel>();
+    }
+    this.warnings.add(warningsItem);
+    return this;
+  }
+
+   /**
+   * Get warnings
+   * @return warnings
+  **/
+  @Schema(description = "")
+  public List<ValidationItemModel> getWarnings() {
+    return warnings;
+  }
+
+  public void setWarnings(List<ValidationItemModel> warnings) {
+    this.warnings = warnings;
+  }
+
+   /**
+   * Get isValid
+   * @return isValid
+  **/
+  @Schema(description = "")
+  public Boolean isIsValid() {
+    return isValid;
   }
 
 
@@ -57,22 +138,28 @@ public class TicketModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TicketModel ticketModel = (TicketModel) o;
-    return Objects.equals(this.location, ticketModel.location);
+    ValidationResultsModel validationResultsModel = (ValidationResultsModel) o;
+    return Objects.equals(this.passedChecks, validationResultsModel.passedChecks) &&
+        Objects.equals(this.errors, validationResultsModel.errors) &&
+        Objects.equals(this.warnings, validationResultsModel.warnings) &&
+        Objects.equals(this.isValid, validationResultsModel.isValid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location);
+    return Objects.hash(passedChecks, errors, warnings, isValid);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TicketModel {\n");
+    sb.append("class ValidationResultsModel {\n");
     
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    passedChecks: ").append(toIndentedString(passedChecks)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+    sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

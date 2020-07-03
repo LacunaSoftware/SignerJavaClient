@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,33 +19,142 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.DocumentTypes;
+import com.lacunasoftware.signer.folders.FolderInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
+import org.threeten.bp.OffsetDateTime;
 /**
- * TicketModel
+ * DocumentListModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
-public class TicketModel {
-  @SerializedName("location")
-  private String location = null;
+public class DocumentListModel {
+  @SerializedName("id")
+  private UUID id = null;
 
-  public TicketModel location(String location) {
-    this.location = location;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("creationDate")
+  private OffsetDateTime creationDate = null;
+
+  @SerializedName("updateDate")
+  private OffsetDateTime updateDate = null;
+
+  @SerializedName("folder")
+  private FolderInfoModel folder = null;
+
+  @SerializedName("type")
+  private DocumentTypes type = null;
+
+  public DocumentListModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get location
-   * @return location
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public String getLocation() {
-    return location;
+  public UUID getId() {
+    return id;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public DocumentListModel name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public DocumentListModel creationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+    return this;
+  }
+
+   /**
+   * Get creationDate
+   * @return creationDate
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
+  }
+
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+  public DocumentListModel updateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
+    return this;
+  }
+
+   /**
+   * Get updateDate
+   * @return updateDate
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
+  }
+
+  public DocumentListModel folder(FolderInfoModel folder) {
+    this.folder = folder;
+    return this;
+  }
+
+   /**
+   * Get folder
+   * @return folder
+  **/
+  @Schema(description = "")
+  public FolderInfoModel getFolder() {
+    return folder;
+  }
+
+  public void setFolder(FolderInfoModel folder) {
+    this.folder = folder;
+  }
+
+  public DocumentListModel type(DocumentTypes type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public DocumentTypes getType() {
+    return type;
+  }
+
+  public void setType(DocumentTypes type) {
+    this.type = type;
   }
 
 
@@ -57,22 +166,32 @@ public class TicketModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TicketModel ticketModel = (TicketModel) o;
-    return Objects.equals(this.location, ticketModel.location);
+    DocumentListModel documentsDocumentListModel = (DocumentListModel) o;
+    return Objects.equals(this.id, documentsDocumentListModel.id) &&
+        Objects.equals(this.name, documentsDocumentListModel.name) &&
+        Objects.equals(this.creationDate, documentsDocumentListModel.creationDate) &&
+        Objects.equals(this.updateDate, documentsDocumentListModel.updateDate) &&
+        Objects.equals(this.folder, documentsDocumentListModel.folder) &&
+        Objects.equals(this.type, documentsDocumentListModel.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location);
+    return Objects.hash(id, name, creationDate, updateDate, folder, type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TicketModel {\n");
+    sb.append("class DocumentListModel {\n");
     
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+    sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

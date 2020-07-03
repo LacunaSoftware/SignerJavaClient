@@ -10,59 +10,129 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.UUID;
 /**
- * Gets or Sets PaginationOrders
+ * FlowActionPendingModel
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+public class FlowActionPendingModel {
+  @SerializedName("signerId")
+  private UUID signerId = null;
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @SerializedName("approverId")
+  private UUID approverId = null;
+
+  @SerializedName("signRuleId")
+  private UUID signRuleId = null;
+
+  public FlowActionPendingModel signerId(UUID signerId) {
+    this.signerId = signerId;
+    return this;
   }
 
-  public String getValue() {
-    return value;
+   /**
+   * Get signerId
+   * @return signerId
+  **/
+  @Schema(description = "")
+  public UUID getSignerId() {
+    return signerId;
+  }
+
+  public void setSignerId(UUID signerId) {
+    this.signerId = signerId;
+  }
+
+  public FlowActionPendingModel approverId(UUID approverId) {
+    this.approverId = approverId;
+    return this;
+  }
+
+   /**
+   * Get approverId
+   * @return approverId
+  **/
+  @Schema(description = "")
+  public UUID getApproverId() {
+    return approverId;
+  }
+
+  public void setApproverId(UUID approverId) {
+    this.approverId = approverId;
+  }
+
+  public FlowActionPendingModel signRuleId(UUID signRuleId) {
+    this.signRuleId = signRuleId;
+    return this;
+  }
+
+   /**
+   * Get signRuleId
+   * @return signRuleId
+  **/
+  @Schema(description = "")
+  public UUID getSignRuleId() {
+    return signRuleId;
+  }
+
+  public void setSignRuleId(UUID signRuleId) {
+    this.signRuleId = signRuleId;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    FlowActionPendingModel documentsFlowActionPendingModel = (FlowActionPendingModel) o;
+    return Objects.equals(this.signerId, documentsFlowActionPendingModel.signerId) &&
+        Objects.equals(this.approverId, documentsFlowActionPendingModel.approverId) &&
+        Objects.equals(this.signRuleId, documentsFlowActionPendingModel.signRuleId);
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(signerId, approverId, signRuleId);
+  }
+
+
+  @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class FlowActionPendingModel {\n");
+    
+    sb.append("    signerId: ").append(toIndentedString(signerId)).append("\n");
+    sb.append("    approverId: ").append(toIndentedString(approverId)).append("\n");
+    sb.append("    signRuleId: ").append(toIndentedString(signRuleId)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
-    }
-  }
 }

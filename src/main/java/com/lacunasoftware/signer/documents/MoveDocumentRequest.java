@@ -10,59 +10,106 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.UUID;
 /**
- * Gets or Sets PaginationOrders
+ * MoveDocumentRequest
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+public class MoveDocumentRequest {
+  @SerializedName("folderId")
+  private UUID folderId = null;
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @SerializedName("newFolderName")
+  private String newFolderName = null;
+
+  public MoveDocumentRequest folderId(UUID folderId) {
+    this.folderId = folderId;
+    return this;
   }
 
-  public String getValue() {
-    return value;
+   /**
+   * The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.Documents.MoveDocumentRequest.NewFolderName.
+   * @return folderId
+  **/
+  @Schema(description = "The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.Documents.MoveDocumentRequest.NewFolderName.")
+  public UUID getFolderId() {
+    return folderId;
+  }
+
+  public void setFolderId(UUID folderId) {
+    this.folderId = folderId;
+  }
+
+  public MoveDocumentRequest newFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
+    return this;
+  }
+
+   /**
+   * The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.Documents.MoveDocumentRequest.FolderId is null)
+   * @return newFolderName
+  **/
+  @Schema(description = "The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.Documents.MoveDocumentRequest.FolderId is null)")
+  public String getNewFolderName() {
+    return newFolderName;
+  }
+
+  public void setNewFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    MoveDocumentRequest documentsMoveDocumentRequest = (MoveDocumentRequest) o;
+    return Objects.equals(this.folderId, documentsMoveDocumentRequest.folderId) &&
+        Objects.equals(this.newFolderName, documentsMoveDocumentRequest.newFolderName);
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(folderId, newFolderName);
+  }
+
+
+  @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class MoveDocumentRequest {\n");
+    
+    sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
+    sb.append("    newFolderName: ").append(toIndentedString(newFolderName)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
-    }
-  }
 }

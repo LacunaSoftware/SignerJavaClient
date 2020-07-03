@@ -18,6 +18,7 @@ repositories {
 dependencies {
     implementation 'io.swagger.core.v3:swagger-annotations:2.0.0'
     implementation 'com.google.code.gson:gson:2.8.1'
+    compile group: 'org.threeten', name: 'threetenbp', version: '1.4.4'
 }
 
 task fatJar(type: Jar) {

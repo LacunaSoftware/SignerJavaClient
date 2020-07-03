@@ -10,59 +10,152 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.users;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.UUID;
 /**
- * Gets or Sets PaginationOrders
+ * ParticipantUserModel
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+public class ParticipantUserModel {
+  @SerializedName("id")
+  private UUID id = null;
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("identifier")
+  private String identifier = null;
+
+  @SerializedName("email")
+  private String email = null;
+
+  public ParticipantUserModel id(UUID id) {
+    this.id = id;
+    return this;
   }
 
-  public String getValue() {
-    return value;
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public ParticipantUserModel name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ParticipantUserModel identifier(String identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * The user identifier (CPF in Brazil and Cédula de Identidad in Ecuador).
+   * @return identifier
+  **/
+  @Schema(description = "The user identifier (CPF in Brazil and Cédula de Identidad in Ecuador).")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
+  public ParticipantUserModel email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @Schema(description = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    ParticipantUserModel usersParticipantUserModel = (ParticipantUserModel) o;
+    return Objects.equals(this.id, usersParticipantUserModel.id) &&
+        Objects.equals(this.name, usersParticipantUserModel.name) &&
+        Objects.equals(this.identifier, usersParticipantUserModel.identifier) &&
+        Objects.equals(this.email, usersParticipantUserModel.email);
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(id, name, identifier, email);
+  }
+
+
+  @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ParticipantUserModel {\n");
+    
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
-    }
-  }
 }

@@ -14,55 +14,148 @@ package com.lacunasoftware.signer;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import com.lacunasoftware.signer.ValidationResultsModel;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 /**
- * Gets or Sets PaginationOrders
+ * ValidationItemModel
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+public class ValidationItemModel {
+  @SerializedName("type")
+  private String type = null;
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @SerializedName("message")
+  private String message = null;
+
+  @SerializedName("detail")
+  private String detail = null;
+
+  @SerializedName("innerValidationResults")
+  private ValidationResultsModel innerValidationResults = null;
+
+  public ValidationItemModel type(String type) {
+    this.type = type;
+    return this;
   }
 
-  public String getValue() {
-    return value;
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public ValidationItemModel message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @Schema(description = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public ValidationItemModel detail(String detail) {
+    this.detail = detail;
+    return this;
+  }
+
+   /**
+   * Get detail
+   * @return detail
+  **/
+  @Schema(description = "")
+  public String getDetail() {
+    return detail;
+  }
+
+  public void setDetail(String detail) {
+    this.detail = detail;
+  }
+
+  public ValidationItemModel innerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
+    return this;
+  }
+
+   /**
+   * Get innerValidationResults
+   * @return innerValidationResults
+  **/
+  @Schema(description = "")
+  public ValidationResultsModel getInnerValidationResults() {
+    return innerValidationResults;
+  }
+
+  public void setInnerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    ValidationItemModel validationItemModel = (ValidationItemModel) o;
+    return Objects.equals(this.type, validationItemModel.type) &&
+        Objects.equals(this.message, validationItemModel.message) &&
+        Objects.equals(this.detail, validationItemModel.detail) &&
+        Objects.equals(this.innerValidationResults, validationItemModel.innerValidationResults);
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(type, message, detail, innerValidationResults);
+  }
+
+
+  @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ValidationItemModel {\n");
+    
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    innerValidationResults: ").append(toIndentedString(innerValidationResults)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
-    }
-  }
 }

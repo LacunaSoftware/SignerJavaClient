@@ -10,59 +10,106 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.observers;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.UUID;
 /**
- * Gets or Sets PaginationOrders
+ * ObserverEditModel
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+public class ObserverEditModel {
+  @SerializedName("observerId")
+  private UUID observerId = null;
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @SerializedName("emailAddress")
+  private String emailAddress = null;
+
+  public ObserverEditModel observerId(UUID observerId) {
+    this.observerId = observerId;
+    return this;
   }
 
-  public String getValue() {
-    return value;
+   /**
+   * Id of the observer being modified.
+   * @return observerId
+  **/
+  @Schema(description = "Id of the observer being modified.")
+  public UUID getObserverId() {
+    return observerId;
+  }
+
+  public void setObserverId(UUID observerId) {
+    this.observerId = observerId;
+  }
+
+  public ObserverEditModel emailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+    return this;
+  }
+
+   /**
+   * The new email of the observer.
+   * @return emailAddress
+  **/
+  @Schema(description = "The new email of the observer.")
+  public String getEmailAddress() {
+    return emailAddress;
+  }
+
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    ObserverEditModel observersObserverEditModel = (ObserverEditModel) o;
+    return Objects.equals(this.observerId, observersObserverEditModel.observerId) &&
+        Objects.equals(this.emailAddress, observersObserverEditModel.emailAddress);
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(observerId, emailAddress);
+  }
+
+
+  @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ObserverEditModel {\n");
+    
+    sb.append("    observerId: ").append(toIndentedString(observerId)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
-    }
-  }
 }

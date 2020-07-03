@@ -14,55 +14,125 @@ package com.lacunasoftware.signer;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.UUID;
 /**
- * Gets or Sets PaginationOrders
+ * BatchItemResultModel
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+public class BatchItemResultModel {
+  @SerializedName("id")
+  private UUID id = null;
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @SerializedName("success")
+  private Boolean success = null;
+
+  @SerializedName("errorMessage")
+  private String errorMessage = null;
+
+  public BatchItemResultModel id(UUID id) {
+    this.id = id;
+    return this;
   }
 
-  public String getValue() {
-    return value;
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public BatchItemResultModel success(Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+   /**
+   * Get success
+   * @return success
+  **/
+  @Schema(description = "")
+  public Boolean isSuccess() {
+    return success;
+  }
+
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
+  public BatchItemResultModel errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Get errorMessage
+   * @return errorMessage
+  **/
+  @Schema(description = "")
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    BatchItemResultModel batchItemResultModel = (BatchItemResultModel) o;
+    return Objects.equals(this.id, batchItemResultModel.id) &&
+        Objects.equals(this.success, batchItemResultModel.success) &&
+        Objects.equals(this.errorMessage, batchItemResultModel.errorMessage);
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(id, success, errorMessage);
+  }
+
+
+  @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class BatchItemResultModel {\n");
+    
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
-    }
-  }
 }

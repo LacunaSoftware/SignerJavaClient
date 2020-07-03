@@ -10,59 +10,105 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.certificates;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 /**
- * Gets or Sets PaginationOrders
+ * AttributeCertificateInfoModel
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+public class AttributeCertificateInfoModel {
+  @SerializedName("details")
+  private String details = null;
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @SerializedName("issuer")
+  private String issuer = null;
+
+  public AttributeCertificateInfoModel details(String details) {
+    this.details = details;
+    return this;
   }
 
-  public String getValue() {
-    return value;
+   /**
+   * Get details
+   * @return details
+  **/
+  @Schema(description = "")
+  public String getDetails() {
+    return details;
+  }
+
+  public void setDetails(String details) {
+    this.details = details;
+  }
+
+  public AttributeCertificateInfoModel issuer(String issuer) {
+    this.issuer = issuer;
+    return this;
+  }
+
+   /**
+   * Get issuer
+   * @return issuer
+  **/
+  @Schema(description = "")
+  public String getIssuer() {
+    return issuer;
+  }
+
+  public void setIssuer(String issuer) {
+    this.issuer = issuer;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AttributeCertificateInfoModel certificatesAttributeCertificateInfoModel = (AttributeCertificateInfoModel) o;
+    return Objects.equals(this.details, certificatesAttributeCertificateInfoModel.details) &&
+        Objects.equals(this.issuer, certificatesAttributeCertificateInfoModel.issuer);
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(details, issuer);
+  }
+
+
+  @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AttributeCertificateInfoModel {\n");
+    
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
-    }
-  }
 }

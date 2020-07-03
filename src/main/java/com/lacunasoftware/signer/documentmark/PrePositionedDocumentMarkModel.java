@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.documentmark;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,33 +19,139 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.DocumentMarkType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * TicketModel
+ * Model used to set the position of a document mark before it&#x27;s associated flow action is completed.
  */
-
+@Schema(description = "Model used to set the position of a document mark before it's associated flow action is completed.")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
-public class TicketModel {
-  @SerializedName("location")
-  private String location = null;
+public class PrePositionedDocumentMarkModel {
+  @SerializedName("type")
+  private DocumentMarkType type = null;
 
-  public TicketModel location(String location) {
-    this.location = location;
+  @SerializedName("topLeftX")
+  private Double topLeftX = null;
+
+  @SerializedName("topLeftY")
+  private Double topLeftY = null;
+
+  @SerializedName("width")
+  private Double width = null;
+
+  @SerializedName("height")
+  private Double height = null;
+
+  @SerializedName("pageNumber")
+  private Integer pageNumber = null;
+
+  public PrePositionedDocumentMarkModel type(DocumentMarkType type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get location
-   * @return location
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
-  public String getLocation() {
-    return location;
+  public DocumentMarkType getType() {
+    return type;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public void setType(DocumentMarkType type) {
+    this.type = type;
+  }
+
+  public PrePositionedDocumentMarkModel topLeftX(Double topLeftX) {
+    this.topLeftX = topLeftX;
+    return this;
+  }
+
+   /**
+   * X position of the top left point of the mark (in PDF points).
+   * @return topLeftX
+  **/
+  @Schema(description = "X position of the top left point of the mark (in PDF points).")
+  public Double getTopLeftX() {
+    return topLeftX;
+  }
+
+  public void setTopLeftX(Double topLeftX) {
+    this.topLeftX = topLeftX;
+  }
+
+  public PrePositionedDocumentMarkModel topLeftY(Double topLeftY) {
+    this.topLeftY = topLeftY;
+    return this;
+  }
+
+   /**
+   * Y position of the top left point of the mark (in PDF points).
+   * @return topLeftY
+  **/
+  @Schema(description = "Y position of the top left point of the mark (in PDF points).")
+  public Double getTopLeftY() {
+    return topLeftY;
+  }
+
+  public void setTopLeftY(Double topLeftY) {
+    this.topLeftY = topLeftY;
+  }
+
+  public PrePositionedDocumentMarkModel width(Double width) {
+    this.width = width;
+    return this;
+  }
+
+   /**
+   * Width of the mark (in PDF points).
+   * @return width
+  **/
+  @Schema(description = "Width of the mark (in PDF points).")
+  public Double getWidth() {
+    return width;
+  }
+
+  public void setWidth(Double width) {
+    this.width = width;
+  }
+
+  public PrePositionedDocumentMarkModel height(Double height) {
+    this.height = height;
+    return this;
+  }
+
+   /**
+   * Height of the mark (in PDF points).
+   * @return height
+  **/
+  @Schema(description = "Height of the mark (in PDF points).")
+  public Double getHeight() {
+    return height;
+  }
+
+  public void setHeight(Double height) {
+    this.height = height;
+  }
+
+  public PrePositionedDocumentMarkModel pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * The page number of the mark.
+   * @return pageNumber
+  **/
+  @Schema(description = "The page number of the mark.")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
   }
 
 
@@ -57,22 +163,32 @@ public class TicketModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TicketModel ticketModel = (TicketModel) o;
-    return Objects.equals(this.location, ticketModel.location);
+    PrePositionedDocumentMarkModel documentMarkPrePositionedDocumentMarkModel = (PrePositionedDocumentMarkModel) o;
+    return Objects.equals(this.type, documentMarkPrePositionedDocumentMarkModel.type) &&
+        Objects.equals(this.topLeftX, documentMarkPrePositionedDocumentMarkModel.topLeftX) &&
+        Objects.equals(this.topLeftY, documentMarkPrePositionedDocumentMarkModel.topLeftY) &&
+        Objects.equals(this.width, documentMarkPrePositionedDocumentMarkModel.width) &&
+        Objects.equals(this.height, documentMarkPrePositionedDocumentMarkModel.height) &&
+        Objects.equals(this.pageNumber, documentMarkPrePositionedDocumentMarkModel.pageNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location);
+    return Objects.hash(type, topLeftX, topLeftY, width, height, pageNumber);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TicketModel {\n");
+    sb.append("class PrePositionedDocumentMarkModel {\n");
     
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    topLeftX: ").append(toIndentedString(topLeftX)).append("\n");
+    sb.append("    topLeftY: ").append(toIndentedString(topLeftY)).append("\n");
+    sb.append("    width: ").append(toIndentedString(width)).append("\n");
+    sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }

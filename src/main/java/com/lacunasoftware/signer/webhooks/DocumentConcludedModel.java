@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.webhooks;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -19,33 +19,164 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.documents.CreatorModel;
+import com.lacunasoftware.signer.folders.FolderInfoModel;
+import com.lacunasoftware.signer.organizations.OrganizationInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
+import org.threeten.bp.OffsetDateTime;
 /**
- * TicketModel
+ * DocumentConcludedModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
-public class TicketModel {
-  @SerializedName("location")
-  private String location = null;
+public class DocumentConcludedModel {
+  @SerializedName("id")
+  private UUID id = null;
 
-  public TicketModel location(String location) {
-    this.location = location;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("creationDate")
+  private OffsetDateTime creationDate = null;
+
+  @SerializedName("updateDate")
+  private OffsetDateTime updateDate = null;
+
+  @SerializedName("folder")
+  private FolderInfoModel folder = null;
+
+  @SerializedName("organization")
+  private OrganizationInfoModel organization = null;
+
+  @SerializedName("createdBy")
+  private CreatorModel createdBy = null;
+
+  public DocumentConcludedModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get location
-   * @return location
+   * The document&#x27;s id
+   * @return id
   **/
-  @Schema(description = "")
-  public String getLocation() {
-    return location;
+  @Schema(description = "The document's id")
+  public UUID getId() {
+    return id;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public DocumentConcludedModel name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The document&#x27;s name
+   * @return name
+  **/
+  @Schema(description = "The document's name")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public DocumentConcludedModel creationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+    return this;
+  }
+
+   /**
+   * The date the document was created.
+   * @return creationDate
+  **/
+  @Schema(description = "The date the document was created.")
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
+  }
+
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+  public DocumentConcludedModel updateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
+    return this;
+  }
+
+   /**
+   * The date of the last update to the document.
+   * @return updateDate
+  **/
+  @Schema(description = "The date of the last update to the document.")
+  public OffsetDateTime getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(OffsetDateTime updateDate) {
+    this.updateDate = updateDate;
+  }
+
+  public DocumentConcludedModel folder(FolderInfoModel folder) {
+    this.folder = folder;
+    return this;
+  }
+
+   /**
+   * Get folder
+   * @return folder
+  **/
+  @Schema(description = "")
+  public FolderInfoModel getFolder() {
+    return folder;
+  }
+
+  public void setFolder(FolderInfoModel folder) {
+    this.folder = folder;
+  }
+
+  public DocumentConcludedModel organization(OrganizationInfoModel organization) {
+    this.organization = organization;
+    return this;
+  }
+
+   /**
+   * Get organization
+   * @return organization
+  **/
+  @Schema(description = "")
+  public OrganizationInfoModel getOrganization() {
+    return organization;
+  }
+
+  public void setOrganization(OrganizationInfoModel organization) {
+    this.organization = organization;
+  }
+
+  public DocumentConcludedModel createdBy(CreatorModel createdBy) {
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Get createdBy
+   * @return createdBy
+  **/
+  @Schema(description = "")
+  public CreatorModel getCreatedBy() {
+    return createdBy;
+  }
+
+  public void setCreatedBy(CreatorModel createdBy) {
+    this.createdBy = createdBy;
   }
 
 
@@ -57,22 +188,34 @@ public class TicketModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TicketModel ticketModel = (TicketModel) o;
-    return Objects.equals(this.location, ticketModel.location);
+    DocumentConcludedModel webhooksDocumentConcludedModel = (DocumentConcludedModel) o;
+    return Objects.equals(this.id, webhooksDocumentConcludedModel.id) &&
+        Objects.equals(this.name, webhooksDocumentConcludedModel.name) &&
+        Objects.equals(this.creationDate, webhooksDocumentConcludedModel.creationDate) &&
+        Objects.equals(this.updateDate, webhooksDocumentConcludedModel.updateDate) &&
+        Objects.equals(this.folder, webhooksDocumentConcludedModel.folder) &&
+        Objects.equals(this.organization, webhooksDocumentConcludedModel.organization) &&
+        Objects.equals(this.createdBy, webhooksDocumentConcludedModel.createdBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location);
+    return Objects.hash(id, name, creationDate, updateDate, folder, organization, createdBy);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TicketModel {\n");
+    sb.append("class DocumentConcludedModel {\n");
     
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+    sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
+    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

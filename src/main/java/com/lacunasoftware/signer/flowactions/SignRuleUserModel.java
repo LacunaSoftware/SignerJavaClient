@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -21,31 +21,117 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.UUID;
+import org.threeten.bp.OffsetDateTime;
 /**
- * TicketModel
+ * SignRuleUserModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
-public class TicketModel {
-  @SerializedName("location")
-  private String location = null;
+public class SignRuleUserModel {
+  @SerializedName("id")
+  private UUID id = null;
 
-  public TicketModel location(String location) {
-    this.location = location;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("identifier")
+  private String identifier = null;
+
+  @SerializedName("email")
+  private String email = null;
+
+  @SerializedName("signatureDate")
+  private OffsetDateTime signatureDate = null;
+
+  public SignRuleUserModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get location
-   * @return location
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public String getLocation() {
-    return location;
+  public UUID getId() {
+    return id;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public SignRuleUserModel name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SignRuleUserModel identifier(String identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * The user identifier (CPF in Brazil or Cédula de Identidad in Ecuador).
+   * @return identifier
+  **/
+  @Schema(description = "The user identifier (CPF in Brazil or Cédula de Identidad in Ecuador).")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
+  public SignRuleUserModel email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @Schema(description = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public SignRuleUserModel signatureDate(OffsetDateTime signatureDate) {
+    this.signatureDate = signatureDate;
+    return this;
+  }
+
+   /**
+   * Get signatureDate
+   * @return signatureDate
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getSignatureDate() {
+    return signatureDate;
+  }
+
+  public void setSignatureDate(OffsetDateTime signatureDate) {
+    this.signatureDate = signatureDate;
   }
 
 
@@ -57,22 +143,30 @@ public class TicketModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TicketModel ticketModel = (TicketModel) o;
-    return Objects.equals(this.location, ticketModel.location);
+    SignRuleUserModel flowActionsSignRuleUserModel = (SignRuleUserModel) o;
+    return Objects.equals(this.id, flowActionsSignRuleUserModel.id) &&
+        Objects.equals(this.name, flowActionsSignRuleUserModel.name) &&
+        Objects.equals(this.identifier, flowActionsSignRuleUserModel.identifier) &&
+        Objects.equals(this.email, flowActionsSignRuleUserModel.email) &&
+        Objects.equals(this.signatureDate, flowActionsSignRuleUserModel.signatureDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location);
+    return Objects.hash(id, name, identifier, email, signatureDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TicketModel {\n");
+    sb.append("class SignRuleUserModel {\n");
     
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    signatureDate: ").append(toIndentedString(signatureDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

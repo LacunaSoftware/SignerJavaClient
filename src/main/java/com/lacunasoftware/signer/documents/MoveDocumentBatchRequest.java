@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -21,31 +21,84 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 /**
- * TicketModel
+ * MoveDocumentBatchRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
-public class TicketModel {
-  @SerializedName("location")
-  private String location = null;
+public class MoveDocumentBatchRequest {
+  @SerializedName("documents")
+  private List<UUID> documents = null;
 
-  public TicketModel location(String location) {
-    this.location = location;
+  @SerializedName("folderId")
+  private UUID folderId = null;
+
+  @SerializedName("newFolderName")
+  private String newFolderName = null;
+
+  public MoveDocumentBatchRequest documents(List<UUID> documents) {
+    this.documents = documents;
+    return this;
+  }
+
+  public MoveDocumentBatchRequest addDocumentsItem(UUID documentsItem) {
+    if (this.documents == null) {
+      this.documents = new ArrayList<UUID>();
+    }
+    this.documents.add(documentsItem);
     return this;
   }
 
    /**
-   * Get location
-   * @return location
+   * The Ids of the documents that will be moved.
+   * @return documents
   **/
-  @Schema(description = "")
-  public String getLocation() {
-    return location;
+  @Schema(description = "The Ids of the documents that will be moved.")
+  public List<UUID> getDocuments() {
+    return documents;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public void setDocuments(List<UUID> documents) {
+    this.documents = documents;
+  }
+
+  public MoveDocumentBatchRequest folderId(UUID folderId) {
+    this.folderId = folderId;
+    return this;
+  }
+
+   /**
+   * The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.Documents.MoveDocumentRequest.NewFolderName.
+   * @return folderId
+  **/
+  @Schema(description = "The Id of the folder to which the document(s) will be moved.  The folder Id can be null if you want to move the document(s) to no folder or if you want to create a new folder using Lacuna.Signer.Api.Documents.MoveDocumentRequest.NewFolderName.")
+  public UUID getFolderId() {
+    return folderId;
+  }
+
+  public void setFolderId(UUID folderId) {
+    this.folderId = folderId;
+  }
+
+  public MoveDocumentBatchRequest newFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
+    return this;
+  }
+
+   /**
+   * The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.Documents.MoveDocumentRequest.FolderId is null)
+   * @return newFolderName
+  **/
+  @Schema(description = "The name of the folder to be created and the documents will be moved to. (If Lacuna.Signer.Api.Documents.MoveDocumentRequest.FolderId is null)")
+  public String getNewFolderName() {
+    return newFolderName;
+  }
+
+  public void setNewFolderName(String newFolderName) {
+    this.newFolderName = newFolderName;
   }
 
 
@@ -57,22 +110,26 @@ public class TicketModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TicketModel ticketModel = (TicketModel) o;
-    return Objects.equals(this.location, ticketModel.location);
+    MoveDocumentBatchRequest documentsMoveDocumentBatchRequest = (MoveDocumentBatchRequest) o;
+    return Objects.equals(this.documents, documentsMoveDocumentBatchRequest.documents) &&
+        Objects.equals(this.folderId, documentsMoveDocumentBatchRequest.folderId) &&
+        Objects.equals(this.newFolderName, documentsMoveDocumentBatchRequest.newFolderName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location);
+    return Objects.hash(documents, folderId, newFolderName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TicketModel {\n");
+    sb.append("class MoveDocumentBatchRequest {\n");
     
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
+    sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
+    sb.append("    newFolderName: ").append(toIndentedString(newFolderName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

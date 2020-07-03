@@ -10,59 +10,106 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.webhooks;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import com.lacunasoftware.signer.WebhookTypes;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 /**
- * Gets or Sets PaginationOrders
+ * WebhookModel
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T17:37:56.171-03:00[America/Sao_Paulo]")
+public class WebhookModel {
+  @SerializedName("type")
+  private WebhookTypes type = null;
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @SerializedName("data")
+  private Object data = null;
+
+  public WebhookModel type(WebhookTypes type) {
+    this.type = type;
+    return this;
   }
 
-  public String getValue() {
-    return value;
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public WebhookTypes getType() {
+    return type;
+  }
+
+  public void setType(WebhookTypes type) {
+    this.type = type;
+  }
+
+  public WebhookModel data(Object data) {
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * The type-specific data of this webhook event. Check the documentation to see the corresponding model for an event type.
+   * @return data
+  **/
+  @Schema(description = "The type-specific data of this webhook event. Check the documentation to see the corresponding model for an event type.")
+  public Object getData() {
+    return data;
+  }
+
+  public void setData(Object data) {
+    this.data = data;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    WebhookModel webhooksWebhookModel = (WebhookModel) o;
+    return Objects.equals(this.type, webhooksWebhookModel.type) &&
+        Objects.equals(this.data, webhooksWebhookModel.data);
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(type, data);
+  }
+
+
+  @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class WebhookModel {\n");
+    
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
-    }
-  }
 }

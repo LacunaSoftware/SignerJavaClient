@@ -22,16 +22,17 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets PaginationOrders
+ * Gets or Sets OrganizationType
  */
-@JsonAdapter(PaginationOrders.Adapter.class)
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
+@JsonAdapter(OrganizationType.Adapter.class)
+public enum OrganizationType {
+  NORMAL("Normal"),
+  PERSONAL("Personal"),
+  SHAREDWITHME("SharedWithMe");
 
   private String value;
 
-  PaginationOrders(String value) {
+  OrganizationType(String value) {
     this.value = value;
   }
 
@@ -44,8 +45,8 @@ public enum PaginationOrders {
     return String.valueOf(value);
   }
 
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
+  public static OrganizationType fromValue(String text) {
+    for (OrganizationType b : OrganizationType.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }
@@ -53,16 +54,16 @@ public enum PaginationOrders {
     return null;
   }
 
-  public static class Adapter extends TypeAdapter<PaginationOrders> {
+  public static class Adapter extends TypeAdapter<OrganizationType> {
     @Override
-    public void write(final JsonWriter jsonWriter, final PaginationOrders enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final OrganizationType enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public PaginationOrders read(final JsonReader jsonReader) throws IOException {
+    public OrganizationType read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return PaginationOrders.fromValue(String.valueOf(value));
+      return OrganizationType.fromValue(String.valueOf(value));
     }
   }
 }
