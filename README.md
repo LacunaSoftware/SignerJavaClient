@@ -23,10 +23,10 @@ The recommended way to install it is with Gradle:
 Or with Maven:
          
     <dependency>
-      <groupId>com.lacunasoftware.signer</groupId>
-      <artifactId>signer-client</artifactId>
-      <version>1.0.1/version>
-      <type>pom</type>
+        <groupId>com.lacunasoftware.signer</groupId>
+        <artifactId>signer-client</artifactId>
+        <version>2.0.0</version>
+        <type>pom</type>
     </dependency>
       
     
