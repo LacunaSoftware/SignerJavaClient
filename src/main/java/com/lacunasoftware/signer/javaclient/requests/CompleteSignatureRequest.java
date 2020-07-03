@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.requests;
 
 public class CompleteSignatureRequest {
 	private byte[] signature;

@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.models;
 
 public class UploadModel {
 	protected String id;

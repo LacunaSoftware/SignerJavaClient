@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.folders;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.params;
 
 import com.lacunasoftware.signer.PaginationOrders;
 

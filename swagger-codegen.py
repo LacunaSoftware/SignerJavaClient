@@ -41,7 +41,7 @@ try:
         with open(dirname + '\\' + javaFileClass, 'rb') as file:
             fileData = file.read()
 
-        # 4.1. Replace package to the new location of files
+        # 4.1. Change imported packages to meet the new folder's structure
         for className in classNames:
             oldImport = bytes('import com.lacunasoftware.signer.' + className, 'utf-8')
             newImport = bytes('import com.lacunasoftware.signer.' + '.'.join(classNames[className]['namespace']) + '.' + classNames[className]['name'], 'utf-8')
@@ -62,7 +62,7 @@ try:
         with open(dirname + '\\' + javaFileClass, 'wb') as file:
                 file.write(fileData)
 
-        # 4.2. If this file itself belongs to another package, moves physically it's new location.
+        # 4.4. If this file itself belongs to another package, moves physically it's new location.
         if javaClass in classNames.keys():
             folder = dirname + '\\' + '\\'.join(classNames[javaClass]['namespace'])
             if not os.path.exists(folder):

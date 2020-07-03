@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -8,6 +8,14 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.Scanner;
+
+import com.lacunasoftware.signer.javaclient.exceptions.RestErrorException;
+import com.lacunasoftware.signer.javaclient.exceptions.RestException;
+import com.lacunasoftware.signer.javaclient.exceptions.RestUnreachableException;
+import com.lacunasoftware.signer.javaclient.exceptions.RestDecodeException;
+import com.lacunasoftware.signer.javaclient.exceptions.RestResourceNotFoundException;
+import com.lacunasoftware.signer.javaclient.models.RestGeneralErrorModel;
+import com.lacunasoftware.signer.javaclient.models.RestResourceNotFoundModel;
 
 class RestClient {
 	private URI endpointUrl;

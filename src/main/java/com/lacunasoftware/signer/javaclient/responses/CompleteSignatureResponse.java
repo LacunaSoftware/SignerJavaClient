@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.responses;
 
 import com.lacunasoftware.signer.ValidationResultsModel;
 

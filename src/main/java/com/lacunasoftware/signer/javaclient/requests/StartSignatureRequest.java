@@ -1,6 +1,7 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.requests;
 
 import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.javaclient.positions.PdfMarkPosition;
 
 import java.util.UUID;
 

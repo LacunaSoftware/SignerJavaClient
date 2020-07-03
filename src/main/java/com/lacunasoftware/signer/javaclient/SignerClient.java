@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -19,6 +19,17 @@ import com.lacunasoftware.signer.documents.DocumentModel;
 import com.lacunasoftware.signer.documents.ActionUrlResponse;
 import com.lacunasoftware.signer.documents.ActionUrlRequest;
 import com.lacunasoftware.signer.documents.CreateDocumentRequest;
+import com.lacunasoftware.signer.javaclient.responses.PaginatedSearchResponse;
+import com.lacunasoftware.signer.javaclient.responses.CompleteSignatureResponse;
+import com.lacunasoftware.signer.javaclient.responses.StartSignatureResponse;
+import com.lacunasoftware.signer.javaclient.folders.FolderDetailsModel;
+import com.lacunasoftware.signer.javaclient.models.UploadModel;
+import com.lacunasoftware.signer.javaclient.params.PaginatedSearchParams;
+import com.lacunasoftware.signer.javaclient.exceptions.RestException;
+import com.lacunasoftware.signer.javaclient.requests.ElectronicSignatureRequest;
+import com.lacunasoftware.signer.javaclient.requests.SendElectronicSignatureAuthenticationRequest;
+import com.lacunasoftware.signer.javaclient.requests.StartSignatureRequest;
+import com.lacunasoftware.signer.javaclient.requests.CompleteSignatureRequest;
 
 public class SignerClient {
     protected String apiKey;

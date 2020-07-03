@@ -1,6 +1,7 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.builders;
 
 import com.lacunasoftware.signer.FileUploadModel;
+import com.lacunasoftware.signer.javaclient.models.UploadModel;
 
 public class FileUploadModelBuilder extends UploadModel {
 

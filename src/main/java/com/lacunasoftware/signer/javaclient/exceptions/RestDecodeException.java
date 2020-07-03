@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.exceptions;
 
 /**
  * Thrown to indicate that a REST request was successful but an error occurred while decoding its
@@ -11,7 +11,7 @@ public class RestDecodeException extends RestException {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	RestDecodeException(String verb, String url, Exception innerException) {
+	public RestDecodeException(String verb, String url, Exception innerException) {
 		super(formatExceptionMessage(verb, url), verb, url, innerException);
 	}
 

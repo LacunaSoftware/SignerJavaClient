@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.exceptions;
 
 /**
  * Thrown to indicate that a REST request returned an HTTP status code indicating error and possibly
@@ -12,11 +12,11 @@ public class RestErrorException extends RestException {
 	private int statusCode;
 	private String errorMessage;
 
-	RestErrorException(String verb, String url, int statusCode) {
+	public RestErrorException(String verb, String url, int statusCode) {
 		this(verb, url, statusCode, null);
 	}
 
-	RestErrorException(String verb, String url, int statusCode, String errorMessage) {
+	public RestErrorException(String verb, String url, int statusCode, String errorMessage) {
 		super(formatExceptionMessage(verb, url, statusCode, errorMessage), verb, url);
 		this.statusCode = statusCode;
 		this.errorMessage = errorMessage;

@@ -1,16 +1,16 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.models;
 
 import com.google.gson.annotations.SerializedName;
 
-class RestGeneralErrorModel {
+public class RestGeneralErrorModel {
 
 	@SerializedName("message")
 	private String message = null;
 
-	String getMessage() {
+	public String getMessage() {
 		return message;
 	}
-	void setMessage(String message) {
+	public void setMessage(String message) {
 		this.message = message;
 	}
 }

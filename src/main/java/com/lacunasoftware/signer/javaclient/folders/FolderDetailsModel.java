@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.folders;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,4 +1,4 @@
-package com.lacunasoftware.signer.reserveds;
+package com.lacunasoftware.signer.javaclient.exceptions;
 
 /**
  * Thrown to indicate that a REST request was made but not resource was found at the requested URL.
@@ -11,7 +11,7 @@ public class RestResourceNotFoundException extends RestException {
 	private String resourceName;
 	private String resourceId;
 
-	RestResourceNotFoundException(String verb, String url, String resourceName, String resourceId) {
+	public RestResourceNotFoundException(String verb, String url, String resourceName, String resourceId) {
 		super(formatExceptionMessage(verb, url, resourceName, resourceId), verb, url);
 		this.resourceName = resourceName;
 		this.resourceId = resourceId;
