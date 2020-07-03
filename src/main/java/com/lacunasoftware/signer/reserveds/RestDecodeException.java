@@ -6,6 +6,11 @@ package com.lacunasoftware.signer.reserveds;
  */
 public class RestDecodeException extends RestException {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
 	RestDecodeException(String verb, String url, Exception innerException) {
 		super(formatExceptionMessage(verb, url), verb, url, innerException);
 	}

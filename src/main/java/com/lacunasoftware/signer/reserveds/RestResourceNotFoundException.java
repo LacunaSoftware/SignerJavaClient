@@ -4,6 +4,10 @@ package com.lacunasoftware.signer.reserveds;
  * Thrown to indicate that a REST request was made but not resource was found at the requested URL.
  */
 public class RestResourceNotFoundException extends RestException {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private String resourceName;
 	private String resourceId;
 

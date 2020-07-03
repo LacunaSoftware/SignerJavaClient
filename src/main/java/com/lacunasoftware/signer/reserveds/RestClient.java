@@ -286,13 +286,6 @@ class RestClient {
 		}
 	}
 
-	private <T> T readResponse(HttpURLConnection conn, Class<T> valueType) throws IOException {
-		InputStream inStream = conn.getInputStream();
-		T response = new Gson().fromJson(readJsonStream(inStream), valueType);
-		inStream.close();
-		return response;
-	}
-
 	private <T> T readResponse(HttpURLConnection conn, TypeToken<T> typeToken) throws IOException {
 		InputStream inStream = conn.getInputStream();
 		T response = new Gson().fromJson(readJsonStream(inStream), typeToken.getType());
@@ -307,19 +300,13 @@ class RestClient {
 		return response;
 	}
 
-	private <T> T readErrorResponse(HttpURLConnection conn, TypeToken<T> typeToken) throws IOException {
-		InputStream inStream = conn.getErrorStream();
-		T response = new Gson().fromJson(readJsonStream(inStream), typeToken.getType());
-		inStream.close();
-		return response;
-	}
-
 	private String readJsonStream(InputStream stream) {
 		Scanner sc = new Scanner(stream);
 		StringBuilder sb = new StringBuilder();
 		while (sc.hasNext()) {
 			sb.append(sc.nextLine());
 		}
+		sc.close();
 		return sb.toString();
 	}
 

@@ -6,7 +6,6 @@ import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -64,6 +63,7 @@ public class SignerClient {
 
 	// region DOCUMENT
 
+	@SuppressWarnings("unchecked")
 	public List<CreateDocumentResult> createDocument(CreateDocumentRequest request) throws RestException {
 		List<CreateDocumentResult> result = (List<CreateDocumentResult>)getRestClient().post("/api/documents", request, TypeToken.getParameterized(List.class, CreateDocumentResult.class));
 		return result;
@@ -163,6 +163,7 @@ public class SignerClient {
 		return folderDetails;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public PaginatedSearchResponse<FolderInfoModel> listFoldersPaginated(PaginatedSearchParams searchParams, UUID organizationId) throws RestException {
 		String orgIdStr = organizationId != null ? organizationId.toString() : "";
 		String requestUri = String.format("/api/folders%s&organizationId=%s", buildSearchPaginatedParamsString(searchParams), orgIdStr);

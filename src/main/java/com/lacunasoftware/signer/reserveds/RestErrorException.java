@@ -5,6 +5,10 @@ package com.lacunasoftware.signer.reserveds;
  * a message, but no further information was returned.
  */
 public class RestErrorException extends RestException {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private int statusCode;
 	private String errorMessage;
 
