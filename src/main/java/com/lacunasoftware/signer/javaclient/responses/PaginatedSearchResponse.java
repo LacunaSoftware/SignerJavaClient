@@ -4,12 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-<<<<<<< HEAD:src/main/java/com/lacunasoftware/signer/LacunaSignerApiPaginatedSearchResponse.java
-
-class LacunaSignerApiPaginatedSearchResponse<T> {
-=======
 public class PaginatedSearchResponse<T> {
->>>>>>> update/signer-java-client:src/main/java/com/lacunasoftware/signer/javaclient/responses/PaginatedSearchResponse.java
 
 	@SerializedName("items")
 	private List<T> items;

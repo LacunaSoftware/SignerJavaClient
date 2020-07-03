@@ -3,12 +3,7 @@ package com.lacunasoftware.signer.javaclient.responses;
 import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.ValidationResultsModel;
 
-<<<<<<< HEAD:src/main/java/com/lacunasoftware/signer/LacunaSignerApiSignatureStartSignatureResponse.java
-
-class LacunaSignerApiSignatureStartSignatureResponse {
-=======
 public class StartSignatureResponse {
->>>>>>> update/signer-java-client:src/main/java/com/lacunasoftware/signer/javaclient/responses/StartSignatureResponse.java
 
 	@SerializedName("success")
 	private boolean success;

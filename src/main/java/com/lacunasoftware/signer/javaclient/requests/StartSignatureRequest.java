@@ -5,12 +5,7 @@ import com.lacunasoftware.signer.javaclient.positions.PdfMarkPosition;
 
 import java.util.UUID;
 
-<<<<<<< HEAD:src/main/java/com/lacunasoftware/signer/LacunaSignerApiSignatureStartSignatureRequest.java
-
-class LacunaSignerApiSignatureStartSignatureRequest {
-=======
 public class StartSignatureRequest {
->>>>>>> update/signer-java-client:src/main/java/com/lacunasoftware/signer/javaclient/requests/StartSignatureRequest.java
 
 	@SerializedName("flowActionId")
 	private UUID flowActionId;
