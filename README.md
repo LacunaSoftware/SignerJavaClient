@@ -16,7 +16,7 @@ The recommended way to install it is with Gradle:
     }
     
     dependencies {
-        compile("com.lacunasoftware.signer:signer-client:1.0.1")
+        compile("com.lacunasoftware.signer:signer-client:2.0.0")
         ...
     }
         
