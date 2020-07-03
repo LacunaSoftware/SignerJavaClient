@@ -5,12 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.UUID;
 
-<<<<<<< HEAD:src/main/java/com/lacunasoftware/signer/LacunaSignerApiFoldersFolderDetailsModel.java
-
-class LacunaSignerApiFoldersFolderDetailsModel {
-=======
 public class FolderDetailsModel {
->>>>>>> update/signer-java-client:src/main/java/com/lacunasoftware/signer/javaclient/folders/FolderDetailsModel.java
 
 	@SerializedName("id")
 	private UUID id;

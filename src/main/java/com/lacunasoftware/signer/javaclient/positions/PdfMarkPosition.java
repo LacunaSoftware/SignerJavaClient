@@ -1,16 +1,6 @@
 package com.lacunasoftware.signer.javaclient.positions;
 
-<<<<<<< HEAD:src/main/java/com/lacunasoftware/signer/LacunaSignerApiSignaturePdfMarkPosition.java
-
-import com.google.gson.annotations.SerializedName;
-
-
-class LacunaSignerApiSignaturePdfMarkPosition {
-
-	@SerializedName("page")
-=======
 public class PdfMarkPosition {
->>>>>>> update/signer-java-client:src/main/java/com/lacunasoftware/signer/javaclient/positions/PdfMarkPosition.java
 	private int page;
 	private double topLeftX;
 	private double topLeftY;

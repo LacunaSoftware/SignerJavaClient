@@ -3,12 +3,7 @@ package com.lacunasoftware.signer.javaclient.folders;
 import java.util.List;
 import java.util.UUID;
 
-<<<<<<< HEAD:src/main/java/com/lacunasoftware/signer/LacunaSignerApiFoldersFolderAccessModel.java
-
-class LacunaSignerApiFoldersFolderAccessModel {
-=======
 public class FolderAccessModel {
->>>>>>> update/signer-java-client:src/main/java/com/lacunasoftware/signer/javaclient/folders/FolderAccessModel.java
 	public enum Roles {
 		ADMIN("Admin"),
 		MANAGER("Manager"),

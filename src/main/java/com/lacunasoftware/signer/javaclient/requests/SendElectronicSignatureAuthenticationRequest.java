@@ -4,12 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.UUID;
 
-<<<<<<< HEAD:src/main/java/com/lacunasoftware/signer/LacunaSignerApiSignatureSendElectronicSignatureAuthenticationRequest.java
-
-class LacunaSignerApiSignatureSendElectronicSignatureAuthenticationRequest {
-=======
 public class SendElectronicSignatureAuthenticationRequest {
->>>>>>> update/signer-java-client:src/main/java/com/lacunasoftware/signer/javaclient/requests/SendElectronicSignatureAuthenticationRequest.java
 
 	@SerializedName("flowActionId")
 	private UUID flowActionId;

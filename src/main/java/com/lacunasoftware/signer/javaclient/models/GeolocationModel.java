@@ -2,12 +2,7 @@ package com.lacunasoftware.signer.javaclient.models;
 
 import com.google.gson.annotations.SerializedName;
 
-<<<<<<< HEAD:src/main/java/com/lacunasoftware/signer/LacunaSignerApiSignatureGeolocationModel.java
-
-class LacunaSignerApiSignatureGeolocationModel {
-=======
 public class GeolocationModel {
->>>>>>> update/signer-java-client:src/main/java/com/lacunasoftware/signer/javaclient/models/GeolocationModel.java
 
 	@SerializedName("latitude")
 	private Double latitude;

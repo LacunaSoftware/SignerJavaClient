@@ -6,12 +6,7 @@ import com.lacunasoftware.signer.javaclient.positions.PdfMarkPosition;
 
 import java.util.UUID;
 
-<<<<<<< HEAD:src/main/java/com/lacunasoftware/signer/LacunaSignerApiSignatureElectronicSignatureRequest.java
-
-class LacunaSignerApiSignatureElectronicSignatureRequest {
-=======
 public class ElectronicSignatureRequest {
->>>>>>> update/signer-java-client:src/main/java/com/lacunasoftware/signer/javaclient/requests/ElectronicSignatureRequest.java
 	public enum AuthenticationTypes {
 		SMS("SMS"),
 		AUTHENTICATION_APP("AuthenticationApp");
