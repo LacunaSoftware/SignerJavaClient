@@ -73,7 +73,7 @@ class RestClient {
 	}
 
 	/**
-	 * Does some thing in old style.
+	 * This method does not use the new patterns of authentication 
 	 *
 	 * @deprecated use getStreamV2() instead.
 	 */

@@ -92,7 +92,7 @@ public class SignerClient {
 
 	/**
 	 *
-	 *
+	 *	This method does not use the new patterns to retrieve a document
 	 * @deprecated use getDocumentContent() instead.
 	 */
 	@Deprecated
