@@ -93,7 +93,7 @@ public class SignerClient {
 	/**
 	 *
 	 *	This method does not use the new patterns to retrieve a document
-	 * @deprecated use getDocumentContent() instead.
+	 * @deprecated use {@link #getDocumentContent} instead.
 	 */
 	@Deprecated
 	public InputStream getDocument(UUID id, DocumentTicketType type) throws RestException {

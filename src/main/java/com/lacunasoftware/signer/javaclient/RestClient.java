@@ -73,9 +73,9 @@ class RestClient {
 	}
 
 	/**
-	 * This method does not use the new patterns of authentication 
+	 * This method does not use the new patterns of authentication
 	 *
-	 * @deprecated use getStreamV2() instead.
+	 * @deprecated use {@link #getStreamV2} instead.
 	 */
 	@Deprecated
 	public InputStream getStream(String requestUri) throws RestException {
