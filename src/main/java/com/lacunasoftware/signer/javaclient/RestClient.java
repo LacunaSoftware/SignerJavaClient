@@ -72,6 +72,12 @@ class RestClient {
 		return response;
 	}
 
+	/**
+	 * Does some thing in old style.
+	 *
+	 * @deprecated use getStreamV2() instead.
+	 */
+	@Deprecated
 	public InputStream getStream(String requestUri) throws RestException {
 
 		String verb = "GET";
@@ -83,6 +89,27 @@ class RestClient {
 			URL urlObj = new URL(url);
 			conn = (HttpURLConnection) urlObj.openConnection();
 			conn.setRequestMethod(verb);
+
+			return conn.getInputStream();
+
+		} catch (Exception e) {
+			throw new RestUnreachableException(verb, url, e);
+		}
+	}
+
+	public InputStream getStreamV2(String requestUri) throws RestException {
+
+		String verb = "GET";
+		String url = resolveUrl(endpointUrl.toString(), requestUri);
+		HttpURLConnection conn;
+
+		try {
+
+			URL ur = new URL(url);
+			conn = (HttpURLConnection) ur.openConnection();
+			conn.setRequestMethod(verb);
+			conn.setRequestProperty("Accept", "application/json");
+			conn.setRequestProperty("X-Api-Key", apiKey);
 
 			return conn.getInputStream();
 
@@ -345,7 +372,7 @@ class RestClient {
 			if (json == null) {
 				return null;
 			}
-			String dateString = json.toString().substring(1, 34);
+			String dateString = json.toString().replaceAll("\"", "");
 			return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
 		}
 	}

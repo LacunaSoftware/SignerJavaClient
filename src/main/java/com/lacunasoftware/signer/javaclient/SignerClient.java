@@ -9,16 +9,14 @@ import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
+import com.lacunasoftware.signer.DocumentDownloadTypes;
 import com.lacunasoftware.signer.TicketModel;
 import com.lacunasoftware.signer.DocumentTicketType;
+import com.lacunasoftware.signer.documents.*;
+import com.lacunasoftware.signer.javaclient.params.DocumentListParameters;
 import com.lacunasoftware.signer.notifications.CreateFlowActionReminderRequest;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
 import com.lacunasoftware.signer.folders.FolderCreateRequest;
-import com.lacunasoftware.signer.documents.CreateDocumentResult;
-import com.lacunasoftware.signer.documents.DocumentModel;
-import com.lacunasoftware.signer.documents.ActionUrlResponse;
-import com.lacunasoftware.signer.documents.ActionUrlRequest;
-import com.lacunasoftware.signer.documents.CreateDocumentRequest;
 import com.lacunasoftware.signer.javaclient.responses.PaginatedSearchResponse;
 import com.lacunasoftware.signer.javaclient.responses.CompleteSignatureResponse;
 import com.lacunasoftware.signer.javaclient.responses.StartSignatureResponse;
@@ -92,10 +90,24 @@ public class SignerClient {
 		return ticket;
 	}
 
+	/**
+	 *
+	 *
+	 * @deprecated use getDocumentContent() instead.
+	 */
+	@Deprecated
 	public InputStream getDocument(UUID id, DocumentTicketType type) throws RestException {
 		TicketModel ticket = getDocumentDownloadTicket(id, type);
 		return getRestClient().getStream(ticket.getLocation());
 	}
+
+
+	public  InputStream getDocumentContent(UUID id, DocumentDownloadTypes type) throws RestException {
+		String requestUri = String.format("/api/documents/%s/content?type=%s", id.toString(), type.getValue());
+		InputStream documento = getRestClient().getStreamV2(requestUri);
+		return documento;
+	}
+
 
 	public byte[] getDocumentBytes(UUID id, DocumentTicketType type) throws IOException, RestException {
 		byte[] content;
@@ -182,6 +194,13 @@ public class SignerClient {
 		return model;
 	}
 
+	public PaginatedSearchResponse<DocumentListModel> listDocuments(DocumentListParameters searchParams) throws RestException {
+
+		String requestUri = String.format("api/documents?%s", buildSearchDocumentListString(searchParams));
+		PaginatedSearchResponse<DocumentListModel> model = (PaginatedSearchResponse<DocumentListModel>)getRestClient().get(requestUri, TypeToken.getParameterized(PaginatedSearchResponse.class, DocumentListModel.class));
+		return model;
+	}
+
 	// endregion
 
 	// region NOTIFICATIONS
@@ -199,6 +218,10 @@ public class SignerClient {
 
 	private String buildSearchPaginatedParamsString(PaginatedSearchParams searchParams) {
 		return String.format("?q=%s&limit=%s&offset=%s", getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOffset());
+	}
+
+	private String buildSearchDocumentListString(DocumentListParameters searchParams) {
+		return String.format("IsConcluded=%s&OrganizationType=Normal&FolderType=Normal&FilterByDocumentType=False&Q=%s&Limit=%s&Offset=0&Order=%s", searchParams.getIsConcluded(), getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOrder());
 	}
 
 	private String getParameterOrEmpty(String parameter) {
