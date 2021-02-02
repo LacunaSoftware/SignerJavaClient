@@ -1,3 +1,4 @@
 {
-	"modelPackage": "com.lacunasoftware.signer"
+	"modelPackage": "com.lacunasoftware.signer",
+	"library": "jersey1"
 }
