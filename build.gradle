@@ -5,7 +5,6 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -18,13 +17,13 @@ repositories {
 dependencies {
     implementation 'io.swagger.core.v3:swagger-annotations:2.0.0'
     implementation 'com.google.code.gson:gson:2.8.1'
-    compile group: 'org.threeten', name: 'threetenbp', version: '1.4.4'
+    implementation group: 'org.threeten', name: 'threetenbp', version: '1.4.4'
 }
 
 task fatJar(type: Jar) {
     manifest {
     }
-    baseName = project.name + '-all'
+    archiveBaseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
