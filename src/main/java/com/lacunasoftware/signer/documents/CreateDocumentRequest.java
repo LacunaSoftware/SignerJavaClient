@@ -1,8 +1,8 @@
 /*
  * Dropsigner (HML)
- * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
+ * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
  *
- * OpenAPI spec version: 1.7.0
+ * OpenAPI spec version: 1.24.3
  * 
  *
  * NOTE: This class is auto generated by the swagger code generator program.
@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.lacunasoftware.signer.attachments.AttachmentUploadModel;
 import com.lacunasoftware.signer.FileUploadModel;
 import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
 import com.lacunasoftware.signer.observers.ObserverCreateModel;
@@ -31,13 +32,19 @@ import java.util.UUID;
  * CreateDocumentRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-03T19:34:04.293-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-02-02T15:43:05.773-03:00[America/Sao_Paulo]")
 public class CreateDocumentRequest {
   @SerializedName("files")
   private List<FileUploadModel> files = new ArrayList<FileUploadModel>();
 
+  @SerializedName("attachments")
+  private List<AttachmentUploadModel> attachments = null;
+
   @SerializedName("folderId")
   private UUID folderId = null;
+
+  @SerializedName("description")
+  private String description = null;
 
   @SerializedName("flowActions")
   private List<FlowActionCreateModel> flowActions = new ArrayList<FlowActionCreateModel>();
@@ -77,6 +84,32 @@ public class CreateDocumentRequest {
     this.files = files;
   }
 
+  public CreateDocumentRequest attachments(List<AttachmentUploadModel> attachments) {
+    this.attachments = attachments;
+    return this;
+  }
+
+  public CreateDocumentRequest addAttachmentsItem(AttachmentUploadModel attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<AttachmentUploadModel>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+   /**
+   * The attachments to submit. Each document will have the same attachments.
+   * @return attachments
+  **/
+  @Schema(description = "The attachments to submit. Each document will have the same attachments.")
+  public List<AttachmentUploadModel> getAttachments() {
+    return attachments;
+  }
+
+  public void setAttachments(List<AttachmentUploadModel> attachments) {
+    this.attachments = attachments;
+  }
+
   public CreateDocumentRequest folderId(UUID folderId) {
     this.folderId = folderId;
     return this;
@@ -93,6 +126,24 @@ public class CreateDocumentRequest {
 
   public void setFolderId(UUID folderId) {
     this.folderId = folderId;
+  }
+
+  public CreateDocumentRequest description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * A description to be added to the document(s). This will be presented to all participants in the document details screen and   in pending action notifications.
+   * @return description
+  **/
+  @Schema(description = "A description to be added to the document(s). This will be presented to all participants in the document details screen and   in pending action notifications.")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public CreateDocumentRequest flowActions(List<FlowActionCreateModel> flowActions) {
@@ -209,7 +260,9 @@ public class CreateDocumentRequest {
     }
     CreateDocumentRequest documentsCreateDocumentRequest = (CreateDocumentRequest) o;
     return Objects.equals(this.files, documentsCreateDocumentRequest.files) &&
+        Objects.equals(this.attachments, documentsCreateDocumentRequest.attachments) &&
         Objects.equals(this.folderId, documentsCreateDocumentRequest.folderId) &&
+        Objects.equals(this.description, documentsCreateDocumentRequest.description) &&
         Objects.equals(this.flowActions, documentsCreateDocumentRequest.flowActions) &&
         Objects.equals(this.observers, documentsCreateDocumentRequest.observers) &&
         Objects.equals(this.disablePendingActionNotifications, documentsCreateDocumentRequest.disablePendingActionNotifications) &&
@@ -219,7 +272,7 @@ public class CreateDocumentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, folderId, flowActions, observers, disablePendingActionNotifications, newFolderName, forceCadesSignature);
+    return Objects.hash(files, attachments, folderId, description, flowActions, observers, disablePendingActionNotifications, newFolderName, forceCadesSignature);
   }
 
 
@@ -229,7 +282,9 @@ public class CreateDocumentRequest {
     sb.append("class CreateDocumentRequest {\n");
     
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    flowActions: ").append(toIndentedString(flowActions)).append("\n");
     sb.append("    observers: ").append(toIndentedString(observers)).append("\n");
     sb.append("    disablePendingActionNotifications: ").append(toIndentedString(disablePendingActionNotifications)).append("\n");
