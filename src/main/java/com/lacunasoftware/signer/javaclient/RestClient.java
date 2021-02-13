@@ -359,7 +359,7 @@ class RestClient {
 		return processedEndpoint + "/" + processedPath;
 	}
 
-	private Gson getGson() {
+	protected Gson getGson() {
 		Gson gson = new GsonBuilder()
 			.registerTypeAdapter(OffsetDateTime.class, new OffsetDateTimeDeserializer())
 			.create();
