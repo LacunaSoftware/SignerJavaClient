@@ -1,10 +1,17 @@
 package com.lacunasoftware.signer.javaclient;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.JsonParseException;
+import com.lacunasoftware.signer.webhooks.WebhookModel;
 import org.threeten.bp.OffsetDateTime;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonDeserializationContext;
@@ -360,19 +367,45 @@ class RestClient {
 	}
 
 	protected Gson getGson() {
+
 		Gson gson = new GsonBuilder()
 			.registerTypeAdapter(OffsetDateTime.class, new OffsetDateTimeDeserializer())
 			.create();
 		return gson;
 	}
 
-	private class OffsetDateTimeDeserializer implements JsonDeserializer<OffsetDateTime> {
+//	protected ObjectMapper getJackson(){
+//
+//		ObjectMapper objectMapper = new ObjectMapper();
+//
+//		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+//		objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
+//
+//		objectMapper.registerModule(new JavaTimeModule());
+//
+//		SimpleModule simpleModule = new SimpleModule();
+//		simpleModule.registerSubtypes(WebhookModel.class);
+//		simpleModule.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
+//
+//		objectMapper.registerModule(simpleModule);
+//
+//		return objectMapper;
+//	}
+
+	private class OffsetDateTimeDeserializer extends com.fasterxml.jackson.databind.JsonDeserializer<OffsetDateTime> implements JsonDeserializer<OffsetDateTime> {
 		@Override
 		public OffsetDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 			if (json == null) {
 				return null;
 			}
-			String dateString = json.toString().replaceAll("\"", "");
+			// The java deserializer
+			String dateString = json.getAsString();
+			return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+		}
+
+		@Override
+		public OffsetDateTime deserialize(JsonParser json, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+			String dateString = json.getValueAsString();
 			return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
 		}
 	}

@@ -1,5 +1,6 @@
 package com.lacunasoftware.signer.javaclient;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -55,8 +56,11 @@ public class SignerClient {
 
 	// region SHARED
 
-	public Gson getGson() {
+//	public ObjectMapper getJackson() {
+//		return getRestClient().getJackson();
+//	}
 
+	public Gson getGson() {
 		return getRestClient().getGson();
 	}
 	public byte[] getFile(TicketModel ticket) throws RestException {
