@@ -374,23 +374,23 @@ class RestClient {
 		return gson;
 	}
 
-//	protected ObjectMapper getJackson(){
-//
-//		ObjectMapper objectMapper = new ObjectMapper();
-//
-//		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-//		objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
-//
-//		objectMapper.registerModule(new JavaTimeModule());
-//
-//		SimpleModule simpleModule = new SimpleModule();
-//		simpleModule.registerSubtypes(WebhookModel.class);
-//		simpleModule.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
-//
-//		objectMapper.registerModule(simpleModule);
-//
-//		return objectMapper;
-//	}
+	protected ObjectMapper getJackson(){
+
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
+
+		objectMapper.registerModule(new JavaTimeModule());
+
+		SimpleModule simpleModule = new SimpleModule();
+		simpleModule.registerSubtypes(WebhookModel.class);
+		simpleModule.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
+
+		objectMapper.registerModule(simpleModule);
+
+		return objectMapper;
+	}
 
 	private class OffsetDateTimeDeserializer extends com.fasterxml.jackson.databind.JsonDeserializer<OffsetDateTime> implements JsonDeserializer<OffsetDateTime> {
 		@Override
