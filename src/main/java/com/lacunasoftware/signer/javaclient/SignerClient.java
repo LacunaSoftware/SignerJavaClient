@@ -56,9 +56,9 @@ public class SignerClient {
 
 	// region SHARED
 
-//	public ObjectMapper getJackson() {
-//		return getRestClient().getJackson();
-//	}
+	public ObjectMapper getJackson() {
+		return getRestClient().getJackson();
+	}
 
 	public Gson getGson() {
 		return getRestClient().getGson();

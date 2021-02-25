@@ -374,25 +374,25 @@ class RestClient {
 		return gson;
 	}
 
-//	protected ObjectMapper getJackson(){
-//
-//		ObjectMapper objectMapper = new ObjectMapper();
-//
-//		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-//		objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
-//
-//		objectMapper.registerModule(new JavaTimeModule());
-//
-//		SimpleModule simpleModule = new SimpleModule();
-//		simpleModule.registerSubtypes(WebhookModel.class);
-//		simpleModule.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
-//
-//		objectMapper.registerModule(simpleModule);
-//
-//		return objectMapper;
-//	}
+	protected ObjectMapper getJackson(){
 
-	private class OffsetDateTimeDeserializer extends com.fasterxml.jackson.databind.JsonDeserializer<OffsetDateTime> implements JsonDeserializer<OffsetDateTime> {
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
+
+		objectMapper.registerModule(new JavaTimeModule());
+
+		SimpleModule simpleModule = new SimpleModule();
+		simpleModule.registerSubtypes(WebhookModel.class);
+		simpleModule.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
+
+		objectMapper.registerModule(simpleModule);
+
+		return objectMapper;
+	}
+
+	protected class OffsetDateTimeDeserializer extends com.fasterxml.jackson.databind.JsonDeserializer<OffsetDateTime> implements JsonDeserializer<OffsetDateTime> {
 		@Override
 		public OffsetDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 			if (json == null) {
