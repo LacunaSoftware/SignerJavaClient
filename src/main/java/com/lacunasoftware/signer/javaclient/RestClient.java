@@ -392,7 +392,7 @@ class RestClient {
 		return objectMapper;
 	}
 
-	private class OffsetDateTimeDeserializer extends com.fasterxml.jackson.databind.JsonDeserializer<OffsetDateTime> implements JsonDeserializer<OffsetDateTime> {
+	protected class OffsetDateTimeDeserializer extends com.fasterxml.jackson.databind.JsonDeserializer<OffsetDateTime> implements JsonDeserializer<OffsetDateTime> {
 		@Override
 		public OffsetDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 			if (json == null) {
