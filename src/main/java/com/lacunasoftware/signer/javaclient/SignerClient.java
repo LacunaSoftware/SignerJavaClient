@@ -1,5 +1,8 @@
 package com.lacunasoftware.signer.javaclient;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
@@ -28,6 +31,7 @@ import com.lacunasoftware.signer.javaclient.requests.ElectronicSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.SendElectronicSignatureAuthenticationRequest;
 import com.lacunasoftware.signer.javaclient.requests.StartSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.CompleteSignatureRequest;
+import org.threeten.bp.OffsetDateTime;
 
 public class SignerClient {
     protected String apiKey;
@@ -43,7 +47,7 @@ public class SignerClient {
 		this.apiKey = apiKey;
     }
     
-    protected RestClient getRestClient() {
+    private RestClient getRestClient() {
 		if (restClient == null) {
 			restClient = new RestClient(endpointUri, apiKey);
 		}
@@ -52,6 +56,13 @@ public class SignerClient {
 
 	// region SHARED
 
+	public ObjectMapper getJackson() {
+		return getRestClient().getJackson();
+	}
+
+	public Gson getGson() {
+		return getRestClient().getGson();
+	}
 	public byte[] getFile(TicketModel ticket) throws RestException {
 		return getRestClient().get(ticket.getLocation(), byte[].class);
 	}

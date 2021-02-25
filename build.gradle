@@ -15,9 +15,16 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.swagger.core.v3:swagger-annotations:2.1.0'
+    implementation 'io.swagger.core.v3:swagger-annotations:2.1.1'
     implementation 'com.google.code.gson:gson:2.8.1'
     implementation group: 'org.threeten', name: 'threetenbp', version: '1.4.4'
+
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+
+    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.12.1'
+
 }
 
 task fatJar(type: Jar) {
@@ -34,7 +41,7 @@ publishing {
             from components.java
             groupId 'com.lacunasoftware.signer'
             artifactId 'signer-client'
-            version "2.1.0"
+            version "2.1.2"
         }
     }
 }
@@ -51,9 +58,9 @@ bintray {
         licenses = ['Unlicense']
         vcsUrl = 'https://github.com/LacunaSoftware/SignerJavaClient.git'
         version {
-            name = '2.1.0'
+            name = '2.1.2'
             desc = 'Classes to use Signer'
-            vcsTag = '2.1.0'
+            vcsTag = '2.1.2'
         }
     }
 }
