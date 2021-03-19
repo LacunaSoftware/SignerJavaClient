@@ -41,13 +41,13 @@ public class PrePositionedDocumentMarkModel {
   private Double topLeftY = null;
 
   @SerializedName("width")
-  private Double width = null;
+  private Double width = 170.0;
 
   @SerializedName("height")
-  private Double height = null;
+  private Double height = 94.0;
 
   @SerializedName("pageNumber")
-  private Integer pageNumber = null;
+  private Integer pageNumber = 1;
 
   public PrePositionedDocumentMarkModel type(DocumentMarkType type) {
     this.type = type;

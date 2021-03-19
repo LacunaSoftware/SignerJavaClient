@@ -34,13 +34,13 @@ public class DocumentMarkPositionModel {
   private Double topLeftY = null;
 
   @SerializedName("width")
-  private Double width = null;
+  private Double width = 170.0;
 
   @SerializedName("height")
-  private Double height = null;
+  private Double height = 94.0;
 
   @SerializedName("pageNumber")
-  private Integer pageNumber = null;
+  private Integer pageNumber = 1;
 
   public DocumentMarkPositionModel topLeftX(Double topLeftX) {
     this.topLeftX = topLeftX;
