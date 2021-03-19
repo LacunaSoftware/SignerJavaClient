@@ -88,6 +88,10 @@ public class SignerClient {
 		List<CreateDocumentResult> result = (List<CreateDocumentResult>)getRestClient().post("/api/documents", request, TypeToken.getParameterized(List.class, CreateDocumentResult.class));
 		return result;
 	}
+	public void deleteDocument(UUID id) throws RestException {
+		String requestUri = String.format("api/documents/%s", id.toString());
+		getRestClient().delete(requestUri);
+	}
 
 	public DocumentModel getDocumentDetails(UUID id) throws RestException {
 		String requestUri = String.format("api/documents/%s", id.toString());
