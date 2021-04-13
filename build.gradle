@@ -1,14 +1,16 @@
-plugins {
-    id "com.jfrog.bintray" version "1.8.4"
-}
-
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'maven'
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
+
+group = 'com.lacunasoftware.signer'
+archivesBaseName = 'signer-client'
+version = '2.1.4'
 
 repositories {
     mavenCentral()
@@ -35,32 +37,64 @@ task fatJar(type: Jar) {
     with jar
 }
 
-publishing {
-    publications {
-        ClientPublish(MavenPublication) {
-            from components.java
-            groupId 'com.lacunasoftware.signer'
-            artifactId 'signer-client'
-            version "2.1.4"
-        }
-    }
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
 }
 
-bintray {
-    user = 'lacunasoftware'
-    key = System.getenv('BINTRAY_KEY')
-    publications = ['ClientPublish']
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
 
-    pkg {
-        repo = 'maven'
-        name = 'signer-client'
-        userOrg = user
-        licenses = ['Unlicense']
-        vcsUrl = 'https://github.com/LacunaSoftware/SignerJavaClient.git'
-        version {
-            name = '2.1.4'
-            desc = 'Classes to use Signer'
-            vcsTag = '2.1.4'
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'signer-client'
+                packaging 'jar'
+                artifactId 'signer-client'
+                description 'Classes to consume Lacuna Software Signer'
+                url 'https://github.com/LacunaSoftware/SignerJavaClient'
+
+                scm {
+                    connection 'scm:git:git@github.com:LacunaSoftware/SignerJavaClient.git'
+                    developerConnection 'scm:git:git@github.com:LacunaSoftware/SignerJavaClient.git'
+                    url 'https://github.com/LacunaSoftware/SignerJavaClient'
+                }
+
+                licenses {
+                    license {
+                        name 'Unlicense'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'ismaelm'
+                        name 'Ismael Medeiros'
+                        email 'IsmaelM@lacunasoftware.com'
+                    }
+                }
+            }
         }
     }
 }
