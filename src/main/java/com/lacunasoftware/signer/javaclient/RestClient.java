@@ -267,15 +267,13 @@ class RestClient {
 	}
 
 
-
-	<TRequest, TResponse> String putAsJson(String requestUri, TRequest request) throws RestException, IOException {
+	<TRequest> void putAsJson(String requestUri, TRequest request) throws RestException, IOException {
 
 		String verb = "PUT";
 		String requestUrl = resolveUrl(endpointUrl.toString(), requestUri);
 		HttpURLConnection conn;
-
-
-
+		
+		try {
 			URL url = new URL(requestUrl);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod(verb);
@@ -291,11 +289,11 @@ class RestClient {
 				outStream.write(json.getBytes());
 			}
 			outStream.close();
-			conn.getInputStream();
-			String message = conn.getResponseMessage();
-			return message;
-
-
+		} catch (Exception e) {
+			throw new RestUnreachableException(verb, requestUrl, e);
+		}
+		checkResponse(verb, requestUrl, conn);
+		conn.disconnect();
 
 	}
 

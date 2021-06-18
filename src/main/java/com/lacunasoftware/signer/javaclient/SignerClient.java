@@ -230,13 +230,8 @@ public class SignerClient {
 	}
 
 
-	public String UpdateInvoiceStatus(int id, InvoicesUpdateInvoicePaymentStatusRequest request) throws RestException {
-		try {
-			return getRestClient().putAsJson(String.format("api/invoices/%s/payment", id), request);
-
-		}catch (Exception e){
-			return e.getMessage();
-		}
+	public void UpdateInvoiceStatus(int id, InvoicesUpdateInvoicePaymentStatusRequest request) throws RestException, IOException {
+		 getRestClient().putAsJson(String.format("api/invoices/%s/payment", id), request);
 	}
 
 	// endregion
