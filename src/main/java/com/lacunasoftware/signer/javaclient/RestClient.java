@@ -266,6 +266,37 @@ class RestClient {
 		return response;
 	}
 
+
+	<TRequest> void putAsJson(String requestUri, TRequest request) throws RestException, IOException {
+
+		String verb = "PUT";
+		String requestUrl = resolveUrl(endpointUrl.toString(), requestUri);
+		HttpURLConnection conn;
+		
+		try {
+			URL url = new URL(requestUrl);
+			conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod(verb);
+			conn.setDoOutput(true);
+			conn.setRequestProperty("Content-Type", "application/json");
+			conn.setRequestProperty("Accept", "application/json");
+			conn.setRequestProperty("X-Api-Key", apiKey);
+			conn.setDoOutput(true);
+
+			OutputStream outStream = conn.getOutputStream();
+			if (request != null) {
+				String json = getGson().toJson(request);
+				outStream.write(json.getBytes());
+			}
+			outStream.close();
+		} catch (Exception e) {
+			throw new RestUnreachableException(verb, requestUrl, e);
+		}
+		checkResponse(verb, requestUrl, conn);
+		conn.disconnect();
+
+	}
+
 	void delete(String requestUri) throws RestException {
 
 		String verb = "DELETE";
