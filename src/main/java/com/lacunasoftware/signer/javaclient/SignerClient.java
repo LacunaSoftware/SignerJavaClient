@@ -2,7 +2,6 @@ package com.lacunasoftware.signer.javaclient;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
@@ -13,10 +12,10 @@ import java.util.List;
 import java.util.UUID;
 
 import com.lacunasoftware.signer.DocumentDownloadTypes;
+import com.lacunasoftware.signer.InvoicesUpdateInvoicePaymentStatusRequest;
 import com.lacunasoftware.signer.TicketModel;
 import com.lacunasoftware.signer.DocumentTicketType;
 import com.lacunasoftware.signer.documents.*;
-import com.lacunasoftware.signer.invoices.UpdateInvoicePaymentStatusRequest;
 import com.lacunasoftware.signer.javaclient.params.DocumentListParameters;
 import com.lacunasoftware.signer.notifications.CreateFlowActionReminderRequest;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
@@ -32,7 +31,6 @@ import com.lacunasoftware.signer.javaclient.requests.ElectronicSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.SendElectronicSignatureAuthenticationRequest;
 import com.lacunasoftware.signer.javaclient.requests.StartSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.CompleteSignatureRequest;
-import org.threeten.bp.OffsetDateTime;
 
 public class SignerClient {
     protected String apiKey;
@@ -230,7 +228,7 @@ public class SignerClient {
 	}
 
 
-	public void UpdateInvoiceStatus(int id, UpdateInvoicePaymentStatusRequest request) throws RestException, IOException {
+	public void UpdateInvoiceStatus(int id, InvoicesUpdateInvoicePaymentStatusRequest request) throws RestException, IOException {
 		 getRestClient().putAsJson(String.format("api/invoices/%s/payment", id), request);
 	}
 
