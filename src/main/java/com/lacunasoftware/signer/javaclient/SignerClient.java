@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.UUID;
 
 import com.lacunasoftware.signer.DocumentDownloadTypes;
-import com.lacunasoftware.signer.InvoicesUpdateInvoicePaymentStatusRequest;
 import com.lacunasoftware.signer.TicketModel;
 import com.lacunasoftware.signer.DocumentTicketType;
 import com.lacunasoftware.signer.documents.*;
+import com.lacunasoftware.signer.invoices.UpdateInvoicePaymentStatusRequest;
 import com.lacunasoftware.signer.javaclient.params.DocumentListParameters;
 import com.lacunasoftware.signer.notifications.CreateFlowActionReminderRequest;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
@@ -230,7 +230,7 @@ public class SignerClient {
 	}
 
 
-	public void UpdateInvoiceStatus(int id, InvoicesUpdateInvoicePaymentStatusRequest request) throws RestException, IOException {
+	public void UpdateInvoiceStatus(int id, UpdateInvoicePaymentStatusRequest request) throws RestException, IOException {
 		 getRestClient().putAsJson(String.format("api/invoices/%s/payment", id), request);
 	}
 
