@@ -31,6 +31,7 @@ import com.lacunasoftware.signer.javaclient.requests.ElectronicSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.SendElectronicSignatureAuthenticationRequest;
 import com.lacunasoftware.signer.javaclient.requests.StartSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.CompleteSignatureRequest;
+import com.lacunasoftware.signer.refusal.RefusalRequest;
 
 public class SignerClient {
     protected String apiKey;
@@ -91,6 +92,11 @@ public class SignerClient {
 	public void deleteDocument(UUID id) throws RestException {
 		String requestUri = String.format("api/documents/%s", id.toString());
 		getRestClient().delete(requestUri);
+	}
+
+	public void refuseDocument(UUID id, RefusalRequest refusalRequest) throws RestException {
+		String requestUri = String.format("api/documents/%s/refusal", id.toString());
+		getRestClient().post(requestUri, refusalRequest);
 	}
 
 	public DocumentModel getDocumentDetails(UUID id) throws RestException {
