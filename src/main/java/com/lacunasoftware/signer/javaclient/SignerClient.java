@@ -2,7 +2,6 @@ package com.lacunasoftware.signer.javaclient;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
@@ -32,7 +31,6 @@ import com.lacunasoftware.signer.javaclient.requests.ElectronicSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.SendElectronicSignatureAuthenticationRequest;
 import com.lacunasoftware.signer.javaclient.requests.StartSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.CompleteSignatureRequest;
-import org.threeten.bp.OffsetDateTime;
 
 public class SignerClient {
     protected String apiKey;

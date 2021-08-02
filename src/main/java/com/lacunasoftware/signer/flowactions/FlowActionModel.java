@@ -1,8 +1,8 @@
 /*
  * Dropsigner (HML)
- * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
+ * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentCanceled</strong></td>     <td>Triggered when the document is canceled.</td>     <td><a href=\"#model-Webhooks.DocumentCanceledModel\">Webhooks.DocumentCanceledModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
  *
- * OpenAPI spec version: 1.24.3
+ * OpenAPI spec version: 1.33.0
  * 
  *
  * NOTE: This class is auto generated by the swagger code generator program.
@@ -14,18 +14,15 @@ package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.ActionStatus;
 import com.lacunasoftware.signer.documentmark.DocumentMarkPositionModel;
 import com.lacunasoftware.signer.FlowActionType;
 import com.lacunasoftware.signer.flowactions.SignRuleUserModel;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -34,60 +31,66 @@ import org.threeten.bp.OffsetDateTime;
  * FlowActionModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-02-02T15:43:05.773-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-07-29T21:32:02.525811100-03:00[America/Sao_Paulo]")
 public class FlowActionModel {
-  @SerializedName("id")
+  @JsonProperty("id")
   private UUID id = null;
 
-  @SerializedName("type")
+  @JsonProperty("type")
   private FlowActionType type = null;
 
-  @SerializedName("status")
+  @JsonProperty("status")
   private ActionStatus status = null;
 
-  @SerializedName("step")
+  @JsonProperty("step")
   private Integer step = null;
 
-  @SerializedName("creationDate")
+  @JsonProperty("creationDate")
   private OffsetDateTime creationDate = null;
 
-  @SerializedName("pendingDate")
+  @JsonProperty("pendingDate")
   private OffsetDateTime pendingDate = null;
 
-  @SerializedName("updateDate")
+  @JsonProperty("updateDate")
   private OffsetDateTime updateDate = null;
 
-  @SerializedName("user")
+  @JsonProperty("user")
   private ParticipantUserModel user = null;
 
-  @SerializedName("numberRequiredSignatures")
+  @JsonProperty("numberRequiredSignatures")
   private Integer numberRequiredSignatures = null;
 
-  @SerializedName("ruleName")
+  @JsonProperty("ruleName")
   private String ruleName = null;
 
-  @SerializedName("title")
+  @JsonProperty("title")
   private String title = null;
 
-  @SerializedName("signRuleUsers")
+  @JsonProperty("signRuleUsers")
   private List<SignRuleUserModel> signRuleUsers = null;
 
-  @SerializedName("marks")
+  @JsonProperty("marks")
   private List<DocumentMarkPositionModel> marks = null;
 
-  @SerializedName("allowElectronicSignature")
+  @JsonProperty("allowElectronicSignature")
   private Boolean allowElectronicSignature = null;
 
-  @SerializedName("requireSmsAuthenticationToSignElectronically")
+  @JsonProperty("requireSmsAuthenticationToSignElectronically")
   private Boolean requireSmsAuthenticationToSignElectronically = null;
 
-  @SerializedName("requireAuthenticatorAppToSignElectronically")
+  @JsonProperty("requireAuthenticatorAppToSignElectronically")
   private Boolean requireAuthenticatorAppToSignElectronically = null;
 
-  @SerializedName("requireSelfieAuthenticationToSignElectronically")
+  @JsonProperty("requireSelfieAuthenticationToSignElectronically")
   private Boolean requireSelfieAuthenticationToSignElectronically = null;
 
-  @SerializedName("refusalReason")
+  @JsonProperty("requireDatavalidAuthenticationToSignElectronically")
+  private Boolean requireDatavalidAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requirePixAuthenticationToSignElectronically")
+  private Boolean requirePixAuthenticationToSignElectronically = null;
+
+  @JsonProperty("refusalReason")
   private String refusalReason = null;
 
   public FlowActionModel id(UUID id) {
@@ -412,6 +415,42 @@ public class FlowActionModel {
     this.requireSelfieAuthenticationToSignElectronically = requireSelfieAuthenticationToSignElectronically;
   }
 
+  public FlowActionModel requireDatavalidAuthenticationToSignElectronically(Boolean requireDatavalidAuthenticationToSignElectronically) {
+    this.requireDatavalidAuthenticationToSignElectronically = requireDatavalidAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to take a selfie to sign electronically. This selfie will be validated by SERPRO&#x27;s Datavalid. (If Lacuna.Signer.Api.FlowActions.FlowActionModel.AllowElectronicSignature is true)
+   * @return requireDatavalidAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to take a selfie to sign electronically. This selfie will be validated by SERPRO's Datavalid. (If Lacuna.Signer.Api.FlowActions.FlowActionModel.AllowElectronicSignature is true)")
+  public Boolean isRequireDatavalidAuthenticationToSignElectronically() {
+    return requireDatavalidAuthenticationToSignElectronically;
+  }
+
+  public void setRequireDatavalidAuthenticationToSignElectronically(Boolean requireDatavalidAuthenticationToSignElectronically) {
+    this.requireDatavalidAuthenticationToSignElectronically = requireDatavalidAuthenticationToSignElectronically;
+  }
+
+  public FlowActionModel requirePixAuthenticationToSignElectronically(Boolean requirePixAuthenticationToSignElectronically) {
+    this.requirePixAuthenticationToSignElectronically = requirePixAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to pay a Pix to sign electronically. The payer&#x27;s CPF must be the same as that of the user who will be signing. (If Lacuna.Signer.Api.FlowActions.FlowActionModel.AllowElectronicSignature is true)
+   * @return requirePixAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to pay a Pix to sign electronically. The payer's CPF must be the same as that of the user who will be signing. (If Lacuna.Signer.Api.FlowActions.FlowActionModel.AllowElectronicSignature is true)")
+  public Boolean isRequirePixAuthenticationToSignElectronically() {
+    return requirePixAuthenticationToSignElectronically;
+  }
+
+  public void setRequirePixAuthenticationToSignElectronically(Boolean requirePixAuthenticationToSignElectronically) {
+    this.requirePixAuthenticationToSignElectronically = requirePixAuthenticationToSignElectronically;
+  }
+
   public FlowActionModel refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     return this;
@@ -457,12 +496,14 @@ public class FlowActionModel {
         Objects.equals(this.requireSmsAuthenticationToSignElectronically, flowActionsFlowActionModel.requireSmsAuthenticationToSignElectronically) &&
         Objects.equals(this.requireAuthenticatorAppToSignElectronically, flowActionsFlowActionModel.requireAuthenticatorAppToSignElectronically) &&
         Objects.equals(this.requireSelfieAuthenticationToSignElectronically, flowActionsFlowActionModel.requireSelfieAuthenticationToSignElectronically) &&
+        Objects.equals(this.requireDatavalidAuthenticationToSignElectronically, flowActionsFlowActionModel.requireDatavalidAuthenticationToSignElectronically) &&
+        Objects.equals(this.requirePixAuthenticationToSignElectronically, flowActionsFlowActionModel.requirePixAuthenticationToSignElectronically) &&
         Objects.equals(this.refusalReason, flowActionsFlowActionModel.refusalReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, status, step, creationDate, pendingDate, updateDate, user, numberRequiredSignatures, ruleName, title, signRuleUsers, marks, allowElectronicSignature, requireSmsAuthenticationToSignElectronically, requireAuthenticatorAppToSignElectronically, requireSelfieAuthenticationToSignElectronically, refusalReason);
+    return Objects.hash(id, type, status, step, creationDate, pendingDate, updateDate, user, numberRequiredSignatures, ruleName, title, signRuleUsers, marks, allowElectronicSignature, requireSmsAuthenticationToSignElectronically, requireAuthenticatorAppToSignElectronically, requireSelfieAuthenticationToSignElectronically, requireDatavalidAuthenticationToSignElectronically, requirePixAuthenticationToSignElectronically, refusalReason);
   }
 
 
@@ -488,6 +529,8 @@ public class FlowActionModel {
     sb.append("    requireSmsAuthenticationToSignElectronically: ").append(toIndentedString(requireSmsAuthenticationToSignElectronically)).append("\n");
     sb.append("    requireAuthenticatorAppToSignElectronically: ").append(toIndentedString(requireAuthenticatorAppToSignElectronically)).append("\n");
     sb.append("    requireSelfieAuthenticationToSignElectronically: ").append(toIndentedString(requireSelfieAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requireDatavalidAuthenticationToSignElectronically: ").append(toIndentedString(requireDatavalidAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requirePixAuthenticationToSignElectronically: ").append(toIndentedString(requirePixAuthenticationToSignElectronically)).append("\n");
     sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
     sb.append("}");
     return sb.toString();
