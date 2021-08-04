@@ -1,8 +1,8 @@
 /*
  * Dropsigner (HML)
- * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
+ * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentCanceled</strong></td>     <td>Triggered when the document is canceled.</td>     <td><a href=\"#model-Webhooks.DocumentCanceledModel\">Webhooks.DocumentCanceledModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
  *
- * OpenAPI spec version: 1.24.3
+ * OpenAPI spec version: 1.33.0
  * 
  *
  * NOTE: This class is auto generated by the swagger code generator program.
@@ -14,11 +14,10 @@ package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.signer.agents.AgentModel;
 import com.lacunasoftware.signer.attachments.AttachmentModel;
 import com.lacunasoftware.signer.DocumentStatus;
 import com.lacunasoftware.signer.documents.CreatorModel;
@@ -28,7 +27,6 @@ import com.lacunasoftware.signer.folders.FolderInfoModel;
 import com.lacunasoftware.signer.observers.ObserverModel;
 import com.lacunasoftware.signer.organizations.OrganizationInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -37,73 +35,91 @@ import org.threeten.bp.OffsetDateTime;
  * DocumentModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-02-02T15:43:05.773-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-07-29T21:32:02.525811100-03:00[America/Sao_Paulo]")
 public class DocumentModel {
-  @SerializedName("checksumMd5")
+  @JsonProperty("checksumMd5")
   private String checksumMd5 = null;
 
-  @SerializedName("isDeleted")
+  @JsonProperty("isDeleted")
   private Boolean isDeleted = null;
 
-  @SerializedName("flowActions")
+  @JsonProperty("flowActions")
   private List<FlowActionModel> flowActions = null;
 
-  @SerializedName("observers")
+  @JsonProperty("observers")
   private List<ObserverModel> observers = null;
 
-  @SerializedName("attachments")
+  @JsonProperty("attachments")
   private List<AttachmentModel> attachments = null;
 
-  @SerializedName("permissions")
+  @JsonProperty("permissions")
   private DocumentPermissionsModel permissions = null;
 
-  @SerializedName("id")
+  @JsonProperty("notifiedEmails")
+  private List<String> notifiedEmails = null;
+
+  @JsonProperty("id")
   private UUID id = null;
 
-  @SerializedName("name")
+  @JsonProperty("name")
   private String name = null;
 
-  @SerializedName("filename")
+  @JsonProperty("filename")
   private String filename = null;
 
-  @SerializedName("fileSize")
+  @JsonProperty("fileSize")
   private Long fileSize = null;
 
-  @SerializedName("mimeType")
+  @JsonProperty("mimeType")
   private String mimeType = null;
 
-  @SerializedName("hasSignature")
+  @JsonProperty("hasSignature")
   private Boolean hasSignature = null;
 
-  @SerializedName("status")
+  @JsonProperty("status")
   private DocumentStatus status = null;
 
-  @SerializedName("isConcluded")
+  @JsonProperty("isConcluded")
   private Boolean isConcluded = null;
 
-  @SerializedName("folder")
+  @JsonProperty("folder")
   private FolderInfoModel folder = null;
 
-  @SerializedName("organization")
+  @JsonProperty("organization")
   private OrganizationInfoModel organization = null;
 
-  @SerializedName("creationDate")
+  @JsonProperty("creationDate")
   private OffsetDateTime creationDate = null;
 
-  @SerializedName("updateDate")
+  @JsonProperty("updateDate")
   private OffsetDateTime updateDate = null;
 
-  @SerializedName("createdBy")
+  @JsonProperty("expirationDate")
+  private OffsetDateTime expirationDate = null;
+
+  @JsonProperty("expirationDateWithoutTime")
+  private String expirationDateWithoutTime = null;
+
+  @JsonProperty("createdBy")
   private CreatorModel createdBy = null;
 
-  @SerializedName("description")
+  @JsonProperty("description")
   private String description = null;
 
-  @SerializedName("forceCadesSignature")
+  @JsonProperty("forceCadesSignature")
   private Boolean forceCadesSignature = null;
 
-  @SerializedName("isScanned")
+  @JsonProperty("isScanned")
   private Boolean isScanned = null;
+
+  @JsonProperty("isEnvelope")
+  private Boolean isEnvelope = null;
+
+  @JsonProperty("statusUpdatedBy")
+  private AgentModel statusUpdatedBy = null;
+
+  @JsonProperty("statusUpdateReason")
+  private String statusUpdateReason = null;
 
   public DocumentModel checksumMd5(String checksumMd5) {
     this.checksumMd5 = checksumMd5;
@@ -235,6 +251,32 @@ public class DocumentModel {
 
   public void setPermissions(DocumentPermissionsModel permissions) {
     this.permissions = permissions;
+  }
+
+  public DocumentModel notifiedEmails(List<String> notifiedEmails) {
+    this.notifiedEmails = notifiedEmails;
+    return this;
+  }
+
+  public DocumentModel addNotifiedEmailsItem(String notifiedEmailsItem) {
+    if (this.notifiedEmails == null) {
+      this.notifiedEmails = new ArrayList<String>();
+    }
+    this.notifiedEmails.add(notifiedEmailsItem);
+    return this;
+  }
+
+   /**
+   * Get notifiedEmails
+   * @return notifiedEmails
+  **/
+  @Schema(description = "")
+  public List<String> getNotifiedEmails() {
+    return notifiedEmails;
+  }
+
+  public void setNotifiedEmails(List<String> notifiedEmails) {
+    this.notifiedEmails = notifiedEmails;
   }
 
   public DocumentModel id(UUID id) {
@@ -453,6 +495,42 @@ public class DocumentModel {
     this.updateDate = updateDate;
   }
 
+  public DocumentModel expirationDate(OffsetDateTime expirationDate) {
+    this.expirationDate = expirationDate;
+    return this;
+  }
+
+   /**
+   * The expiration date of the document in the default timezone.
+   * @return expirationDate
+  **/
+  @Schema(description = "The expiration date of the document in the default timezone.")
+  public OffsetDateTime getExpirationDate() {
+    return expirationDate;
+  }
+
+  public void setExpirationDate(OffsetDateTime expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public DocumentModel expirationDateWithoutTime(String expirationDateWithoutTime) {
+    this.expirationDateWithoutTime = expirationDateWithoutTime;
+    return this;
+  }
+
+   /**
+   * The expiration date without time: in yyyy-MM-dd format (useful for display purposes).
+   * @return expirationDateWithoutTime
+  **/
+  @Schema(description = "The expiration date without time: in yyyy-MM-dd format (useful for display purposes).")
+  public String getExpirationDateWithoutTime() {
+    return expirationDateWithoutTime;
+  }
+
+  public void setExpirationDateWithoutTime(String expirationDateWithoutTime) {
+    this.expirationDateWithoutTime = expirationDateWithoutTime;
+  }
+
   public DocumentModel createdBy(CreatorModel createdBy) {
     this.createdBy = createdBy;
     return this;
@@ -525,6 +603,60 @@ public class DocumentModel {
     this.isScanned = isScanned;
   }
 
+  public DocumentModel isEnvelope(Boolean isEnvelope) {
+    this.isEnvelope = isEnvelope;
+    return this;
+  }
+
+   /**
+   * True if the document is an envelope (Lacuna.Signer.Api.Documents.CreateDocumentRequest.IsEnvelope).
+   * @return isEnvelope
+  **/
+  @Schema(description = "True if the document is an envelope (Lacuna.Signer.Api.Documents.CreateDocumentRequest.IsEnvelope).")
+  public Boolean isIsEnvelope() {
+    return isEnvelope;
+  }
+
+  public void setIsEnvelope(Boolean isEnvelope) {
+    this.isEnvelope = isEnvelope;
+  }
+
+  public DocumentModel statusUpdatedBy(AgentModel statusUpdatedBy) {
+    this.statusUpdatedBy = statusUpdatedBy;
+    return this;
+  }
+
+   /**
+   * Get statusUpdatedBy
+   * @return statusUpdatedBy
+  **/
+  @Schema(description = "")
+  public AgentModel getStatusUpdatedBy() {
+    return statusUpdatedBy;
+  }
+
+  public void setStatusUpdatedBy(AgentModel statusUpdatedBy) {
+    this.statusUpdatedBy = statusUpdatedBy;
+  }
+
+  public DocumentModel statusUpdateReason(String statusUpdateReason) {
+    this.statusUpdateReason = statusUpdateReason;
+    return this;
+  }
+
+   /**
+   * The reason for the status update (see \&quot;StatusUpdatedBy\&quot; property).
+   * @return statusUpdateReason
+  **/
+  @Schema(description = "The reason for the status update (see \"StatusUpdatedBy\" property).")
+  public String getStatusUpdateReason() {
+    return statusUpdateReason;
+  }
+
+  public void setStatusUpdateReason(String statusUpdateReason) {
+    this.statusUpdateReason = statusUpdateReason;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -541,6 +673,7 @@ public class DocumentModel {
         Objects.equals(this.observers, documentsDocumentModel.observers) &&
         Objects.equals(this.attachments, documentsDocumentModel.attachments) &&
         Objects.equals(this.permissions, documentsDocumentModel.permissions) &&
+        Objects.equals(this.notifiedEmails, documentsDocumentModel.notifiedEmails) &&
         Objects.equals(this.id, documentsDocumentModel.id) &&
         Objects.equals(this.name, documentsDocumentModel.name) &&
         Objects.equals(this.filename, documentsDocumentModel.filename) &&
@@ -553,15 +686,20 @@ public class DocumentModel {
         Objects.equals(this.organization, documentsDocumentModel.organization) &&
         Objects.equals(this.creationDate, documentsDocumentModel.creationDate) &&
         Objects.equals(this.updateDate, documentsDocumentModel.updateDate) &&
+        Objects.equals(this.expirationDate, documentsDocumentModel.expirationDate) &&
+        Objects.equals(this.expirationDateWithoutTime, documentsDocumentModel.expirationDateWithoutTime) &&
         Objects.equals(this.createdBy, documentsDocumentModel.createdBy) &&
         Objects.equals(this.description, documentsDocumentModel.description) &&
         Objects.equals(this.forceCadesSignature, documentsDocumentModel.forceCadesSignature) &&
-        Objects.equals(this.isScanned, documentsDocumentModel.isScanned);
+        Objects.equals(this.isScanned, documentsDocumentModel.isScanned) &&
+        Objects.equals(this.isEnvelope, documentsDocumentModel.isEnvelope) &&
+        Objects.equals(this.statusUpdatedBy, documentsDocumentModel.statusUpdatedBy) &&
+        Objects.equals(this.statusUpdateReason, documentsDocumentModel.statusUpdateReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checksumMd5, isDeleted, flowActions, observers, attachments, permissions, id, name, filename, fileSize, mimeType, hasSignature, status, isConcluded, folder, organization, creationDate, updateDate, createdBy, description, forceCadesSignature, isScanned);
+    return Objects.hash(checksumMd5, isDeleted, flowActions, observers, attachments, permissions, notifiedEmails, id, name, filename, fileSize, mimeType, hasSignature, status, isConcluded, folder, organization, creationDate, updateDate, expirationDate, expirationDateWithoutTime, createdBy, description, forceCadesSignature, isScanned, isEnvelope, statusUpdatedBy, statusUpdateReason);
   }
 
 
@@ -576,6 +714,7 @@ public class DocumentModel {
     sb.append("    observers: ").append(toIndentedString(observers)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    notifiedEmails: ").append(toIndentedString(notifiedEmails)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
@@ -588,10 +727,15 @@ public class DocumentModel {
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+    sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    expirationDateWithoutTime: ").append(toIndentedString(expirationDateWithoutTime)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    forceCadesSignature: ").append(toIndentedString(forceCadesSignature)).append("\n");
     sb.append("    isScanned: ").append(toIndentedString(isScanned)).append("\n");
+    sb.append("    isEnvelope: ").append(toIndentedString(isEnvelope)).append("\n");
+    sb.append("    statusUpdatedBy: ").append(toIndentedString(statusUpdatedBy)).append("\n");
+    sb.append("    statusUpdateReason: ").append(toIndentedString(statusUpdateReason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

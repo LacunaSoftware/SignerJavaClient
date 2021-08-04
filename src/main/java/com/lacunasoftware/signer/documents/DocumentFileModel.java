@@ -1,8 +1,8 @@
 /*
  * Dropsigner (HML)
- * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
+ * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentCanceled</strong></td>     <td>Triggered when the document is canceled.</td>     <td><a href=\"#model-Webhooks.DocumentCanceledModel\">Webhooks.DocumentCanceledModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
  *
- * OpenAPI spec version: 1.24.3
+ * OpenAPI spec version: 1.33.0
  * 
  *
  * NOTE: This class is auto generated by the swagger code generator program.
@@ -14,28 +14,40 @@ package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import java.util.UUID;
 /**
  * DocumentFileModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-02-02T15:43:05.773-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-07-29T21:32:02.525811100-03:00[America/Sao_Paulo]")
 public class DocumentFileModel {
-  @SerializedName("id")
+  @JsonProperty("id")
   private UUID id = null;
 
-  @SerializedName("name")
+  @JsonProperty("name")
   private String name = null;
 
-  @SerializedName("isSigned")
+  @JsonProperty("isSigned")
   private Boolean isSigned = null;
+
+  @JsonProperty("isEnvelopePart")
+  private Boolean isEnvelopePart = null;
+
+  @JsonProperty("envelopeStartPage")
+  private Integer envelopeStartPage = null;
+
+  @JsonProperty("numberPages")
+  private Integer numberPages = null;
+
+  @JsonProperty("mimeType")
+  private String mimeType = null;
+
+  @JsonProperty("filename")
+  private String filename = null;
 
   public DocumentFileModel id(UUID id) {
     this.id = id;
@@ -91,6 +103,96 @@ public class DocumentFileModel {
     this.isSigned = isSigned;
   }
 
+  public DocumentFileModel isEnvelopePart(Boolean isEnvelopePart) {
+    this.isEnvelopePart = isEnvelopePart;
+    return this;
+  }
+
+   /**
+   * Get isEnvelopePart
+   * @return isEnvelopePart
+  **/
+  @Schema(description = "")
+  public Boolean isIsEnvelopePart() {
+    return isEnvelopePart;
+  }
+
+  public void setIsEnvelopePart(Boolean isEnvelopePart) {
+    this.isEnvelopePart = isEnvelopePart;
+  }
+
+  public DocumentFileModel envelopeStartPage(Integer envelopeStartPage) {
+    this.envelopeStartPage = envelopeStartPage;
+    return this;
+  }
+
+   /**
+   * Get envelopeStartPage
+   * @return envelopeStartPage
+  **/
+  @Schema(description = "")
+  public Integer getEnvelopeStartPage() {
+    return envelopeStartPage;
+  }
+
+  public void setEnvelopeStartPage(Integer envelopeStartPage) {
+    this.envelopeStartPage = envelopeStartPage;
+  }
+
+  public DocumentFileModel numberPages(Integer numberPages) {
+    this.numberPages = numberPages;
+    return this;
+  }
+
+   /**
+   * Get numberPages
+   * @return numberPages
+  **/
+  @Schema(description = "")
+  public Integer getNumberPages() {
+    return numberPages;
+  }
+
+  public void setNumberPages(Integer numberPages) {
+    this.numberPages = numberPages;
+  }
+
+  public DocumentFileModel mimeType(String mimeType) {
+    this.mimeType = mimeType;
+    return this;
+  }
+
+   /**
+   * Get mimeType
+   * @return mimeType
+  **/
+  @Schema(description = "")
+  public String getMimeType() {
+    return mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
+
+  public DocumentFileModel filename(String filename) {
+    this.filename = filename;
+    return this;
+  }
+
+   /**
+   * Get filename
+   * @return filename
+  **/
+  @Schema(description = "")
+  public String getFilename() {
+    return filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,12 +205,17 @@ public class DocumentFileModel {
     DocumentFileModel documentsDocumentFileModel = (DocumentFileModel) o;
     return Objects.equals(this.id, documentsDocumentFileModel.id) &&
         Objects.equals(this.name, documentsDocumentFileModel.name) &&
-        Objects.equals(this.isSigned, documentsDocumentFileModel.isSigned);
+        Objects.equals(this.isSigned, documentsDocumentFileModel.isSigned) &&
+        Objects.equals(this.isEnvelopePart, documentsDocumentFileModel.isEnvelopePart) &&
+        Objects.equals(this.envelopeStartPage, documentsDocumentFileModel.envelopeStartPage) &&
+        Objects.equals(this.numberPages, documentsDocumentFileModel.numberPages) &&
+        Objects.equals(this.mimeType, documentsDocumentFileModel.mimeType) &&
+        Objects.equals(this.filename, documentsDocumentFileModel.filename);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, isSigned);
+    return Objects.hash(id, name, isSigned, isEnvelopePart, envelopeStartPage, numberPages, mimeType, filename);
   }
 
 
@@ -120,6 +227,11 @@ public class DocumentFileModel {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isSigned: ").append(toIndentedString(isSigned)).append("\n");
+    sb.append("    isEnvelopePart: ").append(toIndentedString(isEnvelopePart)).append("\n");
+    sb.append("    envelopeStartPage: ").append(toIndentedString(envelopeStartPage)).append("\n");
+    sb.append("    numberPages: ").append(toIndentedString(numberPages)).append("\n");
+    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
+    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
     sb.append("}");
     return sb.toString();
   }
