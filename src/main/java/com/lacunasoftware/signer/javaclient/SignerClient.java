@@ -99,6 +99,11 @@ public class SignerClient {
 		getRestClient().post(requestUri, refusalRequest);
 	}
 
+	public void cancelDocument(UUID id, CancelDocumentRequest cancelRequest) throws RestException {
+		String requestUri = String.format("api/documents/%s/cancellation", id.toString());
+		getRestClient().post(requestUri, cancelRequest);
+	}
+
 	public DocumentModel getDocumentDetails(UUID id) throws RestException {
 		String requestUri = String.format("api/documents/%s", id.toString());
 		DocumentModel document = getRestClient().get(requestUri, DocumentModel.class);
