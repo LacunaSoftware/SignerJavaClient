@@ -21,6 +21,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Scanner;
 import  java.lang.reflect.Type;
 
@@ -346,7 +347,11 @@ class RestClient {
 						}
 					}
 
-				} else {
+				} else if(statusCode == 400){
+					Scanner scanner = new Scanner(conn.getErrorStream());
+					String	errorBody = scanner.nextLine();
+					ex = new RestErrorException(verb, url, statusCode, errorBody);
+				}else {
 
 					RestGeneralErrorModel model = readErrorResponse(conn, RestGeneralErrorModel.class);
 					if (model != null && model.getMessage() != null) {
