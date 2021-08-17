@@ -94,6 +94,11 @@ public class SignerClient {
 		getRestClient().delete(requestUri);
 	}
 
+	public void addNewDocumentVersion(UUID id, DocumentAddVersionRequest versionRequest) throws RestException {
+		String requestUri = String.format("api/documents/%s/versions", id.toString());
+		getRestClient().post(requestUri, versionRequest);
+	}
+
 	public void refuseDocument(UUID id, RefusalRequest refusalRequest) throws RestException {
 		String requestUri = String.format("api/documents/%s/refusal", id.toString());
 		getRestClient().post(requestUri, refusalRequest);
