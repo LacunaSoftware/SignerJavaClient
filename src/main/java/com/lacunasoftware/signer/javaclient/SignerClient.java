@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
+import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
@@ -257,7 +258,13 @@ public class SignerClient {
 	}
 
 	private String buildSearchDocumentListString(DocumentListParameters searchParams) {
-		return String.format("IsConcluded=%s&OrganizationType=Normal&FolderType=Normal&FilterByDocumentType=False&Q=%s&Limit=%s&Offset=0&Order=%s", searchParams.getIsConcluded(), getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOrder());
+
+		if (searchParams.getIsConcluded()) {
+			return String.format("IsConcluded=%s&OrganizationType=Normal&FolderType=%s&FilterByDocumentType=%s&Q=%s&Limit=%s&Offset=0&Order=%s&ParticipantQ=%s", searchParams.getIsConcluded(), searchParams.getFolderType(), searchParams.getFilterByDocumentType(), getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOrder(), searchParams.getParticipantQ());
+		} else {
+			return String.format("Status=%s&OrganizationType=Normal&FolderType=%s&FilterByDocumentType=%s&Q=%s&Limit=%s&Offset=0&Order=%s&ParticipantQ=%s&", searchParams.getDocumentFilterStatus(), searchParams.getFolderType(), searchParams.getFilterByDocumentType(), getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOrder(), searchParams.getParticipantQ());
+		}
+
 	}
 
 	private String getParameterOrEmpty(String parameter) {
