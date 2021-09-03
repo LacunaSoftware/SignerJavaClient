@@ -8,7 +8,7 @@ public class PaginatedSearchParams {
 	private String q;
 	private int limit = DEFAULT_LIMIT;
 	private int offset;
-	private PaginationOrders order;
+	private PaginationOrders order = PaginationOrders.ASC;
 
 	public String getQ() {
 		return q;

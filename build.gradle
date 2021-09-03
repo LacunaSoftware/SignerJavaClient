@@ -10,7 +10,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.lacunasoftware.signer'
 archivesBaseName = 'signer-client'
-version = '2.2.2'
+version = '2.2.3'
 
 repositories {
     mavenCentral()
@@ -20,7 +20,7 @@ dependencies {
     implementation 'io.swagger.core.v3:swagger-annotations:2.1.1'
     implementation 'com.google.code.gson:gson:2.8.1'
     implementation group: 'org.threeten', name: 'threetenbp', version: '1.4.4'
-    
+
     implementation 'com.fasterxml.jackson.core:jackson-core:2.10.1'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.1'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.1'
