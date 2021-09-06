@@ -259,12 +259,14 @@ public class SignerClient {
 
 	private String buildSearchDocumentListString(DocumentListParameters searchParams) {
 
-		if (searchParams.getIsConcluded()) {
+		if (searchParams.getIsConcluded() && searchParams.getDocumentFilterStatus() == null) {
 			return String.format("IsConcluded=%s&OrganizationType=Normal&FolderType=%s&FilterByDocumentType=%s&Q=%s&Limit=%s&Offset=0&Order=%s&ParticipantQ=%s", searchParams.getIsConcluded(), searchParams.getFolderType(), searchParams.getFilterByDocumentType(), getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOrder(), searchParams.getParticipantQ());
-		} else {
+		}
+		else if(searchParams.getDocumentFilterStatus() == null){
+			return String.format("OrganizationType=Normal&FolderType=%s&FilterByDocumentType=%s&Q=%s&Limit=%s&Offset=0&Order=%s&ParticipantQ=%s&", searchParams.getFolderType(), searchParams.getFilterByDocumentType(), getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOrder(), searchParams.getParticipantQ());
+		} else{
 			return String.format("Status=%s&OrganizationType=Normal&FolderType=%s&FilterByDocumentType=%s&Q=%s&Limit=%s&Offset=0&Order=%s&ParticipantQ=%s&", searchParams.getDocumentFilterStatus(), searchParams.getFolderType(), searchParams.getFilterByDocumentType(), getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOrder(), searchParams.getParticipantQ());
 		}
-
 	}
 
 	private String getParameterOrEmpty(String parameter) {
