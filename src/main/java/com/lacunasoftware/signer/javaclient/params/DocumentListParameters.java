@@ -7,63 +7,69 @@ import java.util.UUID;
 public class DocumentListParameters extends PaginatedSearchParams {
 
 
-    public boolean IsConcluded;
+    private boolean isConcluded;
 
-    public UUID FolderId = null;
+    private UUID folderId = null;
 
-    public FolderType FolderType = com.lacunasoftware.signer.FolderType.NORMAL;
+    private FolderType folderType = FolderType.NORMAL;
 
-    public DocumentTypes DocumentType;
+    private DocumentTypes documentType;
 
-    public boolean FilterByDocumentType;
+    private boolean filterByDocumentType;
 
-    public DocumentFilterStatus documentFilterStatus;
+    private DocumentFilterStatus documentFilterStatus;
 
-    public DocumentQueryTypes documentQueryTypes;
+    private DocumentQueryTypes documentQueryTypes;
 
-    public ParticipantQueryTypes participantQueryTypes;
+    private ParticipantQueryTypes participantQueryTypes;
 
-    public String participantQ = null;
+    private String participantQ = null;
 
 
     public boolean getIsConcluded() {
-        return this.IsConcluded;
+        return this.isConcluded;
     }
+
+    /**
+     *
+     *	This method does not use the new patterns to retrieve a document
+     * @deprecated use {@link #setDocumentFilterStatus} instead.
+     */
     @Deprecated
-    public void setIsConcluded(boolean IsConcluded) {
-        this.IsConcluded = IsConcluded;
+    public void setIsConcluded(boolean isConcluded) {
+        this.isConcluded = isConcluded;
     }
 
     public UUID getFolderId() {
-        return this.FolderId;
+        return this.folderId;
     }
 
-    public void setFolderId(UUID FolderId) {
-        this.FolderId = FolderId;
+    public void setFolderId(UUID folderId) {
+        this.folderId = folderId;
     }
 
     public FolderType getFolderType() {
-        return this.FolderType;
+        return this.folderType;
     }
 
-    public void setFolderType(FolderType FolderType) {
-        this.FolderType = FolderType;
+    public void setFolderType(FolderType folderType) {
+        this.folderType = folderType;
     }
 
     public DocumentTypes getDocumentTypes() {
-        return this.DocumentType;
+        return this.documentType;
     }
 
-    public void setDocumentTypes(DocumentTypes DocumentTypes) {
-        this.DocumentType = DocumentTypes;
+    public void setDocumentTypes(DocumentTypes documentType) {
+        this.documentType = documentType;
     }
 
     public boolean getFilterByDocumentType() {
-        return this.FilterByDocumentType;
+        return this.filterByDocumentType;
     }
 
-    public void setFilterByDocumentType(boolean FilterByDocumentType) {
-        this.FilterByDocumentType = FilterByDocumentType;
+    public void setFilterByDocumentType(boolean filterByDocumentType) {
+        this.filterByDocumentType = filterByDocumentType;
     }
 
     public DocumentFilterStatus getDocumentFilterStatus() {
