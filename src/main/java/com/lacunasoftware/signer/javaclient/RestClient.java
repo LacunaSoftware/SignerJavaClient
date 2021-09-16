@@ -1,6 +1,7 @@
 package com.lacunasoftware.signer.javaclient;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.*;
@@ -15,6 +16,7 @@ import com.lacunasoftware.signer.webhooks.WebhookModel;
 import org.threeten.bp.OffsetDateTime;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonDeserializationContext;
+import org.threeten.bp.ZoneId;
 import org.threeten.bp.format.DateTimeFormatter;
 
 import java.io.*;
@@ -152,7 +154,7 @@ class RestClient {
 
 			OutputStream outStream = conn.getOutputStream();
 			if (request != null) {
-				String json = getGson().toJson(request);
+				String json = getJackson().writeValueAsString(request);
 				outStream.write(json.getBytes());
 			}
 			outStream.close();
@@ -422,7 +424,7 @@ class RestClient {
 		SimpleModule simpleModule = new SimpleModule();
 		simpleModule.registerSubtypes(WebhookModel.class);
 		simpleModule.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
-
+		simpleModule.addSerializer(OffsetDateTime.class, new OffsetDateTimeSerializer());
 		objectMapper.registerModule(simpleModule);
 
 		return objectMapper;
@@ -443,6 +445,23 @@ class RestClient {
 		public OffsetDateTime deserialize(JsonParser json, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			String dateString = json.getValueAsString();
 			return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+		}
+	}
+
+	public class OffsetDateTimeSerializer extends JsonSerializer<OffsetDateTime>
+	{
+		private final DateTimeFormatter ISO_8601_FORMATTER = DateTimeFormatter
+				.ofPattern("yyyy-MM-dd'T'HH:mm:ssxxx")
+				.withZone(ZoneId.of("UTC"));
+
+		@Override
+		public void serialize(OffsetDateTime value, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException
+		{
+			if (value == null) {
+				throw new IOException("OffsetDateTime argument is null.");
+			}
+
+			jsonGenerator.writeString(ISO_8601_FORMATTER.format(value));
 		}
 	}
 }
