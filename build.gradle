@@ -10,7 +10,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.lacunasoftware.signer'
 archivesBaseName = 'signer-client'
-version = '2.5.2'
+version = '2.5.3'
 
 repositories {
     mavenCentral()
