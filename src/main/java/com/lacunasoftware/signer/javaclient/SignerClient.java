@@ -19,6 +19,7 @@ import com.lacunasoftware.signer.DocumentTicketType;
 import com.lacunasoftware.signer.documents.*;
 import com.lacunasoftware.signer.javaclient.params.DocumentListParameters;
 import com.lacunasoftware.signer.notifications.CreateFlowActionReminderRequest;
+import com.lacunasoftware.signer.notifications.EmailListNotificationRequest;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
 import com.lacunasoftware.signer.folders.FolderCreateRequest;
 import com.lacunasoftware.signer.javaclient.responses.PaginatedSearchResponse;
@@ -244,6 +245,9 @@ public class SignerClient {
 		getRestClient().post("/api/notifications/flow-action-reminder", request);
 	}
 
+	public void sendNotifyPendingUsers(EmailListNotificationRequest emailListNotificationRequest) throws RestException {
+		getRestClient().post("/api/users/notify-pending", emailListNotificationRequest);
+	}
 
 	public void UpdateInvoiceStatus(int id, InvoicesUpdateInvoicePaymentStatusRequest request) throws RestException, IOException {
 		 getRestClient().putAsJson(String.format("api/invoices/%s/payment", id), request);
