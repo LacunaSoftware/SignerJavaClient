@@ -10,49 +10,72 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer.documents;
+package com.lacunasoftware.signer.healthdocuments;
 
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.signer.health.HealthItemModel;
+import com.lacunasoftware.signer.health.HealthProfessionalModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * DocumentNotifiedEmailsEditRequest
+ * This option is only valid for the following document types: Prescription, MedicalCertificate, ExamRequest, LabReport, DischargeSummary, ClinicalRecord, DrugDispensing, Vaccination and MedicalReport
  */
-
+@Schema(description = "This option is only valid for the following document types: Prescription, MedicalCertificate, ExamRequest, LabReport, DischargeSummary, ClinicalRecord, DrugDispensing, Vaccination and MedicalReport")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-04T16:47:40.918432800-03:00[America/Cayenne]")
-public class DocumentNotifiedEmailsEditRequest {
-  @JsonProperty("emails")
-  private List<String> emails = null;
+public class HealthDocumentData {
+  @JsonProperty("professional")
+  private HealthProfessionalModel professional = null;
 
-  public DocumentNotifiedEmailsEditRequest emails(List<String> emails) {
-    this.emails = emails;
-    return this;
-  }
+  @JsonProperty("items")
+  private List<HealthItemModel> items = null;
 
-  public DocumentNotifiedEmailsEditRequest addEmailsItem(String emailsItem) {
-    if (this.emails == null) {
-      this.emails = new ArrayList<String>();
-    }
-    this.emails.add(emailsItem);
+  public HealthDocumentData professional(HealthProfessionalModel professional) {
+    this.professional = professional;
     return this;
   }
 
    /**
-   * The emails to notify when the document is concluded.
-   * @return emails
+   * Get professional
+   * @return professional
   **/
-  @Schema(description = "The emails to notify when the document is concluded.")
-  public List<String> getEmails() {
-    return emails;
+  @Schema(required = true, description = "")
+  public HealthProfessionalModel getProfessional() {
+    return professional;
   }
 
-  public void setEmails(List<String> emails) {
-    this.emails = emails;
+  public void setProfessional(HealthProfessionalModel professional) {
+    this.professional = professional;
+  }
+
+  public HealthDocumentData items(List<HealthItemModel> items) {
+    this.items = items;
+    return this;
+  }
+
+  public HealthDocumentData addItemsItem(HealthItemModel itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<HealthItemModel>();
+    }
+    this.items.add(itemsItem);
+    return this;
+  }
+
+   /**
+   * Additional strutctured information for health documents. Can be used to display medication information.
+   * @return items
+  **/
+  @Schema(description = "Additional strutctured information for health documents. Can be used to display medication information.")
+  public List<HealthItemModel> getItems() {
+    return items;
+  }
+
+  public void setItems(List<HealthItemModel> items) {
+    this.items = items;
   }
 
 
@@ -64,22 +87,24 @@ public class DocumentNotifiedEmailsEditRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentNotifiedEmailsEditRequest documentsDocumentNotifiedEmailsEditRequest = (DocumentNotifiedEmailsEditRequest) o;
-    return Objects.equals(this.emails, documentsDocumentNotifiedEmailsEditRequest.emails);
+    HealthDocumentData HealthDocumentData = (HealthDocumentData) o;
+    return Objects.equals(this.professional, HealthDocumentData.professional) &&
+        Objects.equals(this.items, HealthDocumentData.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emails);
+    return Objects.hash(professional, items);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentNotifiedEmailsEditRequest {\n");
-    
-    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("class HealthDocumentData {\n");
+
+    sb.append("    professional: ").append(toIndentedString(professional)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -10,89 +10,44 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer.documents;
+package com.lacunasoftware.signer;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
+
 /**
- * DocumentNotifiedEmailsEditRequest
+ * Gets or Sets InitialsModes
  */
+public enum InitialsModes {
+  NONE("None"),
+  OPTIONAL("Optional"),
+  REQUIRED("Required");
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-04T16:47:40.918432800-03:00[America/Cayenne]")
-public class DocumentNotifiedEmailsEditRequest {
-  @JsonProperty("emails")
-  private List<String> emails = null;
+  private String value;
 
-  public DocumentNotifiedEmailsEditRequest emails(List<String> emails) {
-    this.emails = emails;
-    return this;
+  InitialsModes(String value) {
+    this.value = value;
   }
 
-  public DocumentNotifiedEmailsEditRequest addEmailsItem(String emailsItem) {
-    if (this.emails == null) {
-      this.emails = new ArrayList<String>();
-    }
-    this.emails.add(emailsItem);
-    return this;
+  @JsonValue
+  public String getValue() {
+    return value;
   }
-
-   /**
-   * The emails to notify when the document is concluded.
-   * @return emails
-  **/
-  @Schema(description = "The emails to notify when the document is concluded.")
-  public List<String> getEmails() {
-    return emails;
-  }
-
-  public void setEmails(List<String> emails) {
-    this.emails = emails;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    DocumentNotifiedEmailsEditRequest documentsDocumentNotifiedEmailsEditRequest = (DocumentNotifiedEmailsEditRequest) o;
-    return Objects.equals(this.emails, documentsDocumentNotifiedEmailsEditRequest.emails);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(emails);
-  }
-
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentNotifiedEmailsEditRequest {\n");
-    
-    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return String.valueOf(value);
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+  @JsonCreator
+  public static InitialsModes fromValue(String input) {
+    for (InitialsModes b : InitialsModes.values()) {
+      if (b.value.equals(input)) {
+        return b;
+      }
     }
-    return o.toString().replace("\n", "\n    ");
+    return null;
   }
-
 }

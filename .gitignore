@@ -14,3 +14,4 @@ gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradle.properties
+modules/swagger-codegen-cli/target/swagger-codegen-cli.jar

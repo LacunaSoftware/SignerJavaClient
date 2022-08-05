@@ -17,42 +17,94 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.signer.healthdocuments.HealthDocumentData;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 /**
- * DocumentNotifiedEmailsEditRequest
+ * DocumentAdditionalInfoData
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-04T16:47:40.918432800-03:00[America/Cayenne]")
-public class DocumentNotifiedEmailsEditRequest {
-  @JsonProperty("emails")
-  private List<String> emails = null;
+public class DocumentAdditionalInfoData {
+  @JsonProperty("healthData")
+  private HealthDocumentData healthData = null;
 
-  public DocumentNotifiedEmailsEditRequest emails(List<String> emails) {
-    this.emails = emails;
-    return this;
-  }
+  @JsonProperty("fields")
+  private Map<String, String> fields = null;
 
-  public DocumentNotifiedEmailsEditRequest addEmailsItem(String emailsItem) {
-    if (this.emails == null) {
-      this.emails = new ArrayList<String>();
-    }
-    this.emails.add(emailsItem);
+  @JsonProperty("metadata")
+  private Map<String, String> metadata = null;
+
+  public DocumentAdditionalInfoData healthData(HealthDocumentData healthData) {
+    this.healthData = healthData;
     return this;
   }
 
    /**
-   * The emails to notify when the document is concluded.
-   * @return emails
+   * Get healthData
+   * @return healthData
   **/
-  @Schema(description = "The emails to notify when the document is concluded.")
-  public List<String> getEmails() {
-    return emails;
+  @Schema(description = "")
+  public HealthDocumentData getHealthData() {
+    return healthData;
   }
 
-  public void setEmails(List<String> emails) {
-    this.emails = emails;
+  public void setHealthData(HealthDocumentData healthData) {
+    this.healthData = healthData;
+  }
+
+  public DocumentAdditionalInfoData fields(Map<String, String> fields) {
+    this.fields = fields;
+    return this;
+  }
+
+  public DocumentAdditionalInfoData putFieldsItem(String key, String fieldsItem) {
+    if (this.fields == null) {
+      this.fields = new HashMap<String, String>();
+    }
+    this.fields.put(key, fieldsItem);
+    return this;
+  }
+
+   /**
+   * Form fields to fill when creating the document.
+   * @return fields
+  **/
+  @Schema(description = "Form fields to fill when creating the document.")
+  public Map<String, String> getFields() {
+    return fields;
+  }
+
+  public void setFields(Map<String, String> fields) {
+    this.fields = fields;
+  }
+
+  public DocumentAdditionalInfoData metadata(Map<String, String> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public DocumentAdditionalInfoData putMetadataItem(String key, String metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<String, String>();
+    }
+    this.metadata.put(key, metadataItem);
+    return this;
+  }
+
+   /**
+   * PDF custom metadata to add when creating the document
+   * @return metadata
+  **/
+  @Schema(description = "PDF custom metadata to add when creating the document")
+  public Map<String, String> getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(Map<String, String> metadata) {
+    this.metadata = metadata;
   }
 
 
@@ -64,22 +116,26 @@ public class DocumentNotifiedEmailsEditRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentNotifiedEmailsEditRequest documentsDocumentNotifiedEmailsEditRequest = (DocumentNotifiedEmailsEditRequest) o;
-    return Objects.equals(this.emails, documentsDocumentNotifiedEmailsEditRequest.emails);
+    DocumentAdditionalInfoData DocumentAdditionalInfoData = (DocumentAdditionalInfoData) o;
+    return Objects.equals(this.healthData, DocumentAdditionalInfoData.healthData) &&
+        Objects.equals(this.fields, DocumentAdditionalInfoData.fields) &&
+        Objects.equals(this.metadata, DocumentAdditionalInfoData.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emails);
+    return Objects.hash(healthData, fields, metadata);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentNotifiedEmailsEditRequest {\n");
-    
-    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("class DocumentAdditionalInfoData {\n");
+
+    sb.append("    healthData: ").append(toIndentedString(healthData)).append("\n");
+    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }
