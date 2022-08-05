@@ -33,7 +33,7 @@ public class DocumentAddVersionRequest {
   private Boolean disablePendingActionNotifications = null;
 
   @JsonProperty("additionalInfo")
-  private DocumentsDocumentAdditionalInfoData additionalInfo = null;
+  private DocumentAdditionalInfoData additionalInfo = null;
 
   public DocumentAddVersionRequest file(FileUploadModel file) {
     this.file = file;
@@ -71,7 +71,7 @@ public class DocumentAddVersionRequest {
     this.disablePendingActionNotifications = disablePendingActionNotifications;
   }
 
-  public DocumentAddVersionRequest additionalInfo(DocumentsDocumentAdditionalInfoData additionalInfo) {
+  public DocumentAddVersionRequest additionalInfo(DocumentAdditionalInfoData additionalInfo) {
     this.additionalInfo = additionalInfo;
     return this;
   }
@@ -81,11 +81,11 @@ public class DocumentAddVersionRequest {
    * @return additionalInfo
   **/
   @Schema(description = "")
-  public DocumentsDocumentAdditionalInfoData getAdditionalInfo() {
+  public DocumentAdditionalInfoData getAdditionalInfo() {
     return additionalInfo;
   }
 
-  public void setAdditionalInfo(DocumentsDocumentAdditionalInfoData additionalInfo) {
+  public void setAdditionalInfo(DocumentAdditionalInfoData additionalInfo) {
     this.additionalInfo = additionalInfo;
   }
 

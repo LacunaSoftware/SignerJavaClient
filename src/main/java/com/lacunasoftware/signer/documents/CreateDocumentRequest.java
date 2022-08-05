@@ -74,7 +74,7 @@ public class CreateDocumentRequest {
   private List<String> notifiedEmails = null;
 
   @JsonProperty("additionalInfo")
-  private DocumentsDocumentAdditionalInfoData additionalInfo = null;
+  private DocumentAdditionalInfoData additionalInfo = null;
 
   @JsonProperty("expirationDate")
   private OffsetDateTime expirationDate = null;
@@ -355,7 +355,7 @@ public class CreateDocumentRequest {
     this.notifiedEmails = notifiedEmails;
   }
 
-  public CreateDocumentRequest additionalInfo(DocumentsDocumentAdditionalInfoData additionalInfo) {
+  public CreateDocumentRequest additionalInfo(DocumentAdditionalInfoData additionalInfo) {
     this.additionalInfo = additionalInfo;
     return this;
   }
@@ -365,11 +365,11 @@ public class CreateDocumentRequest {
    * @return additionalInfo
   **/
   @Schema(description = "")
-  public DocumentsDocumentAdditionalInfoData getAdditionalInfo() {
+  public DocumentAdditionalInfoData getAdditionalInfo() {
     return additionalInfo;
   }
 
-  public void setAdditionalInfo(DocumentsDocumentAdditionalInfoData additionalInfo) {
+  public void setAdditionalInfo(DocumentAdditionalInfoData additionalInfo) {
     this.additionalInfo = additionalInfo;
   }
 

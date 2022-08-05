@@ -24,7 +24,7 @@ import com.lacunasoftware.signer.documentmark.DocumentMarkPositionModel;
 import com.lacunasoftware.signer.FlowActionType;
 import com.lacunasoftware.signer.flowactions.SignRuleUserModel;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
-import com.lacunasoftware.signer.signature.InitialsModes;
+import com.lacunasoftware.signer.SignatureInitialsModes;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,7 +100,7 @@ public class FlowActionModel {
   private Boolean isElectronic = null;
 
   @JsonProperty("type")
-  private ActionType type = null;
+  private FlowActionType type = null;
 
   @JsonProperty("status")
   private ActionStatus status = null;
@@ -508,7 +508,7 @@ public class FlowActionModel {
     this.isElectronic = isElectronic;
   }
 
-  public FlowActionModel type(ActionType type) {
+  public FlowActionModel type(FlowActionType type) {
     this.type = type;
     return this;
   }
@@ -518,11 +518,11 @@ public class FlowActionModel {
    * @return type
   **/
   @Schema(description = "")
-  public ActionType getType() {
+  public FlowActionType getType() {
     return type;
   }
 
-  public void setType(ActionType type) {
+  public void setType(FlowActionType type) {
     this.type = type;
   }
 

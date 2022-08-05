@@ -17,9 +17,9 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.signer.SignatureInitialsModes;
 import com.lacunasoftware.signer.documentmark.PrePositionedDocumentMarkModel;
 import com.lacunasoftware.signer.flowactions.SignRuleUserEditModel;
-import com.lacunasoftware.signer.signature.InitialsModes;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +50,9 @@ public class FlowActionEditModel {
 
   @JsonProperty("prePositionedMarks")
   private List<PrePositionedDocumentMarkModel> prePositionedMarks = null;
+
+  @JsonProperty("signatureInitialsMode")
+  private SignatureInitialsModes signatureInitialsMode;
 
   public FlowActionEditModel flowActionId(UUID flowActionId) {
     this.flowActionId = flowActionId;
@@ -193,8 +196,8 @@ public class FlowActionEditModel {
     this.prePositionedMarks = prePositionedMarks;
   }
 
-  public FlowActionEditModel InitialsModes(InitialsModess InitialsModes) {
-    this.InitialsModes = InitialsModes;
+  public FlowActionEditModel SignatureInitialsMode(SignatureInitialsModes signatureInitialsMode) {
+    this.signatureInitialsMode = signatureInitialsMode;
     return this;
   }
 
@@ -203,12 +206,12 @@ public class FlowActionEditModel {
    * @return InitialsModes
   **/
   @Schema(description = "")
-  public InitialsModess getInitialsModes() {
-    return InitialsModes;
+  public SignatureInitialsModes getSignatureInitialsMode() {
+    return signatureInitialsMode;
   }
 
-  public void setInitialsModes(InitialsModess InitialsModes) {
-    this.InitialsModes = InitialsModes;
+  public void setSignatureInitialsMode(SignatureInitialsModes signatureInitialsMode) {
+    this.signatureInitialsMode = signatureInitialsMode;
   }
 
 
@@ -228,12 +231,12 @@ public class FlowActionEditModel {
         Objects.equals(this.signRuleUsers, flowActionsFlowActionEditModel.signRuleUsers) &&
         Objects.equals(this.title, flowActionsFlowActionEditModel.title) &&
         Objects.equals(this.prePositionedMarks, flowActionsFlowActionEditModel.prePositionedMarks) &&
-        Objects.equals(this.signatureInitialsModes, flowActionsFlowActionEditModel.signatureInitialsMode);
+        Objects.equals(this.signatureInitialsMode, flowActionsFlowActionEditModel.signatureInitialsMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(flowActionId, step, participantEmailAddress, ruleName, signRuleUsers, title, prePositionedMarks, signatureInitialsModes);
+    return Objects.hash(flowActionId, step, participantEmailAddress, ruleName, signRuleUsers, title, prePositionedMarks, signatureInitialsMode);
   }
 
 

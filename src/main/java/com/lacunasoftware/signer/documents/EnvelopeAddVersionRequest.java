@@ -38,7 +38,7 @@ public class EnvelopeAddVersionRequest {
   private Boolean disablePendingActionNotifications = null;
 
   @JsonProperty("additionalInfo")
-  private DocumentsDocumentAdditionalInfoData additionalInfo = null;
+  private DocumentAdditionalInfoData additionalInfo = null;
 
   public EnvelopeAddVersionRequest files(List<FileUploadModel> files) {
     this.files = files;
@@ -102,7 +102,7 @@ public class EnvelopeAddVersionRequest {
     this.disablePendingActionNotifications = disablePendingActionNotifications;
   }
 
-  public EnvelopeAddVersionRequest additionalInfo(DocumentsDocumentAdditionalInfoData additionalInfo) {
+  public EnvelopeAddVersionRequest additionalInfo(DocumentAdditionalInfoData additionalInfo) {
     this.additionalInfo = additionalInfo;
     return this;
   }
@@ -112,11 +112,11 @@ public class EnvelopeAddVersionRequest {
    * @return additionalInfo
   **/
   @Schema(description = "")
-  public DocumentsDocumentAdditionalInfoData getAdditionalInfo() {
+  public DocumentAdditionalInfoData getAdditionalInfo() {
     return additionalInfo;
   }
 
-  public void setAdditionalInfo(DocumentsDocumentAdditionalInfoData additionalInfo) {
+  public void setAdditionalInfo(DocumentAdditionalInfoData additionalInfo) {
     this.additionalInfo = additionalInfo;
   }
 

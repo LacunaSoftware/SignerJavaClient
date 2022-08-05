@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-04T16:47:40.918432800-03:00[America/Cayenne]")
-public class ActionUrlRequest {
+public class ActionUrlResponse {
   @JsonProperty("url")
   private String url = null;
 

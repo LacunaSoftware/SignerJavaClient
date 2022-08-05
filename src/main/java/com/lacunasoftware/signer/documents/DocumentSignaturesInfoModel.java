@@ -17,8 +17,8 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.documents.DocumentStatus;
-import com.lacunasoftware.signer.documents.DocumentTypes;
+import com.lacunasoftware.signer.DocumentStatus;
+import com.lacunasoftware.signer.DocumentTypes;
 import com.lacunasoftware.signer.documents.CreatorModel;
 import com.lacunasoftware.signer.SignerModel;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -324,7 +324,7 @@ public class DocumentSignaturesInfoModel {
     }
     DocumentSignaturesInfoModel documentsDocumentSignaturesInfoModel = (DocumentSignaturesInfoModel) o;
     return Objects.equals(this.id, documentsDocumentSignaturesInfoModel.id) &&
-        Objects.equals(this.name, documentsocumentSignaturesInfoModel.name) &&
+        Objects.equals(this.name, documentsDocumentSignaturesInfoModel.name) &&
         Objects.equals(this.filename, documentsDocumentSignaturesInfoModel.filename) &&
         Objects.equals(this.mimeType, documentsDocumentSignaturesInfoModel.mimeType) &&
         Objects.equals(this.createdBy, documentsDocumentSignaturesInfoModel.createdBy) &&

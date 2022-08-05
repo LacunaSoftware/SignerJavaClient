@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer;
+package com.lacunasoftware.signer.signature;
 
 import java.util.Objects;
 import java.util.Arrays;

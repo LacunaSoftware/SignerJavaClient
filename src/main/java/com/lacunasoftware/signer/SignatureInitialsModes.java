@@ -18,16 +18,16 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets InitialsModes
+ * Gets or Sets SignatureInitialsModes
  */
-public enum InitialsModes {
+public enum SignatureInitialsModes {
   NONE("None"),
   OPTIONAL("Optional"),
   REQUIRED("Required");
 
   private String value;
 
-  InitialsModes(String value) {
+  SignatureInitialsModes(String value) {
     this.value = value;
   }
 
@@ -42,8 +42,8 @@ public enum InitialsModes {
   }
 
   @JsonCreator
-  public static InitialsModes fromValue(String input) {
-    for (InitialsModes b : InitialsModes.values()) {
+  public static SignatureInitialsModes fromValue(String input) {
+    for (SignatureInitialsModes b : SignatureInitialsModes.values()) {
       if (b.value.equals(input)) {
         return b;
       }
