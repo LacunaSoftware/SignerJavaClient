@@ -1,9 +1,9 @@
 /*
  * Dropsigner (HML)
- * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentCanceled</strong></td>     <td>Triggered when the document is canceled.</td>     <td><a href=\"#model-Webhooks.DocumentCanceledModel\">Webhooks.DocumentCanceledModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
+ * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the  of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentCanceled</strong></td>     <td>Triggered when the document is canceled.</td>     <td><a href=\"#model-Webhooks.DocumentCanceledModel\">Webhooks.DocumentCanceledModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>
  *
- * OpenAPI spec version: 1.35.0
- * 
+ * OpenAPI spec version: 1.46.1
+ *
  *
  * NOTE: This class is auto generated by the swagger code generator program.
  * https://github.com/swagger-api/swagger-codegen.git
@@ -17,9 +17,11 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.signer.certificates.CertificateHolderTypes;
 import com.lacunasoftware.signer.CertificateTypes;
 import com.lacunasoftware.signer.documentmark.PrePositionedDocumentMarkModel;
 import com.lacunasoftware.signer.FlowActionType;
+import com.lacunasoftware.signer.SignatureInitialsModes;
 import com.lacunasoftware.signer.flowactions.XadesOptionsModel;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -29,7 +31,7 @@ import java.util.List;
  * FlowActionCreateModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-09-15T18:52:18.394507600-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-04T16:47:40.918432800-03:00[America/Cayenne]")
 public class FlowActionCreateModel {
   @JsonProperty("type")
   private FlowActionType type = null;
@@ -82,8 +84,14 @@ public class FlowActionCreateModel {
   @JsonProperty("requiredCompanyIdentifier")
   private String requiredCompanyIdentifier = null;
 
+  @JsonProperty("requiredCertificateHolderTypeToSign")
+  private CertificateHolderTypes requiredCertificateHolderTypeToSign = null;
+
   @JsonProperty("xadesOptions")
   private XadesOptionsModel xadesOptions = null;
+
+  @JsonProperty("signatureInitialsMode")
+  private SignatureInitialsModes signatureInitialsMode = null;
 
   public FlowActionCreateModel type(FlowActionType type) {
     this.type = type;
@@ -407,6 +415,24 @@ public class FlowActionCreateModel {
     this.requiredCompanyIdentifier = requiredCompanyIdentifier;
   }
 
+  public FlowActionCreateModel requiredCertificateHolderTypeToSign(CertificateHolderTypes requiredCertificateHolderTypeToSign) {
+    this.requiredCertificateHolderTypeToSign = requiredCertificateHolderTypeToSign;
+    return this;
+  }
+
+   /**
+   * Get requiredCertificateHolderTypeToSign
+   * @return requiredCertificateHolderTypeToSign
+  **/
+  @Schema(description = "")
+  public CertificateHolderTypes getRequiredCertificateHolderTypeToSign() {
+    return requiredCertificateHolderTypeToSign;
+  }
+
+  public void setRequiredCertificateHolderTypeToSign(CertificateHolderTypes requiredCertificateHolderTypeToSign) {
+    this.requiredCertificateHolderTypeToSign = requiredCertificateHolderTypeToSign;
+  }
+
   public FlowActionCreateModel xadesOptions(XadesOptionsModel xadesOptions) {
     this.xadesOptions = xadesOptions;
     return this;
@@ -423,6 +449,24 @@ public class FlowActionCreateModel {
 
   public void setXadesOptions(XadesOptionsModel xadesOptions) {
     this.xadesOptions = xadesOptions;
+  }
+
+  public FlowActionCreateModel signatureInitialsMode(SignatureInitialsModes signatureInitialsMode) {
+    this.signatureInitialsMode = signatureInitialsMode;
+    return this;
+  }
+
+   /**
+   * Get signatureInitialsMode
+   * @return signatureInitialsMode
+  **/
+  @Schema(description = "")
+  public SignatureInitialsModes getSignatureInitialsMode() {
+    return signatureInitialsMode;
+  }
+
+  public void setSignatureInitialsMode(SignatureInitialsModes signatureInitialsMode) {
+    this.signatureInitialsMode = signatureInitialsMode;
   }
 
 
@@ -452,12 +496,14 @@ public class FlowActionCreateModel {
         Objects.equals(this.requiredCertificateTypeToSign, flowActionsFlowActionCreateModel.requiredCertificateTypeToSign) &&
         Objects.equals(this.requireCompanyCertificate, flowActionsFlowActionCreateModel.requireCompanyCertificate) &&
         Objects.equals(this.requiredCompanyIdentifier, flowActionsFlowActionCreateModel.requiredCompanyIdentifier) &&
-        Objects.equals(this.xadesOptions, flowActionsFlowActionCreateModel.xadesOptions);
+        Objects.equals(this.requiredCertificateHolderTypeToSign, flowActionsFlowActionCreateModel.requiredCertificateHolderTypeToSign) &&
+        Objects.equals(this.xadesOptions, flowActionsFlowActionCreateModel.xadesOptions) &&
+        Objects.equals(this.signatureInitialsMode, flowActionsFlowActionCreateModel.signatureInitialsMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, step, user, numberRequiredSignatures, ruleName, title, signRuleUsers, prePositionedMarks, allowElectronicSignature, requireSmsAuthenticationToSignElectronically, requireAuthenticatorAppToSignElectronically, requireSelfieAuthenticationToSignElectronically, requireDatavalidAuthenticationToSignElectronically, requirePixAuthenticationToSignElectronically, requiredCertificateTypeToSign, requireCompanyCertificate, requiredCompanyIdentifier, xadesOptions);
+    return Objects.hash(type, step, user, numberRequiredSignatures, ruleName, title, signRuleUsers, prePositionedMarks, allowElectronicSignature, requireSmsAuthenticationToSignElectronically, requireAuthenticatorAppToSignElectronically, requireSelfieAuthenticationToSignElectronically, requireDatavalidAuthenticationToSignElectronically, requirePixAuthenticationToSignElectronically, requiredCertificateTypeToSign, requireCompanyCertificate, requiredCompanyIdentifier, requiredCertificateHolderTypeToSign, xadesOptions, signatureInitialsMode);
   }
 
 
@@ -465,7 +511,7 @@ public class FlowActionCreateModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FlowActionCreateModel {\n");
-    
+
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    step: ").append(toIndentedString(step)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
@@ -483,7 +529,9 @@ public class FlowActionCreateModel {
     sb.append("    requiredCertificateTypeToSign: ").append(toIndentedString(requiredCertificateTypeToSign)).append("\n");
     sb.append("    requireCompanyCertificate: ").append(toIndentedString(requireCompanyCertificate)).append("\n");
     sb.append("    requiredCompanyIdentifier: ").append(toIndentedString(requiredCompanyIdentifier)).append("\n");
+    sb.append("    requiredCertificateHolderTypeToSign: ").append(toIndentedString(requiredCertificateHolderTypeToSign)).append("\n");
     sb.append("    xadesOptions: ").append(toIndentedString(xadesOptions)).append("\n");
+    sb.append("    signatureInitialsMode: ").append(toIndentedString(signatureInitialsMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

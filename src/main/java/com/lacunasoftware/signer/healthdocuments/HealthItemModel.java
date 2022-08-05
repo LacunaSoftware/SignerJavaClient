@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer.documents;
+package com.lacunasoftware.signer.healthdocuments;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -18,41 +18,73 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
 /**
- * DocumentNotifiedEmailsEditRequest
+ * HealthItemModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-04T16:47:40.918432800-03:00[America/Cayenne]")
-public class DocumentNotifiedEmailsEditRequest {
-  @JsonProperty("emails")
-  private List<String> emails = null;
+public class HealthItemModel {
+  @JsonProperty("name")
+  private String name = null;
 
-  public DocumentNotifiedEmailsEditRequest emails(List<String> emails) {
-    this.emails = emails;
-    return this;
-  }
+  @JsonProperty("description")
+  private String description = null;
 
-  public DocumentNotifiedEmailsEditRequest addEmailsItem(String emailsItem) {
-    if (this.emails == null) {
-      this.emails = new ArrayList<String>();
-    }
-    this.emails.add(emailsItem);
+  @JsonProperty("description2")
+  private String description2 = null;
+
+  public HealthItemModel name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * The emails to notify when the document is concluded.
-   * @return emails
+   * Get name
+   * @return name
   **/
-  @Schema(description = "The emails to notify when the document is concluded.")
-  public List<String> getEmails() {
-    return emails;
+  @Schema(required = true, description = "")
+  public String getName() {
+    return name;
   }
 
-  public void setEmails(List<String> emails) {
-    this.emails = emails;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public HealthItemModel description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public HealthItemModel description2(String description2) {
+    this.description2 = description2;
+    return this;
+  }
+
+   /**
+   * Get description2
+   * @return description2
+  **/
+  @Schema(description = "")
+  public String getDescription2() {
+    return description2;
+  }
+
+  public void setDescription2(String description2) {
+    this.description2 = description2;
   }
 
 
@@ -64,22 +96,26 @@ public class DocumentNotifiedEmailsEditRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentNotifiedEmailsEditRequest documentsDocumentNotifiedEmailsEditRequest = (DocumentNotifiedEmailsEditRequest) o;
-    return Objects.equals(this.emails, documentsDocumentNotifiedEmailsEditRequest.emails);
+    HealthItemModel HealthItemModel = (HealthItemModel) o;
+    return Objects.equals(this.name, HealthItemModel.name) &&
+        Objects.equals(this.description, HealthItemModel.description) &&
+        Objects.equals(this.description2, HealthItemModel.description2);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emails);
+    return Objects.hash(name, description, description2);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentNotifiedEmailsEditRequest {\n");
-    
-    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("class HealthItemModel {\n");
+
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    description2: ").append(toIndentedString(description2)).append("\n");
     sb.append("}");
     return sb.toString();
   }

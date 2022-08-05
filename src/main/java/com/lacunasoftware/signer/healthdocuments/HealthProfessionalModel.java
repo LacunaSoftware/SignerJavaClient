@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.lacunasoftware.signer.documents;
+package com.lacunasoftware.signer.healthdocuments;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -18,41 +18,52 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
 /**
- * DocumentNotifiedEmailsEditRequest
+ * HealthProfessionalModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-04T16:47:40.918432800-03:00[America/Cayenne]")
-public class DocumentNotifiedEmailsEditRequest {
-  @JsonProperty("emails")
-  private List<String> emails = null;
+public class HealthProfessionalModel {
+  @JsonProperty("id")
+  private String id = null;
 
-  public DocumentNotifiedEmailsEditRequest emails(List<String> emails) {
-    this.emails = emails;
-    return this;
-  }
+  @JsonProperty("region")
+  private String region = null;
 
-  public DocumentNotifiedEmailsEditRequest addEmailsItem(String emailsItem) {
-    if (this.emails == null) {
-      this.emails = new ArrayList<String>();
-    }
-    this.emails.add(emailsItem);
+  public HealthProfessionalModel id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * The emails to notify when the document is concluded.
-   * @return emails
+   * The professional ID number (e.g CRM)
+   * @return id
   **/
-  @Schema(description = "The emails to notify when the document is concluded.")
-  public List<String> getEmails() {
-    return emails;
+  @Schema(required = true, description = "The professional ID number (e.g CRM)")
+  public String getId() {
+    return id;
   }
 
-  public void setEmails(List<String> emails) {
-    this.emails = emails;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public HealthProfessionalModel region(String region) {
+    this.region = region;
+    return this;
+  }
+
+   /**
+   * The professional ID region (a.k.a UF)
+   * @return region
+  **/
+  @Schema(required = true, description = "The professional ID region (a.k.a UF)")
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
   }
 
 
@@ -64,22 +75,24 @@ public class DocumentNotifiedEmailsEditRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentNotifiedEmailsEditRequest documentsDocumentNotifiedEmailsEditRequest = (DocumentNotifiedEmailsEditRequest) o;
-    return Objects.equals(this.emails, documentsDocumentNotifiedEmailsEditRequest.emails);
+    HealthProfessionalModel HealthProfessionalModel = (HealthProfessionalModel) o;
+    return Objects.equals(this.id, HealthProfessionalModel.id) &&
+        Objects.equals(this.region, HealthProfessionalModel.region);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emails);
+    return Objects.hash(id, region);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentNotifiedEmailsEditRequest {\n");
-    
-    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("class HealthProfessionalModel {\n");
+
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("}");
     return sb.toString();
   }
