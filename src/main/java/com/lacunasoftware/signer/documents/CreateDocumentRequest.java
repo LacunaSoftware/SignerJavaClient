@@ -1,9 +1,9 @@
 /*
  * Dropsigner (HML)
- * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentCanceled</strong></td>     <td>Triggered when the document is canceled.</td>     <td><a href=\"#model-Webhooks.DocumentCanceledModel\">Webhooks.DocumentCanceledModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>
+ * <!--------------------------------------------------------------------------------------------------------------------->    <h2>Authentication</h2>    <p>   In order to call this APIs, you will need an <strong>API key</strong>. Set the API key in the header <span class=\"code\">X-Api-Key</span>:  </p>    <pre>X-Api-Key: your-app|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>    <!--------------------------------------------------------------------------------------------------------------------->  <br />    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response is as defined in <a href=\"#model-ErrorModel\">ErrorModel</a></td>    </tr>   </tbody>  </table>    <br />    <h3>Error Codes</h3>    <p>Some of the error codes returned in a 422 response are provided bellow*:</p>    <ul>   <li>CertificateNotFound</li>   <li>DocumentNotFound</li>   <li>FolderNotFound</li>   <li>CpfMismatch</li>   <li>CpfNotExpected</li>   <li>InvalidFlowAction</li>   <li>DocumentInvalidKey</li>  </ul>    <p style=\"font-size: 0.9em\">   *The codes shown above are the main error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <!--------------------------------------------------------------------------------------------------------------------->    <br />    <h2>Webhooks</h2>    <p>   It is recomended to subscribe to Webhook events <strong>instead</strong> of polling APIs. To do so, enable webhooks and register an URL that will receive a POST request   whenever one of the events bellow occur.  </p>  <p>   All requests have the format described in <a href=\"#model-Webhooks.WebhookModel\">Webhooks.WebhookModel</a>.   The data field varies according to the webhook event type:  </p>      <table>   <thead>    <tr>     <th>Event type</th>     <th>Description</th>     <th>Payload</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">DocumentSigned</strong></td>     <td>Triggered when a document is signed.</td>     <td><a href=\"#model-Webhooks.DocumentSignedModel\">Webhooks.DocumentSignedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentApproved</strong></td>     <td>Triggered when a document is approved.</td>     <td><a href=\"#model-Webhooks.DocumentApprovedModel\">Webhooks.DocumentApprovedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentRefused</strong></td>     <td>Triggered when a document is refused.</td>     <td><a href=\"#model-Webhooks.DocumentRefusedModel\">Webhooks.DocumentRefusedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentConcluded</strong></td>     <td>Triggered when the flow of a document is concluded.</td>     <td><a href=\"#model-Webhooks.DocumentConcludedModel\">Webhooks.DocumentConcludedModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentCanceled</strong></td>     <td>Triggered when the document is canceled.</td>     <td><a href=\"#model-Webhooks.DocumentCanceledModel\">Webhooks.DocumentCanceledModel</a></td>    </tr>    <tr>     <td><strong class=\"model-title\">DocumentsCreated (v1.50.0)</strong></td>     <td>Triggered when one or more documents are created.</td>     <td><a href=\"#model-Webhooks.DocumentsCreatedModel\">Webhooks.DocumentsCreatedModel</a></td>    </tr>   </tbody>  </table>    <p>   To register your application URL and enable Webhooks, access the integrations section in your <a href=\"/private/organizations\" target=\"_blank\">organization's details page</a>.  </p>  
  *
- * OpenAPI spec version: 1.46.1
- *
+ * OpenAPI spec version: 1.55.2
+ * 
  *
  * NOTE: This class is auto generated by the swagger code generator program.
  * https://github.com/swagger-api/swagger-codegen.git
@@ -19,9 +19,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.attachments.AttachmentUploadModel;
 import com.lacunasoftware.signer.documents.DocumentAdditionalInfoData;
+import com.lacunasoftware.signer.documents.DocumentTagData;
 import com.lacunasoftware.signer.FileUploadModel;
 import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
 import com.lacunasoftware.signer.observers.ObserverCreateModel;
+import com.lacunasoftware.signer.UploadModel;
 import com.lacunasoftware.signer.XmlNamespaceModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
@@ -32,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * CreateDocumentRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-04T16:47:40.918432800-03:00[America/Cayenne]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-03-15T15:24:02.025-03:00[America/Sao_Paulo]")
 public class CreateDocumentRequest {
   @JsonProperty("files")
   private List<FileUploadModel> files = new ArrayList<FileUploadModel>();
@@ -48,6 +50,9 @@ public class CreateDocumentRequest {
 
   @JsonProperty("envelopeName")
   private String envelopeName = null;
+
+  @JsonProperty("participantsDataFile")
+  private UploadModel participantsDataFile = null;
 
   @JsonProperty("folderId")
   private UUID folderId = null;
@@ -75,6 +80,9 @@ public class CreateDocumentRequest {
 
   @JsonProperty("additionalInfo")
   private DocumentAdditionalInfoData additionalInfo = null;
+
+  @JsonProperty("tags")
+  private List<DocumentTagData> tags = null;
 
   @JsonProperty("expirationDate")
   private OffsetDateTime expirationDate = null;
@@ -188,6 +196,24 @@ public class CreateDocumentRequest {
 
   public void setEnvelopeName(String envelopeName) {
     this.envelopeName = envelopeName;
+  }
+
+  public CreateDocumentRequest participantsDataFile(UploadModel participantsDataFile) {
+    this.participantsDataFile = participantsDataFile;
+    return this;
+  }
+
+   /**
+   * Get participantsDataFile
+   * @return participantsDataFile
+  **/
+  @Schema(description = "")
+  public UploadModel getParticipantsDataFile() {
+    return participantsDataFile;
+  }
+
+  public void setParticipantsDataFile(UploadModel participantsDataFile) {
+    this.participantsDataFile = participantsDataFile;
   }
 
   public CreateDocumentRequest folderId(UUID folderId) {
@@ -373,6 +399,32 @@ public class CreateDocumentRequest {
     this.additionalInfo = additionalInfo;
   }
 
+  public CreateDocumentRequest tags(List<DocumentTagData> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateDocumentRequest addTagsItem(DocumentTagData tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<DocumentTagData>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Schema(description = "")
+  public List<DocumentTagData> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<DocumentTagData> tags) {
+    this.tags = tags;
+  }
+
   public CreateDocumentRequest expirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
     return this;
@@ -406,6 +458,7 @@ public class CreateDocumentRequest {
         Objects.equals(this.xmlNamespaces, documentsCreateDocumentRequest.xmlNamespaces) &&
         Objects.equals(this.isEnvelope, documentsCreateDocumentRequest.isEnvelope) &&
         Objects.equals(this.envelopeName, documentsCreateDocumentRequest.envelopeName) &&
+        Objects.equals(this.participantsDataFile, documentsCreateDocumentRequest.participantsDataFile) &&
         Objects.equals(this.folderId, documentsCreateDocumentRequest.folderId) &&
         Objects.equals(this.description, documentsCreateDocumentRequest.description) &&
         Objects.equals(this.flowActions, documentsCreateDocumentRequest.flowActions) &&
@@ -415,12 +468,13 @@ public class CreateDocumentRequest {
         Objects.equals(this.forceCadesSignature, documentsCreateDocumentRequest.forceCadesSignature) &&
         Objects.equals(this.notifiedEmails, documentsCreateDocumentRequest.notifiedEmails) &&
         Objects.equals(this.additionalInfo, documentsCreateDocumentRequest.additionalInfo) &&
+        Objects.equals(this.tags, documentsCreateDocumentRequest.tags) &&
         Objects.equals(this.expirationDate, documentsCreateDocumentRequest.expirationDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, attachments, xmlNamespaces, isEnvelope, envelopeName, folderId, description, flowActions, observers, disablePendingActionNotifications, newFolderName, forceCadesSignature, notifiedEmails, additionalInfo, expirationDate);
+    return Objects.hash(files, attachments, xmlNamespaces, isEnvelope, envelopeName, participantsDataFile, folderId, description, flowActions, observers, disablePendingActionNotifications, newFolderName, forceCadesSignature, notifiedEmails, additionalInfo, tags, expirationDate);
   }
 
 
@@ -428,12 +482,13 @@ public class CreateDocumentRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDocumentRequest {\n");
-
+    
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    xmlNamespaces: ").append(toIndentedString(xmlNamespaces)).append("\n");
     sb.append("    isEnvelope: ").append(toIndentedString(isEnvelope)).append("\n");
     sb.append("    envelopeName: ").append(toIndentedString(envelopeName)).append("\n");
+    sb.append("    participantsDataFile: ").append(toIndentedString(participantsDataFile)).append("\n");
     sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    flowActions: ").append(toIndentedString(flowActions)).append("\n");
@@ -443,6 +498,7 @@ public class CreateDocumentRequest {
     sb.append("    forceCadesSignature: ").append(toIndentedString(forceCadesSignature)).append("\n");
     sb.append("    notifiedEmails: ").append(toIndentedString(notifiedEmails)).append("\n");
     sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("}");
     return sb.toString();
