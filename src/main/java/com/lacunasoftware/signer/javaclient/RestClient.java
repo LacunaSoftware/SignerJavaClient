@@ -23,6 +23,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.Scanner;
 import  java.lang.reflect.Type;
@@ -213,7 +214,7 @@ class RestClient {
 				sb.append(String.format("; name=\"%s\"; filename=\"%s\"", name, name));
 			}
 			sb.append(crlf);
-			request.writeBytes(sb.toString());
+			request.write(sb.toString().getBytes(StandardCharsets.UTF_8));
 
 			if (mimeType != null) {
 				request.writeBytes(String.format("Content-Type: %s; charset=UTF-8", mimeType) + crlf);
