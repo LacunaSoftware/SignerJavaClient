@@ -1,7 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
@@ -10,7 +9,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.lacunasoftware.signer'
 archivesBaseName = 'signer-client'
-version = '2.6.0'
+version = '2.6.1'
 
 repositories {
     mavenCentral()
@@ -29,72 +28,83 @@ dependencies {
 
 }
 
-task fatJar(type: Jar) {
-    manifest {
-    }
-    archiveBaseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
-task javadocJar(type: Jar) {
-    classifier = 'javadoc'
-    from javadoc
+
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main.java.srcDirs = ['src/main/java']
 }
 
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        
+            artifactId = "signer-client"
+            groupId group
+            version version
 
-artifacts {
-    archives javadocJar, sourcesJar
-}
-
-signing {
-    sign configurations.archives
-}
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-
-            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-
-            pom.project {
-                name 'signer-client'
-                packaging 'jar'
-                artifactId 'signer-client'
-                description 'Classes to consume Lacuna Software Signer'
-                url 'https://github.com/LacunaSoftware/SignerJavaClient'
-
-                scm {
-                    connection 'scm:git:git@github.com:LacunaSoftware/SignerJavaClient.git'
-                    developerConnection 'scm:git:git@github.com:LacunaSoftware/SignerJavaClient.git'
-                    url 'https://github.com/LacunaSoftware/SignerJavaClient'
-                }
+            pom {
+                name = 'signer-client'
+                artifactId = 'signer-client'
+                description = 'Classes to consume Lacuna Software Signer'
+                url = 'https://github.com/LacunaSoftware/SignerJavaClient'
 
                 licenses {
                     license {
-                        name 'Unlicense'
+                        name = "The Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
                     }
+                }
+
+                scm {
+                    connection = 'scm:git:git@github.com:LacunaSoftware/SignerJavaClient.git'
+                    developerConnection = 'scm:git:git@github.com:LacunaSoftware/SignerJavaClient.git'
+                    url = 'https://github.com/LacunaSoftware/SignerJavaClient'
                 }
 
                 developers {
                     developer {
-                        id 'ismaelm'
-                        name 'Ismael Medeiros'
-                        email 'IsmaelM@lacunasoftware.com'
+                        id = 'ismaelm'
+                        name = 'Ismael Medeiros'
+                        email = 'IsmaelM@lacunasoftware.com'
+                    }
+                    developer {
+                        id = "DaniloB"
+                        name = "Danilo Bispo"
+                        email = "danilob@lacunasoftware.com"
                     }
                 }
             }
         }
+    }
+    repositories {
+        maven {
+            url determineRepositoryUrl()
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
+        }
+    }
+}
+
+task execute(type:JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'package.Main'
+}
+
+def determineRepositoryUrl() {
+    def version = project.version.toString()
+    if (version.endsWith('SNAPSHOT')) {
+        return "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+    } else {
+        return "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
     }
 }
