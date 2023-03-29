@@ -230,11 +230,12 @@ class RestClient {
 			request.writeBytes(crlf);
 
 			if (name != null) {
+				byte[] nameBytes = name.getBytes(StandardCharsets.UTF_8);
 				request.writeBytes(twoHyphens + boundary + crlf);
 				request.writeBytes("Content-Disposition: form-data; name=\"name\"" + crlf);
 				request.writeBytes("Content-Type: text/plain; charset=UTF-8" + crlf);
 				request.writeBytes(crlf);
-				request.writeBytes(name);
+				request.write(nameBytes);
 				request.writeBytes(crlf);
 			}
 
