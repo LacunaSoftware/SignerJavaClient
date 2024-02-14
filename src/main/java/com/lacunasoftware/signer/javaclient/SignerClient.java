@@ -219,9 +219,11 @@ public class SignerClient {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public PaginatedSearchResponse<FolderInfoModel> listFoldersPaginated(PaginatedSearchParams searchParams, UUID organizationId) throws RestException {
+	public PaginatedSearchResponse<FolderInfoModel> listFoldersPaginated(PaginatedSearchParams searchParams, UUID organizationId, boolean filterByParent, UUID parentId) throws RestException {
 		String orgIdStr = organizationId != null ? organizationId.toString() : "";
-		String requestUri = String.format("/api/folders%s&organizationId=%s", buildSearchPaginatedParamsString(searchParams), orgIdStr);
+		String fltrByPrnt = String.valueOf(filterByParent);
+		String prntId = parentId != null ? parentId.toString() : "";
+		String requestUri = String.format("/api/folders%s&organizationId=%s&filterByParent=%s&parentId=%s", buildSearchPaginatedParamsString(searchParams), orgIdStr, fltrByPrnt, prntId);
 		PaginatedSearchResponse<FolderInfoModel> model = (PaginatedSearchResponse<FolderInfoModel>)getRestClient().get(requestUri, TypeToken.getParameterized(PaginatedSearchResponse.class, FolderInfoModel.class));
 		return model;
 	}
