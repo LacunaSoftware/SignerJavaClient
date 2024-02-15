@@ -9,7 +9,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.lacunasoftware.signer'
 archivesBaseName = 'signer-client'
-version = '2.7.0'
+version = '2.7.0.1'
 
 repositories {
     mavenCentral()
@@ -31,6 +31,10 @@ dependencies {
 java {
     withJavadocJar()
     withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
 }
 
 sourceSets {
