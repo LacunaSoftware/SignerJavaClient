@@ -23,7 +23,7 @@ import com.lacunasoftware.signer.documents.DocumentTagData;
 import com.lacunasoftware.signer.FileUploadModel;
 import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
 import com.lacunasoftware.signer.observers.ObserverCreateModel;
-import com.lacunasoftware.signer.UploadModel;
+import com.lacunasoftware.signer.javaclient.models.UploadModel;
 import com.lacunasoftware.signer.XmlNamespaceModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;

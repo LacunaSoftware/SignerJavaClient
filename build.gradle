@@ -9,7 +9,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.lacunasoftware.signer'
 archivesBaseName = 'signer-client'
-version = '2.7.0.1'
+version = '2.8.0'
 
 repositories {
     mavenCentral()
@@ -112,4 +112,4 @@ def determineRepositoryUrl() {
 signing {
     sign publishing.publications.mavenJava
     sign configurations.archives
-}
+}   

@@ -15,6 +15,9 @@ import java.util.UUID;
 import com.lacunasoftware.signer.DocumentDownloadTypes;
 import com.lacunasoftware.signer.InvoicesUpdateInvoicePaymentStatusRequest;
 import com.lacunasoftware.signer.TicketModel;
+import com.lacunasoftware.signer.documentmark.MarksSessionCreateRequest;
+import com.lacunasoftware.signer.documentmark.MarksSessionCreateResponse;
+import com.lacunasoftware.signer.documentmark.MarksSessionModel;
 import com.lacunasoftware.signer.DocumentTicketType;
 import com.lacunasoftware.signer.documents.*;
 import com.lacunasoftware.signer.javaclient.params.DocumentListParameters;
@@ -284,4 +287,27 @@ public class SignerClient {
 	}
 
 	// endregion
+
+
+	// REGION MarksSessions
+
+	public MarksSessionModel getMarkSessionModel(String id) throws RestException{
+		String requestUri = String.format("/api/marks-session/%s", id);
+		MarksSessionModel markSession = getRestClient().get(requestUri, MarksSessionModel.class);
+		return markSession;
+	}
+
+	public MarksSessionCreateResponse createMarkSession(MarksSessionCreateRequest request) throws RestException{
+		String requestUri = "/api/marks-sessions";
+		MarksSessionCreateResponse response = getRestClient().post(requestUri, request, MarksSessionCreateResponse.class);
+		return response;
+	}
+
+	public MarksSessionCreateResponse createMarkSessionFromDocument(CreateDocumentRequest request) throws RestException{
+		String requestUri = "/api/marks-sessions/documents";
+		MarksSessionCreateResponse response = getRestClient().post(requestUri, request, MarksSessionCreateResponse.class);
+		return response;
+	}
+
+	//endregion
 }
