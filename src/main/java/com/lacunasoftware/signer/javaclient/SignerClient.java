@@ -20,6 +20,7 @@ import com.lacunasoftware.signer.documentmark.MarksSessionCreateResponse;
 import com.lacunasoftware.signer.documentmark.MarksSessionModel;
 import com.lacunasoftware.signer.DocumentTicketType;
 import com.lacunasoftware.signer.documents.*;
+import com.lacunasoftware.signer.flowactions.DocumentFlowEditResponse;
 import com.lacunasoftware.signer.javaclient.params.DocumentListParameters;
 import com.lacunasoftware.signer.notifications.CreateFlowActionReminderRequest;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
@@ -157,6 +158,12 @@ public class SignerClient {
 			}
 		}
 		return content;
+	}
+
+	public DocumentFlowEditResponse updateDocumentFlow(UUID id, DocumentFlowEditRequest request) throws IOException, RestException{
+		String requestUri = String.format("api/documents/%s/flow", id.toString());
+		DocumentFlowEditResponse response = getRestClient().post(requestUri, request, DocumentFlowEditResponse.class);
+		return response;
 	}
 
 	// endregion
