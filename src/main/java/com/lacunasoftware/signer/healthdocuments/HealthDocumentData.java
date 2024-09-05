@@ -26,7 +26,7 @@ import java.util.List;
  * This option is only valid for the following document types: Prescription, MedicalCertificate, ExamRequest, LabReport, DischargeSummary, ClinicalRecord, DrugDispensing, Vaccination and MedicalReport
  */
 @Schema(description = "This option is only valid for the following document types: Prescription, MedicalCertificate, ExamRequest, LabReport, DischargeSummary, ClinicalRecord, DrugDispensing, Vaccination and MedicalReport")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-03-15T15:24:02.025-03:00[America/Sao_Paulo]")
+
 public class HealthDocumentData {
   @JsonProperty("professional")
   private HealthProfessionalModel professional = null;

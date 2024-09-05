@@ -29,7 +29,7 @@ import java.util.UUID;
  * DocumentFlowEditRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-03-15T15:24:02.025-03:00[America/Sao_Paulo]")
+
 public class DocumentFlowEditRequest {
   @JsonProperty("addedFlowActions")
   private List<FlowActionCreateModel> addedFlowActions = null;

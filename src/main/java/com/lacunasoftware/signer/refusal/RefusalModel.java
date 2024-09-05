@@ -24,7 +24,7 @@ import org.threeten.bp.OffsetDateTime;
  * RefusalModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-03-15T15:24:02.025-03:00[America/Sao_Paulo]")
+
 public class RefusalModel {
   @JsonProperty("flowActionId")
   private UUID flowActionId = null;

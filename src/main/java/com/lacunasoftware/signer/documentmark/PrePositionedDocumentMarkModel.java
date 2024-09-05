@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Model used to set the position of a document mark before it&#x27;s associated flow action is completed.
  */
 @Schema(description = "Model used to set the position of a document mark before it's associated flow action is completed.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-03-15T15:24:02.025-03:00[America/Sao_Paulo]")
+
 public class PrePositionedDocumentMarkModel {
   @JsonProperty("type")
   private DocumentMarkType type = null;

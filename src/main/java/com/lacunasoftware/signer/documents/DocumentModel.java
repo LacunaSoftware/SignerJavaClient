@@ -36,7 +36,7 @@ import org.threeten.bp.OffsetDateTime;
  * DocumentModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-03-15T15:24:02.025-03:00[America/Sao_Paulo]")
+
 public class DocumentModel {
   @JsonProperty("checksumMd5")
   private String checksumMd5 = null;

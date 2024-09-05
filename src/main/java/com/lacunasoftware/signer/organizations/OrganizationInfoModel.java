@@ -24,7 +24,7 @@ import java.util.UUID;
  * OrganizationInfoModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-03-15T15:24:02.025-03:00[America/Sao_Paulo]")
+
 public class OrganizationInfoModel {
   @JsonProperty("id")
   private UUID id = null;

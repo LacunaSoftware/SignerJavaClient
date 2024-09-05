@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * DocumentMarkPositionModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-03-15T15:24:02.025-03:00[America/Sao_Paulo]")
+
 public class DocumentMarkPositionModel {
   @JsonProperty("topLeftX")
   private Double topLeftX = null;

@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * ValidationItemModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-03-15T15:24:02.025-03:00[America/Sao_Paulo]")
+
 public class ValidationItemModel {
   @JsonProperty("type")
   private String type = null;
