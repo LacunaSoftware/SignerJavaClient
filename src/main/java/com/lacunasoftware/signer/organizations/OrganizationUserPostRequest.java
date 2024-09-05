@@ -24,7 +24,7 @@ import java.util.UUID;
  * OrganizationUserPostRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-22T11:43:35.807748200-03:00[America/Sao_Paulo]")
+
 public class OrganizationUserPostRequest {
   @JsonProperty("accessProfile")
   private AccessProfileModel accessProfile = null;

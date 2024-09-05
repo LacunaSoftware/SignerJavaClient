@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * AuthenticationTypesModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-22T11:43:35.807748200-03:00[America/Sao_Paulo]")
+
 public class AuthenticationTypesModel {
   @JsonProperty("sms")
   private Boolean sms = null;
