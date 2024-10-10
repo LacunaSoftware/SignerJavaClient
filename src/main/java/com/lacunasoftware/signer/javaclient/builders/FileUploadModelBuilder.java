@@ -28,7 +28,7 @@ public class FileUploadModelBuilder extends UploadModel {
     }
 
     public void setKey(String key) {
-        this.displayName = displayName;
+        this.key = key;
     }
     
     public FileUploadModel toModel() {
@@ -45,7 +45,6 @@ public class FileUploadModelBuilder extends UploadModel {
         AttachmentUploadModel attachmentUploadModel = new AttachmentUploadModel();
         attachmentUploadModel.setDisplayName(uploadModel.getDisplayName());
         attachmentUploadModel.setId(uploadModel.getId());
-        attachmentUploadModel.displayName(uploadModel.getName());
         attachmentUploadModel.setContentType(uploadModel.getContentType());
         return attachmentUploadModel;
 

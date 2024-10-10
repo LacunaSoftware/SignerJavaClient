@@ -15,8 +15,12 @@ import java.util.UUID;
 import com.lacunasoftware.signer.DocumentDownloadTypes;
 import com.lacunasoftware.signer.InvoicesUpdateInvoicePaymentStatusRequest;
 import com.lacunasoftware.signer.TicketModel;
+import com.lacunasoftware.signer.documentmark.MarksSessionCreateRequest;
+import com.lacunasoftware.signer.documentmark.MarksSessionCreateResponse;
+import com.lacunasoftware.signer.documentmark.MarksSessionModel;
 import com.lacunasoftware.signer.DocumentTicketType;
 import com.lacunasoftware.signer.documents.*;
+import com.lacunasoftware.signer.flowactions.DocumentFlowEditResponse;
 import com.lacunasoftware.signer.javaclient.params.DocumentListParameters;
 import com.lacunasoftware.signer.notifications.CreateFlowActionReminderRequest;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
@@ -95,6 +99,12 @@ public class SignerClient {
 		getRestClient().delete(requestUri);
 	}
 
+	public GenerationDocumentResult generateDocument(GenerateDocumentRequest request) throws RestException {
+		String requestUri = String.format("api/documents/generation");
+		GenerationDocumentResult result = getRestClient().post(requestUri, request, GenerationDocumentResult.class);
+		return result;
+	}
+
 	public void addNewDocumentVersion(UUID id, DocumentAddVersionRequest versionRequest) throws RestException {
 		String requestUri = String.format("api/documents/%s/versions", id.toString());
 		getRestClient().post(requestUri, versionRequest);
@@ -154,6 +164,12 @@ public class SignerClient {
 			}
 		}
 		return content;
+	}
+
+	public DocumentFlowEditResponse updateDocumentFlow(UUID id, DocumentFlowEditRequest request) throws IOException, RestException{
+		String requestUri = String.format("api/documents/%s/flow", id.toString());
+		DocumentFlowEditResponse response = getRestClient().post(requestUri, request, DocumentFlowEditResponse.class);
+		return response;
 	}
 
 	// endregion
@@ -219,9 +235,11 @@ public class SignerClient {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public PaginatedSearchResponse<FolderInfoModel> listFoldersPaginated(PaginatedSearchParams searchParams, UUID organizationId) throws RestException {
+	public PaginatedSearchResponse<FolderInfoModel> listFoldersPaginated(PaginatedSearchParams searchParams, UUID organizationId, boolean filterByParent, UUID parentId) throws RestException {
 		String orgIdStr = organizationId != null ? organizationId.toString() : "";
-		String requestUri = String.format("/api/folders%s&organizationId=%s", buildSearchPaginatedParamsString(searchParams), orgIdStr);
+		String fltrByPrnt = String.valueOf(filterByParent);
+		String prntId = parentId != null ? parentId.toString() : "";
+		String requestUri = String.format("/api/folders%s&organizationId=%s&filterByParent=%s&parentId=%s", buildSearchPaginatedParamsString(searchParams), orgIdStr, fltrByPrnt, prntId);
 		PaginatedSearchResponse<FolderInfoModel> model = (PaginatedSearchResponse<FolderInfoModel>)getRestClient().get(requestUri, TypeToken.getParameterized(PaginatedSearchResponse.class, FolderInfoModel.class));
 		return model;
 	}
@@ -282,4 +300,27 @@ public class SignerClient {
 	}
 
 	// endregion
+
+
+	// REGION MarksSessions
+
+	public MarksSessionModel getMarkSessionModel(String id) throws RestException{
+		String requestUri = String.format("/api/marks-session/%s", id);
+		MarksSessionModel markSession = getRestClient().get(requestUri, MarksSessionModel.class);
+		return markSession;
+	}
+
+	public MarksSessionCreateResponse createMarkSession(MarksSessionCreateRequest request) throws RestException{
+		String requestUri = "/api/marks-sessions";
+		MarksSessionCreateResponse response = getRestClient().post(requestUri, request, MarksSessionCreateResponse.class);
+		return response;
+	}
+
+	public MarksSessionCreateResponse createMarkSessionFromDocument(CreateDocumentRequest request) throws RestException{
+		String requestUri = "/api/marks-sessions/documents";
+		MarksSessionCreateResponse response = getRestClient().post(requestUri, request, MarksSessionCreateResponse.class);
+		return response;
+	}
+
+	//endregion
 }

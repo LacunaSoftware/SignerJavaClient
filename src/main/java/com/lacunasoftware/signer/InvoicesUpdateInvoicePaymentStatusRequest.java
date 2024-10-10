@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * InvoicesUpdateInvoicePaymentStatusRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-04T17:19:45.821753500-03:00[America/Sao_Paulo]")
+
 public class InvoicesUpdateInvoicePaymentStatusRequest {
   @JsonProperty("isPaid")
   private Boolean isPaid = null;

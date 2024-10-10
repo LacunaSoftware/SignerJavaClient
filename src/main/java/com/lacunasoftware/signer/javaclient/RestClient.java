@@ -155,7 +155,7 @@ class RestClient {
 			OutputStream outStream = conn.getOutputStream();
 			if (request != null) {
 				String json = getJackson().writeValueAsString(request);
-				outStream.write(json.getBytes());
+				outStream.write(json.getBytes("UTF-8"));
 			}
 			outStream.close();
 
@@ -213,7 +213,7 @@ class RestClient {
 				sb.append(String.format("; name=\"%s\"; filename=\"%s\"", name, name));
 			}
 			sb.append(crlf);
-			request.writeBytes(sb.toString());
+			request.write(sb.toString().getBytes("UTF-8"));
 
 			if (mimeType != null) {
 				request.writeBytes(String.format("Content-Type: %s; charset=UTF-8", mimeType) + crlf);
@@ -229,11 +229,12 @@ class RestClient {
 			request.writeBytes(crlf);
 
 			if (name != null) {
+				byte[] nameBytes = name.getBytes("UTF-8");
 				request.writeBytes(twoHyphens + boundary + crlf);
 				request.writeBytes("Content-Disposition: form-data; name=\"name\"" + crlf);
 				request.writeBytes("Content-Type: text/plain; charset=UTF-8" + crlf);
 				request.writeBytes(crlf);
-				request.writeBytes(name);
+				request.write(nameBytes);
 				request.writeBytes(crlf);
 			}
 
@@ -376,7 +377,8 @@ class RestClient {
 
 	private <T> T readResponse(HttpURLConnection conn, TypeToken<T> typeToken) throws IOException {
 		InputStream inStream = conn.getInputStream();
-		T response = getGson().fromJson(readJsonStream(inStream), typeToken.getType());
+		BufferedReader streamReader = new BufferedReader(new InputStreamReader(inStream, "UTF-8")); 
+		T response = getGson().fromJson(streamReader, typeToken.getType());
 		inStream.close();
 		return response;
 	}
@@ -388,14 +390,14 @@ class RestClient {
 		return response;
 	}
 
-	private String readJsonStream(InputStream stream) {
+	private String readJsonStream(InputStream stream) throws UnsupportedEncodingException {
 		Scanner sc = new Scanner(stream);
 		StringBuilder sb = new StringBuilder();
 		while (sc.hasNext()) {
 			sb.append(sc.nextLine());
 		}
 		sc.close();
-		return sb.toString();
+		return new String(sb.toString().getBytes("UTF-8"));
 	}
 
 	private String resolveUrl(String endpoint, String path) {
