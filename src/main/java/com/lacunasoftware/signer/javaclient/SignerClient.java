@@ -99,6 +99,12 @@ public class SignerClient {
 		getRestClient().delete(requestUri);
 	}
 
+	public GenerationDocumentResult generateDocument(GenerateDocumentRequest request) throws RestException {
+		String requestUri = String.format("api/documents/generation");
+		GenerationDocumentResult result = getRestClient().post(requestUri, request, GenerationDocumentResult.class);
+		return result;
+	}
+
 	public void addNewDocumentVersion(UUID id, DocumentAddVersionRequest versionRequest) throws RestException {
 		String requestUri = String.format("api/documents/%s/versions", id.toString());
 		getRestClient().post(requestUri, versionRequest);
