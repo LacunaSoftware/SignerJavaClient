@@ -13,13 +13,10 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.DocumentStatus;
 import com.lacunasoftware.signer.DocumentTypes;
-import com.lacunasoftware.signer.documents.CreatorModel;
 import com.lacunasoftware.signer.SignerModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
@@ -32,43 +29,57 @@ import org.threeten.bp.OffsetDateTime;
 
 
 public class DocumentSignaturesInfoModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
+
   private UUID id = null;
+	@JsonProperty("name")
+	@SerializedName("name")
 
-  @JsonProperty("name")
   private String name = null;
+	@JsonProperty("filename")
+	@SerializedName("filename")
 
-  @JsonProperty("filename")
   private String filename = null;
+	@JsonProperty("mimeType")
+	@SerializedName("mimeType")
 
-  @JsonProperty("mimeType")
   private String mimeType = null;
+	@JsonProperty("createdBy")
+	@SerializedName("createdBy")
 
-  @JsonProperty("createdBy")
   private CreatorModel createdBy = null;
+	@JsonProperty("isConcluded")
+	@SerializedName("isConcluded")
 
-  @JsonProperty("isConcluded")
   private Boolean isConcluded = null;
+	@JsonProperty("isFile")
+	@SerializedName("isFile")
 
-  @JsonProperty("isFile")
   private Boolean isFile = null;
+	@JsonProperty("isEnvelope")
+	@SerializedName("isEnvelope")
 
-  @JsonProperty("isEnvelope")
   private Boolean isEnvelope = null;
+	@JsonProperty("creationDate")
+	@SerializedName("creationDate")
 
-  @JsonProperty("creationDate")
   private OffsetDateTime creationDate = null;
+	@JsonProperty("updateDate")
+	@SerializedName("updateDate")
 
-  @JsonProperty("updateDate")
   private OffsetDateTime updateDate = null;
+	@JsonProperty("signers")
+	@SerializedName("signers")
 
-  @JsonProperty("signers")
   private List<SignerModel> signers = null;
+	@JsonProperty("status")
+	@SerializedName("status")
 
-  @JsonProperty("status")
   private DocumentStatus status = null;
+	@JsonProperty("type")
+	@SerializedName("type")
 
-  @JsonProperty("type")
   private DocumentTypes type = null;
 
   public DocumentSignaturesInfoModel id(UUID id) {

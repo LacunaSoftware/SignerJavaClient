@@ -12,67 +12,81 @@
 
 package com.lacunasoftware.signer.signature;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.applications.ApplicationDisplayModel;
-import com.lacunasoftware.signer.AuthenticationTypes;
-import com.lacunasoftware.signer.signature.GeolocationModel;
-import com.lacunasoftware.signer.signature.PixAuthenticationModel;
-import com.lacunasoftware.signer.signature.SelfieModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
 import org.threeten.bp.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.AuthenticationTypes;
+import com.lacunasoftware.signer.applications.ApplicationDisplayModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * EvidencesModel
  */
 
 
 public class EvidencesModel {
-  @JsonProperty("ipAddress")
+	@JsonProperty("ipAddress")
+	@SerializedName("ipAddress")
   private String ipAddress = null;
 
-  @JsonProperty("authenticationTypes")
+	@JsonProperty("authenticationTypes")
+	@SerializedName("authenticationTypes")
   private List<AuthenticationTypes> authenticationTypes = null;
 
-  @JsonProperty("accountVerifiedEmail")
+	@JsonProperty("accountVerifiedEmail")
+	@SerializedName("accountVerifiedEmail")
   private String accountVerifiedEmail = null;
 
-  @JsonProperty("authenticatedEmail")
+	@JsonProperty("authenticatedEmail")
+	@SerializedName("authenticatedEmail")
   private String authenticatedEmail = null;
 
-  @JsonProperty("authenticatedPhoneNumberLastDigits")
+	@JsonProperty("authenticatedPhoneNumberLastDigits")
+	@SerializedName("authenticatedPhoneNumberLastDigits")
   private String authenticatedPhoneNumberLastDigits = null;
 
-  @JsonProperty("authenticatedApplication")
+	@JsonProperty("authenticatedApplication")
+	@SerializedName("authenticatedApplication")
   private ApplicationDisplayModel authenticatedApplication = null;
 
-  @JsonProperty("authenticatedSelfie")
+	@JsonProperty("authenticatedSelfie")
+	@SerializedName("authenticatedSelfie")
   private SelfieModel authenticatedSelfie = null;
 
-  @JsonProperty("authenticatedPix")
+	@JsonProperty("authenticatedPix")
+	@SerializedName("authenticatedPix")
   private PixAuthenticationModel authenticatedPix = null;
 
-  @JsonProperty("geolocation")
+	@JsonProperty("geolocation")
+	@SerializedName("geolocation")
   private GeolocationModel geolocation = null;
 
-  @JsonProperty("timestamp")
+	@JsonProperty("timestamp")
+	@SerializedName("timestamp")
   private OffsetDateTime timestamp = null;
 
-  @JsonProperty("evidencesSha256")
+	@JsonProperty("evidencesSha256")
+	@SerializedName("evidencesSha256")
   private String evidencesSha256 = null;
 
-  @JsonProperty("authenticatedPhoneNumber")
+	@JsonProperty("authenticatedPhoneNumber")
+	@SerializedName("authenticatedPhoneNumber")
   private String authenticatedPhoneNumber = null;
 
-  @JsonProperty("file")
+	@JsonProperty("file")
+	@SerializedName("file")
   private byte[] file = null;
 
-  @JsonProperty("fileTicket")
+	@JsonProperty("fileTicket")
+	@SerializedName("fileTicket")
   private String fileTicket = null;
+
 
   public EvidencesModel ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;

@@ -13,22 +13,24 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * MoveDocumentRequest
  */
 
 
 public class MoveDocumentRequest {
-  @JsonProperty("folderId")
+	@JsonProperty("folderId")
+	@SerializedName("folderId")
   private UUID folderId = null;
 
-  @JsonProperty("newFolderName")
+	@JsonProperty("newFolderName")
+	@SerializedName("newFolderName")
   private String newFolderName = null;
 
   public MoveDocumentRequest folderId(UUID folderId) {

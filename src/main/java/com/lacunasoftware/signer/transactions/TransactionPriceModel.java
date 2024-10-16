@@ -12,36 +12,40 @@
 
 package com.lacunasoftware.signer.transactions;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.TransactionPricingTypes;
-import com.lacunasoftware.signer.TransactionTypes;
-import com.lacunasoftware.signer.transactions.PriceRangeModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.TransactionPricingTypes;
+import com.lacunasoftware.signer.TransactionTypes;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * TransactionPriceModel
  */
 
 
 public class TransactionPriceModel {
-  @JsonProperty("transactionType")
+	@JsonProperty("transactionType")
+	@SerializedName("transactionType")
   private TransactionTypes transactionType = null;
 
-  @JsonProperty("pricingType")
+	@JsonProperty("pricingType")
+	@SerializedName("pricingType")
   private TransactionPricingTypes pricingType = null;
 
-  @JsonProperty("price")
+	@JsonProperty("price")
+	@SerializedName("price")
   private Double price = null;
-
-  @JsonProperty("priceRanges")
+  
+	@JsonProperty("priceRanges")
+	@SerializedName("priceRanges")
   private List<PriceRangeModel> priceRanges = null;
 
-  @JsonProperty("limit")
+	@JsonProperty("limit")
+	@SerializedName("limit")
   private Integer limit = null;
 
   public TransactionPriceModel transactionType(TransactionTypes transactionType) {

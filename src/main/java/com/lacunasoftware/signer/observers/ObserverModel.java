@@ -13,24 +13,27 @@
 package com.lacunasoftware.signer.observers;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.users.ParticipantUserModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.users.ParticipantUserModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * ObserverModel
  */
 
 
 public class ObserverModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
-
-  @JsonProperty("user")
+  
+	@JsonProperty("user")
+	@SerializedName("user")
   private ParticipantUserModel user = null;
+  
 
   public ObserverModel id(UUID id) {
     this.id = id;

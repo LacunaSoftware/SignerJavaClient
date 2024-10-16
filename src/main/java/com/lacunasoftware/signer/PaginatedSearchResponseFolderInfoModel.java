@@ -12,29 +12,32 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.folders.FolderInfoModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.folders.FolderInfoModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * PaginatedSearchResponseFolderInfoModel
  */
 
 
 public class PaginatedSearchResponseFolderInfoModel {
-  @JsonProperty("items")
+	@JsonProperty("items")
+	@SerializedName("items")  
   private List<FolderInfoModel> items = null;
 
-  @JsonProperty("totalCount")
-  private Integer totalCount = null;
-
-  @JsonProperty("nextCursor")
-  private String nextCursor = null;
+	@JsonProperty("totalCount")
+	@SerializedName("totalCount")
+  private Integer totalCount = null;  
+  
+	@JsonProperty("nextCursor")
+	@SerializedName("nextCursor")
+  private String nextCursor = null;  
 
   public PaginatedSearchResponseFolderInfoModel items(List<FolderInfoModel> items) {
     this.items = items;

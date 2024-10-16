@@ -13,15 +13,12 @@
 package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.CertificateHolderTypes;
 import com.lacunasoftware.signer.CertificateTypes;
 import com.lacunasoftware.signer.documentmark.PrePositionedDocumentMarkModel;
 import com.lacunasoftware.signer.FlowActionType;
-import com.lacunasoftware.signer.flowactions.XadesOptionsModel;
 import com.lacunasoftware.signer.SignatureInitialsModes;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -34,66 +31,87 @@ import java.util.List;
 
 public class FlowActionCreateModel {
   @JsonProperty("type")
+  @SerializedName("type")
   private FlowActionType type = null;
 
   @JsonProperty("step")
+  @SerializedName("step")
   private Integer step = null;
 
   @JsonProperty("user")
+  @SerializedName("user")
   private ParticipantUserModel user = null;
 
   @JsonProperty("numberRequiredSignatures")
+  @SerializedName("numberRequiredSignatures")
   private Integer numberRequiredSignatures = null;
 
   @JsonProperty("ruleName")
+  @SerializedName("ruleName")
   private String ruleName = null;
 
   @JsonProperty("allowRuleFlowToContinueIfRefused")
+  @SerializedName("allowRuleFlowToContinueIfRefused")
   private Boolean allowRuleFlowToContinueIfRefused = null;
 
   @JsonProperty("title")
+  @SerializedName("title")
   private String title = null;
 
   @JsonProperty("signRuleUsers")
+  @SerializedName("signRuleUsers")
   private List<ParticipantUserModel> signRuleUsers = null;
 
   @JsonProperty("prePositionedMarks")
+  @SerializedName("prePositionedMarks")
   private List<PrePositionedDocumentMarkModel> prePositionedMarks = null;
 
   @JsonProperty("allowElectronicSignature")
+  @SerializedName("allowElectronicSignature")
   private Boolean allowElectronicSignature = null;
 
   @JsonProperty("requireSmsAuthenticationToSignElectronically")
+  @SerializedName("requireSmsAuthenticationToSignElectronically")
   private Boolean requireSmsAuthenticationToSignElectronically = null;
 
   @JsonProperty("requireAuthenticatorAppToSignElectronically")
+  @SerializedName("requireAuthenticatorAppToSignElectronically")
   private Boolean requireAuthenticatorAppToSignElectronically = null;
 
   @JsonProperty("requireSelfieAuthenticationToSignElectronically")
+  @SerializedName("requireSelfieAuthenticationToSignElectronically")
   private Boolean requireSelfieAuthenticationToSignElectronically = null;
 
   @JsonProperty("requireDatavalidAuthenticationToSignElectronically")
+  @SerializedName("requireDatavalidAuthenticationToSignElectronically")
   private Boolean requireDatavalidAuthenticationToSignElectronically = null;
 
   @JsonProperty("requirePixAuthenticationToSignElectronically")
+  @SerializedName("requirePixAuthenticationToSignElectronically")
   private Boolean requirePixAuthenticationToSignElectronically = null;
 
   @JsonProperty("requiredCertificateTypeToSign")
+  @SerializedName("requiredCertificateTypeToSign")
   private CertificateTypes requiredCertificateTypeToSign = null;
 
   @JsonProperty("requireCompanyCertificate")
+  @SerializedName("requireCompanyCertificate")
   private Boolean requireCompanyCertificate = null;
 
   @JsonProperty("requiredCompanyIdentifier")
+  @SerializedName("requiredCompanyIdentifier")
   private String requiredCompanyIdentifier = null;
 
   @JsonProperty("requiredCertificateHolderTypeToSign")
+  @SerializedName("requiredCertificateHolderTypeToSign")
   private CertificateHolderTypes requiredCertificateHolderTypeToSign = null;
 
   @JsonProperty("xadesOptions")
+  @SerializedName("xadesOptions")
   private XadesOptionsModel xadesOptions = null;
 
   @JsonProperty("signatureInitialsMode")
+  @SerializedName("signatureInitialsMode")
   private SignatureInitialsModes signatureInitialsMode = null;
 
   public FlowActionCreateModel type(FlowActionType type) {

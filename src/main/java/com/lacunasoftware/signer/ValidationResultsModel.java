@@ -12,31 +12,34 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.ValidationItemModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * ValidationResultsModel
  */
 
 
 public class ValidationResultsModel {
-  @JsonProperty("passedChecks")
+	@JsonProperty("passedChecks")
+	@SerializedName("passedChecks")
   private List<ValidationItemModel> passedChecks = null;
 
-  @JsonProperty("errors")
+	@JsonProperty("errors")
+	@SerializedName("errors")
   private List<ValidationItemModel> errors = null;
 
-  @JsonProperty("warnings")
+	@JsonProperty("warnings")
+	@SerializedName("warnings")
   private List<ValidationItemModel> warnings = null;
 
-  @JsonProperty("isValid")
+	@JsonProperty("isValid")
+	@SerializedName("isValid")
   private Boolean isValid = null;
 
   public ValidationResultsModel passedChecks(List<ValidationItemModel> passedChecks) {

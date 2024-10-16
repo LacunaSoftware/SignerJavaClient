@@ -13,13 +13,9 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.attachments.AttachmentUploadModel;
-import com.lacunasoftware.signer.documents.DocumentAdditionalInfoData;
-import com.lacunasoftware.signer.documents.DocumentTagData;
 import com.lacunasoftware.signer.FileUploadModel;
 import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
 import com.lacunasoftware.signer.observers.ObserverCreateModel;
@@ -36,55 +32,73 @@ import org.threeten.bp.OffsetDateTime;
 
 
 public class CreateDocumentRequest {
-  @JsonProperty("files")
+	@JsonProperty("files")
+	@SerializedName("files")
+
   private List<FileUploadModel> files = new ArrayList<FileUploadModel>();
+	@JsonProperty("attachments")
+	@SerializedName("attachments")
 
-  @JsonProperty("attachments")
   private List<AttachmentUploadModel> attachments = null;
+	@JsonProperty("xmlNamespaces")
+	@SerializedName("xmlNamespaces")
 
-  @JsonProperty("xmlNamespaces")
   private List<XmlNamespaceModel> xmlNamespaces = null;
+	@JsonProperty("isEnvelope")
+	@SerializedName("isEnvelope")
 
-  @JsonProperty("isEnvelope")
   private Boolean isEnvelope = null;
+	@JsonProperty("envelopeName")
+	@SerializedName("envelopeName")
 
-  @JsonProperty("envelopeName")
   private String envelopeName = null;
+	@JsonProperty("participantsDataFile")
+	@SerializedName("participantsDataFile")
 
-  @JsonProperty("participantsDataFile")
   private UploadModel participantsDataFile = null;
+	@JsonProperty("folderId")
+	@SerializedName("folderId")
 
-  @JsonProperty("folderId")
   private UUID folderId = null;
+	@JsonProperty("description")
+	@SerializedName("description")
 
-  @JsonProperty("description")
   private String description = null;
+	@JsonProperty("flowActions")
+	@SerializedName("flowActions")
 
-  @JsonProperty("flowActions")
   private List<FlowActionCreateModel> flowActions = new ArrayList<FlowActionCreateModel>();
+	@JsonProperty("observers")
+	@SerializedName("observers")
 
-  @JsonProperty("observers")
   private List<ObserverCreateModel> observers = null;
+	@JsonProperty("disablePendingActionNotifications")
+	@SerializedName("disablePendingActionNotifications")
 
-  @JsonProperty("disablePendingActionNotifications")
   private Boolean disablePendingActionNotifications = null;
+	@JsonProperty("newFolderName")
+	@SerializedName("newFolderName")
 
-  @JsonProperty("newFolderName")
   private String newFolderName = null;
+	@JsonProperty("forceCadesSignature")
+	@SerializedName("forceCadesSignature")
 
-  @JsonProperty("forceCadesSignature")
   private Boolean forceCadesSignature = null;
+	@JsonProperty("notifiedEmails")
+	@SerializedName("notifiedEmails")
 
-  @JsonProperty("notifiedEmails")
   private List<String> notifiedEmails = null;
+	@JsonProperty("additionalInfo")
+	@SerializedName("additionalInfo")
 
-  @JsonProperty("additionalInfo")
   private DocumentAdditionalInfoData additionalInfo = null;
+	@JsonProperty("tags")
+	@SerializedName("tags")
 
-  @JsonProperty("tags")
   private List<DocumentTagData> tags = null;
+	@JsonProperty("expirationDate")
+	@SerializedName("expirationDate")
 
-  @JsonProperty("expirationDate")
   private OffsetDateTime expirationDate = null;
 
   public CreateDocumentRequest files(List<FileUploadModel> files) {

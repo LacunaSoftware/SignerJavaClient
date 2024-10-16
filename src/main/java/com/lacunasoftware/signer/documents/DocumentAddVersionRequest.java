@@ -13,12 +13,11 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.documents.DocumentAdditionalInfoData;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.FileUploadModel;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * DocumentAddVersionRequest
@@ -26,13 +25,17 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class DocumentAddVersionRequest {
-  @JsonProperty("file")
+	@JsonProperty("file")
+	@SerializedName("file")
+
   private FileUploadModel file = null;
+	@JsonProperty("disablePendingActionNotifications")
+	@SerializedName("disablePendingActionNotifications")
 
-  @JsonProperty("disablePendingActionNotifications")
   private Boolean disablePendingActionNotifications = null;
+	@JsonProperty("additionalInfo")
+	@SerializedName("additionalInfo")
 
-  @JsonProperty("additionalInfo")
   private DocumentAdditionalInfoData additionalInfo = null;
 
   public DocumentAddVersionRequest file(FileUploadModel file) {

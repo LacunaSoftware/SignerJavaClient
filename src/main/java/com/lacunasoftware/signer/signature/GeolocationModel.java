@@ -13,10 +13,10 @@
 package com.lacunasoftware.signer.signature;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * GeolocationModel
@@ -24,14 +24,18 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class GeolocationModel {
-  @JsonProperty("latitude")
+	@JsonProperty("latitude")
+	@SerializedName("latitude")
   private Double latitude = null;
 
-  @JsonProperty("longitude")
+	@JsonProperty("longitude")
+	@SerializedName("longitude")
   private Double longitude = null;
 
-  @JsonProperty("accuracy")
+	@JsonProperty("accuracy")
+	@SerializedName("accuracy")
   private Double accuracy = null;
+
 
   public GeolocationModel latitude(Double latitude) {
     this.latitude = latitude;

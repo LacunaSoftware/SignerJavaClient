@@ -13,10 +13,10 @@
 package com.lacunasoftware.signer.transactions;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * PriceRangeModel
@@ -24,10 +24,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class PriceRangeModel {
-  @JsonProperty("limit")
+	@JsonProperty("limit")
+	@SerializedName("limit")
   private Integer limit = null;
 
-  @JsonProperty("price")
+	@JsonProperty("price")
+	@SerializedName("price")
   private Double price = null;
 
   public PriceRangeModel limit(Integer limit) {

@@ -13,12 +13,12 @@
 package com.lacunasoftware.signer.invoices;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.TransactionTypes;
 import com.lacunasoftware.signer.transactions.TransactionPriceModel;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * InvoiceTotalModel
@@ -26,20 +26,26 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class InvoiceTotalModel {
-  @JsonProperty("transactionType")
+	@JsonProperty("transactionType")
+	@SerializedName("transactionType")
   private TransactionTypes transactionType = null;
 
-  @JsonProperty("price")
+	@JsonProperty("price")
+	@SerializedName("price")
   private TransactionPriceModel price = null;
 
-  @JsonProperty("total")
+	@JsonProperty("total")
+	@SerializedName("total")
   private Integer total = null;
 
-  @JsonProperty("totalInTrialPeriod")
+	@JsonProperty("totalInTrialPeriod")
+	@SerializedName("totalInTrialPeriod")
   private Integer totalInTrialPeriod = null;
 
-  @JsonProperty("value")
+	@JsonProperty("value")
+	@SerializedName("value")
   private Double value = null;
+
 
   public InvoiceTotalModel transactionType(TransactionTypes transactionType) {
     this.transactionType = transactionType;

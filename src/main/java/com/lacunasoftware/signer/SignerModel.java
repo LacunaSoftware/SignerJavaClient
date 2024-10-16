@@ -12,62 +12,76 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.certificates.AttributeCertificateInfoModel;
-import com.lacunasoftware.signer.signature.EvidencesModel;
-import com.lacunasoftware.signer.ValidationResultsModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import org.threeten.bp.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.certificates.AttributeCertificateInfoModel;
+import com.lacunasoftware.signer.signature.EvidencesModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * SignerModel
  */
 
 
 public class SignerModel {
-  @JsonProperty("subjectName")
+	@JsonProperty("subjectName")
+	@SerializedName("subjectName")
   private String subjectName = null;
-
-  @JsonProperty("emailAddress")
+  
+	@JsonProperty("emailAddress")
+	@SerializedName("emailAddress")
   private String emailAddress = null;
-
-  @JsonProperty("issuerName")
+  
+	@JsonProperty("issuerName")
+	@SerializedName("issuerName")
   private String issuerName = null;
-
-  @JsonProperty("identifier")
+  
+	@JsonProperty("identifier")
+	@SerializedName("identifier")
   private String identifier = null;
-
-  @JsonProperty("companyName")
+  
+	@JsonProperty("companyName")
+	@SerializedName("companyName")
   private String companyName = null;
-
-  @JsonProperty("companyIdentifier")
+  
+	@JsonProperty("companyIdentifier")
+	@SerializedName("companyIdentifier")
   private String companyIdentifier = null;
-
-  @JsonProperty("isElectronic")
+  
+	@JsonProperty("isElectronic")
+	@SerializedName("isElectronic")
   private Boolean isElectronic = null;
-
-  @JsonProperty("isTimestamp")
+  
+	@JsonProperty("isTimestamp")
+	@SerializedName("isTimestamp")
   private Boolean isTimestamp = null;
-
-  @JsonProperty("signingTime")
+  
+	@JsonProperty("signingTime")
+	@SerializedName("signingTime")
   private OffsetDateTime signingTime = null;
-
-  @JsonProperty("certificateThumbprint")
+  
+	@JsonProperty("certificateThumbprint")
+	@SerializedName("certificateThumbprint")
   private String certificateThumbprint = null;
-
-  @JsonProperty("evidences")
+  
+	@JsonProperty("evidences")
+	@SerializedName("evidences")
   private EvidencesModel evidences = null;
-
-  @JsonProperty("attributeCertificates")
+  
+	@JsonProperty("attributeCertificates")
+	@SerializedName("attributeCertificates")
   private List<AttributeCertificateInfoModel> attributeCertificates = null;
-
-  @JsonProperty("validationResults")
+  
+	@JsonProperty("validationResults")
+	@SerializedName("validationResults")
   private ValidationResultsModel validationResults = null;
+  
 
   public SignerModel subjectName(String subjectName) {
     this.subjectName = subjectName;

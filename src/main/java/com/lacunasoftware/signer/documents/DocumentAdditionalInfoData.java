@@ -13,14 +13,11 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.healthdocuments.HealthDocumentData;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 /**
  * DocumentAdditionalInfoData
@@ -28,13 +25,17 @@ import java.util.Map;
 
 
 public class DocumentAdditionalInfoData {
-  @JsonProperty("healthData")
+	@JsonProperty("healthData")
+	@SerializedName("healthData")
+
   private HealthDocumentData healthData = null;
+	@JsonProperty("fields")
+	@SerializedName("fields")
 
-  @JsonProperty("fields")
   private Map<String, String> fields = null;
+	@JsonProperty("metadata")
+	@SerializedName("metadata")
 
-  @JsonProperty("metadata")
   private Map<String, String> metadata = null;
 
   public DocumentAdditionalInfoData healthData(HealthDocumentData healthData) {

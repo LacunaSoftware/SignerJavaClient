@@ -12,32 +12,37 @@
 
 package com.lacunasoftware.signer.documentflows;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
-import com.lacunasoftware.signer.observers.ObserverCreateModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
+import com.lacunasoftware.signer.observers.ObserverCreateModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * DocumentFlowCreateRequest
  */
 
 
 public class DocumentFlowCreateRequest {
-  @JsonProperty("name")
+	@JsonProperty("name")
+	@SerializedName("name")
+
   private String name = null;
+	@JsonProperty("areActionsOrdered")
+	@SerializedName("areActionsOrdered")
 
-  @JsonProperty("areActionsOrdered")
   private Boolean areActionsOrdered = null;
+	@JsonProperty("flowActions")
+	@SerializedName("flowActions")
 
-  @JsonProperty("flowActions")
   private List<FlowActionCreateModel> flowActions = new ArrayList<FlowActionCreateModel>();
+	@JsonProperty("observers")
+	@SerializedName("observers")
 
-  @JsonProperty("observers")
   private List<ObserverCreateModel> observers = null;
 
   public DocumentFlowCreateRequest name(String name) {

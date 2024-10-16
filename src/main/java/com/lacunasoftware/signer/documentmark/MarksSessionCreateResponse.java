@@ -13,10 +13,9 @@
 package com.lacunasoftware.signer.documentmark;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
 /**
@@ -25,10 +24,13 @@ import java.util.UUID;
 
 
 public class MarksSessionCreateResponse {
-  @JsonProperty("id")
-  private UUID id = null;
+	@JsonProperty("id")
+	@SerializedName("id")
 
-  @JsonProperty("embedUrl")
+  private UUID id = null;
+	@JsonProperty("embedUrl")
+	@SerializedName("embedUrl")
+
   private String embedUrl = null;
 
   public MarksSessionCreateResponse id(UUID id) {

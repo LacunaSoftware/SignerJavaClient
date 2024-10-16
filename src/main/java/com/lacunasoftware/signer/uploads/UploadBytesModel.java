@@ -13,10 +13,10 @@
 package com.lacunasoftware.signer.uploads;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * UploadBytesModel
@@ -24,14 +24,18 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class UploadBytesModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
   private String id = null;
 
-  @JsonProperty("size")
+	@JsonProperty("size")
+	@SerializedName("size")
   private Long size = null;
 
-  @JsonProperty("digest")
+	@JsonProperty("digest")
+	@SerializedName("digest")
   private String digest = null;
+
 
   public UploadBytesModel id(String id) {
     this.id = id;

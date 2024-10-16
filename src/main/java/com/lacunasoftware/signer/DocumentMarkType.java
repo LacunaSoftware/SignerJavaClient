@@ -12,8 +12,6 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -44,7 +42,7 @@ public enum DocumentMarkType {
   @JsonCreator
   public static DocumentMarkType fromValue(String input) {
     for (DocumentMarkType b : DocumentMarkType.values()) {
-      if (b.value.equals(input)) {
+      if (b.value.equalsIgnoreCase(input)) {
         return b;
       }
     }

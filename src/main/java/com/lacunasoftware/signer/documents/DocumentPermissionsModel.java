@@ -13,10 +13,9 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * DocumentPermissionsModel
@@ -24,10 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class DocumentPermissionsModel {
-  @JsonProperty("move")
-  private Boolean move = null;
+	@JsonProperty("move")
+	@SerializedName("move")
 
-  @JsonProperty("editFlow")
+  private Boolean move = null;
+	@JsonProperty("editFlow")
+	@SerializedName("editFlow")
+
   private Boolean editFlow = null;
 
   public DocumentPermissionsModel move(Boolean move) {

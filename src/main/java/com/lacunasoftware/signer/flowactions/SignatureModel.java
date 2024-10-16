@@ -13,35 +13,37 @@
 package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
 import org.threeten.bp.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * SignatureModel
  */
 
 
 public class SignatureModel {
-  @JsonProperty("flowActionId")
+	@JsonProperty("flowActionId")
+	@SerializedName("flowActionId")
   private UUID flowActionId = null;
-
-  @JsonProperty("date")
+	@JsonProperty("date")
+	@SerializedName("date")
   private OffsetDateTime date = null;
-
-  @JsonProperty("userId")
+	@JsonProperty("userId")
+	@SerializedName("userId")
   private UUID userId = null;
-
-  @JsonProperty("name")
+	@JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
-
-  @JsonProperty("identifier")
+	@JsonProperty("identifier")
+	@SerializedName("identifier")
   private String identifier = null;
-
-  @JsonProperty("emailAddress")
+	@JsonProperty("emailAddress")
+	@SerializedName("emailAddress")
   private String emailAddress = null;
 
   public SignatureModel flowActionId(UUID flowActionId) {

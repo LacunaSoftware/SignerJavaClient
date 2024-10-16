@@ -13,10 +13,9 @@
 package com.lacunasoftware.signer.users;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
 /**
@@ -25,19 +24,25 @@ import java.util.UUID;
 
 
 public class ParticipantUserModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
+
   private UUID id = null;
+	@JsonProperty("name")
+	@SerializedName("name")
 
-  @JsonProperty("name")
   private String name = null;
+	@JsonProperty("identifier")
+	@SerializedName("identifier")
 
-  @JsonProperty("identifier")
   private String identifier = null;
+	@JsonProperty("email")
+	@SerializedName("email")
 
-  @JsonProperty("email")
   private String email = null;
+	@JsonProperty("phone")
+	@SerializedName("phone")
 
-  @JsonProperty("phone")
   private String phone = null;
 
   public ParticipantUserModel id(UUID id) {

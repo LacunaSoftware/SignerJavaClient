@@ -13,23 +13,26 @@
 package com.lacunasoftware.signer.notifications;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * CreateFlowActionReminderRequest
  */
 
 
 public class CreateFlowActionReminderRequest {
-  @JsonProperty("documentId")
+	@JsonProperty("documentId")
+	@SerializedName("documentId")
   private UUID documentId = null;
-
-  @JsonProperty("flowActionId")
+  
+	@JsonProperty("flowActionId")
+	@SerializedName("flowActionId")
   private UUID flowActionId = null;
+  
 
   public CreateFlowActionReminderRequest documentId(UUID documentId) {
     this.documentId = documentId;

@@ -13,10 +13,9 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * ActionUrlRequest
@@ -24,13 +23,17 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class ActionUrlRequest {
-  @JsonProperty("identifier")
+	@JsonProperty("identifier")
+	@SerializedName("identifier")
+
   private String identifier = null;
+	@JsonProperty("emailAddress")
+	@SerializedName("emailAddress")
 
-  @JsonProperty("emailAddress")
   private String emailAddress = null;
+	@JsonProperty("requireEmailAuthentication")
+	@SerializedName("requireEmailAuthentication")
 
-  @JsonProperty("requireEmailAuthentication")
   private Boolean requireEmailAuthentication = null;
 
   public ActionUrlRequest identifier(String identifier) {

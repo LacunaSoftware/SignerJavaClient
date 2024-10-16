@@ -13,33 +13,38 @@
 package com.lacunasoftware.signer.organizations;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.organizations.AccessProfileModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * OrganizationUserModel
  */
 
 
 public class OrganizationUserModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
-  @JsonProperty("name")
+	@JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
-  @JsonProperty("email")
+	@JsonProperty("email")
+	@SerializedName("email")
   private String email = null;
 
-  @JsonProperty("identifier")
+	@JsonProperty("identifier")
+	@SerializedName("identifier")
   private String identifier = null;
 
-  @JsonProperty("accessProfile")
+	@JsonProperty("accessProfile")
+	@SerializedName("accessProfile")
   private AccessProfileModel accessProfile = null;
+
 
   public OrganizationUserModel id(UUID id) {
     this.id = id;

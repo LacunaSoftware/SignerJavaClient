@@ -12,28 +12,30 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * ErrorModel
  */
 
 
 public class ErrorModel {
-  @JsonProperty("code")
+	@JsonProperty("code")
+	@SerializedName("code")
   private String code = null;
 
-  @JsonProperty("message")
+	@JsonProperty("message")
+	@SerializedName("message")
   private String message = null;
 
-  @JsonProperty("details")
+	@JsonProperty("details")
+	@SerializedName("details")
   private Map<String, String> details = null;
 
   public ErrorModel code(String code) {

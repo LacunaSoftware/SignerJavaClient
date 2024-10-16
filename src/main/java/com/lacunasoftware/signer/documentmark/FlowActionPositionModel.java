@@ -12,43 +12,50 @@
 
 package com.lacunasoftware.signer.documentmark;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.documentmark.PrePositionedDocumentMarkModel;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.FlowActionType;
 import com.lacunasoftware.signer.SignatureInitialsModes;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
 /**
  * FlowActionPositionModel
  */
 
 
 public class FlowActionPositionModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
+
   private String id = null;
+	@JsonProperty("type")
+	@SerializedName("type")
 
-  @JsonProperty("type")
   private FlowActionType type = null;
+	@JsonProperty("user")
+	@SerializedName("user")
 
-  @JsonProperty("user")
   private ParticipantUserModel user = null;
+	@JsonProperty("signatureInitialsMode")
+	@SerializedName("signatureInitialsMode")
 
-  @JsonProperty("signatureInitialsMode")
   private SignatureInitialsModes signatureInitialsMode = null;
+	@JsonProperty("ruleName")
+	@SerializedName("ruleName")
 
-  @JsonProperty("ruleName")
   private String ruleName = null;
+	@JsonProperty("numberRequiredSignatures")
+	@SerializedName("numberRequiredSignatures")
 
-  @JsonProperty("numberRequiredSignatures")
   private Integer numberRequiredSignatures = null;
+	@JsonProperty("prePositionedMarks")
+	@SerializedName("prePositionedMarks")
 
-  @JsonProperty("prePositionedMarks")
   private List<PrePositionedDocumentMarkModel> prePositionedMarks = null;
 
   public FlowActionPositionModel id(String id) {

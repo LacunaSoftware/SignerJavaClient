@@ -13,10 +13,10 @@
 package com.lacunasoftware.signer.billing;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * CompanyBillingInformationModel
@@ -24,22 +24,29 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class CompanyBillingInformationModel {
-  @JsonProperty("name")
+	@JsonProperty("name")
+	@SerializedName("name")
+
   private String name = null;
+	@JsonProperty("identifier")
+	@SerializedName("identifier")
 
-  @JsonProperty("identifier")
   private String identifier = null;
+	@JsonProperty("stateRegistration")
+	@SerializedName("stateRegistration")
 
-  @JsonProperty("stateRegistration")
   private String stateRegistration = null;
+	@JsonProperty("stateRegistrationExempt")
+	@SerializedName("stateRegistrationExempt")
 
-  @JsonProperty("stateRegistrationExempt")
   private Boolean stateRegistrationExempt = null;
+	@JsonProperty("municipalRegistration")
+	@SerializedName("municipalRegistration")
 
-  @JsonProperty("municipalRegistration")
   private String municipalRegistration = null;
+	@JsonProperty("municipalRegistrationExempt")
+	@SerializedName("municipalRegistrationExempt")
 
-  @JsonProperty("municipalRegistrationExempt")
   private Boolean municipalRegistrationExempt = null;
 
   public CompanyBillingInformationModel name(String name) {

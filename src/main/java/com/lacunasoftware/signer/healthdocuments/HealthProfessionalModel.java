@@ -13,10 +13,10 @@
 package com.lacunasoftware.signer.healthdocuments;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * HealthProfessionalModel
@@ -24,11 +24,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class HealthProfessionalModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
   private String id = null;
-
-  @JsonProperty("region")
+  
+	@JsonProperty("region")
+	@SerializedName("region")
   private String region = null;
+  
 
   public HealthProfessionalModel id(String id) {
     this.id = id;

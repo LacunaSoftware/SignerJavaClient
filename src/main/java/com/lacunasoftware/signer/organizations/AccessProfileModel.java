@@ -13,10 +13,9 @@
 package com.lacunasoftware.signer.organizations;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * AccessProfileModel
@@ -24,14 +23,18 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class AccessProfileModel {
-  @JsonProperty("administrator")
+	@JsonProperty("administrator")
+	@SerializedName("administrator")
   private Boolean administrator = null;
 
-  @JsonProperty("manager")
+	@JsonProperty("manager")
+	@SerializedName("manager")
   private Boolean manager = null;
 
-  @JsonProperty("operator")
+	@JsonProperty("operator")
+	@SerializedName("operator")
   private Boolean operator = null;
+
 
   public AccessProfileModel administrator(Boolean administrator) {
     this.administrator = administrator;

@@ -23,13 +23,13 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
-import java.util.Objects;
 import java.util.Scanner;
 import  java.lang.reflect.Type;
 
 import com.lacunasoftware.signer.javaclient.exceptions.RestErrorException;
 import com.lacunasoftware.signer.javaclient.exceptions.RestException;
 import com.lacunasoftware.signer.javaclient.exceptions.RestUnreachableException;
+import com.lacunasoftware.signer.EnumTypeAdapterFactory;
 import com.lacunasoftware.signer.javaclient.exceptions.RestDecodeException;
 import com.lacunasoftware.signer.javaclient.exceptions.RestResourceNotFoundException;
 import com.lacunasoftware.signer.javaclient.models.RestGeneralErrorModel;
@@ -351,9 +351,10 @@ class RestClient {
 					}
 
 				} else if(statusCode == 400){
-					Scanner scanner = new Scanner(conn.getErrorStream());
-					String	errorBody = scanner.nextLine();
-					ex = new RestErrorException(verb, url, statusCode, errorBody);
+					try (Scanner scanner = new Scanner(conn.getErrorStream())) {
+						String	errorBody = scanner.nextLine();
+						ex = new RestErrorException(verb, url, statusCode, errorBody);
+					}
 				}else {
 
 					RestGeneralErrorModel model = readErrorResponse(conn, RestGeneralErrorModel.class);
@@ -410,6 +411,7 @@ class RestClient {
 
 		Gson gson = new GsonBuilder()
 			.registerTypeAdapter(OffsetDateTime.class, new OffsetDateTimeDeserializer())
+			.registerTypeAdapterFactory(new EnumTypeAdapterFactory())
 			.create();
 		return gson;
 	}

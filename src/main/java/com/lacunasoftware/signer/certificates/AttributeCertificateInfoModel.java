@@ -13,10 +13,10 @@
 package com.lacunasoftware.signer.certificates;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * AttributeCertificateInfoModel
@@ -24,10 +24,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class AttributeCertificateInfoModel {
-  @JsonProperty("details")
-  private String details = null;
+	@JsonProperty("details")
+	@SerializedName("details")
 
-  @JsonProperty("issuer")
+  private String details = null;
+	@JsonProperty("issuer")
+	@SerializedName("issuer")
+
   private String issuer = null;
 
   public AttributeCertificateInfoModel details(String details) {
