@@ -12,29 +12,33 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.documentflows.DocumentFlowModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.documentflows.DocumentFlowModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * PaginatedSearchResponseDocumentFlowModel
  */
 
 
 public class PaginatedSearchResponseDocumentFlowModel {
-  @JsonProperty("items")
+	@JsonProperty("items")
+	@SerializedName("items")
   private List<DocumentFlowModel> items = null;
 
-  @JsonProperty("totalCount")
+	@JsonProperty("totalCount")
+	@SerializedName("totalCount")
   private Integer totalCount = null;
 
-  @JsonProperty("nextCursor")
+	@JsonProperty("nextCursor")
+	@SerializedName("nextCursor")
   private String nextCursor = null;
+
 
   public PaginatedSearchResponseDocumentFlowModel items(List<DocumentFlowModel> items) {
     this.items = items;

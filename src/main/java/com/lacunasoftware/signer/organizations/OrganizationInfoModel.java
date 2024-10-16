@@ -13,30 +13,34 @@
 package com.lacunasoftware.signer.organizations;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.organizations.OrganizationOwnerInfoModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * OrganizationInfoModel
  */
 
 
 public class OrganizationInfoModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
-  @JsonProperty("name")
+	@JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
-  @JsonProperty("identifier")
+	@JsonProperty("identifier")
+	@SerializedName("identifier")
   private String identifier = null;
 
-  @JsonProperty("owner")
+	@JsonProperty("owner")
+	@SerializedName("owner")
   private OrganizationOwnerInfoModel owner = null;
+
 
   public OrganizationInfoModel id(UUID id) {
     this.id = id;

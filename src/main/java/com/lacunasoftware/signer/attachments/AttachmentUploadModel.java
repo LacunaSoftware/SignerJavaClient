@@ -13,10 +13,10 @@
 package com.lacunasoftware.signer.attachments;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * AttachmentUploadModel
@@ -24,19 +24,25 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class AttachmentUploadModel {
-  @JsonProperty("isPrivate")
+	@JsonProperty("isPrivate")
+	@SerializedName("isPrivate")
+
   private Boolean isPrivate = null;
+	@JsonProperty("displayName")
+	@SerializedName("displayName")
 
-  @JsonProperty("displayName")
   private String displayName = null;
+	@JsonProperty("id")
+	@SerializedName("id")
 
-  @JsonProperty("id")
   private String id = null;
+	@JsonProperty("name")
+	@SerializedName("name")
 
-  @JsonProperty("name")
   private String name = null;
+	@JsonProperty("contentType")
+	@SerializedName("contentType")
 
-  @JsonProperty("contentType")
   private String contentType = null;
 
   public AttachmentUploadModel isPrivate(Boolean isPrivate) {

@@ -12,21 +12,23 @@
 
 package com.lacunasoftware.signer.documents;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * DocumentNotifiedEmailsEditRequest
  */
 
 
 public class DocumentNotifiedEmailsEditRequest {
-  @JsonProperty("emails")
+	@JsonProperty("emails")
+	@SerializedName("emails")
+
   private List<String> emails = null;
 
   public DocumentNotifiedEmailsEditRequest emails(List<String> emails) {

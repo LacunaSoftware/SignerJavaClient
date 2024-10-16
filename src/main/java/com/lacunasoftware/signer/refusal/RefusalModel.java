@@ -13,10 +13,9 @@
 package com.lacunasoftware.signer.refusal;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
 import org.threeten.bp.OffsetDateTime;
@@ -26,25 +25,33 @@ import org.threeten.bp.OffsetDateTime;
 
 
 public class RefusalModel {
-  @JsonProperty("flowActionId")
+	@JsonProperty("flowActionId")
+	@SerializedName("flowActionId")
+
   private UUID flowActionId = null;
+	@JsonProperty("reason")
+	@SerializedName("reason")
 
-  @JsonProperty("reason")
   private String reason = null;
+	@JsonProperty("date")
+	@SerializedName("date")
 
-  @JsonProperty("date")
   private OffsetDateTime date = null;
+	@JsonProperty("userId")
+	@SerializedName("userId")
 
-  @JsonProperty("userId")
   private UUID userId = null;
+	@JsonProperty("name")
+	@SerializedName("name")
 
-  @JsonProperty("name")
   private String name = null;
+	@JsonProperty("identifier")
+	@SerializedName("identifier")
 
-  @JsonProperty("identifier")
   private String identifier = null;
+	@JsonProperty("emailAddress")
+	@SerializedName("emailAddress")
 
-  @JsonProperty("emailAddress")
   private String emailAddress = null;
 
   public RefusalModel flowActionId(UUID flowActionId) {

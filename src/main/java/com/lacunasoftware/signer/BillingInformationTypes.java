@@ -12,8 +12,6 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -43,7 +41,7 @@ public enum BillingInformationTypes {
   @JsonCreator
   public static BillingInformationTypes fromValue(String input) {
     for (BillingInformationTypes b : BillingInformationTypes.values()) {
-      if (b.value.equals(input)) {
+      if (b.value.equalsIgnoreCase(input)) {
         return b;
       }
     }

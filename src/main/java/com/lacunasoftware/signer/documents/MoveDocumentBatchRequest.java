@@ -12,28 +12,32 @@
 
 package com.lacunasoftware.signer.documents;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * MoveDocumentBatchRequest
  */
 
 
 public class MoveDocumentBatchRequest {
-  @JsonProperty("documents")
+	@JsonProperty("documents")
+	@SerializedName("documents")
+
   private List<UUID> documents = null;
+	@JsonProperty("folderId")
+	@SerializedName("folderId")
 
-  @JsonProperty("folderId")
   private UUID folderId = null;
+	@JsonProperty("newFolderName")
+	@SerializedName("newFolderName")
 
-  @JsonProperty("newFolderName")
   private String newFolderName = null;
 
   public MoveDocumentBatchRequest documents(List<UUID> documents) {

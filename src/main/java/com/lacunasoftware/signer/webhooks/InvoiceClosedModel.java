@@ -12,43 +12,51 @@
 
 package com.lacunasoftware.signer.webhooks;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.billing.BillingInformationModel;
 import com.lacunasoftware.signer.invoices.InvoiceTotalModel;
 import com.lacunasoftware.signer.organizations.OrganizationInfoModel;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
 /**
  * InvoiceClosedModel
  */
 
 
 public class InvoiceClosedModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
   private Integer id = null;
 
-  @JsonProperty("month")
+	@JsonProperty("month")
+	@SerializedName("month")
   private Integer month = null;
 
-  @JsonProperty("year")
+	@JsonProperty("year")
+	@SerializedName("year")
   private Integer year = null;
 
-  @JsonProperty("value")
+	@JsonProperty("value")
+	@SerializedName("value")
   private Double value = null;
 
-  @JsonProperty("invoiceTotals")
+	@JsonProperty("invoiceTotals")
+	@SerializedName("invoiceTotals")
   private List<InvoiceTotalModel> invoiceTotals = null;
 
-  @JsonProperty("organization")
+	@JsonProperty("organization")
+	@SerializedName("organization")
   private OrganizationInfoModel organization = null;
 
-  @JsonProperty("billingInformation")
+	@JsonProperty("billingInformation")
+	@SerializedName("billingInformation")
   private BillingInformationModel billingInformation = null;
+
 
   public InvoiceClosedModel id(Integer id) {
     this.id = id;

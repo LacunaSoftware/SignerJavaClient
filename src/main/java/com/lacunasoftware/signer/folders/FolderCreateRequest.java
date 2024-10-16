@@ -13,22 +13,24 @@
 package com.lacunasoftware.signer.folders;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * FolderCreateRequest
  */
 
 
 public class FolderCreateRequest {
-  @JsonProperty("name")
+	@JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
-  @JsonProperty("parentId")
+	@JsonProperty("parentId")
+	@SerializedName("parentId")
   private UUID parentId = null;
 
   public FolderCreateRequest name(String name) {

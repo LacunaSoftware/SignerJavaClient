@@ -13,25 +13,30 @@
 package com.lacunasoftware.signer.signature;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
+
 import org.threeten.bp.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * PixAuthenticationModel
  */
 
 
 public class PixAuthenticationModel {
-  @JsonProperty("endToEndId")
+  
+	@JsonProperty("endToEndId")
+	@SerializedName("endToEndId")
   private String endToEndId = null;
-
-  @JsonProperty("pixKey")
+  
+	@JsonProperty("pixKey")
+	@SerializedName("pixKey")
   private String pixKey = null;
-
-  @JsonProperty("paymentDate")
+  
+	@JsonProperty("paymentDate")
+	@SerializedName("paymentDate")
   private OffsetDateTime paymentDate = null;
 
   public PixAuthenticationModel endToEndId(String endToEndId) {

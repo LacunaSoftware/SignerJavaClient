@@ -12,21 +12,22 @@
 
 package com.lacunasoftware.signer.notifications;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * EmailListNotificationRequest
  */
 
 
 public class EmailListNotificationRequest {
-  @JsonProperty("emails")
+	@JsonProperty("emails")
+	@SerializedName("emails")
   private List<String> emails = new ArrayList<String>();
 
   public EmailListNotificationRequest emails(List<String> emails) {

@@ -12,9 +12,6 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -51,7 +48,7 @@ public enum AuthenticationTypes {
   @JsonCreator
   public static AuthenticationTypes fromValue(String input) {
     for (AuthenticationTypes b : AuthenticationTypes.values()) {
-      if (b.value.equals(input)) {
+      if (b.value.equalsIgnoreCase(input)) {
         return b;
       }
     }

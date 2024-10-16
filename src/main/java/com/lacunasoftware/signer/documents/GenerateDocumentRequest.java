@@ -5,43 +5,56 @@ import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.NotaryTypes;
 import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
 import com.lacunasoftware.signer.javaclient.models.UploadModel;
 import com.lacunasoftware.signer.observers.ObserverCreateModel;
 
 public class GenerateDocumentRequest {
-    @JsonProperty("flowActions")
+	@JsonProperty("flowActions")
+	@SerializedName("flowActions")
+
     private List<FlowActionCreateModel> flowActions;
+	@JsonProperty("observers")
+	@SerializedName("observers")
 
-    @JsonProperty("observers")
     private List<ObserverCreateModel> observers;
+	@JsonProperty("folderId")
+	@SerializedName("folderId")
 
-    @JsonProperty("folderId")
     private String folderId;
+	@JsonProperty("newFolderName")
+	@SerializedName("newFolderName")
 
-    @JsonProperty("newFolderName")
     private String newFolderName;
+	@JsonProperty("organizationId")
+	@SerializedName("organizationId")
 
-    @JsonProperty("organizationId")
     private String organizationId;
+	@JsonProperty("type")
+	@SerializedName("type")
 
-    @JsonProperty("type")
     private String type;
+	@JsonProperty("notaryType")
+	@SerializedName("notaryType")
 
-    @JsonProperty("notaryType")
     private NotaryTypes notaryType;
+	@JsonProperty("expirationDate")
+	@SerializedName("expirationDate")
 
-    @JsonProperty("expirationDate")
     private LocalDateTime expirationDate;
+	@JsonProperty("notifiedEmails")
+	@SerializedName("notifiedEmails")
 
-    @JsonProperty("notifiedEmails")
     private List<String> notifiedEmails;
+	@JsonProperty("dataFile")
+	@SerializedName("dataFile")
 
-    @JsonProperty("dataFile")
     private UploadModel dataFile;
+	@JsonProperty("templateFile")
+	@SerializedName("templateFile")
 
-    @JsonProperty("templateFile")
     private UploadModel templateFile;
 
     public GenerateDocumentRequest() {

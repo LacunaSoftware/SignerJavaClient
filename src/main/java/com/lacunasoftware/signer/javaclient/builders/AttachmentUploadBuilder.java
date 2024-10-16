@@ -1,6 +1,5 @@
 package com.lacunasoftware.signer.javaclient.builders;
 
-import com.lacunasoftware.signer.FileUploadModel;
 import com.lacunasoftware.signer.attachments.AttachmentUploadModel;
 import com.lacunasoftware.signer.javaclient.models.UploadModel;
 

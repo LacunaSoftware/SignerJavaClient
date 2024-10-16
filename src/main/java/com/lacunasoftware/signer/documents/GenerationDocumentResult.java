@@ -3,34 +3,44 @@ package com.lacunasoftware.signer.documents;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 public class GenerationDocumentResult {
-    
-    @JsonProperty("folderId")
+	@JsonProperty("folderId")
+	@SerializedName("folderId")
+
     private String folderId;
+	@JsonProperty("subscriptionId")
+	@SerializedName("subscriptionId")
 
-    @JsonProperty("subscriptionId")
     private String subscriptionId;
+	@JsonProperty("id")
+	@SerializedName("id")
 
-    @JsonProperty("id")
     private String id;
+	@JsonProperty("type")
+	@SerializedName("type")
 
-    @JsonProperty("type")
     private String type;
+	@JsonProperty("agentId")
+	@SerializedName("agentId")
 
-    @JsonProperty("agentId")
     private String agentId;
+	@JsonProperty("totalDocumentsCount")
+	@SerializedName("totalDocumentsCount")
 
-    @JsonProperty("totalDocumentsCount")
     private Integer totalDocumentsCount;
+	@JsonProperty("initializedCount")
+	@SerializedName("initializedCount")
 
-    @JsonProperty("initializedCount")
     private Integer initializedCount;
+	@JsonProperty("completedCount")
+	@SerializedName("completedCount")
 
-    @JsonProperty("completedCount")
     private Integer completedCount;
+	@JsonProperty("status")
+	@SerializedName("status")
 
-    @JsonProperty("status")
     private String status;
     // Default constructor
     public GenerationDocumentResult() {}

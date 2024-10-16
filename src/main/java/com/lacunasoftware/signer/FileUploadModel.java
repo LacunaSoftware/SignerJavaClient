@@ -13,10 +13,9 @@
 package com.lacunasoftware.signer;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.javaclient.models.UploadModel;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -26,16 +25,21 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class FileUploadModel extends UploadModel{
-  @JsonProperty("displayName")
+	@JsonProperty("displayName")
+	@SerializedName("displayName")
+
   private String displayName = null;
+	@JsonProperty("id")
+	@SerializedName("id")
 
-  @JsonProperty("id")
   private String id = null;
+	@JsonProperty("name")
+	@SerializedName("name")
 
-  @JsonProperty("name")
   private String name = null;
+	@JsonProperty("contentType")
+	@SerializedName("contentType")
 
-  @JsonProperty("contentType")
   private String contentType = null;
 
   public FileUploadModel displayName(String displayName) {

@@ -12,41 +12,48 @@
 
 package com.lacunasoftware.signer.documents;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Arrays;
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
 import com.lacunasoftware.signer.flowactions.FlowActionEditModel;
 import com.lacunasoftware.signer.observers.ObserverCreateModel;
 import com.lacunasoftware.signer.observers.ObserverEditModel;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 /**
  * DocumentFlowEditRequest
  */
 
 
 public class DocumentFlowEditRequest {
-  @JsonProperty("addedFlowActions")
+	@JsonProperty("addedFlowActions")
+	@SerializedName("addedFlowActions")
+
   private List<FlowActionCreateModel> addedFlowActions = null;
+	@JsonProperty("editedFlowActions")
+	@SerializedName("editedFlowActions")
 
-  @JsonProperty("editedFlowActions")
   private List<FlowActionEditModel> editedFlowActions = null;
+	@JsonProperty("deletedFlowActionIds")
+	@SerializedName("deletedFlowActionIds")
 
-  @JsonProperty("deletedFlowActionIds")
   private List<UUID> deletedFlowActionIds = null;
+	@JsonProperty("addedObservers")
+	@SerializedName("addedObservers")
 
-  @JsonProperty("addedObservers")
   private List<ObserverCreateModel> addedObservers = null;
+	@JsonProperty("editedObservers")
+	@SerializedName("editedObservers")
 
-  @JsonProperty("editedObservers")
   private List<ObserverEditModel> editedObservers = null;
+	@JsonProperty("deletedObserverIds")
+	@SerializedName("deletedObserverIds")
 
-  @JsonProperty("deletedObserverIds")
   private List<UUID> deletedObserverIds = null;
 
   public DocumentFlowEditRequest addedFlowActions(List<FlowActionCreateModel> addedFlowActions) {

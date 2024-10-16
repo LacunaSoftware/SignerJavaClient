@@ -13,33 +13,40 @@
 package com.lacunasoftware.signer.documentflows;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.documents.CreatorModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
 import org.threeten.bp.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.documents.CreatorModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * DocumentFlowModel
  */
 
 
 public class DocumentFlowModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
+
   private UUID id = null;
+	@JsonProperty("name")
+	@SerializedName("name")
 
-  @JsonProperty("name")
   private String name = null;
+	@JsonProperty("creationDate")
+	@SerializedName("creationDate")
 
-  @JsonProperty("creationDate")
   private OffsetDateTime creationDate = null;
+	@JsonProperty("updateDate")
+	@SerializedName("updateDate")
 
-  @JsonProperty("updateDate")
   private OffsetDateTime updateDate = null;
+	@JsonProperty("createdBy")
+	@SerializedName("createdBy")
 
-  @JsonProperty("createdBy")
   private CreatorModel createdBy = null;
 
   public DocumentFlowModel id(UUID id) {

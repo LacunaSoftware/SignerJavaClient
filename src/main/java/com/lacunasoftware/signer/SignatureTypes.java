@@ -12,8 +12,6 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -45,7 +43,7 @@ public enum SignatureTypes {
   @JsonCreator
   public static SignatureTypes fromValue(String input) {
     for (SignatureTypes b : SignatureTypes.values()) {
-      if (b.value.equals(input)) {
+      if (b.value.equalsIgnoreCase(input)) {
         return b;
       }
     }

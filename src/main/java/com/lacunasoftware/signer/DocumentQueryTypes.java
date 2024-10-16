@@ -12,8 +12,6 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -46,7 +44,7 @@ public enum DocumentQueryTypes {
   @JsonCreator
   public static DocumentQueryTypes fromValue(String input) {
     for (DocumentQueryTypes b : DocumentQueryTypes.values()) {
-      if (b.value.equals(input)) {
+      if (b.value.equalsIgnoreCase(input)) {
         return b;
       }
     }

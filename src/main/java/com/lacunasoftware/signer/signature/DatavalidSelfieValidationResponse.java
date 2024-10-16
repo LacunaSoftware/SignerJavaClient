@@ -13,11 +13,11 @@
 package com.lacunasoftware.signer.signature;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.Probability;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * DatavalidSelfieValidationResponse
@@ -25,14 +25,18 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class DatavalidSelfieValidationResponse {
-  @JsonProperty("available")
+	@JsonProperty("available")
+@SerializedName("available")
   private Boolean available = null;
 
-  @JsonProperty("probability")
+	@JsonProperty("probability")
+	@SerializedName("probability")
   private Probability probability = null;
 
-  @JsonProperty("similarity")
+	@JsonProperty("similarity")
+	@SerializedName("similarity")
   private Float similarity = null;
+
 
   public DatavalidSelfieValidationResponse available(Boolean available) {
     this.available = available;

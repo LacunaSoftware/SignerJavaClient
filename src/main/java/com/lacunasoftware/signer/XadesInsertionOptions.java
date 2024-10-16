@@ -12,8 +12,6 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -45,7 +43,7 @@ public enum XadesInsertionOptions {
   @JsonCreator
   public static XadesInsertionOptions fromValue(String input) {
     for (XadesInsertionOptions b : XadesInsertionOptions.values()) {
-      if (b.value.equals(input)) {
+      if (b.value.equalsIgnoreCase(input)) {
         return b;
       }
     }

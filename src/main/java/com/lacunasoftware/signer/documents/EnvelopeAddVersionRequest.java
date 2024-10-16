@@ -12,32 +12,36 @@
 
 package com.lacunasoftware.signer.documents;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.documents.DocumentAdditionalInfoData;
-import com.lacunasoftware.signer.FileUploadModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.FileUploadModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * EnvelopeAddVersionRequest
  */
 
 
 public class EnvelopeAddVersionRequest {
-  @JsonProperty("files")
+	@JsonProperty("files")
+	@SerializedName("files")
+
   private List<FileUploadModel> files = null;
+	@JsonProperty("envelopeName")
+	@SerializedName("envelopeName")
 
-  @JsonProperty("envelopeName")
   private String envelopeName = null;
+	@JsonProperty("disablePendingActionNotifications")
+	@SerializedName("disablePendingActionNotifications")
 
-  @JsonProperty("disablePendingActionNotifications")
   private Boolean disablePendingActionNotifications = null;
+	@JsonProperty("additionalInfo")
+	@SerializedName("additionalInfo")
 
-  @JsonProperty("additionalInfo")
   private DocumentAdditionalInfoData additionalInfo = null;
 
   public EnvelopeAddVersionRequest files(List<FileUploadModel> files) {

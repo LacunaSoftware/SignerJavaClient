@@ -13,10 +13,10 @@
 package com.lacunasoftware.signer.refusal;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * RefusalRequest
@@ -24,7 +24,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class RefusalRequest {
-  @JsonProperty("reason")
+	@JsonProperty("reason")
+	@SerializedName("reason")
   private String reason = null;
 
   public RefusalRequest reason(String reason) {

@@ -12,11 +12,12 @@
 
 package com.lacunasoftware.signer.documents;
 
-import java.util.Objects;
 import java.util.Arrays;
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * DocumentContentModel
@@ -24,13 +25,17 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class DocumentContentModel {
-  @JsonProperty("bytes")
+	@JsonProperty("bytes")
+	@SerializedName("bytes")
+
   private byte[] bytes = null;
+	@JsonProperty("name")
+	@SerializedName("name")
 
-  @JsonProperty("name")
   private String name = null;
+	@JsonProperty("contentType")
+	@SerializedName("contentType")
 
-  @JsonProperty("contentType")
   private String contentType = null;
 
   public DocumentContentModel bytes(byte[] bytes) {

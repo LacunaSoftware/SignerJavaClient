@@ -12,8 +12,6 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -48,7 +46,7 @@ public enum DocumentFilterStatus {
   @JsonCreator
   public static DocumentFilterStatus fromValue(String input) {
     for (DocumentFilterStatus b : DocumentFilterStatus.values()) {
-      if (b.value.equals(input)) {
+      if (b.value.equalsIgnoreCase(input)) {
         return b;
       }
     }

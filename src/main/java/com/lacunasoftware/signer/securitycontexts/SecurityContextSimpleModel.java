@@ -13,39 +13,46 @@
 package com.lacunasoftware.signer.securitycontexts;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.securitycontexts.AuthenticationTypesModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * SecurityContextSimpleModel
  */
 
 
 public class SecurityContextSimpleModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
-  @JsonProperty("name")
+	@JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
-  @JsonProperty("englishName")
+	@JsonProperty("englishName")
+	@SerializedName("englishName")
   private String englishName = null;
 
-  @JsonProperty("portugueseName")
+	@JsonProperty("portugueseName")
+	@SerializedName("portugueseName")
   private String portugueseName = null;
 
-  @JsonProperty("spanishName")
+	@JsonProperty("spanishName")
+	@SerializedName("spanishName")
   private String spanishName = null;
 
-  @JsonProperty("allowDigitalSignature")
+	@JsonProperty("allowDigitalSignature")
+	@SerializedName("allowDigitalSignature")
   private Boolean allowDigitalSignature = null;
 
-  @JsonProperty("allowedElectronicTypes")
+	@JsonProperty("allowedElectronicTypes")
+	@SerializedName("allowedElectronicTypes")
   private AuthenticationTypesModel allowedElectronicTypes = null;
+
 
   public SecurityContextSimpleModel id(UUID id) {
     this.id = id;

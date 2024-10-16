@@ -13,44 +13,55 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
 import org.threeten.bp.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * DocumentFileModel
  */
 
 
 public class DocumentFileModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
+
   private UUID id = null;
+	@JsonProperty("name")
+	@SerializedName("name")
 
-  @JsonProperty("name")
   private String name = null;
+	@JsonProperty("isSigned")
+	@SerializedName("isSigned")
 
-  @JsonProperty("isSigned")
   private Boolean isSigned = null;
+	@JsonProperty("isEnvelopePart")
+	@SerializedName("isEnvelopePart")
 
-  @JsonProperty("isEnvelopePart")
   private Boolean isEnvelopePart = null;
+	@JsonProperty("envelopeStartPage")
+	@SerializedName("envelopeStartPage")
 
-  @JsonProperty("envelopeStartPage")
   private Integer envelopeStartPage = null;
+	@JsonProperty("numberPages")
+	@SerializedName("numberPages")
 
-  @JsonProperty("numberPages")
   private Integer numberPages = null;
+	@JsonProperty("mimeType")
+	@SerializedName("mimeType")
 
-  @JsonProperty("mimeType")
   private String mimeType = null;
+	@JsonProperty("filename")
+	@SerializedName("filename")
 
-  @JsonProperty("filename")
   private String filename = null;
+	@JsonProperty("creationDate")
+	@SerializedName("creationDate")
 
-  @JsonProperty("creationDate")
   private OffsetDateTime creationDate = null;
 
   public DocumentFileModel id(UUID id) {

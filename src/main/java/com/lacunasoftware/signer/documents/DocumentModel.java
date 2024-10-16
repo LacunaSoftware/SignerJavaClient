@@ -13,16 +13,11 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.agents.AgentModel;
 import com.lacunasoftware.signer.attachments.AttachmentModel;
 import com.lacunasoftware.signer.DocumentStatus;
-import com.lacunasoftware.signer.documents.CreatorModel;
-import com.lacunasoftware.signer.documents.DocumentPermissionsModel;
-import com.lacunasoftware.signer.documents.DocumentTagModel;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.flowactions.FlowActionModel;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
 import com.lacunasoftware.signer.observers.ObserverModel;
@@ -39,90 +34,119 @@ import org.threeten.bp.OffsetDateTime;
 
 public class DocumentModel {
   @JsonProperty("checksumMd5")
+  @SerializedName("checksumMd5")
   private String checksumMd5 = null;
 
   @JsonProperty("isDeleted")
+  @SerializedName("isDeleted")
   private Boolean isDeleted = null;
 
   @JsonProperty("flowActions")
+  @SerializedName("flowActions")
   private List<FlowActionModel> flowActions = null;
 
   @JsonProperty("observers")
+  @SerializedName("observers")
   private List<ObserverModel> observers = null;
 
   @JsonProperty("attachments")
+  @SerializedName("attachments")
   private List<AttachmentModel> attachments = null;
 
   @JsonProperty("permissions")
+  @SerializedName("permissions")
   private DocumentPermissionsModel permissions = null;
 
   @JsonProperty("notifiedEmails")
+  @SerializedName("notifiedEmails")
   private List<String> notifiedEmails = null;
 
   @JsonProperty("id")
+  @SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+  @SerializedName("name")
   private String name = null;
 
   @JsonProperty("filename")
+  @SerializedName("filename")
   private String filename = null;
 
   @JsonProperty("fileSize")
+  @SerializedName("fileSize")
   private Long fileSize = null;
 
   @JsonProperty("mimeType")
+  @SerializedName("mimeType")
   private String mimeType = null;
 
   @JsonProperty("hasSignature")
+  @SerializedName("hasSignature")
   private Boolean hasSignature = null;
 
   @JsonProperty("status")
+  @SerializedName("status")
   private DocumentStatus status = null;
 
   @JsonProperty("isConcluded")
+  @SerializedName("isConcluded")
   private Boolean isConcluded = null;
 
   @JsonProperty("folder")
+  @SerializedName("folder")
   private FolderInfoModel folder = null;
 
   @JsonProperty("organization")
+  @SerializedName("organization")
   private OrganizationInfoModel organization = null;
 
   @JsonProperty("creationDate")
+  @SerializedName("creationDate")
   private OffsetDateTime creationDate = null;
 
   @JsonProperty("updateDate")
+  @SerializedName("updateDate")
   private OffsetDateTime updateDate = null;
 
   @JsonProperty("expirationDate")
+  @SerializedName("expirationDate")
   private OffsetDateTime expirationDate = null;
 
   @JsonProperty("expirationDateWithoutTime")
+  @SerializedName("expirationDateWithoutTime")
   private String expirationDateWithoutTime = null;
 
   @JsonProperty("createdBy")
+  @SerializedName("createdBy")
   private CreatorModel createdBy = null;
 
   @JsonProperty("description")
+  @SerializedName("description")
   private String description = null;
 
   @JsonProperty("forceCadesSignature")
+  @SerializedName("forceCadesSignature")
   private Boolean forceCadesSignature = null;
 
   @JsonProperty("isScanned")
+  @SerializedName("isScanned")
   private Boolean isScanned = null;
 
   @JsonProperty("isEnvelope")
+  @SerializedName("isEnvelope")
   private Boolean isEnvelope = null;
 
   @JsonProperty("statusUpdatedBy")
+  @SerializedName("statusUpdatedBy")
   private AgentModel statusUpdatedBy = null;
 
   @JsonProperty("statusUpdateReason")
+  @SerializedName("statusUpdateReason")
   private String statusUpdateReason = null;
 
   @JsonProperty("tags")
+  @SerializedName("tags")
   private List<DocumentTagModel> tags = null;
 
   public DocumentModel checksumMd5(String checksumMd5) {

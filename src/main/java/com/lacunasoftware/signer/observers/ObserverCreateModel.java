@@ -13,10 +13,8 @@
 package com.lacunasoftware.signer.observers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
@@ -25,7 +23,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class ObserverCreateModel {
-  @JsonProperty("user")
+	@JsonProperty("user")
+	@SerializedName("user")
   private ParticipantUserModel user = null;
 
   public ObserverCreateModel user(ParticipantUserModel user) {

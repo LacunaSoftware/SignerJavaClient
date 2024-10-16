@@ -13,27 +13,31 @@
 package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.users.ParticipantUserModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.users.ParticipantUserModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * RectifiedParticipantModel
  */
 
 
 public class RectifiedParticipantModel {
-  @JsonProperty("userId")
+	@JsonProperty("userId")
+	@SerializedName("userId")
   private UUID userId = null;
-
-  @JsonProperty("requested")
+  
+	@JsonProperty("requested")
+	@SerializedName("requested")
   private ParticipantUserModel requested = null;
-
-  @JsonProperty("rectified")
+  
+	@JsonProperty("rectified")
+	@SerializedName("rectified")
   private ParticipantUserModel rectified = null;
+  
 
   public RectifiedParticipantModel userId(UUID userId) {
     this.userId = userId;

@@ -13,46 +13,56 @@
 package com.lacunasoftware.signer.webhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
+import java.util.UUID;
+
+import org.threeten.bp.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.documents.CreatorModel;
 import com.lacunasoftware.signer.flowactions.SignatureModel;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
 import com.lacunasoftware.signer.organizations.OrganizationInfoModel;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 /**
  * DocumentSignedModel
  */
 
 
 public class DocumentSignedModel {
-  @JsonProperty("signature")
+	@JsonProperty("signature")
+	@SerializedName("signature")
   private SignatureModel signature = null;
 
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
-  @JsonProperty("name")
+	@JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
-  @JsonProperty("creationDate")
+	@JsonProperty("creationDate")
+	@SerializedName("creationDate")
   private OffsetDateTime creationDate = null;
 
-  @JsonProperty("updateDate")
+	@JsonProperty("updateDate")
+	@SerializedName("updateDate")
   private OffsetDateTime updateDate = null;
 
-  @JsonProperty("folder")
+	@JsonProperty("folder")
+	@SerializedName("folder")
   private FolderInfoModel folder = null;
 
-  @JsonProperty("organization")
+	@JsonProperty("organization")
+	@SerializedName("organization")
   private OrganizationInfoModel organization = null;
 
-  @JsonProperty("createdBy")
+	@JsonProperty("createdBy")
+	@SerializedName("createdBy")
   private CreatorModel createdBy = null;
+
 
   public DocumentSignedModel signature(SignatureModel signature) {
     this.signature = signature;

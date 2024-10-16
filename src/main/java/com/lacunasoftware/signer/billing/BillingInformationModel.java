@@ -13,12 +13,8 @@
 package com.lacunasoftware.signer.billing;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.billing.CompanyBillingInformationModel;
-import com.lacunasoftware.signer.billing.IndividualBillingInformationModel;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.BillingInformationTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
@@ -27,52 +23,69 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class BillingInformationModel {
-  @JsonProperty("contactName")
+	@JsonProperty("contactName")
+	@SerializedName("contactName")
+
   private String contactName = null;
+	@JsonProperty("email")
+	@SerializedName("email")
 
-  @JsonProperty("email")
   private String email = null;
+	@JsonProperty("phone")
+	@SerializedName("phone")
 
-  @JsonProperty("phone")
   private String phone = null;
+	@JsonProperty("type")
+	@SerializedName("type")
 
-  @JsonProperty("type")
   private BillingInformationTypes type = null;
+	@JsonProperty("individual")
+	@SerializedName("individual")
 
-  @JsonProperty("individual")
   private IndividualBillingInformationModel individual = null;
+	@JsonProperty("company")
+	@SerializedName("company")
 
-  @JsonProperty("company")
   private CompanyBillingInformationModel company = null;
+	@JsonProperty("streetAddress")
+	@SerializedName("streetAddress")
 
-  @JsonProperty("streetAddress")
   private String streetAddress = null;
+	@JsonProperty("addressNumber")
+	@SerializedName("addressNumber")
 
-  @JsonProperty("addressNumber")
   private String addressNumber = null;
+	@JsonProperty("additionalAddressInfo")
+	@SerializedName("additionalAddressInfo")
 
-  @JsonProperty("additionalAddressInfo")
   private String additionalAddressInfo = null;
+	@JsonProperty("neighborhood")
+	@SerializedName("neighborhood")
 
-  @JsonProperty("neighborhood")
   private String neighborhood = null;
+	@JsonProperty("address")
+	@SerializedName("address")
 
-  @JsonProperty("address")
   private String address = null;
+	@JsonProperty("address2")
+	@SerializedName("address2")
 
-  @JsonProperty("address2")
   private String address2 = null;
+	@JsonProperty("zipCode")
+	@SerializedName("zipCode")
 
-  @JsonProperty("zipCode")
   private String zipCode = null;
+	@JsonProperty("city")
+	@SerializedName("city")
 
-  @JsonProperty("city")
   private String city = null;
+	@JsonProperty("state")
+	@SerializedName("state")
 
-  @JsonProperty("state")
   private String state = null;
+	@JsonProperty("cityCode")
+	@SerializedName("cityCode")
 
-  @JsonProperty("cityCode")
   private String cityCode = null;
 
   public BillingInformationModel contactName(String contactName) {

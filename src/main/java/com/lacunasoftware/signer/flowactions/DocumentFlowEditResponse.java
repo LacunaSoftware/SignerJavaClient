@@ -13,11 +13,8 @@
 package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.flowactions.RectifiedParticipantModel;
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +24,8 @@ import java.util.List;
 
 
 public class DocumentFlowEditResponse {
-  @JsonProperty("rectifiedParticipants")
+	@JsonProperty("rectifiedParticipants")
+	@SerializedName("rectifiedParticipants")
   private List<RectifiedParticipantModel> rectifiedParticipants = null;
 
   public DocumentFlowEditResponse rectifiedParticipants(List<RectifiedParticipantModel> rectifiedParticipants) {

@@ -13,12 +13,9 @@
 package com.lacunasoftware.signer.documents;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.DocumentTypes;
-import com.lacunasoftware.signer.documents.DocumentTagModel;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
@@ -31,25 +28,33 @@ import org.threeten.bp.OffsetDateTime;
 
 
 public class DocumentListModel {
-  @JsonProperty("id")
+	@JsonProperty("id")
+	@SerializedName("id")
+
   private UUID id = null;
+	@JsonProperty("name")
+	@SerializedName("name")
 
-  @JsonProperty("name")
   private String name = null;
+	@JsonProperty("creationDate")
+	@SerializedName("creationDate")
 
-  @JsonProperty("creationDate")
   private OffsetDateTime creationDate = null;
+	@JsonProperty("updateDate")
+	@SerializedName("updateDate")
 
-  @JsonProperty("updateDate")
   private OffsetDateTime updateDate = null;
+	@JsonProperty("folder")
+	@SerializedName("folder")
 
-  @JsonProperty("folder")
   private FolderInfoModel folder = null;
+	@JsonProperty("type")
+	@SerializedName("type")
 
-  @JsonProperty("type")
   private DocumentTypes type = null;
+	@JsonProperty("tags")
+	@SerializedName("tags")
 
-  @JsonProperty("tags")
   private List<DocumentTagModel> tags = null;
 
   public DocumentListModel id(UUID id) {
