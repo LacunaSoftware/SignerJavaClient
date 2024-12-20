@@ -17,3 +17,4 @@ gradle.properties
 modules/swagger-codegen-cli/target/swagger-codegen-cli.jar
 .vscode/
 gpg_key/
+*.gpg

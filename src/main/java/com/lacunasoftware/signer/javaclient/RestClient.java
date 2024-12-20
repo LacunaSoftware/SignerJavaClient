@@ -1,39 +1,48 @@
 package com.lacunasoftware.signer.javaclient;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import  java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+import java.util.Scanner;
+
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.format.DateTimeFormatter;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonParseException;
-import com.lacunasoftware.signer.webhooks.WebhookModel;
-import org.threeten.bp.OffsetDateTime;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonDeserializationContext;
-import org.threeten.bp.ZoneId;
-import org.threeten.bp.format.DateTimeFormatter;
-
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URL;
-import java.util.Objects;
-import java.util.Scanner;
-import  java.lang.reflect.Type;
-
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import com.google.gson.reflect.TypeToken;
+import com.lacunasoftware.signer.ErrorModel;
+import com.lacunasoftware.signer.javaclient.exceptions.RestDecodeException;
 import com.lacunasoftware.signer.javaclient.exceptions.RestErrorException;
 import com.lacunasoftware.signer.javaclient.exceptions.RestException;
-import com.lacunasoftware.signer.javaclient.exceptions.RestUnreachableException;
-import com.lacunasoftware.signer.javaclient.exceptions.RestDecodeException;
 import com.lacunasoftware.signer.javaclient.exceptions.RestResourceNotFoundException;
-import com.lacunasoftware.signer.javaclient.models.RestGeneralErrorModel;
+import com.lacunasoftware.signer.javaclient.exceptions.RestUnreachableException;
 import com.lacunasoftware.signer.javaclient.models.RestResourceNotFoundModel;
+import com.lacunasoftware.signer.webhooks.WebhookModel;
 
 class RestClient {
 	private URI endpointUrl;
@@ -354,13 +363,12 @@ class RestClient {
 					Scanner scanner = new Scanner(conn.getErrorStream());
 					String	errorBody = scanner.nextLine();
 					ex = new RestErrorException(verb, url, statusCode, errorBody);
+					scanner.close();
 				}else {
-
-					RestGeneralErrorModel model = readErrorResponse(conn, RestGeneralErrorModel.class);
-					if (model != null && model.getMessage() != null) {
-						ex = new RestErrorException(verb, url, statusCode, model.getMessage());
+					ErrorModel model = readErrorResponse(conn, ErrorModel.class);
+					if (model != null) {
+						ex = new RestErrorException(verb, url, statusCode, model.getMessage(), model.getCode());
 					}
-
 				}
 
 			} catch (Exception e) {
