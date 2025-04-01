@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.organizations;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.organizations.AccessProfileModel;
@@ -27,21 +28,27 @@ import java.util.UUID;
 
 public class OrganizationUserPostRequest {
   @JsonProperty("accessProfile")
+	@SerializedName("accessProfile")
   private AccessProfileModel accessProfile = null;
 
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("identifier")
+	@SerializedName("identifier")
   private String identifier = null;
 
   @JsonProperty("email")
+	@SerializedName("email")
   private String email = null;
 
   @JsonProperty("phone")
+	@SerializedName("phone")
   private String phone = null;
 
   public OrganizationUserPostRequest accessProfile(AccessProfileModel accessProfile) {

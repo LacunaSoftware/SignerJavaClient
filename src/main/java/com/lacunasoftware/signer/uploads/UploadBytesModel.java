@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.uploads;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -25,12 +26,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class UploadBytesModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private String id = null;
 
   @JsonProperty("size")
+	@SerializedName("size")
   private Long size = null;
 
   @JsonProperty("digest")
+	@SerializedName("digest")
   private String digest = null;
 
   public UploadBytesModel id(String id) {

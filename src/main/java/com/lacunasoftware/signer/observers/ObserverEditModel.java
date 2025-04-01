@@ -13,12 +13,12 @@
 package com.lacunasoftware.signer.observers;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * ObserverEditModel
  */
@@ -26,9 +26,11 @@ import java.util.UUID;
 
 public class ObserverEditModel {
   @JsonProperty("observerId")
+	@SerializedName("observerId")
   private UUID observerId = null;
 
   @JsonProperty("emailAddress")
+	@SerializedName("emailAddress")
   private String emailAddress = null;
 
   public ObserverEditModel observerId(UUID observerId) {

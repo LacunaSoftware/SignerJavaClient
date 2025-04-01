@@ -12,19 +12,22 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets ParticipantQueryTypes
  */
 public enum ParticipantQueryTypes {
-  NAME("Name"),
-  IDENTIFIER("Identifier"),
-  EMAIL("Email"),
-  PHONE("Phone");
+  @SerializedName("Name")
+	NAME("Name"),
+  @SerializedName("Identifier")
+	IDENTIFIER("Identifier"),
+  @SerializedName("Email")
+	EMAIL("Email"),
+  @SerializedName("Phone")
+	PHONE("Phone");
 
   private String value;
 

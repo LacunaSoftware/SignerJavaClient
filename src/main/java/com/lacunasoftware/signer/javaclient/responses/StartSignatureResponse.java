@@ -1,23 +1,29 @@
 package com.lacunasoftware.signer.javaclient.responses;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.ValidationResultsModel;
 
 public class StartSignatureResponse {
 
 	@SerializedName("success")
+	@JsonProperty("success")
 	private boolean success;
 
 	@SerializedName("token")
+	@JsonProperty("token")
 	private String token;
 
 	@SerializedName("toSignHash")
+	@JsonProperty("toSignHash")
 	private byte[] toSignHash;
 
 	@SerializedName("digestAlgorithm")
+	@JsonProperty("digestAlgorithm")
 	private String digestAlgorithm;
 
 	@SerializedName("validationResults")
+	@JsonProperty("validationResults")
 	public ValidationResultsModel validationResults;
 
 	public boolean isSuccess() {

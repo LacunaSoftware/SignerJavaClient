@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.documents;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.attachments.AttachmentUploadModel;
@@ -37,54 +38,71 @@ import org.threeten.bp.OffsetDateTime;
 
 public class CreateDocumentRequest {
   @JsonProperty("files")
+	@SerializedName("files")
   private List<FileUploadModel> files = new ArrayList<FileUploadModel>();
 
   @JsonProperty("attachments")
+	@SerializedName("attachments")
   private List<AttachmentUploadModel> attachments = null;
 
   @JsonProperty("xmlNamespaces")
+	@SerializedName("xmlNamespaces")
   private List<XmlNamespaceModel> xmlNamespaces = null;
 
   @JsonProperty("isEnvelope")
+	@SerializedName("isEnvelope")
   private Boolean isEnvelope = null;
 
   @JsonProperty("envelopeName")
+	@SerializedName("envelopeName")
   private String envelopeName = null;
 
   @JsonProperty("participantsDataFile")
+	@SerializedName("participantsDataFile")
   private UploadModel participantsDataFile = null;
 
   @JsonProperty("folderId")
+	@SerializedName("folderId")
   private UUID folderId = null;
 
   @JsonProperty("description")
+	@SerializedName("description")
   private String description = null;
 
   @JsonProperty("flowActions")
+	@SerializedName("flowActions")
   private List<FlowActionCreateModel> flowActions = new ArrayList<FlowActionCreateModel>();
 
   @JsonProperty("observers")
+	@SerializedName("observers")
   private List<ObserverCreateModel> observers = null;
 
   @JsonProperty("disablePendingActionNotifications")
+	@SerializedName("disablePendingActionNotifications")
   private Boolean disablePendingActionNotifications = null;
 
   @JsonProperty("newFolderName")
+	@SerializedName("newFolderName")
   private String newFolderName = null;
 
   @JsonProperty("forceCadesSignature")
+	@SerializedName("forceCadesSignature")
   private Boolean forceCadesSignature = null;
 
   @JsonProperty("notifiedEmails")
+	@SerializedName("notifiedEmails")
   private List<String> notifiedEmails = null;
 
   @JsonProperty("additionalInfo")
+	@SerializedName("additionalInfo")
   private DocumentAdditionalInfoData additionalInfo = null;
 
   @JsonProperty("tags")
+	@SerializedName("tags")
   private List<DocumentTagData> tags = null;
 
   @JsonProperty("expirationDate")
+	@SerializedName("expirationDate")
   private OffsetDateTime expirationDate = null;
 
   public CreateDocumentRequest files(List<FileUploadModel> files) {

@@ -12,17 +12,18 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets AgentTypes
  */
 public enum AgentTypes {
-  USER("User"),
-  APPLICATION("Application");
+  @SerializedName("User")
+	USER("User"),
+  @SerializedName("Application")
+	APPLICATION("Application");
 
   private String value;
 

@@ -12,25 +12,32 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.v3.oas.annotations.media.Schema;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * This enum is used as flags, the order and values matter!
  */
 public enum AuthenticationTypes {
-  SMS("SMS"),
-  AUTHENTICATORAPP("AuthenticatorApp"),
-  EMAIL("Email"),
-  LOGIN("Login"),
-  APPLICATION("Application"),
-  SELFIE("Selfie"),
-  DATAVALID("Datavalid"),
-  PIX("Pix"),
-  ACCESSCODE("AccessCode");
+  @SerializedName("SMS")
+	SMS("SMS"),
+  @SerializedName("AuthenticatorApp")
+	AUTHENTICATORAPP("AuthenticatorApp"),
+  @SerializedName("Email")
+	EMAIL("Email"),
+  @SerializedName("Login")
+	LOGIN("Login"),
+  @SerializedName("Application")
+	APPLICATION("Application"),
+  @SerializedName("Selfie")
+	SELFIE("Selfie"),
+  @SerializedName("Datavalid")
+	DATAVALID("Datavalid"),
+  @SerializedName("Pix")
+	PIX("Pix"),
+  @SerializedName("AccessCode")
+	ACCESSCODE("AccessCode");
 
   private String value;
 

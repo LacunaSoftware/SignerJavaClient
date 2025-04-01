@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.documents;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -25,9 +26,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class DocumentTagData {
   @JsonProperty("label")
+	@SerializedName("label")
   private String label = null;
 
   @JsonProperty("value")
+	@SerializedName("value")
   private String value = null;
 
   public DocumentTagData label(String label) {

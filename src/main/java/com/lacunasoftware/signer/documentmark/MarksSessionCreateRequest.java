@@ -12,17 +12,16 @@
 
 package com.lacunasoftware.signer.documentmark;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.documentmark.FlowActionPositionModel;
-import com.lacunasoftware.signer.SignatureTypes;
-import com.lacunasoftware.signer.javaclient.models.UploadModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.lacunasoftware.signer.SignatureTypes;
+import com.lacunasoftware.signer.javaclient.models.UploadModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * MarksSessionCreateRequest
  */
@@ -30,15 +29,19 @@ import java.util.List;
 
 public class MarksSessionCreateRequest {
   @JsonProperty("files")
+	@SerializedName("files")
   private List<UploadModel> files = new ArrayList<UploadModel>();
 
   @JsonProperty("isEnvelope")
+	@SerializedName("isEnvelope")
   private Boolean isEnvelope = null;
 
   @JsonProperty("flowActions")
+	@SerializedName("flowActions")
   private List<FlowActionPositionModel> flowActions = new ArrayList<FlowActionPositionModel>();
 
   @JsonProperty("signatureType")
+	@SerializedName("signatureType")
   private SignatureTypes signatureType = null;
 
   public MarksSessionCreateRequest files(List<UploadModel> files) {

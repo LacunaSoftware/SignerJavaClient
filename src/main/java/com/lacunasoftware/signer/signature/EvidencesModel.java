@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.signature;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.applications.ApplicationDisplayModel;
@@ -33,45 +34,59 @@ import org.threeten.bp.OffsetDateTime;
 
 public class EvidencesModel {
   @JsonProperty("ipAddress")
+	@SerializedName("ipAddress")
   private String ipAddress = null;
 
   @JsonProperty("authenticationTypes")
+	@SerializedName("authenticationTypes")
   private List<AuthenticationTypes> authenticationTypes = null;
 
   @JsonProperty("accountVerifiedEmail")
+	@SerializedName("accountVerifiedEmail")
   private String accountVerifiedEmail = null;
 
   @JsonProperty("authenticatedEmail")
+	@SerializedName("authenticatedEmail")
   private String authenticatedEmail = null;
 
   @JsonProperty("authenticatedPhoneNumberLastDigits")
+	@SerializedName("authenticatedPhoneNumberLastDigits")
   private String authenticatedPhoneNumberLastDigits = null;
 
   @JsonProperty("authenticatedApplication")
+	@SerializedName("authenticatedApplication")
   private ApplicationDisplayModel authenticatedApplication = null;
 
   @JsonProperty("authenticatedSelfie")
+	@SerializedName("authenticatedSelfie")
   private SelfieModel authenticatedSelfie = null;
 
   @JsonProperty("authenticatedPix")
+	@SerializedName("authenticatedPix")
   private PixAuthenticationModel authenticatedPix = null;
 
   @JsonProperty("geolocation")
+	@SerializedName("geolocation")
   private GeolocationModel geolocation = null;
 
   @JsonProperty("timestamp")
+	@SerializedName("timestamp")
   private OffsetDateTime timestamp = null;
 
   @JsonProperty("evidencesSha256")
+	@SerializedName("evidencesSha256")
   private String evidencesSha256 = null;
 
   @JsonProperty("authenticatedPhoneNumber")
+	@SerializedName("authenticatedPhoneNumber")
   private String authenticatedPhoneNumber = null;
 
   @JsonProperty("file")
+	@SerializedName("file")
   private byte[] file = null;
 
   @JsonProperty("fileTicket")
+	@SerializedName("fileTicket")
   private String fileTicket = null;
 
   public EvidencesModel ipAddress(String ipAddress) {

@@ -13,10 +13,11 @@
 package com.lacunasoftware.signer.healthdocuments;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * HealthItemModel
@@ -25,12 +26,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class HealthItemModel {
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("description")
+	@SerializedName("description")
   private String description = null;
 
   @JsonProperty("description2")
+	@SerializedName("description2")
   private String description2 = null;
 
   public HealthItemModel name(String name) {

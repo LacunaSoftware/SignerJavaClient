@@ -11,6 +11,7 @@ import  java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
+import java.util.Base64;
 import java.util.Scanner;
 
 import org.threeten.bp.OffsetDateTime;
@@ -34,6 +35,8 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
 import com.google.gson.reflect.TypeToken;
 import com.lacunasoftware.signer.ErrorModel;
 import com.lacunasoftware.signer.javaclient.exceptions.RestDecodeException;
@@ -418,6 +421,7 @@ class RestClient {
 
 		Gson gson = new GsonBuilder()
 			.registerTypeAdapter(OffsetDateTime.class, new OffsetDateTimeDeserializer())
+			.registerTypeHierarchyAdapter(byte[].class, new ByteArrayToBase64TypeAdapter())
 			.create();
 		return gson;
 	}
@@ -473,5 +477,15 @@ class RestClient {
 
 			jsonGenerator.writeString(ISO_8601_FORMATTER.format(value));
 		}
-	}
+	}	
+    // Using Android's base64 libraries. This can be replaced with any base64 library.
+    protected static class ByteArrayToBase64TypeAdapter implements com.google.gson.JsonSerializer<byte[]>, JsonDeserializer<byte[]> {
+        public byte[] deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+            return Base64.getDecoder().decode(json.getAsString());
+        }
+
+        public JsonElement serialize(byte[] src, Type typeOfSrc, JsonSerializationContext context) {
+            return new JsonPrimitive(Base64.getEncoder().encodeToString(src));
+        }
+    }
 }

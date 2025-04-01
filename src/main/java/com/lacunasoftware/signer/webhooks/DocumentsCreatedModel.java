@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.webhooks;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.webhooks.DocumentInformationModel;
@@ -28,6 +29,7 @@ import java.util.List;
 
 public class DocumentsCreatedModel {
   @JsonProperty("documents")
+	@SerializedName("documents")
   private List<DocumentInformationModel> documents = null;
 
   public DocumentsCreatedModel documents(List<DocumentInformationModel> documents) {

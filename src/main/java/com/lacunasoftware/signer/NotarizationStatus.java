@@ -12,18 +12,20 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets NotarizationStatus
  */
 public enum NotarizationStatus {
-  PENDING("Pending"),
-  NOTARIZED("Notarized"),
-  REJECTED("Rejected");
+  @SerializedName("Pending")
+	PENDING("Pending"),
+  @SerializedName("Notarized")
+	NOTARIZED("Notarized"),
+  @SerializedName("Rejected")
+	REJECTED("Rejected");
 
   private String value;
 

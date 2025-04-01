@@ -15,6 +15,7 @@ package com.lacunasoftware.signer;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.ValidationResultsModel;
@@ -26,15 +27,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class ValidationItemModel {
   @JsonProperty("type")
+	@SerializedName("type")
   private String type = null;
 
   @JsonProperty("message")
+	@SerializedName("message")
   private String message = null;
 
   @JsonProperty("detail")
+	@SerializedName("detail")
   private String detail = null;
 
   @JsonProperty("innerValidationResults")
+	@SerializedName("innerValidationResults")
   private ValidationResultsModel innerValidationResults = null;
 
   public ValidationItemModel type(String type) {

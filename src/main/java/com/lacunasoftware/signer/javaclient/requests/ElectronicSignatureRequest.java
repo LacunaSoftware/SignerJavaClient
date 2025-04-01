@@ -1,15 +1,17 @@
 package com.lacunasoftware.signer.javaclient.requests;
 
+import java.util.UUID;
+
 import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.javaclient.models.EvidencesModel;
 import com.lacunasoftware.signer.javaclient.positions.PdfMarkPosition;
 
-import java.util.UUID;
-
 public class ElectronicSignatureRequest {
 	public enum AuthenticationTypes {
-		SMS("SMS"),
-		AUTHENTICATION_APP("AuthenticationApp");
+	@SerializedName("SMS")
+	SMS("SMS"),
+	@SerializedName("AuthenticationApp")
+	AUTHENTICATION_APP("AuthenticationApp");
 
 		private String value;
 

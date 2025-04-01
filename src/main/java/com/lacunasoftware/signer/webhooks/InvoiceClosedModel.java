@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.webhooks;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.billing.BillingInformationModel;
@@ -30,24 +31,31 @@ import java.util.List;
 
 public class InvoiceClosedModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private Integer id = null;
 
   @JsonProperty("month")
+	@SerializedName("month")
   private Integer month = null;
 
   @JsonProperty("year")
+	@SerializedName("year")
   private Integer year = null;
 
   @JsonProperty("value")
+	@SerializedName("value")
   private Double value = null;
 
   @JsonProperty("invoiceTotals")
+	@SerializedName("invoiceTotals")
   private List<InvoiceTotalModel> invoiceTotals = null;
 
   @JsonProperty("organization")
+	@SerializedName("organization")
   private OrganizationInfoModel organization = null;
 
   @JsonProperty("billingInformation")
+	@SerializedName("billingInformation")
   private BillingInformationModel billingInformation = null;
 
   public InvoiceClosedModel id(Integer id) {

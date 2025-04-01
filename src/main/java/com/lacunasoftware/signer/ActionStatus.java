@@ -12,19 +12,23 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets ActionStatus
  */
 public enum ActionStatus {
-  CREATED("Created"),
-  PENDING("Pending"),
-  COMPLETED("Completed"),
-  REFUSED("Refused");
+  
+	@SerializedName("Created")
+	CREATED("Created"),
+	@SerializedName("Pending")
+	PENDING("Pending"),
+	@SerializedName("Completed")
+	COMPLETED("Completed"),
+	@SerializedName("Refused")
+	REFUSED("Refused");
 
   private String value;
 

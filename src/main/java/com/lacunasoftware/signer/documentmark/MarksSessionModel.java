@@ -12,16 +12,16 @@
 
 package com.lacunasoftware.signer.documentmark;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.documentmark.UploadTicketModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * MarksSessionModel
  */
@@ -29,12 +29,15 @@ import java.util.UUID;
 
 public class MarksSessionModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("files")
+	@SerializedName("files")
   private List<UploadTicketModel> files = null;
 
   @JsonProperty("data")
+	@SerializedName("data")
   private Object data = null;
 
   public MarksSessionModel id(UUID id) {

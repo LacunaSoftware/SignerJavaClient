@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.NotaryTypes;
 import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
 import com.lacunasoftware.signer.javaclient.models.UploadModel;
@@ -12,36 +13,47 @@ import com.lacunasoftware.signer.observers.ObserverCreateModel;
 
 public class GenerateDocumentRequest {
     @JsonProperty("flowActions")
+	@SerializedName("flowActions")
     private List<FlowActionCreateModel> flowActions;
 
     @JsonProperty("observers")
+	@SerializedName("observers")
     private List<ObserverCreateModel> observers;
 
     @JsonProperty("folderId")
+	@SerializedName("folderId")
     private String folderId;
 
     @JsonProperty("newFolderName")
+	@SerializedName("newFolderName")
     private String newFolderName;
 
     @JsonProperty("organizationId")
+	@SerializedName("organizationId")
     private String organizationId;
 
     @JsonProperty("type")
+	@SerializedName("type")
     private String type;
 
     @JsonProperty("notaryType")
+	@SerializedName("notaryType")
     private NotaryTypes notaryType;
 
     @JsonProperty("expirationDate")
+	@SerializedName("expirationDate")
     private LocalDateTime expirationDate;
 
     @JsonProperty("notifiedEmails")
+	@SerializedName("notifiedEmails")
     private List<String> notifiedEmails;
 
     @JsonProperty("dataFile")
+	@SerializedName("dataFile")
     private UploadModel dataFile;
 
     @JsonProperty("templateFile")
+	@SerializedName("templateFile")
     private UploadModel templateFile;
 
     public GenerateDocumentRequest() {

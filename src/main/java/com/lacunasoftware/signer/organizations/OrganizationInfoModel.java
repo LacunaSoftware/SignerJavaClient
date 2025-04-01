@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.organizations;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.organizations.OrganizationOwnerInfoModel;
@@ -27,15 +28,19 @@ import java.util.UUID;
 
 public class OrganizationInfoModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("identifier")
+	@SerializedName("identifier")
   private String identifier = null;
 
   @JsonProperty("owner")
+	@SerializedName("owner")
   private OrganizationOwnerInfoModel owner = null;
 
   public OrganizationInfoModel id(UUID id) {

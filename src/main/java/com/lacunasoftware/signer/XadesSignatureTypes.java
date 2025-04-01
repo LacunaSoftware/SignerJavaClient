@@ -12,18 +12,20 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets XadesSignatureTypes
  */
 public enum XadesSignatureTypes {
-  FULLXML("FullXml"),
-  XMLELEMENT("XmlElement"),
-  FULLXMLADRC("FullXmlAdRc");
+  @SerializedName("FullXml")
+	FULLXML("FullXml"),
+  @SerializedName("XmlElement")
+	XMLELEMENT("XmlElement"),
+  @SerializedName("FullXmlAdRc")
+	FULLXMLADRC("FullXmlAdRc");
 
   private String value;
 

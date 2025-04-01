@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.documents;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.attachments.CreateAttachmentResult;
@@ -29,12 +30,15 @@ import java.util.UUID;
 
 public class CreateDocumentResult {
   @JsonProperty("uploadId")
+	@SerializedName("uploadId")
   private String uploadId = null;
 
   @JsonProperty("documentId")
+	@SerializedName("documentId")
   private UUID documentId = null;
 
   @JsonProperty("attachments")
+	@SerializedName("attachments")
   private List<CreateAttachmentResult> attachments = null;
 
   public CreateDocumentResult uploadId(String uploadId) {

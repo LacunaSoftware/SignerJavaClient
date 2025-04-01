@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.documents;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.documents.DocumentAdditionalInfoData;
@@ -29,15 +30,19 @@ import java.util.List;
 
 public class EnvelopeAddVersionRequest {
   @JsonProperty("files")
+	@SerializedName("files")
   private List<FileUploadModel> files = null;
 
   @JsonProperty("envelopeName")
+	@SerializedName("envelopeName")
   private String envelopeName = null;
 
   @JsonProperty("disablePendingActionNotifications")
+	@SerializedName("disablePendingActionNotifications")
   private Boolean disablePendingActionNotifications = null;
 
   @JsonProperty("additionalInfo")
+	@SerializedName("additionalInfo")
   private DocumentAdditionalInfoData additionalInfo = null;
 
   public EnvelopeAddVersionRequest files(List<FileUploadModel> files) {

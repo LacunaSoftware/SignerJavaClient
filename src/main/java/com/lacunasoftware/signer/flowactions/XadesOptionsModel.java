@@ -13,13 +13,13 @@
 package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.XadesElementIdentifierTypes;
 import com.lacunasoftware.signer.XadesInsertionOptions;
 import com.lacunasoftware.signer.XadesSignatureTypes;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * XadesOptionsModel
@@ -28,18 +28,23 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class XadesOptionsModel {
   @JsonProperty("signatureType")
+	@SerializedName("signatureType")
   private XadesSignatureTypes signatureType = null;
 
   @JsonProperty("elementToSignIdentifierType")
+	@SerializedName("elementToSignIdentifierType")
   private XadesElementIdentifierTypes elementToSignIdentifierType = null;
 
   @JsonProperty("elementToSignIdentifier")
+	@SerializedName("elementToSignIdentifier")
   private String elementToSignIdentifier = null;
 
   @JsonProperty("insertionOption")
+	@SerializedName("insertionOption")
   private XadesInsertionOptions insertionOption = null;
 
   @JsonProperty("disableXPathTransformation")
+	@SerializedName("disableXPathTransformation")
   private Boolean disableXPathTransformation = null;
 
   public XadesOptionsModel signatureType(XadesSignatureTypes signatureType) {

@@ -13,13 +13,14 @@
 package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
 import org.threeten.bp.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * SignRuleUserModel
  */
@@ -27,33 +28,43 @@ import org.threeten.bp.OffsetDateTime;
 
 public class SignRuleUserModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("identifier")
+	@SerializedName("identifier")
   private String identifier = null;
 
   @JsonProperty("email")
+	@SerializedName("email")
   private String email = null;
 
   @JsonProperty("phone")
+	@SerializedName("phone")
   private String phone = null;
 
   @JsonProperty("signatureDate")
+	@SerializedName("signatureDate")
   private OffsetDateTime signatureDate = null;
 
   @JsonProperty("isElectronic")
+	@SerializedName("isElectronic")
   private Boolean isElectronic = null;
 
   @JsonProperty("refusalDate")
+	@SerializedName("refusalDate")
   private OffsetDateTime refusalDate = null;
 
   @JsonProperty("hasRefused")
+	@SerializedName("hasRefused")
   private Boolean hasRefused = null;
 
   @JsonProperty("refusalReason")
+	@SerializedName("refusalReason")
   private String refusalReason = null;
 
   public SignRuleUserModel id(UUID id) {

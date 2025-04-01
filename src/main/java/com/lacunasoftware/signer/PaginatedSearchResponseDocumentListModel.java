@@ -15,6 +15,7 @@ package com.lacunasoftware.signer;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.documents.DocumentListModel;
@@ -28,12 +29,15 @@ import java.util.List;
 
 public class PaginatedSearchResponseDocumentListModel {
   @JsonProperty("items")
+	@SerializedName("items")
   private List<DocumentListModel> items = null;
 
   @JsonProperty("totalCount")
+	@SerializedName("totalCount")
   private Integer totalCount = null;
 
   @JsonProperty("nextCursor")
+	@SerializedName("nextCursor")
   private String nextCursor = null;
 
   public PaginatedSearchResponseDocumentListModel items(List<DocumentListModel> items) {

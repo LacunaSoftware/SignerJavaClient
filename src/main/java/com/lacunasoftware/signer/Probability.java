@@ -12,19 +12,22 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets Probability
  */
 public enum Probability {
-  VERYLOW("VeryLow"),
-  LOW("Low"),
-  HIGH("High"),
-  VERYHIGH("VeryHigh");
+  @SerializedName("VeryLow")
+	VERYLOW("VeryLow"),
+  @SerializedName("Low")
+	LOW("Low"),
+  @SerializedName("High")
+	HIGH("High"),
+  @SerializedName("VeryHigh")
+	VERYHIGH("VeryHigh");
 
   private String value;
 

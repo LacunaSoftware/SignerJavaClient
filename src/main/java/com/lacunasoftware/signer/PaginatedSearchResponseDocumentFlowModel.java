@@ -15,6 +15,7 @@ package com.lacunasoftware.signer;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.documentflows.DocumentFlowModel;
@@ -28,12 +29,15 @@ import java.util.List;
 
 public class PaginatedSearchResponseDocumentFlowModel {
   @JsonProperty("items")
+	@SerializedName("items")
   private List<DocumentFlowModel> items = null;
 
   @JsonProperty("totalCount")
+	@SerializedName("totalCount")
   private Integer totalCount = null;
 
   @JsonProperty("nextCursor")
+	@SerializedName("nextCursor")
   private String nextCursor = null;
 
   public PaginatedSearchResponseDocumentFlowModel items(List<DocumentFlowModel> items) {

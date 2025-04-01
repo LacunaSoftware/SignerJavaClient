@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.documents;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.DocumentStatus;
@@ -33,42 +34,55 @@ import org.threeten.bp.OffsetDateTime;
 
 public class DocumentSignaturesInfoModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("filename")
+	@SerializedName("filename")
   private String filename = null;
 
   @JsonProperty("mimeType")
+	@SerializedName("mimeType")
   private String mimeType = null;
 
   @JsonProperty("createdBy")
+	@SerializedName("createdBy")
   private CreatorModel createdBy = null;
 
   @JsonProperty("isConcluded")
+	@SerializedName("isConcluded")
   private Boolean isConcluded = null;
 
   @JsonProperty("isFile")
+	@SerializedName("isFile")
   private Boolean isFile = null;
 
   @JsonProperty("isEnvelope")
+	@SerializedName("isEnvelope")
   private Boolean isEnvelope = null;
 
   @JsonProperty("creationDate")
+	@SerializedName("creationDate")
   private OffsetDateTime creationDate = null;
 
   @JsonProperty("updateDate")
+	@SerializedName("updateDate")
   private OffsetDateTime updateDate = null;
 
   @JsonProperty("signers")
+	@SerializedName("signers")
   private List<SignerModel> signers = null;
 
   @JsonProperty("status")
+	@SerializedName("status")
   private DocumentStatus status = null;
 
   @JsonProperty("type")
+	@SerializedName("type")
   private DocumentTypes type = null;
 
   public DocumentSignaturesInfoModel id(UUID id) {

@@ -12,18 +12,20 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets SignatureInitialsModes
  */
 public enum SignatureInitialsModes {
-  NONE("None"),
-  OPTIONAL("Optional"),
-  REQUIRED("Required");
+  @SerializedName("None")
+	NONE("None"),
+  @SerializedName("Optional")
+	OPTIONAL("Optional"),
+  @SerializedName("Required")
+	REQUIRED("Required");
 
   private String value;
 
