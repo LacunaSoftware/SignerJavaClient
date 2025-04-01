@@ -1,41 +1,53 @@
 package com.lacunasoftware.signer.javaclient;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.*;
-import java.lang.reflect.Field;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.lacunasoftware.signer.DocumentDownloadTypes;
+import com.lacunasoftware.signer.DocumentTicketType;
 import com.lacunasoftware.signer.InvoicesUpdateInvoicePaymentStatusRequest;
 import com.lacunasoftware.signer.TicketModel;
 import com.lacunasoftware.signer.documentmark.MarksSessionCreateRequest;
 import com.lacunasoftware.signer.documentmark.MarksSessionCreateResponse;
 import com.lacunasoftware.signer.documentmark.MarksSessionModel;
-import com.lacunasoftware.signer.DocumentTicketType;
-import com.lacunasoftware.signer.documents.*;
+import com.lacunasoftware.signer.documents.ActionUrlRequest;
+import com.lacunasoftware.signer.documents.ActionUrlResponse;
+import com.lacunasoftware.signer.documents.CancelDocumentRequest;
+import com.lacunasoftware.signer.documents.CreateDocumentRequest;
+import com.lacunasoftware.signer.documents.CreateDocumentResult;
+import com.lacunasoftware.signer.documents.DocumentAddVersionRequest;
+import com.lacunasoftware.signer.documents.DocumentFlowEditRequest;
+import com.lacunasoftware.signer.documents.DocumentListModel;
+import com.lacunasoftware.signer.documents.DocumentModel;
+import com.lacunasoftware.signer.documents.GenerateDocumentRequest;
+import com.lacunasoftware.signer.documents.GenerationDocumentResult;
 import com.lacunasoftware.signer.flowactions.DocumentFlowEditResponse;
-import com.lacunasoftware.signer.javaclient.params.DocumentListParameters;
-import com.lacunasoftware.signer.notifications.CreateFlowActionReminderRequest;
-import com.lacunasoftware.signer.folders.FolderInfoModel;
 import com.lacunasoftware.signer.folders.FolderCreateRequest;
-import com.lacunasoftware.signer.javaclient.responses.PaginatedSearchResponse;
-import com.lacunasoftware.signer.javaclient.responses.CompleteSignatureResponse;
-import com.lacunasoftware.signer.javaclient.responses.StartSignatureResponse;
+import com.lacunasoftware.signer.folders.FolderInfoModel;
+import com.lacunasoftware.signer.javaclient.exceptions.RestException;
 import com.lacunasoftware.signer.javaclient.folders.FolderDetailsModel;
 import com.lacunasoftware.signer.javaclient.models.UploadModel;
+import com.lacunasoftware.signer.javaclient.params.DocumentListParameters;
 import com.lacunasoftware.signer.javaclient.params.PaginatedSearchParams;
-import com.lacunasoftware.signer.javaclient.exceptions.RestException;
+import com.lacunasoftware.signer.javaclient.requests.CompleteSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.ElectronicSignatureRequest;
 import com.lacunasoftware.signer.javaclient.requests.SendElectronicSignatureAuthenticationRequest;
 import com.lacunasoftware.signer.javaclient.requests.StartSignatureRequest;
-import com.lacunasoftware.signer.javaclient.requests.CompleteSignatureRequest;
+import com.lacunasoftware.signer.javaclient.responses.CompleteSignatureResponse;
+import com.lacunasoftware.signer.javaclient.responses.PaginatedSearchResponse;
+import com.lacunasoftware.signer.javaclient.responses.StartSignatureResponse;
+import com.lacunasoftware.signer.notifications.CreateFlowActionReminderRequest;
 import com.lacunasoftware.signer.refusal.RefusalRequest;
 
 public class SignerClient {
@@ -186,7 +198,7 @@ public class SignerClient {
 
 	// region SIGNATURE
 
-	public StartSignatureResponse startPublicSignature(String key, StartSignatureRequest request) throws RestException {
+	public StartSignatureResponse startPublicSignature(String key, PublicStartSignatureRequest request) throws RestException {
 		String requestUri = String.format("/api/documents/keys/%s/signature/certificate", key);
 		StartSignatureResponse response = getRestClient().post(requestUri, request, StartSignatureResponse.class);
 		return response;

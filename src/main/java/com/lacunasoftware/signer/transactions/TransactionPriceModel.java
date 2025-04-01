@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.transactions;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.TransactionPricingTypes;
@@ -30,18 +31,23 @@ import java.util.List;
 
 public class TransactionPriceModel {
   @JsonProperty("transactionType")
+	@SerializedName("transactionType")
   private TransactionTypes transactionType = null;
 
   @JsonProperty("pricingType")
+	@SerializedName("pricingType")
   private TransactionPricingTypes pricingType = null;
 
   @JsonProperty("price")
+	@SerializedName("price")
   private Double price = null;
 
   @JsonProperty("priceRanges")
+	@SerializedName("priceRanges")
   private List<PriceRangeModel> priceRanges = null;
 
   @JsonProperty("limit")
+	@SerializedName("limit")
   private Integer limit = null;
 
   public TransactionPriceModel transactionType(TransactionTypes transactionType) {

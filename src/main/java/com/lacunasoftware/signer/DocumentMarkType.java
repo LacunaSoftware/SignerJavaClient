@@ -12,18 +12,20 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets DocumentMarkType
  */
 public enum DocumentMarkType {
-  SIGNATUREVISUALREPRESENTATION("SignatureVisualRepresentation"),
-  SIGNATUREINITIALS("SignatureInitials"),
-  AUTHENTICATIONSTAMP("AuthenticationStamp");
+  @SerializedName("SignatureVisualRepresentation")
+	SIGNATUREVISUALREPRESENTATION("SignatureVisualRepresentation"),
+  @SerializedName("SignatureInitials")
+	SIGNATUREINITIALS("SignatureInitials"),
+  @SerializedName("AuthenticationStamp")
+	AUTHENTICATIONSTAMP("AuthenticationStamp");
 
   private String value;
 

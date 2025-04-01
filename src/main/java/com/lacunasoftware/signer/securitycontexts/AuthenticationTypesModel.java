@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.securitycontexts;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -25,24 +26,31 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class AuthenticationTypesModel {
   @JsonProperty("sms")
+	@SerializedName("sms")
   private Boolean sms = null;
 
   @JsonProperty("whatsapp")
+	@SerializedName("whatsapp")
   private Boolean whatsapp = null;
 
   @JsonProperty("otp")
+	@SerializedName("otp")
   private Boolean otp = null;
 
   @JsonProperty("selfie")
+	@SerializedName("selfie")
   private Boolean selfie = null;
 
   @JsonProperty("datavalid")
+	@SerializedName("datavalid")
   private Boolean datavalid = null;
 
   @JsonProperty("pix")
+	@SerializedName("pix")
   private Boolean pix = null;
 
   @JsonProperty("email")
+	@SerializedName("email")
   private Boolean email = null;
 
   public AuthenticationTypesModel sms(Boolean sms) {

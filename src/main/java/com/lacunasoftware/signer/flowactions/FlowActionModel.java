@@ -12,24 +12,24 @@
 
 package com.lacunasoftware.signer.flowactions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Arrays;
+import java.util.UUID;
+
+import org.threeten.bp.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.ActionStatus;
 import com.lacunasoftware.signer.CertificateHolderTypes;
 import com.lacunasoftware.signer.CertificateTypes;
-import com.lacunasoftware.signer.documentmark.DocumentMarkPositionModel;
 import com.lacunasoftware.signer.FlowActionType;
-import com.lacunasoftware.signer.flowactions.SignRuleUserModel;
 import com.lacunasoftware.signer.SignatureInitialsModes;
+import com.lacunasoftware.signer.documentmark.DocumentMarkPositionModel;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 /**
  * FlowActionModel
  */
@@ -37,84 +37,111 @@ import org.threeten.bp.OffsetDateTime;
 
 public class FlowActionModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("creationDate")
+	@SerializedName("creationDate")
   private OffsetDateTime creationDate = null;
 
   @JsonProperty("pendingDate")
+	@SerializedName("pendingDate")
   private OffsetDateTime pendingDate = null;
 
   @JsonProperty("updateDate")
+	@SerializedName("updateDate")
   private OffsetDateTime updateDate = null;
 
   @JsonProperty("user")
+	@SerializedName("user")
   private ParticipantUserModel user = null;
 
   @JsonProperty("numberRequiredSignatures")
+	@SerializedName("numberRequiredSignatures")
   private Integer numberRequiredSignatures = null;
 
   @JsonProperty("signRuleUsers")
+	@SerializedName("signRuleUsers")
   private List<SignRuleUserModel> signRuleUsers = null;
 
   @JsonProperty("marks")
+	@SerializedName("marks")
   private List<DocumentMarkPositionModel> marks = null;
 
   @JsonProperty("allowElectronicSignature")
+	@SerializedName("allowElectronicSignature")
   private Boolean allowElectronicSignature = null;
 
   @JsonProperty("requireSmsAuthenticationToSignElectronically")
+	@SerializedName("requireSmsAuthenticationToSignElectronically")
   private Boolean requireSmsAuthenticationToSignElectronically = null;
 
   @JsonProperty("requireAuthenticatorAppToSignElectronically")
+	@SerializedName("requireAuthenticatorAppToSignElectronically")
   private Boolean requireAuthenticatorAppToSignElectronically = null;
 
   @JsonProperty("requireSelfieAuthenticationToSignElectronically")
+	@SerializedName("requireSelfieAuthenticationToSignElectronically")
   private Boolean requireSelfieAuthenticationToSignElectronically = null;
 
   @JsonProperty("requireDatavalidAuthenticationToSignElectronically")
+	@SerializedName("requireDatavalidAuthenticationToSignElectronically")
   private Boolean requireDatavalidAuthenticationToSignElectronically = null;
 
   @JsonProperty("requirePixAuthenticationToSignElectronically")
+	@SerializedName("requirePixAuthenticationToSignElectronically")
   private Boolean requirePixAuthenticationToSignElectronically = null;
 
   @JsonProperty("requiredCertificateTypeToSign")
+	@SerializedName("requiredCertificateTypeToSign")
   private CertificateTypes requiredCertificateTypeToSign = null;
 
   @JsonProperty("requireCompanyCertificate")
+	@SerializedName("requireCompanyCertificate")
   private Boolean requireCompanyCertificate = null;
 
   @JsonProperty("requiredCompanyIdentifier")
+	@SerializedName("requiredCompanyIdentifier")
   private String requiredCompanyIdentifier = null;
 
   @JsonProperty("requiredCertificateHolderTypeToSign")
+	@SerializedName("requiredCertificateHolderTypeToSign")
   private CertificateHolderTypes requiredCertificateHolderTypeToSign = null;
 
   @JsonProperty("refusalReason")
+	@SerializedName("refusalReason")
   private String refusalReason = null;
 
   @JsonProperty("signatureInitialsMode")
+	@SerializedName("signatureInitialsMode")
   private SignatureInitialsModes signatureInitialsMode = null;
 
   @JsonProperty("isElectronic")
+	@SerializedName("isElectronic")
   private Boolean isElectronic = null;
 
   @JsonProperty("allowRuleFlowToContinueIfRefused")
+	@SerializedName("allowRuleFlowToContinueIfRefused")
   private Boolean allowRuleFlowToContinueIfRefused = null;
 
   @JsonProperty("type")
+	@SerializedName("type")
   private FlowActionType type = null;
 
   @JsonProperty("status")
+	@SerializedName("status")
   private ActionStatus status = null;
 
   @JsonProperty("step")
+	@SerializedName("step")
   private Integer step = null;
 
   @JsonProperty("ruleName")
+	@SerializedName("ruleName")
   private String ruleName = null;
 
   @JsonProperty("title")
+	@SerializedName("title")
   private String title = null;
 
   public FlowActionModel id(UUID id) {

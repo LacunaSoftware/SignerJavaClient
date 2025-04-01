@@ -12,18 +12,20 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets OrganizationType
  */
 public enum OrganizationType {
-  NORMAL("Normal"),
-  PERSONAL("Personal"),
-  SHAREDWITHME("SharedWithMe");
+  @SerializedName("Normal")
+	NORMAL("Normal"),
+  @SerializedName("Personal")
+	PERSONAL("Personal"),
+  @SerializedName("SharedWithMe")
+	SHAREDWITHME("SharedWithMe");
 
   private String value;
 

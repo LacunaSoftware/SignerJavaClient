@@ -12,23 +12,30 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets WebhookTypes
  */
 public enum WebhookTypes {
-  DOCUMENTCONCLUDED("DocumentConcluded"),
-  INVOICECLOSED("InvoiceClosed"),
-  DOCUMENTREFUSED("DocumentRefused"),
-  DOCUMENTAPPROVED("DocumentApproved"),
-  DOCUMENTSIGNED("DocumentSigned"),
-  DOCUMENTCANCELED("DocumentCanceled"),
-  DOCUMENTEXPIRED("DocumentExpired"),
-  DOCUMENTSCREATED("DocumentsCreated");
+  @SerializedName("DocumentConcluded")
+	DOCUMENTCONCLUDED("DocumentConcluded"),
+  @SerializedName("InvoiceClosed")
+	INVOICECLOSED("InvoiceClosed"),
+  @SerializedName("DocumentRefused")
+	DOCUMENTREFUSED("DocumentRefused"),
+  @SerializedName("DocumentApproved")
+	DOCUMENTAPPROVED("DocumentApproved"),
+  @SerializedName("DocumentSigned")
+	DOCUMENTSIGNED("DocumentSigned"),
+  @SerializedName("DocumentCanceled")
+	DOCUMENTCANCELED("DocumentCanceled"),
+  @SerializedName("DocumentExpired")
+	DOCUMENTEXPIRED("DocumentExpired"),
+  @SerializedName("DocumentsCreated")
+	DOCUMENTSCREATED("DocumentsCreated");
 
   private String value;
 

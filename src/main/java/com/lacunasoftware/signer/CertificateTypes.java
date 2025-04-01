@@ -12,25 +12,34 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets CertificateTypes
  */
 public enum CertificateTypes {
-  A1("A1"),
-  A2("A2"),
-  A3("A3"),
-  A4("A4"),
-  S1("S1"),
-  S2("S2"),
-  S3("S3"),
-  S4("S4"),
-  T3("T3"),
-  T4("T4");
+  @SerializedName("A1")
+	A1("A1"),
+  @SerializedName("A2")
+	A2("A2"),
+  @SerializedName("A3")
+	A3("A3"),
+  @SerializedName("A4")
+	A4("A4"),
+  @SerializedName("S1")
+	S1("S1"),
+  @SerializedName("S2")
+	S2("S2"),
+  @SerializedName("S3")
+	S3("S3"),
+  @SerializedName("S4")
+	S4("S4"),
+  @SerializedName("T3")
+	T3("T3"),
+  @SerializedName("T4")
+	T4("T4");
 
   private String value;
 

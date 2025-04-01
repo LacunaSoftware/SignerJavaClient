@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.flowactions;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
@@ -27,12 +28,15 @@ import java.util.UUID;
 
 public class RectifiedParticipantModel {
   @JsonProperty("userId")
+	@SerializedName("userId")
   private UUID userId = null;
 
   @JsonProperty("requested")
+	@SerializedName("requested")
   private ParticipantUserModel requested = null;
 
   @JsonProperty("rectified")
+	@SerializedName("rectified")
   private ParticipantUserModel rectified = null;
 
   public RectifiedParticipantModel userId(UUID userId) {

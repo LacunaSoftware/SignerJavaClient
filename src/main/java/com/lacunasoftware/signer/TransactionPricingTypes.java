@@ -12,18 +12,20 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets TransactionPricingTypes
  */
 public enum TransactionPricingTypes {
-  NOCHARGE("NoCharge"),
-  SIMPLE("Simple"),
-  RANGE("Range");
+  @SerializedName("NoCharge")
+	NOCHARGE("NoCharge"),
+  @SerializedName("Simple")
+	SIMPLE("Simple"),
+  @SerializedName("Range")
+	RANGE("Range");
 
   private String value;
 

@@ -15,6 +15,7 @@ package com.lacunasoftware.signer;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.certificates.AttributeCertificateInfoModel;
@@ -31,42 +32,55 @@ import org.threeten.bp.OffsetDateTime;
 
 public class SignerModel {
   @JsonProperty("subjectName")
+	@SerializedName("subjectName")
   private String subjectName = null;
 
   @JsonProperty("emailAddress")
+	@SerializedName("emailAddress")
   private String emailAddress = null;
 
   @JsonProperty("issuerName")
+	@SerializedName("issuerName")
   private String issuerName = null;
 
   @JsonProperty("identifier")
+	@SerializedName("identifier")
   private String identifier = null;
 
   @JsonProperty("companyName")
+	@SerializedName("companyName")
   private String companyName = null;
 
   @JsonProperty("companyIdentifier")
+	@SerializedName("companyIdentifier")
   private String companyIdentifier = null;
 
   @JsonProperty("isElectronic")
+	@SerializedName("isElectronic")
   private Boolean isElectronic = null;
 
   @JsonProperty("isTimestamp")
+	@SerializedName("isTimestamp")
   private Boolean isTimestamp = null;
 
   @JsonProperty("signingTime")
+	@SerializedName("signingTime")
   private OffsetDateTime signingTime = null;
 
   @JsonProperty("certificateThumbprint")
+	@SerializedName("certificateThumbprint")
   private String certificateThumbprint = null;
 
   @JsonProperty("evidences")
+	@SerializedName("evidences")
   private EvidencesModel evidences = null;
 
   @JsonProperty("attributeCertificates")
+	@SerializedName("attributeCertificates")
   private List<AttributeCertificateInfoModel> attributeCertificates = null;
 
   @JsonProperty("validationResults")
+	@SerializedName("validationResults")
   private ValidationResultsModel validationResults = null;
 
   public SignerModel subjectName(String subjectName) {

@@ -12,17 +12,18 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets DeleteAction
  */
 public enum DeleteAction {
-  MOVECONTENT("MoveContent"),
-  DELETECONTENT("DeleteContent");
+  @SerializedName("MoveContent")
+	MOVECONTENT("MoveContent"),
+  @SerializedName("DeleteContent")
+	DELETECONTENT("DeleteContent");
 
   private String value;
 

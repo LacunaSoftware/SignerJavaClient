@@ -12,26 +12,36 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets DocumentTypes
  */
 public enum DocumentTypes {
-  DEED("Deed"),
-  POWEROFATTORNEY("PowerOfAttorney"),
-  PRESCRIPTION("Prescription"),
-  MEDICALCERTIFICATE("MedicalCertificate"),
-  EXAMREQUEST("ExamRequest"),
-  LABREPORT("LabReport"),
-  DISCHARGESUMMARY("DischargeSummary"),
-  CLINICALRECORD("ClinicalRecord"),
-  DRUGDISPENSING("DrugDispensing"),
-  VACCINATION("Vaccination"),
-  MEDICALREPORT("MedicalReport");
+  @SerializedName("Deed")
+	DEED("Deed"),
+  @SerializedName("PowerOfAttorney")
+	POWEROFATTORNEY("PowerOfAttorney"),
+  @SerializedName("Prescription")
+	PRESCRIPTION("Prescription"),
+  @SerializedName("MedicalCertificate")
+	MEDICALCERTIFICATE("MedicalCertificate"),
+  @SerializedName("ExamRequest")
+	EXAMREQUEST("ExamRequest"),
+  @SerializedName("LabReport")
+	LABREPORT("LabReport"),
+  @SerializedName("DischargeSummary")
+	DISCHARGESUMMARY("DischargeSummary"),
+  @SerializedName("ClinicalRecord")
+	CLINICALRECORD("ClinicalRecord"),
+  @SerializedName("DrugDispensing")
+	DRUGDISPENSING("DrugDispensing"),
+  @SerializedName("Vaccination")
+	VACCINATION("Vaccination"),
+  @SerializedName("MedicalReport")
+	MEDICALREPORT("MedicalReport");
 
   private String value;
 

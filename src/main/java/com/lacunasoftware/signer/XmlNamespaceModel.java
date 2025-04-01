@@ -15,6 +15,7 @@ package com.lacunasoftware.signer;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -25,9 +26,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class XmlNamespaceModel {
   @JsonProperty("prefix")
+	@SerializedName("prefix")
   private String prefix = null;
 
   @JsonProperty("uri")
+	@SerializedName("uri")
   private String uri = null;
 
   public XmlNamespaceModel prefix(String prefix) {

@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.folders;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.DeleteAction;
@@ -27,9 +28,11 @@ import java.util.UUID;
 
 public class FolderDeleteRequest {
   @JsonProperty("deleteAction")
+	@SerializedName("deleteAction")
   private DeleteAction deleteAction = null;
 
   @JsonProperty("destinationFolderId")
+	@SerializedName("destinationFolderId")
   private UUID destinationFolderId = null;
 
   public FolderDeleteRequest deleteAction(DeleteAction deleteAction) {

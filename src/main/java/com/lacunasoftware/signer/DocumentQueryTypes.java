@@ -12,20 +12,24 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets DocumentQueryTypes
  */
 public enum DocumentQueryTypes {
-  NAME("Name"),
-  KEY("Key"),
-  ID("Id"),
-  CREATORNAME("CreatorName"),
-  TAG("Tag");
+  @SerializedName("Name")
+	NAME("Name"),
+  @SerializedName("Key")
+	KEY("Key"),
+  @SerializedName("Id")
+	ID("Id"),
+  @SerializedName("CreatorName")
+	CREATORNAME("CreatorName"),
+  @SerializedName("Tag")
+	TAG("Tag");
 
   private String value;
 

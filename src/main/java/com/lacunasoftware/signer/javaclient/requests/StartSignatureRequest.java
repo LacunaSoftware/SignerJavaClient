@@ -1,18 +1,22 @@
 package com.lacunasoftware.signer.javaclient.requests;
 
+import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.javaclient.positions.PdfMarkPosition;
 
-import java.util.UUID;
-
 public class StartSignatureRequest {
 
+	@JsonProperty("flowActionId")
 	@SerializedName("flowActionId")
 	private UUID flowActionId;
 
+	@JsonProperty("certificate")
 	@SerializedName("certificate")
 	private byte[] certificate;
 
+	@JsonProperty("signaturePosition")
 	@SerializedName("signaturePosition")
 	private PdfMarkPosition signaturePosition;
 

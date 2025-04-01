@@ -12,19 +12,22 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets SignatureTypes
  */
 public enum SignatureTypes {
-  NONE("None"),
-  SIMPLE("Simple"),
-  ADVANCED("Advanced"),
-  QUALIFIED("Qualified");
+  @SerializedName("None")
+	NONE("None"),
+  @SerializedName("Simple")
+	SIMPLE("Simple"),
+  @SerializedName("Advanced")
+	ADVANCED("Advanced"),
+  @SerializedName("Qualified")
+	QUALIFIED("Qualified");
 
   private String value;
 

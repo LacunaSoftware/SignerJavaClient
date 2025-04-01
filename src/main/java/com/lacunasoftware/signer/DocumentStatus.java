@@ -12,21 +12,26 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets DocumentStatus
  */
 public enum DocumentStatus {
-  PENDING("Pending"),
-  REFUSED("Refused"),
-  FLOWCONCLUDED("FlowConcluded"),
-  CONCLUDED("Concluded"),
-  CANCELED("Canceled"),
-  EXPIRED("Expired");
+  @SerializedName("Pending")
+	PENDING("Pending"),
+  @SerializedName("Refused")
+	REFUSED("Refused"),
+  @SerializedName("FlowConcluded")
+	FLOWCONCLUDED("FlowConcluded"),
+  @SerializedName("Concluded")
+	CONCLUDED("Concluded"),
+  @SerializedName("Canceled")
+	CANCELED("Canceled"),
+  @SerializedName("Expired")
+	EXPIRED("Expired");
 
   private String value;
 

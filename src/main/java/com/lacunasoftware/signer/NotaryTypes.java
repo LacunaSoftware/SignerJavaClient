@@ -12,17 +12,18 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets NotaryTypes
  */
 public enum NotaryTypes {
-  TEST("Test"),
-  CNB("CNB");
+  @SerializedName("Test")
+	TEST("Test"),
+  @SerializedName("CNB")
+	CNB("CNB");
 
   private String value;
 

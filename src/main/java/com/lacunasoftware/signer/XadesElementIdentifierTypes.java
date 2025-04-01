@@ -12,17 +12,18 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets XadesElementIdentifierTypes
  */
 public enum XadesElementIdentifierTypes {
-  ID("Id"),
-  XPATH("XPath");
+  @SerializedName("Id")
+	ID("Id"),
+  @SerializedName("XPath")
+	XPATH("XPath");
 
   private String value;
 

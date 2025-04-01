@@ -13,11 +13,11 @@
 package com.lacunasoftware.signer.documentmark;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.DocumentMarkType;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * Model used to set the position of a document mark before it&#x27;s associated flow action is completed.
@@ -26,24 +26,31 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class PrePositionedDocumentMarkModel {
   @JsonProperty("type")
+	@SerializedName("type")
   private DocumentMarkType type = null;
 
   @JsonProperty("uploadId")
+	@SerializedName("uploadId")
   private String uploadId = null;
 
   @JsonProperty("topLeftX")
+	@SerializedName("topLeftX")
   private Double topLeftX = null;
 
   @JsonProperty("topLeftY")
+	@SerializedName("topLeftY")
   private Double topLeftY = null;
 
   @JsonProperty("width")
+	@SerializedName("width")
   private Double width = null;
 
   @JsonProperty("height")
+	@SerializedName("height")
   private Double height = null;
 
   @JsonProperty("pageNumber")
+	@SerializedName("pageNumber")
   private Integer pageNumber = null;
 
   public PrePositionedDocumentMarkModel type(DocumentMarkType type) {

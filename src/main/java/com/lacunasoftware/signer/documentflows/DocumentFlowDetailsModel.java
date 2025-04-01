@@ -12,19 +12,21 @@
 
 package com.lacunasoftware.signer.documentflows;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Arrays;
+import java.util.UUID;
+
+import org.threeten.bp.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
 import com.lacunasoftware.signer.documents.CreatorModel;
 import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
 import com.lacunasoftware.signer.observers.ObserverCreateModel;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 /**
  * DocumentFlowDetailsModel
  */
@@ -32,27 +34,35 @@ import org.threeten.bp.OffsetDateTime;
 
 public class DocumentFlowDetailsModel {
   @JsonProperty("areActionsOrdered")
+	@SerializedName("areActionsOrdered")
   private Boolean areActionsOrdered = null;
 
   @JsonProperty("flowActions")
+	@SerializedName("flowActions")
   private List<FlowActionCreateModel> flowActions = null;
 
   @JsonProperty("observers")
+	@SerializedName("observers")
   private List<ObserverCreateModel> observers = null;
 
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("creationDate")
+	@SerializedName("creationDate")
   private OffsetDateTime creationDate = null;
 
   @JsonProperty("updateDate")
+	@SerializedName("updateDate")
   private OffsetDateTime updateDate = null;
 
   @JsonProperty("createdBy")
+	@SerializedName("createdBy")
   private CreatorModel createdBy = null;
 
   public DocumentFlowDetailsModel areActionsOrdered(Boolean areActionsOrdered) {

@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.observers;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
@@ -27,9 +28,11 @@ import java.util.UUID;
 
 public class ObserverModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("user")
+	@SerializedName("user")
   private ParticipantUserModel user = null;
 
   public ObserverModel id(UUID id) {

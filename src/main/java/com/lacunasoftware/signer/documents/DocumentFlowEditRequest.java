@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.documents;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.flowactions.FlowActionCreateModel;
@@ -32,21 +33,27 @@ import java.util.UUID;
 
 public class DocumentFlowEditRequest {
   @JsonProperty("addedFlowActions")
+	@SerializedName("addedFlowActions")
   private List<FlowActionCreateModel> addedFlowActions = null;
 
   @JsonProperty("editedFlowActions")
+	@SerializedName("editedFlowActions")
   private List<FlowActionEditModel> editedFlowActions = null;
 
   @JsonProperty("deletedFlowActionIds")
+	@SerializedName("deletedFlowActionIds")
   private List<UUID> deletedFlowActionIds = null;
 
   @JsonProperty("addedObservers")
+	@SerializedName("addedObservers")
   private List<ObserverCreateModel> addedObservers = null;
 
   @JsonProperty("editedObservers")
+	@SerializedName("editedObservers")
   private List<ObserverEditModel> editedObservers = null;
 
   @JsonProperty("deletedObserverIds")
+	@SerializedName("deletedObserverIds")
   private List<UUID> deletedObserverIds = null;
 
   public DocumentFlowEditRequest addedFlowActions(List<FlowActionCreateModel> addedFlowActions) {

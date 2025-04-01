@@ -3,11 +3,16 @@ package com.lacunasoftware.signer.javaclient.folders;
 import java.util.List;
 import java.util.UUID;
 
+import com.google.gson.annotations.SerializedName;
+
 public class FolderAccessModel {
 	public enum Roles {
-		ADMIN("Admin"),
-		MANAGER("Manager"),
-		BASIC("Basic");
+	@SerializedName("Admin")
+	ADMIN("Admin"),
+	@SerializedName("Manager")
+	MANAGER("Manager"),
+	@SerializedName("Basic")
+	BASIC("Basic");
 
 		private String value;
 

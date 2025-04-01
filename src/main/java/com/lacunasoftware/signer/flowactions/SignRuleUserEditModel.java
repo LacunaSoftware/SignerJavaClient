@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.flowactions;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -26,9 +27,11 @@ import java.util.UUID;
 
 public class SignRuleUserEditModel {
   @JsonProperty("userId")
+	@SerializedName("userId")
   private UUID userId = null;
 
   @JsonProperty("emailAddress")
+	@SerializedName("emailAddress")
   private String emailAddress = null;
 
   public SignRuleUserEditModel userId(UUID userId) {

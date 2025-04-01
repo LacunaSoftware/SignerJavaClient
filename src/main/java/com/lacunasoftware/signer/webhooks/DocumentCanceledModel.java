@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.webhooks;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.agents.AgentModel;
@@ -31,30 +32,39 @@ import org.threeten.bp.OffsetDateTime;
 
 public class DocumentCanceledModel {
   @JsonProperty("canceledBy")
+	@SerializedName("canceledBy")
   private AgentModel canceledBy = null;
 
   @JsonProperty("reason")
+	@SerializedName("reason")
   private String reason = null;
 
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("creationDate")
+	@SerializedName("creationDate")
   private OffsetDateTime creationDate = null;
 
   @JsonProperty("updateDate")
+	@SerializedName("updateDate")
   private OffsetDateTime updateDate = null;
 
   @JsonProperty("folder")
+	@SerializedName("folder")
   private FolderInfoModel folder = null;
 
   @JsonProperty("organization")
+	@SerializedName("organization")
   private OrganizationInfoModel organization = null;
 
   @JsonProperty("createdBy")
+	@SerializedName("createdBy")
   private CreatorModel createdBy = null;
 
   public DocumentCanceledModel canceledBy(AgentModel canceledBy) {

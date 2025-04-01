@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.flowactions;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -26,12 +27,15 @@ import java.util.UUID;
 
 public class PendingActionModel {
   @JsonProperty("signerId")
+	@SerializedName("signerId")
   private UUID signerId = null;
 
   @JsonProperty("signRuleId")
+	@SerializedName("signRuleId")
   private UUID signRuleId = null;
 
   @JsonProperty("approverId")
+	@SerializedName("approverId")
   private UUID approverId = null;
 
   public PendingActionModel signerId(UUID signerId) {

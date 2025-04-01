@@ -12,17 +12,18 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets PaginationOrders
  */
 public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
+  @SerializedName("Asc")
+	ASC("Asc"),
+  @SerializedName("Desc")
+	DESC("Desc");
 
   private String value;
 

@@ -12,16 +12,14 @@
 
 package com.lacunasoftware.signer.healthdocuments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.signer.healthdocuments.HealthItemModel;
-import com.lacunasoftware.signer.healthdocuments.HealthProfessionalModel;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * This option is only valid for the following document types: Prescription, MedicalCertificate, ExamRequest, LabReport, DischargeSummary, ClinicalRecord, DrugDispensing, Vaccination and MedicalReport
  */
@@ -29,9 +27,11 @@ import java.util.List;
 
 public class HealthDocumentData {
   @JsonProperty("professional")
+	@SerializedName("professional")
   private HealthProfessionalModel professional = null;
 
   @JsonProperty("items")
+	@SerializedName("items")
   private List<HealthItemModel> items = null;
 
   public HealthDocumentData professional(HealthProfessionalModel professional) {

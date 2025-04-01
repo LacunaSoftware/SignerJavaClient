@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.documents;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -27,30 +28,39 @@ import org.threeten.bp.OffsetDateTime;
 
 public class DocumentFileModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("isSigned")
+	@SerializedName("isSigned")
   private Boolean isSigned = null;
 
   @JsonProperty("isEnvelopePart")
+	@SerializedName("isEnvelopePart")
   private Boolean isEnvelopePart = null;
 
   @JsonProperty("envelopeStartPage")
+	@SerializedName("envelopeStartPage")
   private Integer envelopeStartPage = null;
 
   @JsonProperty("numberPages")
+	@SerializedName("numberPages")
   private Integer numberPages = null;
 
   @JsonProperty("mimeType")
+	@SerializedName("mimeType")
   private String mimeType = null;
 
   @JsonProperty("filename")
+	@SerializedName("filename")
   private String filename = null;
 
   @JsonProperty("creationDate")
+	@SerializedName("creationDate")
   private OffsetDateTime creationDate = null;
 
   public DocumentFileModel id(UUID id) {

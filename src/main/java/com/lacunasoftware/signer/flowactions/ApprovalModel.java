@@ -13,13 +13,14 @@
 package com.lacunasoftware.signer.flowactions;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+
 import org.threeten.bp.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * ApprovalModel
  */
@@ -27,21 +28,27 @@ import org.threeten.bp.OffsetDateTime;
 
 public class ApprovalModel {
   @JsonProperty("flowActionId")
+	@SerializedName("flowActionId")
   private UUID flowActionId = null;
 
   @JsonProperty("date")
+	@SerializedName("date")
   private OffsetDateTime date = null;
 
   @JsonProperty("userId")
+	@SerializedName("userId")
   private UUID userId = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("identifier")
+	@SerializedName("identifier")
   private String identifier = null;
 
   @JsonProperty("emailAddress")
+	@SerializedName("emailAddress")
   private String emailAddress = null;
 
   public ApprovalModel flowActionId(UUID flowActionId) {

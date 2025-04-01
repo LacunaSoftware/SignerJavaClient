@@ -12,21 +12,26 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets DocumentDownloadTypes
  */
 public enum DocumentDownloadTypes {
-  ORIGINAL("Original"),
-  PRINTERFRIENDLYVERSION("PrinterFriendlyVersion"),
-  SIGNATURES("Signatures"),
-  ORIGINALWITHMARKS("OriginalWithMarks"),
-  SIGNINGTAGS("SigningTags"),
-  SIGNATUREMARKS("SignatureMarks");
+  @SerializedName("Original")
+	ORIGINAL("Original"),
+  @SerializedName("PrinterFriendlyVersion")
+	PRINTERFRIENDLYVERSION("PrinterFriendlyVersion"),
+  @SerializedName("Signatures")
+	SIGNATURES("Signatures"),
+  @SerializedName("OriginalWithMarks")
+	ORIGINALWITHMARKS("OriginalWithMarks"),
+  @SerializedName("SigningTags")
+	SIGNINGTAGS("SigningTags"),
+  @SerializedName("SignatureMarks")
+	SIGNATUREMARKS("SignatureMarks");
 
   private String value;
 

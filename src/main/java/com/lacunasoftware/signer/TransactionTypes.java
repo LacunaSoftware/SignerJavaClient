@@ -12,25 +12,34 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets TransactionTypes
  */
 public enum TransactionTypes {
-  DOCUMENT("Document"),
-  SIGNATURE("Signature"),
-  ELECTRONICSIGNATURE("ElectronicSignature"),
-  APPROVAL("Approval"),
-  NOTARIZATION("Notarization"),
-  TIMESTAMPER("Timestamper"),
-  SMS("Sms"),
-  DATAVALID("Datavalid"),
-  PIXAUTHENTICATION("PixAuthentication"),
-  ENVELOPE("Envelope");
+  @SerializedName("Document")
+	DOCUMENT("Document"),
+  @SerializedName("Signature")
+	SIGNATURE("Signature"),
+  @SerializedName("ElectronicSignature")
+	ELECTRONICSIGNATURE("ElectronicSignature"),
+  @SerializedName("Approval")
+	APPROVAL("Approval"),
+  @SerializedName("Notarization")
+	NOTARIZATION("Notarization"),
+  @SerializedName("Timestamper")
+	TIMESTAMPER("Timestamper"),
+  @SerializedName("Sms")
+	SMS("Sms"),
+  @SerializedName("Datavalid")
+	DATAVALID("Datavalid"),
+  @SerializedName("PixAuthentication")
+	PIXAUTHENTICATION("PixAuthentication"),
+  @SerializedName("Envelope")
+	ENVELOPE("Envelope");
 
   private String value;
 

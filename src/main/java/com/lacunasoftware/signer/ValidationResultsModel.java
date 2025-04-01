@@ -15,6 +15,7 @@ package com.lacunasoftware.signer;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.ValidationItemModel;
@@ -28,15 +29,19 @@ import java.util.List;
 
 public class ValidationResultsModel {
   @JsonProperty("passedChecks")
+	@SerializedName("passedChecks")
   private List<ValidationItemModel> passedChecks = null;
 
   @JsonProperty("errors")
+	@SerializedName("errors")
   private List<ValidationItemModel> errors = null;
 
   @JsonProperty("warnings")
+	@SerializedName("warnings")
   private List<ValidationItemModel> warnings = null;
 
   @JsonProperty("isValid")
+	@SerializedName("isValid")
   private Boolean isValid = null;
 
   public ValidationResultsModel passedChecks(List<ValidationItemModel> passedChecks) {

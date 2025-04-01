@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.securitycontexts;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.securitycontexts.AuthenticationTypesModel;
@@ -27,24 +28,31 @@ import java.util.UUID;
 
 public class SecurityContextSimpleModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("englishName")
+	@SerializedName("englishName")
   private String englishName = null;
 
   @JsonProperty("portugueseName")
+	@SerializedName("portugueseName")
   private String portugueseName = null;
 
   @JsonProperty("spanishName")
+	@SerializedName("spanishName")
   private String spanishName = null;
 
   @JsonProperty("allowDigitalSignature")
+	@SerializedName("allowDigitalSignature")
   private Boolean allowDigitalSignature = null;
 
   @JsonProperty("allowedElectronicTypes")
+	@SerializedName("allowedElectronicTypes")
   private AuthenticationTypesModel allowedElectronicTypes = null;
 
   public SecurityContextSimpleModel id(UUID id) {

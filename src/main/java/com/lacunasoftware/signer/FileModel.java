@@ -15,6 +15,7 @@ package com.lacunasoftware.signer;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -26,15 +27,19 @@ import java.util.UUID;
 
 public class FileModel {
   @JsonProperty("location")
+	@SerializedName("location")
   private String location = null;
 
   @JsonProperty("id")
+	@SerializedName("id")
   private UUID id = null;
 
   @JsonProperty("name")
+	@SerializedName("name")
   private String name = null;
 
   @JsonProperty("contentType")
+	@SerializedName("contentType")
   private String contentType = null;
 
   public FileModel location(String location) {

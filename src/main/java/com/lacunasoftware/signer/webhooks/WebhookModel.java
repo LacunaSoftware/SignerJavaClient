@@ -15,6 +15,7 @@ package com.lacunasoftware.signer.webhooks;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.WebhookTypes;
@@ -26,9 +27,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class WebhookModel {
   @JsonProperty("type")
+	@SerializedName("type")
   private WebhookTypes type = null;
 
   @JsonProperty("data")
+	@SerializedName("data")
   private Object data = null;
 
   public WebhookModel type(WebhookTypes type) {

@@ -13,10 +13,10 @@
 package com.lacunasoftware.signer.documentmark;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * UploadTicketModel
@@ -25,9 +25,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class UploadTicketModel {
   @JsonProperty("id")
+	@SerializedName("id")
   private String id = null;
 
   @JsonProperty("location")
+	@SerializedName("location")
   private String location = null;
 
   public UploadTicketModel id(String id) {

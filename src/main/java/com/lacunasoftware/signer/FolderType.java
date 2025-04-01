@@ -12,17 +12,18 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets FolderType
  */
 public enum FolderType {
-  NORMAL("Normal"),
-  WITHOUTFOLDER("WithoutFolder");
+  @SerializedName("Normal")
+	NORMAL("Normal"),
+  @SerializedName("WithoutFolder")
+	WITHOUTFOLDER("WithoutFolder");
 
   private String value;
 

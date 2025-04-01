@@ -12,17 +12,18 @@
 
 package com.lacunasoftware.signer;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Gets or Sets CertificateHolderTypes
  */
 public enum CertificateHolderTypes {
-  INDIVIDUAL("Individual"),
-  COMPANY("Company");
+  @SerializedName("Individual")
+	INDIVIDUAL("Individual"),
+  @SerializedName("Company")
+	COMPANY("Company");
 
   private String value;
 
