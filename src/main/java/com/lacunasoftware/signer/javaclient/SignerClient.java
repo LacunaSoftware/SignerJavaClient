@@ -230,6 +230,11 @@ public class SignerClient {
 		String requestUri = String.format("/api/documents/%s/electronic-signature", id.toString());
 		getRestClient().post(requestUri, request);
 	}
+
+	public void signElectronicallyWithKey(String key, ElectronicSignatureRequest request) throws RestException {
+		String requestUri = String.format("/api/documents/keys/%s/electronic-signature", key);
+		getRestClient().post(requestUri, request);
+	}
 	
 	// endregion
 
