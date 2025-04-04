@@ -13,7 +13,7 @@ The recommended way to install it is with Gradle:
     }
 
     dependencies {
-        implementation("com.lacunasoftware.signer:signer-client:2.11.0")
+        implementation("com.lacunasoftware.signer:signer-client:2.12.0")
         ...
     }
 
@@ -22,7 +22,7 @@ Or with Maven:
     <dependency>
         <groupId>com.lacunasoftware.signer</groupId>
         <artifactId>signer-client</artifactId>
-        <version>2.11.0</version>
+        <version>2.12.0</version>
         <type>pom</type>
     </dependency>
 
