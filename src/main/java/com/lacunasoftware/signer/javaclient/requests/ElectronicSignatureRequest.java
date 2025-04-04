@@ -74,6 +74,12 @@ public class ElectronicSignatureRequest {
     @SerializedName("userTimeZoneOffset")
     private Integer userTimeZoneOffset;
 
+	@SerializedName("ticket")
+	public String Ticket;
+
+	@SerializedName("disableNotifications")
+	public boolean DisableNotifications;
+
 	public UUID getFlowActionId() {
 		return flowActionId;
 	}
@@ -184,6 +190,22 @@ public class ElectronicSignatureRequest {
 
 	public void setUserTimeZoneOffset(Integer userTimeZoneOffset) {
 		this.userTimeZoneOffset = userTimeZoneOffset;
+	}
+
+	public boolean isDisableNotifications() {
+		return DisableNotifications;
+	}
+
+	public void setDisableNotifications(boolean disableNotifications) {
+		DisableNotifications = disableNotifications;
+	}
+
+	public String getTicket() {
+		return Ticket;
+	}
+
+	public void setTicket(String ticket) {
+		Ticket = ticket;
 	}
 
 	
