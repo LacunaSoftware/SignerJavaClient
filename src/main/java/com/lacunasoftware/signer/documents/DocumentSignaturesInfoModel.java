@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.threeten.bp.OffsetDateTime;
+import com.lacunasoftware.signer.securitycontexts.SecurityContextSimpleModel;
+import com.lacunasoftware.signer.SignatureTypes;
 /**
  * DocumentSignaturesInfoModel
  */
@@ -84,6 +86,14 @@ public class DocumentSignaturesInfoModel {
   @JsonProperty("type")
 	@SerializedName("type")
   private DocumentTypes type = null;
+
+  @JsonProperty("signatureType")
+	@SerializedName("signatureType")
+  private SignatureTypes signatureType = null;
+
+  @JsonProperty("securityContext")
+	@SerializedName("securityContext")
+  private SecurityContextSimpleModel securityContext = null;
 
   public DocumentSignaturesInfoModel id(UUID id) {
     this.id = id;
@@ -328,6 +338,42 @@ public class DocumentSignaturesInfoModel {
   }
 
 
+  public DocumentSignaturesInfoModel signatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+    return this;
+  }
+
+   /**
+   * Get signatureType
+   * @return signatureType
+  **/
+  @Schema(description = "")
+  public SignatureTypes getSignatureType() {
+    return signatureType;
+  }
+
+  public void setSignatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+  }
+
+  public DocumentSignaturesInfoModel securityContext(SecurityContextSimpleModel securityContext) {
+    this.securityContext = securityContext;
+    return this;
+  }
+
+   /**
+   * Get securityContext
+   * @return securityContext
+  **/
+  @Schema(description = "")
+  public SecurityContextSimpleModel getSecurityContext() {
+    return securityContext;
+  }
+
+  public void setSecurityContext(SecurityContextSimpleModel securityContext) {
+    this.securityContext = securityContext;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -349,12 +395,14 @@ public class DocumentSignaturesInfoModel {
         Objects.equals(this.updateDate, documentsDocumentSignaturesInfoModel.updateDate) &&
         Objects.equals(this.signers, documentsDocumentSignaturesInfoModel.signers) &&
         Objects.equals(this.status, documentsDocumentSignaturesInfoModel.status) &&
-        Objects.equals(this.type, documentsDocumentSignaturesInfoModel.type);
+        Objects.equals(this.type, documentsDocumentSignaturesInfoModel.type) &&
+        Objects.equals(this.signatureType, documentsDocumentSignaturesInfoModel.signatureType) &&
+        Objects.equals(this.securityContext, documentsDocumentSignaturesInfoModel.securityContext);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, filename, mimeType, createdBy, isConcluded, isFile, isEnvelope, creationDate, updateDate, signers, status, type);
+    return Objects.hash(id, name, filename, mimeType, createdBy, isConcluded, isFile, isEnvelope, creationDate, updateDate, signers, status, type, signatureType, securityContext);
   }
 
 
@@ -376,6 +424,8 @@ public class DocumentSignaturesInfoModel {
     sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
+    sb.append("    securityContext: ").append(toIndentedString(securityContext)).append("\n");
     sb.append("}");
     return sb.toString();
   }

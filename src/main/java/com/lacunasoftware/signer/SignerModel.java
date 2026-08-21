@@ -25,6 +25,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import org.threeten.bp.OffsetDateTime;
+import com.lacunasoftware.signer.IdentifierTypes;
+import com.lacunasoftware.signer.TimestampModel;
 /**
  * SignerModel
  */
@@ -82,6 +84,26 @@ public class SignerModel {
   @JsonProperty("validationResults")
 	@SerializedName("validationResults")
   private ValidationResultsModel validationResults = null;
+
+  @JsonProperty("identifierType")
+	@SerializedName("identifierType")
+  private IdentifierTypes identifierType = null;
+
+  @JsonProperty("validityStart")
+	@SerializedName("validityStart")
+  private OffsetDateTime validityStart = null;
+
+  @JsonProperty("validityEnd")
+	@SerializedName("validityEnd")
+  private OffsetDateTime validityEnd = null;
+
+  @JsonProperty("signatureTimestamps")
+	@SerializedName("signatureTimestamps")
+  private List<TimestampModel> signatureTimestamps = null;
+
+  @JsonProperty("archiveTimestamps")
+	@SerializedName("archiveTimestamps")
+  private List<TimestampModel> archiveTimestamps = null;
 
   public SignerModel subjectName(String subjectName) {
     this.subjectName = subjectName;
@@ -326,6 +348,112 @@ public class SignerModel {
   }
 
 
+  public SignerModel identifierType(IdentifierTypes identifierType) {
+    this.identifierType = identifierType;
+    return this;
+  }
+
+   /**
+   * Get identifierType
+   * @return identifierType
+  **/
+  @Schema(description = "")
+  public IdentifierTypes getIdentifierType() {
+    return identifierType;
+  }
+
+  public void setIdentifierType(IdentifierTypes identifierType) {
+    this.identifierType = identifierType;
+  }
+
+  public SignerModel validityStart(OffsetDateTime validityStart) {
+    this.validityStart = validityStart;
+    return this;
+  }
+
+   /**
+   * Get validityStart
+   * @return validityStart
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getValidityStart() {
+    return validityStart;
+  }
+
+  public void setValidityStart(OffsetDateTime validityStart) {
+    this.validityStart = validityStart;
+  }
+
+  public SignerModel validityEnd(OffsetDateTime validityEnd) {
+    this.validityEnd = validityEnd;
+    return this;
+  }
+
+   /**
+   * Get validityEnd
+   * @return validityEnd
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getValidityEnd() {
+    return validityEnd;
+  }
+
+  public void setValidityEnd(OffsetDateTime validityEnd) {
+    this.validityEnd = validityEnd;
+  }
+
+  public SignerModel signatureTimestamps(List<TimestampModel> signatureTimestamps) {
+    this.signatureTimestamps = signatureTimestamps;
+    return this;
+  }
+
+  public SignerModel addSignatureTimestampsItem(TimestampModel signatureTimestampsItem) {
+    if (this.signatureTimestamps == null) {
+      this.signatureTimestamps = new ArrayList<TimestampModel>();
+    }
+    this.signatureTimestamps.add(signatureTimestampsItem);
+    return this;
+  }
+
+   /**
+   * Get signatureTimestamps
+   * @return signatureTimestamps
+  **/
+  @Schema(description = "")
+  public List<TimestampModel> getSignatureTimestamps() {
+    return signatureTimestamps;
+  }
+
+  public void setSignatureTimestamps(List<TimestampModel> signatureTimestamps) {
+    this.signatureTimestamps = signatureTimestamps;
+  }
+
+  public SignerModel archiveTimestamps(List<TimestampModel> archiveTimestamps) {
+    this.archiveTimestamps = archiveTimestamps;
+    return this;
+  }
+
+  public SignerModel addArchiveTimestampsItem(TimestampModel archiveTimestampsItem) {
+    if (this.archiveTimestamps == null) {
+      this.archiveTimestamps = new ArrayList<TimestampModel>();
+    }
+    this.archiveTimestamps.add(archiveTimestampsItem);
+    return this;
+  }
+
+   /**
+   * Get archiveTimestamps
+   * @return archiveTimestamps
+  **/
+  @Schema(description = "")
+  public List<TimestampModel> getArchiveTimestamps() {
+    return archiveTimestamps;
+  }
+
+  public void setArchiveTimestamps(List<TimestampModel> archiveTimestamps) {
+    this.archiveTimestamps = archiveTimestamps;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -347,12 +475,17 @@ public class SignerModel {
         Objects.equals(this.certificateThumbprint, signerModel.certificateThumbprint) &&
         Objects.equals(this.evidences, signerModel.evidences) &&
         Objects.equals(this.attributeCertificates, signerModel.attributeCertificates) &&
-        Objects.equals(this.validationResults, signerModel.validationResults);
+        Objects.equals(this.validationResults, signerModel.validationResults) &&
+        Objects.equals(this.identifierType, signerModel.identifierType) &&
+        Objects.equals(this.validityStart, signerModel.validityStart) &&
+        Objects.equals(this.validityEnd, signerModel.validityEnd) &&
+        Objects.equals(this.signatureTimestamps, signerModel.signatureTimestamps) &&
+        Objects.equals(this.archiveTimestamps, signerModel.archiveTimestamps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subjectName, emailAddress, issuerName, identifier, companyName, companyIdentifier, isElectronic, isTimestamp, signingTime, certificateThumbprint, evidences, attributeCertificates, validationResults);
+    return Objects.hash(subjectName, emailAddress, issuerName, identifier, companyName, companyIdentifier, isElectronic, isTimestamp, signingTime, certificateThumbprint, evidences, attributeCertificates, validationResults, identifierType, validityStart, validityEnd, signatureTimestamps, archiveTimestamps);
   }
 
 
@@ -374,6 +507,11 @@ public class SignerModel {
     sb.append("    evidences: ").append(toIndentedString(evidences)).append("\n");
     sb.append("    attributeCertificates: ").append(toIndentedString(attributeCertificates)).append("\n");
     sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
+    sb.append("    identifierType: ").append(toIndentedString(identifierType)).append("\n");
+    sb.append("    validityStart: ").append(toIndentedString(validityStart)).append("\n");
+    sb.append("    validityEnd: ").append(toIndentedString(validityEnd)).append("\n");
+    sb.append("    signatureTimestamps: ").append(toIndentedString(signatureTimestamps)).append("\n");
+    sb.append("    archiveTimestamps: ").append(toIndentedString(archiveTimestamps)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.users.ParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+import com.lacunasoftware.signer.NotificationLanguage;
 /**
  * ObserverModel
  */
@@ -34,6 +35,10 @@ public class ObserverModel {
   @JsonProperty("user")
 	@SerializedName("user")
   private ParticipantUserModel user = null;
+
+  @JsonProperty("notificationLanguage")
+	@SerializedName("notificationLanguage")
+  private NotificationLanguage notificationLanguage = null;
 
   public ObserverModel id(UUID id) {
     this.id = id;
@@ -72,6 +77,24 @@ public class ObserverModel {
   }
 
 
+  public ObserverModel notificationLanguage(NotificationLanguage notificationLanguage) {
+    this.notificationLanguage = notificationLanguage;
+    return this;
+  }
+
+   /**
+   * Get notificationLanguage
+   * @return notificationLanguage
+  **/
+  @Schema(description = "")
+  public NotificationLanguage getNotificationLanguage() {
+    return notificationLanguage;
+  }
+
+  public void setNotificationLanguage(NotificationLanguage notificationLanguage) {
+    this.notificationLanguage = notificationLanguage;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -82,12 +105,13 @@ public class ObserverModel {
     }
     ObserverModel observersObserverModel = (ObserverModel) o;
     return Objects.equals(this.id, observersObserverModel.id) &&
-        Objects.equals(this.user, observersObserverModel.user);
+        Objects.equals(this.user, observersObserverModel.user) &&
+        Objects.equals(this.notificationLanguage, observersObserverModel.notificationLanguage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, user);
+    return Objects.hash(id, user, notificationLanguage);
   }
 
 
@@ -98,6 +122,7 @@ public class ObserverModel {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("    notificationLanguage: ").append(toIndentedString(notificationLanguage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

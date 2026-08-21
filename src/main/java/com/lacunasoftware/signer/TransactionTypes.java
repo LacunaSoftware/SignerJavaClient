@@ -39,7 +39,15 @@ public enum TransactionTypes {
   @SerializedName("PixAuthentication")
 	PIXAUTHENTICATION("PixAuthentication"),
   @SerializedName("Envelope")
-	ENVELOPE("Envelope");
+	ENVELOPE("Envelope"),
+  @SerializedName("Whatsapp")
+	WHATSAPP("Whatsapp"),
+  @SerializedName("Liveness")
+	LIVENESS("Liveness"),
+  @SerializedName("IdScan")
+	IDSCAN("IdScan"),
+  @SerializedName("IdScanSelfie")
+	IDSCANSELFIE("IdScanSelfie");
 
   private String value;
 

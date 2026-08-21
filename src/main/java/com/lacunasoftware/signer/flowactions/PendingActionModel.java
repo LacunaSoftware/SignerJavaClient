@@ -38,6 +38,10 @@ public class PendingActionModel {
 	@SerializedName("approverId")
   private UUID approverId = null;
 
+  @JsonProperty("approverRuleId")
+	@SerializedName("approverRuleId")
+  private UUID approverRuleId = null;
+
   public PendingActionModel signerId(UUID signerId) {
     this.signerId = signerId;
     return this;
@@ -93,6 +97,24 @@ public class PendingActionModel {
   }
 
 
+  public PendingActionModel approverRuleId(UUID approverRuleId) {
+    this.approverRuleId = approverRuleId;
+    return this;
+  }
+
+   /**
+   * Get approverRuleId
+   * @return approverRuleId
+  **/
+  @Schema(description = "")
+  public UUID getApproverRuleId() {
+    return approverRuleId;
+  }
+
+  public void setApproverRuleId(UUID approverRuleId) {
+    this.approverRuleId = approverRuleId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -104,12 +126,13 @@ public class PendingActionModel {
     PendingActionModel flowActionsPendingActionModel = (PendingActionModel) o;
     return Objects.equals(this.signerId, flowActionsPendingActionModel.signerId) &&
         Objects.equals(this.signRuleId, flowActionsPendingActionModel.signRuleId) &&
-        Objects.equals(this.approverId, flowActionsPendingActionModel.approverId);
+        Objects.equals(this.approverId, flowActionsPendingActionModel.approverId) &&
+        Objects.equals(this.approverRuleId, flowActionsPendingActionModel.approverRuleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signerId, signRuleId, approverId);
+    return Objects.hash(signerId, signRuleId, approverId, approverRuleId);
   }
 
 
@@ -121,6 +144,7 @@ public class PendingActionModel {
     sb.append("    signerId: ").append(toIndentedString(signerId)).append("\n");
     sb.append("    signRuleId: ").append(toIndentedString(signRuleId)).append("\n");
     sb.append("    approverId: ").append(toIndentedString(approverId)).append("\n");
+    sb.append("    approverRuleId: ").append(toIndentedString(approverRuleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,6 +31,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.threeten.bp.OffsetDateTime;
+import com.lacunasoftware.signer.PdfAProfile;
+import com.lacunasoftware.signer.SignatureTypes;
+import java.util.HashMap;
+import java.util.Map;
 /**
  * CreateDocumentRequest
  */
@@ -104,6 +108,34 @@ public class CreateDocumentRequest {
   @JsonProperty("expirationDate")
 	@SerializedName("expirationDate")
   private OffsetDateTime expirationDate = null;
+
+  @JsonProperty("templateFieldValues")
+	@SerializedName("templateFieldValues")
+  private Map<String, String> templateFieldValues = null;
+
+  @JsonProperty("disableNotifications")
+	@SerializedName("disableNotifications")
+  private Boolean disableNotifications = null;
+
+  @JsonProperty("signatureType")
+	@SerializedName("signatureType")
+  private SignatureTypes signatureType = null;
+
+  @JsonProperty("securityContextId")
+	@SerializedName("securityContextId")
+  private UUID securityContextId = null;
+
+  @JsonProperty("templateId")
+	@SerializedName("templateId")
+  private UUID templateId = null;
+
+  @JsonProperty("convertToPdfA")
+	@SerializedName("convertToPdfA")
+  private Boolean convertToPdfA = null;
+
+  @JsonProperty("pdfAProfile")
+	@SerializedName("pdfAProfile")
+  private PdfAProfile pdfAProfile = null;
 
   public CreateDocumentRequest files(List<FileUploadModel> files) {
     this.files = files;
@@ -462,6 +494,140 @@ public class CreateDocumentRequest {
   }
 
 
+  public CreateDocumentRequest templateFieldValues(Map<String, String> templateFieldValues) {
+    this.templateFieldValues = templateFieldValues;
+    return this;
+  }
+
+  public CreateDocumentRequest putTemplateFieldValuesItem(String key, String templateFieldValuesItem) {
+    if (this.templateFieldValues == null) {
+      this.templateFieldValues = new HashMap<String, String>();
+    }
+    this.templateFieldValues.put(key, templateFieldValuesItem);
+    return this;
+  }
+
+   /**
+   * Get templateFieldValues
+   * @return templateFieldValues
+  **/
+  @Schema(description = "")
+  public Map<String, String> getTemplateFieldValues() {
+    return templateFieldValues;
+  }
+
+  public void setTemplateFieldValues(Map<String, String> templateFieldValues) {
+    this.templateFieldValues = templateFieldValues;
+  }
+
+  public CreateDocumentRequest disableNotifications(Boolean disableNotifications) {
+    this.disableNotifications = disableNotifications;
+    return this;
+  }
+
+   /**
+   * If true, no notifications will be sent to participants of this document.
+   * @return disableNotifications
+  **/
+  @Schema(description = "If true, no notifications will be sent to participants of this document.")
+  public Boolean isDisableNotifications() {
+    return disableNotifications;
+  }
+
+  public void setDisableNotifications(Boolean disableNotifications) {
+    this.disableNotifications = disableNotifications;
+  }
+
+  public CreateDocumentRequest signatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+    return this;
+  }
+
+   /**
+   * Get signatureType
+   * @return signatureType
+  **/
+  @Schema(description = "")
+  public SignatureTypes getSignatureType() {
+    return signatureType;
+  }
+
+  public void setSignatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+  }
+
+  public CreateDocumentRequest securityContextId(UUID securityContextId) {
+    this.securityContextId = securityContextId;
+    return this;
+  }
+
+   /**
+   * Get securityContextId
+   * @return securityContextId
+  **/
+  @Schema(description = "")
+  public UUID getSecurityContextId() {
+    return securityContextId;
+  }
+
+  public void setSecurityContextId(UUID securityContextId) {
+    this.securityContextId = securityContextId;
+  }
+
+  public CreateDocumentRequest templateId(UUID templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * Get templateId
+   * @return templateId
+  **/
+  @Schema(description = "")
+  public UUID getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(UUID templateId) {
+    this.templateId = templateId;
+  }
+
+  public CreateDocumentRequest convertToPdfA(Boolean convertToPdfA) {
+    this.convertToPdfA = convertToPdfA;
+    return this;
+  }
+
+   /**
+   * Get convertToPdfA
+   * @return convertToPdfA
+  **/
+  @Schema(description = "")
+  public Boolean isConvertToPdfA() {
+    return convertToPdfA;
+  }
+
+  public void setConvertToPdfA(Boolean convertToPdfA) {
+    this.convertToPdfA = convertToPdfA;
+  }
+
+  public CreateDocumentRequest pdfAProfile(PdfAProfile pdfAProfile) {
+    this.pdfAProfile = pdfAProfile;
+    return this;
+  }
+
+   /**
+   * Get pdfAProfile
+   * @return pdfAProfile
+  **/
+  @Schema(description = "")
+  public PdfAProfile getPdfAProfile() {
+    return pdfAProfile;
+  }
+
+  public void setPdfAProfile(PdfAProfile pdfAProfile) {
+    this.pdfAProfile = pdfAProfile;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -487,12 +653,19 @@ public class CreateDocumentRequest {
         Objects.equals(this.notifiedEmails, documentsCreateDocumentRequest.notifiedEmails) &&
         Objects.equals(this.additionalInfo, documentsCreateDocumentRequest.additionalInfo) &&
         Objects.equals(this.tags, documentsCreateDocumentRequest.tags) &&
-        Objects.equals(this.expirationDate, documentsCreateDocumentRequest.expirationDate);
+        Objects.equals(this.expirationDate, documentsCreateDocumentRequest.expirationDate) &&
+        Objects.equals(this.templateFieldValues, documentsCreateDocumentRequest.templateFieldValues) &&
+        Objects.equals(this.disableNotifications, documentsCreateDocumentRequest.disableNotifications) &&
+        Objects.equals(this.signatureType, documentsCreateDocumentRequest.signatureType) &&
+        Objects.equals(this.securityContextId, documentsCreateDocumentRequest.securityContextId) &&
+        Objects.equals(this.templateId, documentsCreateDocumentRequest.templateId) &&
+        Objects.equals(this.convertToPdfA, documentsCreateDocumentRequest.convertToPdfA) &&
+        Objects.equals(this.pdfAProfile, documentsCreateDocumentRequest.pdfAProfile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, attachments, xmlNamespaces, isEnvelope, envelopeName, participantsDataFile, folderId, description, flowActions, observers, disablePendingActionNotifications, newFolderName, forceCadesSignature, notifiedEmails, additionalInfo, tags, expirationDate);
+    return Objects.hash(files, attachments, xmlNamespaces, isEnvelope, envelopeName, participantsDataFile, folderId, description, flowActions, observers, disablePendingActionNotifications, newFolderName, forceCadesSignature, notifiedEmails, additionalInfo, tags, expirationDate, templateFieldValues, disableNotifications, signatureType, securityContextId, templateId, convertToPdfA, pdfAProfile);
   }
 
 
@@ -518,6 +691,13 @@ public class CreateDocumentRequest {
     sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    templateFieldValues: ").append(toIndentedString(templateFieldValues)).append("\n");
+    sb.append("    disableNotifications: ").append(toIndentedString(disableNotifications)).append("\n");
+    sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
+    sb.append("    securityContextId: ").append(toIndentedString(securityContextId)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
+    sb.append("    convertToPdfA: ").append(toIndentedString(convertToPdfA)).append("\n");
+    sb.append("    pdfAProfile: ").append(toIndentedString(pdfAProfile)).append("\n");
     sb.append("}");
     return sb.toString();
   }

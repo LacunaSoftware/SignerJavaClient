@@ -21,6 +21,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.organizations.AccessProfileModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+import com.lacunasoftware.signer.users.UserIdentifierModel;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * OrganizationUserModel
  */
@@ -46,6 +49,10 @@ public class OrganizationUserModel {
   @JsonProperty("accessProfile")
 	@SerializedName("accessProfile")
   private AccessProfileModel accessProfile = null;
+
+  @JsonProperty("identifiers")
+	@SerializedName("identifiers")
+  private List<UserIdentifierModel> identifiers = null;
 
   public OrganizationUserModel id(UUID id) {
     this.id = id;
@@ -138,6 +145,32 @@ public class OrganizationUserModel {
   }
 
 
+  public OrganizationUserModel identifiers(List<UserIdentifierModel> identifiers) {
+    this.identifiers = identifiers;
+    return this;
+  }
+
+  public OrganizationUserModel addIdentifiersItem(UserIdentifierModel identifiersItem) {
+    if (this.identifiers == null) {
+      this.identifiers = new ArrayList<UserIdentifierModel>();
+    }
+    this.identifiers.add(identifiersItem);
+    return this;
+  }
+
+   /**
+   * Get identifiers
+   * @return identifiers
+  **/
+  @Schema(description = "")
+  public List<UserIdentifierModel> getIdentifiers() {
+    return identifiers;
+  }
+
+  public void setIdentifiers(List<UserIdentifierModel> identifiers) {
+    this.identifiers = identifiers;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -151,12 +184,13 @@ public class OrganizationUserModel {
         Objects.equals(this.name, organizationsOrganizationUserModel.name) &&
         Objects.equals(this.email, organizationsOrganizationUserModel.email) &&
         Objects.equals(this.identifier, organizationsOrganizationUserModel.identifier) &&
-        Objects.equals(this.accessProfile, organizationsOrganizationUserModel.accessProfile);
+        Objects.equals(this.accessProfile, organizationsOrganizationUserModel.accessProfile) &&
+        Objects.equals(this.identifiers, organizationsOrganizationUserModel.identifiers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, email, identifier, accessProfile);
+    return Objects.hash(id, name, email, identifier, accessProfile, identifiers);
   }
 
 
@@ -170,6 +204,7 @@ public class OrganizationUserModel {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    accessProfile: ").append(toIndentedString(accessProfile)).append("\n");
+    sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

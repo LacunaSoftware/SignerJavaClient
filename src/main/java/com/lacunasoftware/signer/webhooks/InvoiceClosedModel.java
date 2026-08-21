@@ -58,6 +58,10 @@ public class InvoiceClosedModel {
 	@SerializedName("billingInformation")
   private BillingInformationModel billingInformation = null;
 
+  @JsonProperty("totalStorageUsed")
+	@SerializedName("totalStorageUsed")
+  private Long totalStorageUsed = null;
+
   public InvoiceClosedModel id(Integer id) {
     this.id = id;
     return this;
@@ -193,6 +197,24 @@ public class InvoiceClosedModel {
   }
 
 
+  public InvoiceClosedModel totalStorageUsed(Long totalStorageUsed) {
+    this.totalStorageUsed = totalStorageUsed;
+    return this;
+  }
+
+   /**
+   * Get totalStorageUsed
+   * @return totalStorageUsed
+  **/
+  @Schema(description = "")
+  public Long getTotalStorageUsed() {
+    return totalStorageUsed;
+  }
+
+  public void setTotalStorageUsed(Long totalStorageUsed) {
+    this.totalStorageUsed = totalStorageUsed;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -208,12 +230,13 @@ public class InvoiceClosedModel {
         Objects.equals(this.value, webhooksInvoiceClosedModel.value) &&
         Objects.equals(this.invoiceTotals, webhooksInvoiceClosedModel.invoiceTotals) &&
         Objects.equals(this.organization, webhooksInvoiceClosedModel.organization) &&
-        Objects.equals(this.billingInformation, webhooksInvoiceClosedModel.billingInformation);
+        Objects.equals(this.billingInformation, webhooksInvoiceClosedModel.billingInformation) &&
+        Objects.equals(this.totalStorageUsed, webhooksInvoiceClosedModel.totalStorageUsed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, month, year, value, invoiceTotals, organization, billingInformation);
+    return Objects.hash(id, month, year, value, invoiceTotals, organization, billingInformation, totalStorageUsed);
   }
 
 
@@ -229,6 +252,7 @@ public class InvoiceClosedModel {
     sb.append("    invoiceTotals: ").append(toIndentedString(invoiceTotals)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    billingInformation: ").append(toIndentedString(billingInformation)).append("\n");
+    sb.append("    totalStorageUsed: ").append(toIndentedString(totalStorageUsed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

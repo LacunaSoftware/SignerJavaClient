@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+import com.lacunasoftware.signer.IdentifierTypes;
 /**
  * SignRuleUserEditModel
  */
@@ -33,6 +34,14 @@ public class SignRuleUserEditModel {
   @JsonProperty("emailAddress")
 	@SerializedName("emailAddress")
   private String emailAddress = null;
+
+  @JsonProperty("phoneNumber")
+	@SerializedName("phoneNumber")
+  private String phoneNumber = null;
+
+  @JsonProperty("identifierType")
+	@SerializedName("identifierType")
+  private IdentifierTypes identifierType = null;
 
   public SignRuleUserEditModel userId(UUID userId) {
     this.userId = userId;
@@ -71,6 +80,42 @@ public class SignRuleUserEditModel {
   }
 
 
+  public SignRuleUserEditModel phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+   /**
+   * Get phoneNumber
+   * @return phoneNumber
+  **/
+  @Schema(description = "")
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public SignRuleUserEditModel identifierType(IdentifierTypes identifierType) {
+    this.identifierType = identifierType;
+    return this;
+  }
+
+   /**
+   * Get identifierType
+   * @return identifierType
+  **/
+  @Schema(description = "")
+  public IdentifierTypes getIdentifierType() {
+    return identifierType;
+  }
+
+  public void setIdentifierType(IdentifierTypes identifierType) {
+    this.identifierType = identifierType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -81,12 +126,14 @@ public class SignRuleUserEditModel {
     }
     SignRuleUserEditModel flowActionsSignRuleUserEditModel = (SignRuleUserEditModel) o;
     return Objects.equals(this.userId, flowActionsSignRuleUserEditModel.userId) &&
-        Objects.equals(this.emailAddress, flowActionsSignRuleUserEditModel.emailAddress);
+        Objects.equals(this.emailAddress, flowActionsSignRuleUserEditModel.emailAddress) &&
+        Objects.equals(this.phoneNumber, flowActionsSignRuleUserEditModel.phoneNumber) &&
+        Objects.equals(this.identifierType, flowActionsSignRuleUserEditModel.identifierType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, emailAddress);
+    return Objects.hash(userId, emailAddress, phoneNumber, identifierType);
   }
 
 
@@ -97,6 +144,8 @@ public class SignRuleUserEditModel {
     
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    identifierType: ").append(toIndentedString(identifierType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

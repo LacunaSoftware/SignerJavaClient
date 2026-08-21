@@ -44,6 +44,10 @@ public class ValidationResultsModel {
 	@SerializedName("isValid")
   private Boolean isValid = null;
 
+  @JsonProperty("indeterminateItens")
+	@SerializedName("indeterminateItens")
+  private List<ValidationItemModel> indeterminateItens = null;
+
   public ValidationResultsModel passedChecks(List<ValidationItemModel> passedChecks) {
     this.passedChecks = passedChecks;
     return this;
@@ -132,6 +136,32 @@ public class ValidationResultsModel {
   }
 
 
+  public ValidationResultsModel indeterminateItens(List<ValidationItemModel> indeterminateItens) {
+    this.indeterminateItens = indeterminateItens;
+    return this;
+  }
+
+  public ValidationResultsModel addIndeterminateItensItem(ValidationItemModel indeterminateItensItem) {
+    if (this.indeterminateItens == null) {
+      this.indeterminateItens = new ArrayList<ValidationItemModel>();
+    }
+    this.indeterminateItens.add(indeterminateItensItem);
+    return this;
+  }
+
+   /**
+   * Get indeterminateItens
+   * @return indeterminateItens
+  **/
+  @Schema(description = "")
+  public List<ValidationItemModel> getIndeterminateItens() {
+    return indeterminateItens;
+  }
+
+  public void setIndeterminateItens(List<ValidationItemModel> indeterminateItens) {
+    this.indeterminateItens = indeterminateItens;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -144,12 +174,13 @@ public class ValidationResultsModel {
     return Objects.equals(this.passedChecks, validationResultsModel.passedChecks) &&
         Objects.equals(this.errors, validationResultsModel.errors) &&
         Objects.equals(this.warnings, validationResultsModel.warnings) &&
-        Objects.equals(this.isValid, validationResultsModel.isValid);
+        Objects.equals(this.isValid, validationResultsModel.isValid) &&
+        Objects.equals(this.indeterminateItens, validationResultsModel.indeterminateItens);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(passedChecks, errors, warnings, isValid);
+    return Objects.hash(passedChecks, errors, warnings, isValid, indeterminateItens);
   }
 
 
@@ -162,6 +193,7 @@ public class ValidationResultsModel {
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
+    sb.append("    indeterminateItens: ").append(toIndentedString(indeterminateItens)).append("\n");
     sb.append("}");
     return sb.toString();
   }

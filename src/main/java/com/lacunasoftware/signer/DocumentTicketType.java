@@ -31,7 +31,9 @@ public enum DocumentTicketType {
   @SerializedName("SigningTags")
 	SIGNINGTAGS("SigningTags"),
   @SerializedName("SignatureMarks")
-	SIGNATUREMARKS("SignatureMarks");
+	SIGNATUREMARKS("SignatureMarks"),
+  @SerializedName("SignaturesManifest")
+	SIGNATURESMANIFEST("SignaturesManifest");
 
   private String value;
 

@@ -313,6 +313,51 @@ class RestClient {
 
 	}
 
+	<TRequest, TResponse> TResponse put(String requestUri, TRequest request, Class<TResponse> valueType) throws RestException {
+		return put(requestUri, request, TypeToken.get(valueType));
+	}
+
+	<TRequest, TResponse> TResponse put(String requestUri, TRequest request, TypeToken<TResponse> typeReference) throws RestException {
+
+		String verb = "PUT";
+		String requestUrl = resolveUrl(endpointUrl.toString(), requestUri);
+		HttpURLConnection conn;
+
+		try {
+
+			URL url = new URL(requestUrl);
+			conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod(verb);
+			conn.setRequestProperty("Content-Type", "application/json");
+			conn.setRequestProperty("Accept", "application/json");
+			conn.setRequestProperty("X-Api-Key", apiKey);
+			conn.setDoOutput(true);
+
+			OutputStream outStream = conn.getOutputStream();
+			if (request != null) {
+				String json = getJackson().writeValueAsString(request);
+				outStream.write(json.getBytes("UTF-8"));
+			}
+			outStream.close();
+
+		} catch (Exception e) {
+			throw new RestUnreachableException(verb, requestUrl, e);
+		}
+		checkResponse(verb, requestUrl, conn);
+
+		TResponse response = null;
+		try {
+			if (typeReference != null) {
+				response = readResponse(conn, typeReference);
+			}
+		} catch (Exception e) {
+			throw new RestDecodeException(verb, requestUrl, e);
+		}
+
+		conn.disconnect();
+		return response;
+	}
+
 	void delete(String requestUri) throws RestException {
 
 		String verb = "DELETE";

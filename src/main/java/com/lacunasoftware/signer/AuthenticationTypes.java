@@ -37,7 +37,13 @@ public enum AuthenticationTypes {
   @SerializedName("Pix")
 	PIX("Pix"),
   @SerializedName("AccessCode")
-	ACCESSCODE("AccessCode");
+	ACCESSCODE("AccessCode"),
+  @SerializedName("Whatsapp")
+	WHATSAPP("Whatsapp"),
+  @SerializedName("Liveness")
+	LIVENESS("Liveness"),
+  @SerializedName("IdScan")
+	IDSCAN("IdScan");
 
   private String value;
 

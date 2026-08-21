@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+import com.lacunasoftware.signer.SignatureTypes;
 /**
  * SignaturesInfoRequest
  */
@@ -33,6 +34,14 @@ public class SignaturesInfoRequest {
   @JsonProperty("mimeType")
 	@SerializedName("mimeType")
   private String mimeType = null;
+
+  @JsonProperty("signatureType")
+	@SerializedName("signatureType")
+  private SignatureTypes signatureType = null;
+
+  @JsonProperty("securityContextId")
+	@SerializedName("securityContextId")
+  private UUID securityContextId = null;
 
   public SignaturesInfoRequest fileId(UUID fileId) {
     this.fileId = fileId;
@@ -71,6 +80,42 @@ public class SignaturesInfoRequest {
   }
 
 
+  public SignaturesInfoRequest signatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+    return this;
+  }
+
+   /**
+   * Get signatureType
+   * @return signatureType
+  **/
+  @Schema(description = "")
+  public SignatureTypes getSignatureType() {
+    return signatureType;
+  }
+
+  public void setSignatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+  }
+
+  public SignaturesInfoRequest securityContextId(UUID securityContextId) {
+    this.securityContextId = securityContextId;
+    return this;
+  }
+
+   /**
+   * Get securityContextId
+   * @return securityContextId
+  **/
+  @Schema(description = "")
+  public UUID getSecurityContextId() {
+    return securityContextId;
+  }
+
+  public void setSecurityContextId(UUID securityContextId) {
+    this.securityContextId = securityContextId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -81,12 +126,14 @@ public class SignaturesInfoRequest {
     }
     SignaturesInfoRequest signatureSignaturesInfoRequest = (SignaturesInfoRequest) o;
     return Objects.equals(this.fileId, signatureSignaturesInfoRequest.fileId) &&
-        Objects.equals(this.mimeType, signatureSignaturesInfoRequest.mimeType);
+        Objects.equals(this.mimeType, signatureSignaturesInfoRequest.mimeType) &&
+        Objects.equals(this.signatureType, signatureSignaturesInfoRequest.signatureType) &&
+        Objects.equals(this.securityContextId, signatureSignaturesInfoRequest.securityContextId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileId, mimeType);
+    return Objects.hash(fileId, mimeType, signatureType, securityContextId);
   }
 
 
@@ -97,6 +144,8 @@ public class SignaturesInfoRequest {
     
     sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
+    sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
+    sb.append("    securityContextId: ").append(toIndentedString(securityContextId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

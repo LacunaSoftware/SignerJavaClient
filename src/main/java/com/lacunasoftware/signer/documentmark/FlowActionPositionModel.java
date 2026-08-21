@@ -57,6 +57,10 @@ public class FlowActionPositionModel {
 	@SerializedName("prePositionedMarks")
   private List<PrePositionedDocumentMarkModel> prePositionedMarks = null;
 
+  @JsonProperty("numberRequiredActions")
+	@SerializedName("numberRequiredActions")
+  private Integer numberRequiredActions = null;
+
   public FlowActionPositionModel id(String id) {
     this.id = id;
     return this;
@@ -192,6 +196,24 @@ public class FlowActionPositionModel {
   }
 
 
+  public FlowActionPositionModel numberRequiredActions(Integer numberRequiredActions) {
+    this.numberRequiredActions = numberRequiredActions;
+    return this;
+  }
+
+   /**
+   * Get numberRequiredActions
+   * @return numberRequiredActions
+  **/
+  @Schema(description = "")
+  public Integer getNumberRequiredActions() {
+    return numberRequiredActions;
+  }
+
+  public void setNumberRequiredActions(Integer numberRequiredActions) {
+    this.numberRequiredActions = numberRequiredActions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -207,12 +229,13 @@ public class FlowActionPositionModel {
         Objects.equals(this.signatureInitialsMode, documentMarkFlowActionPositionModel.signatureInitialsMode) &&
         Objects.equals(this.ruleName, documentMarkFlowActionPositionModel.ruleName) &&
         Objects.equals(this.numberRequiredSignatures, documentMarkFlowActionPositionModel.numberRequiredSignatures) &&
-        Objects.equals(this.prePositionedMarks, documentMarkFlowActionPositionModel.prePositionedMarks);
+        Objects.equals(this.prePositionedMarks, documentMarkFlowActionPositionModel.prePositionedMarks) &&
+        Objects.equals(this.numberRequiredActions, documentMarkFlowActionPositionModel.numberRequiredActions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, user, signatureInitialsMode, ruleName, numberRequiredSignatures, prePositionedMarks);
+    return Objects.hash(id, type, user, signatureInitialsMode, ruleName, numberRequiredSignatures, prePositionedMarks, numberRequiredActions);
   }
 
 
@@ -228,6 +251,7 @@ public class FlowActionPositionModel {
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    numberRequiredSignatures: ").append(toIndentedString(numberRequiredSignatures)).append("\n");
     sb.append("    prePositionedMarks: ").append(toIndentedString(prePositionedMarks)).append("\n");
+    sb.append("    numberRequiredActions: ").append(toIndentedString(numberRequiredActions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

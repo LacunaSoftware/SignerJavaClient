@@ -33,6 +33,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.threeten.bp.OffsetDateTime;
+import com.lacunasoftware.signer.securitycontexts.SecurityContextSimpleModel;
+import com.lacunasoftware.signer.SignatureTypes;
 /**
  * DocumentModel
  */
@@ -154,6 +156,22 @@ public class DocumentModel {
   @JsonProperty("tags")
 	@SerializedName("tags")
   private List<DocumentTagModel> tags = null;
+
+  @JsonProperty("hideDownloadOptionForPendingDocuments")
+	@SerializedName("hideDownloadOptionForPendingDocuments")
+  private Boolean hideDownloadOptionForPendingDocuments = null;
+
+  @JsonProperty("key")
+	@SerializedName("key")
+  private String key = null;
+
+  @JsonProperty("signatureType")
+	@SerializedName("signatureType")
+  private SignatureTypes signatureType = null;
+
+  @JsonProperty("securityContext")
+	@SerializedName("securityContext")
+  private SecurityContextSimpleModel securityContext = null;
 
   public DocumentModel checksumMd5(String checksumMd5) {
     this.checksumMd5 = checksumMd5;
@@ -718,6 +736,78 @@ public class DocumentModel {
   }
 
 
+  public DocumentModel hideDownloadOptionForPendingDocuments(Boolean hideDownloadOptionForPendingDocuments) {
+    this.hideDownloadOptionForPendingDocuments = hideDownloadOptionForPendingDocuments;
+    return this;
+  }
+
+   /**
+   * Get hideDownloadOptionForPendingDocuments
+   * @return hideDownloadOptionForPendingDocuments
+  **/
+  @Schema(description = "")
+  public Boolean isHideDownloadOptionForPendingDocuments() {
+    return hideDownloadOptionForPendingDocuments;
+  }
+
+  public void setHideDownloadOptionForPendingDocuments(Boolean hideDownloadOptionForPendingDocuments) {
+    this.hideDownloadOptionForPendingDocuments = hideDownloadOptionForPendingDocuments;
+  }
+
+  public DocumentModel key(String key) {
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * Get key
+   * @return key
+  **/
+  @Schema(description = "")
+  public String getKey() {
+    return key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public DocumentModel signatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+    return this;
+  }
+
+   /**
+   * Get signatureType
+   * @return signatureType
+  **/
+  @Schema(description = "")
+  public SignatureTypes getSignatureType() {
+    return signatureType;
+  }
+
+  public void setSignatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+  }
+
+  public DocumentModel securityContext(SecurityContextSimpleModel securityContext) {
+    this.securityContext = securityContext;
+    return this;
+  }
+
+   /**
+   * Get securityContext
+   * @return securityContext
+  **/
+  @Schema(description = "")
+  public SecurityContextSimpleModel getSecurityContext() {
+    return securityContext;
+  }
+
+  public void setSecurityContext(SecurityContextSimpleModel securityContext) {
+    this.securityContext = securityContext;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -755,12 +845,16 @@ public class DocumentModel {
         Objects.equals(this.isEnvelope, documentsDocumentModel.isEnvelope) &&
         Objects.equals(this.statusUpdatedBy, documentsDocumentModel.statusUpdatedBy) &&
         Objects.equals(this.statusUpdateReason, documentsDocumentModel.statusUpdateReason) &&
-        Objects.equals(this.tags, documentsDocumentModel.tags);
+        Objects.equals(this.tags, documentsDocumentModel.tags) &&
+        Objects.equals(this.hideDownloadOptionForPendingDocuments, documentsDocumentModel.hideDownloadOptionForPendingDocuments) &&
+        Objects.equals(this.key, documentsDocumentModel.key) &&
+        Objects.equals(this.signatureType, documentsDocumentModel.signatureType) &&
+        Objects.equals(this.securityContext, documentsDocumentModel.securityContext);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checksumMd5, isDeleted, flowActions, observers, attachments, permissions, notifiedEmails, id, name, filename, fileSize, mimeType, hasSignature, status, isConcluded, folder, organization, creationDate, updateDate, expirationDate, expirationDateWithoutTime, createdBy, description, forceCadesSignature, isScanned, isEnvelope, statusUpdatedBy, statusUpdateReason, tags);
+    return Objects.hash(checksumMd5, isDeleted, flowActions, observers, attachments, permissions, notifiedEmails, id, name, filename, fileSize, mimeType, hasSignature, status, isConcluded, folder, organization, creationDate, updateDate, expirationDate, expirationDateWithoutTime, createdBy, description, forceCadesSignature, isScanned, isEnvelope, statusUpdatedBy, statusUpdateReason, tags, hideDownloadOptionForPendingDocuments, key, signatureType, securityContext);
   }
 
 
@@ -798,6 +892,10 @@ public class DocumentModel {
     sb.append("    statusUpdatedBy: ").append(toIndentedString(statusUpdatedBy)).append("\n");
     sb.append("    statusUpdateReason: ").append(toIndentedString(statusUpdateReason)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    hideDownloadOptionForPendingDocuments: ").append(toIndentedString(hideDownloadOptionForPendingDocuments)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
+    sb.append("    securityContext: ").append(toIndentedString(securityContext)).append("\n");
     sb.append("}");
     return sb.toString();
   }

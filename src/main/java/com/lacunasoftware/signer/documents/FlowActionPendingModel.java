@@ -38,6 +38,10 @@ public class FlowActionPendingModel {
 	@SerializedName("signRuleId")
   private UUID signRuleId = null;
 
+  @JsonProperty("approverRuleId")
+	@SerializedName("approverRuleId")
+  private UUID approverRuleId = null;
+
   public FlowActionPendingModel signerId(UUID signerId) {
     this.signerId = signerId;
     return this;
@@ -93,6 +97,24 @@ public class FlowActionPendingModel {
   }
 
 
+  public FlowActionPendingModel approverRuleId(UUID approverRuleId) {
+    this.approverRuleId = approverRuleId;
+    return this;
+  }
+
+   /**
+   * Get approverRuleId
+   * @return approverRuleId
+  **/
+  @Schema(description = "")
+  public UUID getApproverRuleId() {
+    return approverRuleId;
+  }
+
+  public void setApproverRuleId(UUID approverRuleId) {
+    this.approverRuleId = approverRuleId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -104,12 +126,13 @@ public class FlowActionPendingModel {
     FlowActionPendingModel documentsFlowActionPendingModel = (FlowActionPendingModel) o;
     return Objects.equals(this.signerId, documentsFlowActionPendingModel.signerId) &&
         Objects.equals(this.approverId, documentsFlowActionPendingModel.approverId) &&
-        Objects.equals(this.signRuleId, documentsFlowActionPendingModel.signRuleId);
+        Objects.equals(this.signRuleId, documentsFlowActionPendingModel.signRuleId) &&
+        Objects.equals(this.approverRuleId, documentsFlowActionPendingModel.approverRuleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signerId, approverId, signRuleId);
+    return Objects.hash(signerId, approverId, signRuleId, approverRuleId);
   }
 
 
@@ -121,6 +144,7 @@ public class FlowActionPendingModel {
     sb.append("    signerId: ").append(toIndentedString(signerId)).append("\n");
     sb.append("    approverId: ").append(toIndentedString(approverId)).append("\n");
     sb.append("    signRuleId: ").append(toIndentedString(signRuleId)).append("\n");
+    sb.append("    approverRuleId: ").append(toIndentedString(approverRuleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

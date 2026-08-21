@@ -23,7 +23,11 @@ public enum NotaryTypes {
   @SerializedName("Test")
 	TEST("Test"),
   @SerializedName("CNB")
-	CNB("CNB");
+	CNB("CNB"),
+  @SerializedName("CORI")
+	CORI("CORI"),
+  @SerializedName("ONR")
+	ONR("ONR");
 
   private String value;
 
