@@ -23,6 +23,11 @@ import com.lacunasoftware.signer.SignatureInitialsModes;
 import com.lacunasoftware.signer.documentmark.PrePositionedDocumentMarkModel;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import com.lacunasoftware.signer.CertificateHolderTypes;
+import com.lacunasoftware.signer.CertificateTypes;
+import com.lacunasoftware.signer.flowactions.SignRuleUserEditModel;
+import com.lacunasoftware.signer.IdentifierTypes;
+import com.lacunasoftware.signer.NotificationLanguage;
 /**
  * FlowActionEditModel
  */
@@ -60,6 +65,82 @@ public class FlowActionEditModel {
   @JsonProperty("signatureInitialsMode")
 	@SerializedName("signatureInitialsMode")
   private SignatureInitialsModes signatureInitialsMode = null;
+
+  @JsonProperty("participantPhoneNumber")
+	@SerializedName("participantPhoneNumber")
+  private String participantPhoneNumber = null;
+
+  @JsonProperty("ruleUsers")
+	@SerializedName("ruleUsers")
+  private List<SignRuleUserEditModel> ruleUsers = null;
+
+  @JsonProperty("identifierType")
+	@SerializedName("identifierType")
+  private IdentifierTypes identifierType = null;
+
+  @JsonProperty("allowElectronicSignature")
+	@SerializedName("allowElectronicSignature")
+  private Boolean allowElectronicSignature = null;
+
+  @JsonProperty("requireSmsAuthenticationToSignElectronically")
+	@SerializedName("requireSmsAuthenticationToSignElectronically")
+  private Boolean requireSmsAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requireWhatsappAuthenticationToSignElectronically")
+	@SerializedName("requireWhatsappAuthenticationToSignElectronically")
+  private Boolean requireWhatsappAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requireAuthenticatorAppToSignElectronically")
+	@SerializedName("requireAuthenticatorAppToSignElectronically")
+  private Boolean requireAuthenticatorAppToSignElectronically = null;
+
+  @JsonProperty("requireSelfieAuthenticationToSignElectronically")
+	@SerializedName("requireSelfieAuthenticationToSignElectronically")
+  private Boolean requireSelfieAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requireDatavalidAuthenticationToSignElectronically")
+	@SerializedName("requireDatavalidAuthenticationToSignElectronically")
+  private Boolean requireDatavalidAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requirePixAuthenticationToSignElectronically")
+	@SerializedName("requirePixAuthenticationToSignElectronically")
+  private Boolean requirePixAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requireLivenessAuthenticationToSignElectronically")
+	@SerializedName("requireLivenessAuthenticationToSignElectronically")
+  private Boolean requireLivenessAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requireIdScanAuthenticationToSignElectronically")
+	@SerializedName("requireIdScanAuthenticationToSignElectronically")
+  private Boolean requireIdScanAuthenticationToSignElectronically = null;
+
+  @JsonProperty("disableEmailAuthenticationToSignElectronically")
+	@SerializedName("disableEmailAuthenticationToSignElectronically")
+  private Boolean disableEmailAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requiredCertificateTypeToSign")
+	@SerializedName("requiredCertificateTypeToSign")
+  private CertificateTypes requiredCertificateTypeToSign = null;
+
+  @JsonProperty("requireCompanyCertificate")
+	@SerializedName("requireCompanyCertificate")
+  private Boolean requireCompanyCertificate = null;
+
+  @JsonProperty("requiredCompanyIdentifier")
+	@SerializedName("requiredCompanyIdentifier")
+  private String requiredCompanyIdentifier = null;
+
+  @JsonProperty("requiredCertificateHolderTypeToSign")
+	@SerializedName("requiredCertificateHolderTypeToSign")
+  private CertificateHolderTypes requiredCertificateHolderTypeToSign = null;
+
+  @JsonProperty("allowIdrcSignature")
+	@SerializedName("allowIdrcSignature")
+  private Boolean allowIdrcSignature = null;
+
+  @JsonProperty("notificationLanguage")
+	@SerializedName("notificationLanguage")
+  private NotificationLanguage notificationLanguage = null;
 
   public FlowActionEditModel flowActionId(UUID flowActionId) {
     this.flowActionId = flowActionId;
@@ -222,6 +303,356 @@ public class FlowActionEditModel {
   }
 
 
+  public FlowActionEditModel participantPhoneNumber(String participantPhoneNumber) {
+    this.participantPhoneNumber = participantPhoneNumber;
+    return this;
+  }
+
+   /**
+   * The new mobile phone number of the action&#x27;s participant (if the type is Lacuna.Signer.Api.FlowActionType.Signer).
+   * @return participantPhoneNumber
+  **/
+  @Schema(description = "The new mobile phone number of the action's participant (if the type is Lacuna.Signer.Api.FlowActionType.Signer).")
+  public String getParticipantPhoneNumber() {
+    return participantPhoneNumber;
+  }
+
+  public void setParticipantPhoneNumber(String participantPhoneNumber) {
+    this.participantPhoneNumber = participantPhoneNumber;
+  }
+
+  public FlowActionEditModel ruleUsers(List<SignRuleUserEditModel> ruleUsers) {
+    this.ruleUsers = ruleUsers;
+    return this;
+  }
+
+  public FlowActionEditModel addRuleUsersItem(SignRuleUserEditModel ruleUsersItem) {
+    if (this.ruleUsers == null) {
+      this.ruleUsers = new ArrayList<SignRuleUserEditModel>();
+    }
+    this.ruleUsers.add(ruleUsersItem);
+    return this;
+  }
+
+   /**
+   * The rule users to be edited (if the type is Lacuna.Signer.Api.FlowActionType.SignRule or Lacuna.Signer.Api.FlowActionType.ApproverRule).
+   * @return ruleUsers
+  **/
+  @Schema(description = "The rule users to be edited (if the type is Lacuna.Signer.Api.FlowActionType.SignRule or Lacuna.Signer.Api.FlowActionType.ApproverRule).")
+  public List<SignRuleUserEditModel> getRuleUsers() {
+    return ruleUsers;
+  }
+
+  public void setRuleUsers(List<SignRuleUserEditModel> ruleUsers) {
+    this.ruleUsers = ruleUsers;
+  }
+
+  public FlowActionEditModel identifierType(IdentifierTypes identifierType) {
+    this.identifierType = identifierType;
+    return this;
+  }
+
+   /**
+   * Get identifierType
+   * @return identifierType
+  **/
+  @Schema(description = "")
+  public IdentifierTypes getIdentifierType() {
+    return identifierType;
+  }
+
+  public void setIdentifierType(IdentifierTypes identifierType) {
+    this.identifierType = identifierType;
+  }
+
+  public FlowActionEditModel allowElectronicSignature(Boolean allowElectronicSignature) {
+    this.allowElectronicSignature = allowElectronicSignature;
+    return this;
+  }
+
+   /**
+   * Set to true if the electronic signature option should be available. (only if the type of the action is Signer or SignRule)
+   * @return allowElectronicSignature
+  **/
+  @Schema(description = "Set to true if the electronic signature option should be available. (only if the type of the action is Signer or SignRule)")
+  public Boolean isAllowElectronicSignature() {
+    return allowElectronicSignature;
+  }
+
+  public void setAllowElectronicSignature(Boolean allowElectronicSignature) {
+    this.allowElectronicSignature = allowElectronicSignature;
+  }
+
+  public FlowActionEditModel requireSmsAuthenticationToSignElectronically(Boolean requireSmsAuthenticationToSignElectronically) {
+    this.requireSmsAuthenticationToSignElectronically = requireSmsAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to confirm a code sent to his phone to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)
+   * @return requireSmsAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to confirm a code sent to his phone to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)")
+  public Boolean isRequireSmsAuthenticationToSignElectronically() {
+    return requireSmsAuthenticationToSignElectronically;
+  }
+
+  public void setRequireSmsAuthenticationToSignElectronically(Boolean requireSmsAuthenticationToSignElectronically) {
+    this.requireSmsAuthenticationToSignElectronically = requireSmsAuthenticationToSignElectronically;
+  }
+
+  public FlowActionEditModel requireWhatsappAuthenticationToSignElectronically(Boolean requireWhatsappAuthenticationToSignElectronically) {
+    this.requireWhatsappAuthenticationToSignElectronically = requireWhatsappAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to confirm a code sent to his Whatsapp number to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)
+   * @return requireWhatsappAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to confirm a code sent to his Whatsapp number to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)")
+  public Boolean isRequireWhatsappAuthenticationToSignElectronically() {
+    return requireWhatsappAuthenticationToSignElectronically;
+  }
+
+  public void setRequireWhatsappAuthenticationToSignElectronically(Boolean requireWhatsappAuthenticationToSignElectronically) {
+    this.requireWhatsappAuthenticationToSignElectronically = requireWhatsappAuthenticationToSignElectronically;
+  }
+
+  public FlowActionEditModel requireAuthenticatorAppToSignElectronically(Boolean requireAuthenticatorAppToSignElectronically) {
+    this.requireAuthenticatorAppToSignElectronically = requireAuthenticatorAppToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to enter a one-time password (OTP) to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)
+   * @return requireAuthenticatorAppToSignElectronically
+  **/
+  @Schema(description = "Requires the user to enter a one-time password (OTP) to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)")
+  public Boolean isRequireAuthenticatorAppToSignElectronically() {
+    return requireAuthenticatorAppToSignElectronically;
+  }
+
+  public void setRequireAuthenticatorAppToSignElectronically(Boolean requireAuthenticatorAppToSignElectronically) {
+    this.requireAuthenticatorAppToSignElectronically = requireAuthenticatorAppToSignElectronically;
+  }
+
+  public FlowActionEditModel requireSelfieAuthenticationToSignElectronically(Boolean requireSelfieAuthenticationToSignElectronically) {
+    this.requireSelfieAuthenticationToSignElectronically = requireSelfieAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to take a selfie to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)
+   * @return requireSelfieAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to take a selfie to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)")
+  public Boolean isRequireSelfieAuthenticationToSignElectronically() {
+    return requireSelfieAuthenticationToSignElectronically;
+  }
+
+  public void setRequireSelfieAuthenticationToSignElectronically(Boolean requireSelfieAuthenticationToSignElectronically) {
+    this.requireSelfieAuthenticationToSignElectronically = requireSelfieAuthenticationToSignElectronically;
+  }
+
+  public FlowActionEditModel requireDatavalidAuthenticationToSignElectronically(Boolean requireDatavalidAuthenticationToSignElectronically) {
+    this.requireDatavalidAuthenticationToSignElectronically = requireDatavalidAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to take a selfie to sign electronically. This selfie will be validated by SERPRO&#x27;s Datavalid. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)
+   * @return requireDatavalidAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to take a selfie to sign electronically. This selfie will be validated by SERPRO's Datavalid. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)")
+  public Boolean isRequireDatavalidAuthenticationToSignElectronically() {
+    return requireDatavalidAuthenticationToSignElectronically;
+  }
+
+  public void setRequireDatavalidAuthenticationToSignElectronically(Boolean requireDatavalidAuthenticationToSignElectronically) {
+    this.requireDatavalidAuthenticationToSignElectronically = requireDatavalidAuthenticationToSignElectronically;
+  }
+
+  public FlowActionEditModel requirePixAuthenticationToSignElectronically(Boolean requirePixAuthenticationToSignElectronically) {
+    this.requirePixAuthenticationToSignElectronically = requirePixAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to pay a Pix to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)
+   * @return requirePixAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to pay a Pix to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)")
+  public Boolean isRequirePixAuthenticationToSignElectronically() {
+    return requirePixAuthenticationToSignElectronically;
+  }
+
+  public void setRequirePixAuthenticationToSignElectronically(Boolean requirePixAuthenticationToSignElectronically) {
+    this.requirePixAuthenticationToSignElectronically = requirePixAuthenticationToSignElectronically;
+  }
+
+  public FlowActionEditModel requireLivenessAuthenticationToSignElectronically(Boolean requireLivenessAuthenticationToSignElectronically) {
+    this.requireLivenessAuthenticationToSignElectronically = requireLivenessAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to perform a liveness test to sign electronically. (If AllowElectronicSignature is true)
+   * @return requireLivenessAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to perform a liveness test to sign electronically. (If AllowElectronicSignature is true)")
+  public Boolean isRequireLivenessAuthenticationToSignElectronically() {
+    return requireLivenessAuthenticationToSignElectronically;
+  }
+
+  public void setRequireLivenessAuthenticationToSignElectronically(Boolean requireLivenessAuthenticationToSignElectronically) {
+    this.requireLivenessAuthenticationToSignElectronically = requireLivenessAuthenticationToSignElectronically;
+  }
+
+  public FlowActionEditModel requireIdScanAuthenticationToSignElectronically(Boolean requireIdScanAuthenticationToSignElectronically) {
+    this.requireIdScanAuthenticationToSignElectronically = requireIdScanAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to perform a photo id scan to sign electronically. (If AllowElectronicSignature is true)
+   * @return requireIdScanAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to perform a photo id scan to sign electronically. (If AllowElectronicSignature is true)")
+  public Boolean isRequireIdScanAuthenticationToSignElectronically() {
+    return requireIdScanAuthenticationToSignElectronically;
+  }
+
+  public void setRequireIdScanAuthenticationToSignElectronically(Boolean requireIdScanAuthenticationToSignElectronically) {
+    this.requireIdScanAuthenticationToSignElectronically = requireIdScanAuthenticationToSignElectronically;
+  }
+
+  public FlowActionEditModel disableEmailAuthenticationToSignElectronically(Boolean disableEmailAuthenticationToSignElectronically) {
+    this.disableEmailAuthenticationToSignElectronically = disableEmailAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Disables e-mail authentication to sign electronically. This option can only be used if SMS or Whatsapp authentication was required. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)
+   * @return disableEmailAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Disables e-mail authentication to sign electronically. This option can only be used if SMS or Whatsapp authentication was required. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)")
+  public Boolean isDisableEmailAuthenticationToSignElectronically() {
+    return disableEmailAuthenticationToSignElectronically;
+  }
+
+  public void setDisableEmailAuthenticationToSignElectronically(Boolean disableEmailAuthenticationToSignElectronically) {
+    this.disableEmailAuthenticationToSignElectronically = disableEmailAuthenticationToSignElectronically;
+  }
+
+  public FlowActionEditModel requiredCertificateTypeToSign(CertificateTypes requiredCertificateTypeToSign) {
+    this.requiredCertificateTypeToSign = requiredCertificateTypeToSign;
+    return this;
+  }
+
+   /**
+   * Get requiredCertificateTypeToSign
+   * @return requiredCertificateTypeToSign
+  **/
+  @Schema(description = "")
+  public CertificateTypes getRequiredCertificateTypeToSign() {
+    return requiredCertificateTypeToSign;
+  }
+
+  public void setRequiredCertificateTypeToSign(CertificateTypes requiredCertificateTypeToSign) {
+    this.requiredCertificateTypeToSign = requiredCertificateTypeToSign;
+  }
+
+  public FlowActionEditModel requireCompanyCertificate(Boolean requireCompanyCertificate) {
+    this.requireCompanyCertificate = requireCompanyCertificate;
+    return this;
+  }
+
+   /**
+   * [DEPRECATED] Requires the user to sign the document with a company certificate (e.g. e-CNPJ). Please use RequiredCertificateHolderTypeToSign instead.
+   * @return requireCompanyCertificate
+  **/
+  @Schema(description = "[DEPRECATED] Requires the user to sign the document with a company certificate (e.g. e-CNPJ). Please use RequiredCertificateHolderTypeToSign instead.")
+  public Boolean isRequireCompanyCertificate() {
+    return requireCompanyCertificate;
+  }
+
+  public void setRequireCompanyCertificate(Boolean requireCompanyCertificate) {
+    this.requireCompanyCertificate = requireCompanyCertificate;
+  }
+
+  public FlowActionEditModel requiredCompanyIdentifier(String requiredCompanyIdentifier) {
+    this.requiredCompanyIdentifier = requiredCompanyIdentifier;
+    return this;
+  }
+
+   /**
+   * Requires the user to sign the document with a company certificate (e.g. e-CNPJ) that has the provided company identifier.
+   * @return requiredCompanyIdentifier
+  **/
+  @Schema(description = "Requires the user to sign the document with a company certificate (e.g. e-CNPJ) that has the provided company identifier.")
+  public String getRequiredCompanyIdentifier() {
+    return requiredCompanyIdentifier;
+  }
+
+  public void setRequiredCompanyIdentifier(String requiredCompanyIdentifier) {
+    this.requiredCompanyIdentifier = requiredCompanyIdentifier;
+  }
+
+  public FlowActionEditModel requiredCertificateHolderTypeToSign(CertificateHolderTypes requiredCertificateHolderTypeToSign) {
+    this.requiredCertificateHolderTypeToSign = requiredCertificateHolderTypeToSign;
+    return this;
+  }
+
+   /**
+   * Get requiredCertificateHolderTypeToSign
+   * @return requiredCertificateHolderTypeToSign
+  **/
+  @Schema(description = "")
+  public CertificateHolderTypes getRequiredCertificateHolderTypeToSign() {
+    return requiredCertificateHolderTypeToSign;
+  }
+
+  public void setRequiredCertificateHolderTypeToSign(CertificateHolderTypes requiredCertificateHolderTypeToSign) {
+    this.requiredCertificateHolderTypeToSign = requiredCertificateHolderTypeToSign;
+  }
+
+  public FlowActionEditModel allowIdrcSignature(Boolean allowIdrcSignature) {
+    this.allowIdrcSignature = allowIdrcSignature;
+    return this;
+  }
+
+   /**
+   * Allows the user to choose whether to use an IDRC signature or a certificate-based signature. Only available if the instance has IDRC enabled.
+   * @return allowIdrcSignature
+  **/
+  @Schema(description = "Allows the user to choose whether to use an IDRC signature or a certificate-based signature. Only available if the instance has IDRC enabled.")
+  public Boolean isAllowIdrcSignature() {
+    return allowIdrcSignature;
+  }
+
+  public void setAllowIdrcSignature(Boolean allowIdrcSignature) {
+    this.allowIdrcSignature = allowIdrcSignature;
+  }
+
+  public FlowActionEditModel notificationLanguage(NotificationLanguage notificationLanguage) {
+    this.notificationLanguage = notificationLanguage;
+    return this;
+  }
+
+   /**
+   * Get notificationLanguage
+   * @return notificationLanguage
+  **/
+  @Schema(description = "")
+  public NotificationLanguage getNotificationLanguage() {
+    return notificationLanguage;
+  }
+
+  public void setNotificationLanguage(NotificationLanguage notificationLanguage) {
+    this.notificationLanguage = notificationLanguage;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -238,12 +669,31 @@ public class FlowActionEditModel {
         Objects.equals(this.signRuleUsers, flowActionsFlowActionEditModel.signRuleUsers) &&
         Objects.equals(this.title, flowActionsFlowActionEditModel.title) &&
         Objects.equals(this.prePositionedMarks, flowActionsFlowActionEditModel.prePositionedMarks) &&
-        Objects.equals(this.signatureInitialsMode, flowActionsFlowActionEditModel.signatureInitialsMode);
+        Objects.equals(this.signatureInitialsMode, flowActionsFlowActionEditModel.signatureInitialsMode) &&
+        Objects.equals(this.participantPhoneNumber, flowActionsFlowActionEditModel.participantPhoneNumber) &&
+        Objects.equals(this.ruleUsers, flowActionsFlowActionEditModel.ruleUsers) &&
+        Objects.equals(this.identifierType, flowActionsFlowActionEditModel.identifierType) &&
+        Objects.equals(this.allowElectronicSignature, flowActionsFlowActionEditModel.allowElectronicSignature) &&
+        Objects.equals(this.requireSmsAuthenticationToSignElectronically, flowActionsFlowActionEditModel.requireSmsAuthenticationToSignElectronically) &&
+        Objects.equals(this.requireWhatsappAuthenticationToSignElectronically, flowActionsFlowActionEditModel.requireWhatsappAuthenticationToSignElectronically) &&
+        Objects.equals(this.requireAuthenticatorAppToSignElectronically, flowActionsFlowActionEditModel.requireAuthenticatorAppToSignElectronically) &&
+        Objects.equals(this.requireSelfieAuthenticationToSignElectronically, flowActionsFlowActionEditModel.requireSelfieAuthenticationToSignElectronically) &&
+        Objects.equals(this.requireDatavalidAuthenticationToSignElectronically, flowActionsFlowActionEditModel.requireDatavalidAuthenticationToSignElectronically) &&
+        Objects.equals(this.requirePixAuthenticationToSignElectronically, flowActionsFlowActionEditModel.requirePixAuthenticationToSignElectronically) &&
+        Objects.equals(this.requireLivenessAuthenticationToSignElectronically, flowActionsFlowActionEditModel.requireLivenessAuthenticationToSignElectronically) &&
+        Objects.equals(this.requireIdScanAuthenticationToSignElectronically, flowActionsFlowActionEditModel.requireIdScanAuthenticationToSignElectronically) &&
+        Objects.equals(this.disableEmailAuthenticationToSignElectronically, flowActionsFlowActionEditModel.disableEmailAuthenticationToSignElectronically) &&
+        Objects.equals(this.requiredCertificateTypeToSign, flowActionsFlowActionEditModel.requiredCertificateTypeToSign) &&
+        Objects.equals(this.requireCompanyCertificate, flowActionsFlowActionEditModel.requireCompanyCertificate) &&
+        Objects.equals(this.requiredCompanyIdentifier, flowActionsFlowActionEditModel.requiredCompanyIdentifier) &&
+        Objects.equals(this.requiredCertificateHolderTypeToSign, flowActionsFlowActionEditModel.requiredCertificateHolderTypeToSign) &&
+        Objects.equals(this.allowIdrcSignature, flowActionsFlowActionEditModel.allowIdrcSignature) &&
+        Objects.equals(this.notificationLanguage, flowActionsFlowActionEditModel.notificationLanguage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(flowActionId, step, participantEmailAddress, ruleName, signRuleUsers, title, prePositionedMarks, signatureInitialsMode);
+    return Objects.hash(flowActionId, step, participantEmailAddress, ruleName, signRuleUsers, title, prePositionedMarks, signatureInitialsMode, participantPhoneNumber, ruleUsers, identifierType, allowElectronicSignature, requireSmsAuthenticationToSignElectronically, requireWhatsappAuthenticationToSignElectronically, requireAuthenticatorAppToSignElectronically, requireSelfieAuthenticationToSignElectronically, requireDatavalidAuthenticationToSignElectronically, requirePixAuthenticationToSignElectronically, requireLivenessAuthenticationToSignElectronically, requireIdScanAuthenticationToSignElectronically, disableEmailAuthenticationToSignElectronically, requiredCertificateTypeToSign, requireCompanyCertificate, requiredCompanyIdentifier, requiredCertificateHolderTypeToSign, allowIdrcSignature, notificationLanguage);
   }
 
 
@@ -260,6 +710,25 @@ public class FlowActionEditModel {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    prePositionedMarks: ").append(toIndentedString(prePositionedMarks)).append("\n");
     sb.append("    signatureInitialsMode: ").append(toIndentedString(signatureInitialsMode)).append("\n");
+    sb.append("    participantPhoneNumber: ").append(toIndentedString(participantPhoneNumber)).append("\n");
+    sb.append("    ruleUsers: ").append(toIndentedString(ruleUsers)).append("\n");
+    sb.append("    identifierType: ").append(toIndentedString(identifierType)).append("\n");
+    sb.append("    allowElectronicSignature: ").append(toIndentedString(allowElectronicSignature)).append("\n");
+    sb.append("    requireSmsAuthenticationToSignElectronically: ").append(toIndentedString(requireSmsAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requireWhatsappAuthenticationToSignElectronically: ").append(toIndentedString(requireWhatsappAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requireAuthenticatorAppToSignElectronically: ").append(toIndentedString(requireAuthenticatorAppToSignElectronically)).append("\n");
+    sb.append("    requireSelfieAuthenticationToSignElectronically: ").append(toIndentedString(requireSelfieAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requireDatavalidAuthenticationToSignElectronically: ").append(toIndentedString(requireDatavalidAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requirePixAuthenticationToSignElectronically: ").append(toIndentedString(requirePixAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requireLivenessAuthenticationToSignElectronically: ").append(toIndentedString(requireLivenessAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requireIdScanAuthenticationToSignElectronically: ").append(toIndentedString(requireIdScanAuthenticationToSignElectronically)).append("\n");
+    sb.append("    disableEmailAuthenticationToSignElectronically: ").append(toIndentedString(disableEmailAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requiredCertificateTypeToSign: ").append(toIndentedString(requiredCertificateTypeToSign)).append("\n");
+    sb.append("    requireCompanyCertificate: ").append(toIndentedString(requireCompanyCertificate)).append("\n");
+    sb.append("    requiredCompanyIdentifier: ").append(toIndentedString(requiredCompanyIdentifier)).append("\n");
+    sb.append("    requiredCertificateHolderTypeToSign: ").append(toIndentedString(requiredCertificateHolderTypeToSign)).append("\n");
+    sb.append("    allowIdrcSignature: ").append(toIndentedString(allowIdrcSignature)).append("\n");
+    sb.append("    notificationLanguage: ").append(toIndentedString(notificationLanguage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

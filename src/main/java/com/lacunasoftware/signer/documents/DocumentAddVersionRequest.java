@@ -21,6 +21,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.signer.documents.DocumentAdditionalInfoData;
 import com.lacunasoftware.signer.FileUploadModel;
 import io.swagger.v3.oas.annotations.media.Schema;
+import com.lacunasoftware.signer.documents.PrePositionedMarkModel;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * DocumentAddVersionRequest
  */
@@ -38,6 +41,10 @@ public class DocumentAddVersionRequest {
   @JsonProperty("additionalInfo")
 	@SerializedName("additionalInfo")
   private DocumentAdditionalInfoData additionalInfo = null;
+
+  @JsonProperty("prePositionedMarks")
+	@SerializedName("prePositionedMarks")
+  private List<PrePositionedMarkModel> prePositionedMarks = null;
 
   public DocumentAddVersionRequest file(FileUploadModel file) {
     this.file = file;
@@ -94,6 +101,32 @@ public class DocumentAddVersionRequest {
   }
 
 
+  public DocumentAddVersionRequest prePositionedMarks(List<PrePositionedMarkModel> prePositionedMarks) {
+    this.prePositionedMarks = prePositionedMarks;
+    return this;
+  }
+
+  public DocumentAddVersionRequest addPrePositionedMarksItem(PrePositionedMarkModel prePositionedMarksItem) {
+    if (this.prePositionedMarks == null) {
+      this.prePositionedMarks = new ArrayList<PrePositionedMarkModel>();
+    }
+    this.prePositionedMarks.add(prePositionedMarksItem);
+    return this;
+  }
+
+   /**
+   * Get prePositionedMarks
+   * @return prePositionedMarks
+  **/
+  @Schema(description = "")
+  public List<PrePositionedMarkModel> getPrePositionedMarks() {
+    return prePositionedMarks;
+  }
+
+  public void setPrePositionedMarks(List<PrePositionedMarkModel> prePositionedMarks) {
+    this.prePositionedMarks = prePositionedMarks;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -105,12 +138,13 @@ public class DocumentAddVersionRequest {
     DocumentAddVersionRequest documentsDocumentAddVersionRequest = (DocumentAddVersionRequest) o;
     return Objects.equals(this.file, documentsDocumentAddVersionRequest.file) &&
         Objects.equals(this.disablePendingActionNotifications, documentsDocumentAddVersionRequest.disablePendingActionNotifications) &&
-        Objects.equals(this.additionalInfo, documentsDocumentAddVersionRequest.additionalInfo);
+        Objects.equals(this.additionalInfo, documentsDocumentAddVersionRequest.additionalInfo) &&
+        Objects.equals(this.prePositionedMarks, documentsDocumentAddVersionRequest.prePositionedMarks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(file, disablePendingActionNotifications, additionalInfo);
+    return Objects.hash(file, disablePendingActionNotifications, additionalInfo, prePositionedMarks);
   }
 
 
@@ -122,6 +156,7 @@ public class DocumentAddVersionRequest {
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("    disablePendingActionNotifications: ").append(toIndentedString(disablePendingActionNotifications)).append("\n");
     sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
+    sb.append("    prePositionedMarks: ").append(toIndentedString(prePositionedMarks)).append("\n");
     sb.append("}");
     return sb.toString();
   }

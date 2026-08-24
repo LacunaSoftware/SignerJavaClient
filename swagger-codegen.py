@@ -6,7 +6,7 @@ import shutil
 try:
     # 1. Retrieves schema's names from swagger.json
     with requests.Session() as session:
-        response = session.get('https://signer-lac.azurewebsites.net/swagger/api/swagger.json')
+        response = session.get('https://www.dropsigner.com/swagger/api/swagger.json')
         response_json = json.loads(response.content)
 
     schemas = response_json['components']['schemas']

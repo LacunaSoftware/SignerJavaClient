@@ -23,6 +23,7 @@ import com.lacunasoftware.signer.FileUploadModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import com.lacunasoftware.signer.documents.PrePositionedMarkModel;
 /**
  * EnvelopeAddVersionRequest
  */
@@ -44,6 +45,10 @@ public class EnvelopeAddVersionRequest {
   @JsonProperty("additionalInfo")
 	@SerializedName("additionalInfo")
   private DocumentAdditionalInfoData additionalInfo = null;
+
+  @JsonProperty("prePositionedMarks")
+	@SerializedName("prePositionedMarks")
+  private List<PrePositionedMarkModel> prePositionedMarks = null;
 
   public EnvelopeAddVersionRequest files(List<FileUploadModel> files) {
     this.files = files;
@@ -126,6 +131,32 @@ public class EnvelopeAddVersionRequest {
   }
 
 
+  public EnvelopeAddVersionRequest prePositionedMarks(List<PrePositionedMarkModel> prePositionedMarks) {
+    this.prePositionedMarks = prePositionedMarks;
+    return this;
+  }
+
+  public EnvelopeAddVersionRequest addPrePositionedMarksItem(PrePositionedMarkModel prePositionedMarksItem) {
+    if (this.prePositionedMarks == null) {
+      this.prePositionedMarks = new ArrayList<PrePositionedMarkModel>();
+    }
+    this.prePositionedMarks.add(prePositionedMarksItem);
+    return this;
+  }
+
+   /**
+   * Get prePositionedMarks
+   * @return prePositionedMarks
+  **/
+  @Schema(description = "")
+  public List<PrePositionedMarkModel> getPrePositionedMarks() {
+    return prePositionedMarks;
+  }
+
+  public void setPrePositionedMarks(List<PrePositionedMarkModel> prePositionedMarks) {
+    this.prePositionedMarks = prePositionedMarks;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -138,12 +169,13 @@ public class EnvelopeAddVersionRequest {
     return Objects.equals(this.files, documentsEnvelopeAddVersionRequest.files) &&
         Objects.equals(this.envelopeName, documentsEnvelopeAddVersionRequest.envelopeName) &&
         Objects.equals(this.disablePendingActionNotifications, documentsEnvelopeAddVersionRequest.disablePendingActionNotifications) &&
-        Objects.equals(this.additionalInfo, documentsEnvelopeAddVersionRequest.additionalInfo);
+        Objects.equals(this.additionalInfo, documentsEnvelopeAddVersionRequest.additionalInfo) &&
+        Objects.equals(this.prePositionedMarks, documentsEnvelopeAddVersionRequest.prePositionedMarks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, envelopeName, disablePendingActionNotifications, additionalInfo);
+    return Objects.hash(files, envelopeName, disablePendingActionNotifications, additionalInfo, prePositionedMarks);
   }
 
 
@@ -156,6 +188,7 @@ public class EnvelopeAddVersionRequest {
     sb.append("    envelopeName: ").append(toIndentedString(envelopeName)).append("\n");
     sb.append("    disablePendingActionNotifications: ").append(toIndentedString(disablePendingActionNotifications)).append("\n");
     sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
+    sb.append("    prePositionedMarks: ").append(toIndentedString(prePositionedMarks)).append("\n");
     sb.append("}");
     return sb.toString();
   }

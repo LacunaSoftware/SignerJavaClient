@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import com.lacunasoftware.signer.NotificationLanguage;
 /**
  * ObserverEditModel
  */
@@ -32,6 +33,10 @@ public class ObserverEditModel {
   @JsonProperty("emailAddress")
 	@SerializedName("emailAddress")
   private String emailAddress = null;
+
+  @JsonProperty("notificationLanguage")
+	@SerializedName("notificationLanguage")
+  private NotificationLanguage notificationLanguage = null;
 
   public ObserverEditModel observerId(UUID observerId) {
     this.observerId = observerId;
@@ -70,6 +75,24 @@ public class ObserverEditModel {
   }
 
 
+  public ObserverEditModel notificationLanguage(NotificationLanguage notificationLanguage) {
+    this.notificationLanguage = notificationLanguage;
+    return this;
+  }
+
+   /**
+   * Get notificationLanguage
+   * @return notificationLanguage
+  **/
+  @Schema(description = "")
+  public NotificationLanguage getNotificationLanguage() {
+    return notificationLanguage;
+  }
+
+  public void setNotificationLanguage(NotificationLanguage notificationLanguage) {
+    this.notificationLanguage = notificationLanguage;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -80,12 +103,13 @@ public class ObserverEditModel {
     }
     ObserverEditModel observersObserverEditModel = (ObserverEditModel) o;
     return Objects.equals(this.observerId, observersObserverEditModel.observerId) &&
-        Objects.equals(this.emailAddress, observersObserverEditModel.emailAddress);
+        Objects.equals(this.emailAddress, observersObserverEditModel.emailAddress) &&
+        Objects.equals(this.notificationLanguage, observersObserverEditModel.notificationLanguage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(observerId, emailAddress);
+    return Objects.hash(observerId, emailAddress, notificationLanguage);
   }
 
 
@@ -96,6 +120,7 @@ public class ObserverEditModel {
     
     sb.append("    observerId: ").append(toIndentedString(observerId)).append("\n");
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    notificationLanguage: ").append(toIndentedString(notificationLanguage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -55,6 +55,18 @@ public class SecurityContextSimpleModel {
 	@SerializedName("allowedElectronicTypes")
   private AuthenticationTypesModel allowedElectronicTypes = null;
 
+  @JsonProperty("allowIdrcSignature")
+	@SerializedName("allowIdrcSignature")
+  private Boolean allowIdrcSignature = null;
+
+  @JsonProperty("requireLivenessOnSelfieAuthentication")
+	@SerializedName("requireLivenessOnSelfieAuthentication")
+  private Boolean requireLivenessOnSelfieAuthentication = null;
+
+  @JsonProperty("requireLivenessOnDatavalidAuthentication")
+	@SerializedName("requireLivenessOnDatavalidAuthentication")
+  private Boolean requireLivenessOnDatavalidAuthentication = null;
+
   public SecurityContextSimpleModel id(UUID id) {
     this.id = id;
     return this;
@@ -182,6 +194,60 @@ public class SecurityContextSimpleModel {
   }
 
 
+  public SecurityContextSimpleModel allowIdrcSignature(Boolean allowIdrcSignature) {
+    this.allowIdrcSignature = allowIdrcSignature;
+    return this;
+  }
+
+   /**
+   * Get allowIdrcSignature
+   * @return allowIdrcSignature
+  **/
+  @Schema(description = "")
+  public Boolean isAllowIdrcSignature() {
+    return allowIdrcSignature;
+  }
+
+  public void setAllowIdrcSignature(Boolean allowIdrcSignature) {
+    this.allowIdrcSignature = allowIdrcSignature;
+  }
+
+  public SecurityContextSimpleModel requireLivenessOnSelfieAuthentication(Boolean requireLivenessOnSelfieAuthentication) {
+    this.requireLivenessOnSelfieAuthentication = requireLivenessOnSelfieAuthentication;
+    return this;
+  }
+
+   /**
+   * Get requireLivenessOnSelfieAuthentication
+   * @return requireLivenessOnSelfieAuthentication
+  **/
+  @Schema(description = "")
+  public Boolean isRequireLivenessOnSelfieAuthentication() {
+    return requireLivenessOnSelfieAuthentication;
+  }
+
+  public void setRequireLivenessOnSelfieAuthentication(Boolean requireLivenessOnSelfieAuthentication) {
+    this.requireLivenessOnSelfieAuthentication = requireLivenessOnSelfieAuthentication;
+  }
+
+  public SecurityContextSimpleModel requireLivenessOnDatavalidAuthentication(Boolean requireLivenessOnDatavalidAuthentication) {
+    this.requireLivenessOnDatavalidAuthentication = requireLivenessOnDatavalidAuthentication;
+    return this;
+  }
+
+   /**
+   * Get requireLivenessOnDatavalidAuthentication
+   * @return requireLivenessOnDatavalidAuthentication
+  **/
+  @Schema(description = "")
+  public Boolean isRequireLivenessOnDatavalidAuthentication() {
+    return requireLivenessOnDatavalidAuthentication;
+  }
+
+  public void setRequireLivenessOnDatavalidAuthentication(Boolean requireLivenessOnDatavalidAuthentication) {
+    this.requireLivenessOnDatavalidAuthentication = requireLivenessOnDatavalidAuthentication;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -197,12 +263,15 @@ public class SecurityContextSimpleModel {
         Objects.equals(this.portugueseName, securityContextsSecurityContextSimpleModel.portugueseName) &&
         Objects.equals(this.spanishName, securityContextsSecurityContextSimpleModel.spanishName) &&
         Objects.equals(this.allowDigitalSignature, securityContextsSecurityContextSimpleModel.allowDigitalSignature) &&
-        Objects.equals(this.allowedElectronicTypes, securityContextsSecurityContextSimpleModel.allowedElectronicTypes);
+        Objects.equals(this.allowedElectronicTypes, securityContextsSecurityContextSimpleModel.allowedElectronicTypes) &&
+        Objects.equals(this.allowIdrcSignature, securityContextsSecurityContextSimpleModel.allowIdrcSignature) &&
+        Objects.equals(this.requireLivenessOnSelfieAuthentication, securityContextsSecurityContextSimpleModel.requireLivenessOnSelfieAuthentication) &&
+        Objects.equals(this.requireLivenessOnDatavalidAuthentication, securityContextsSecurityContextSimpleModel.requireLivenessOnDatavalidAuthentication);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, englishName, portugueseName, spanishName, allowDigitalSignature, allowedElectronicTypes);
+    return Objects.hash(id, name, englishName, portugueseName, spanishName, allowDigitalSignature, allowedElectronicTypes, allowIdrcSignature, requireLivenessOnSelfieAuthentication, requireLivenessOnDatavalidAuthentication);
   }
 
 
@@ -218,6 +287,9 @@ public class SecurityContextSimpleModel {
     sb.append("    spanishName: ").append(toIndentedString(spanishName)).append("\n");
     sb.append("    allowDigitalSignature: ").append(toIndentedString(allowDigitalSignature)).append("\n");
     sb.append("    allowedElectronicTypes: ").append(toIndentedString(allowedElectronicTypes)).append("\n");
+    sb.append("    allowIdrcSignature: ").append(toIndentedString(allowIdrcSignature)).append("\n");
+    sb.append("    requireLivenessOnSelfieAuthentication: ").append(toIndentedString(requireLivenessOnSelfieAuthentication)).append("\n");
+    sb.append("    requireLivenessOnDatavalidAuthentication: ").append(toIndentedString(requireLivenessOnDatavalidAuthentication)).append("\n");
     sb.append("}");
     return sb.toString();
   }

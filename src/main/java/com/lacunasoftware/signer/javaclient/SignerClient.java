@@ -14,27 +14,41 @@ import java.util.UUID;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.lacunasoftware.signer.BatchItemResultModel;
 import com.lacunasoftware.signer.DocumentDownloadTypes;
 import com.lacunasoftware.signer.DocumentTicketType;
 import com.lacunasoftware.signer.InvoicesUpdateInvoicePaymentStatusRequest;
+import com.lacunasoftware.signer.SignerModel;
 import com.lacunasoftware.signer.TicketModel;
 import com.lacunasoftware.signer.documentmark.MarksSessionCreateRequest;
 import com.lacunasoftware.signer.documentmark.MarksSessionCreateResponse;
 import com.lacunasoftware.signer.documentmark.MarksSessionModel;
+import com.lacunasoftware.signer.documentflows.DocumentFlowCreateRequest;
+import com.lacunasoftware.signer.documentflows.DocumentFlowData;
+import com.lacunasoftware.signer.documentflows.DocumentFlowDetailsModel;
+import com.lacunasoftware.signer.documentflows.DocumentFlowModel;
 import com.lacunasoftware.signer.documents.ActionUrlRequest;
 import com.lacunasoftware.signer.documents.ActionUrlResponse;
 import com.lacunasoftware.signer.documents.CancelDocumentRequest;
 import com.lacunasoftware.signer.documents.CreateDocumentRequest;
 import com.lacunasoftware.signer.documents.CreateDocumentResult;
 import com.lacunasoftware.signer.documents.DocumentAddVersionRequest;
+import com.lacunasoftware.signer.documents.DocumentContentModel;
 import com.lacunasoftware.signer.documents.DocumentFlowEditRequest;
 import com.lacunasoftware.signer.documents.DocumentListModel;
 import com.lacunasoftware.signer.documents.DocumentModel;
+import com.lacunasoftware.signer.documents.DocumentNotifiedEmailsEditRequest;
+import com.lacunasoftware.signer.documents.DocumentSignaturesInfoModel;
+import com.lacunasoftware.signer.documents.EnvelopeAddVersionRequest;
 import com.lacunasoftware.signer.documents.GenerateDocumentRequest;
 import com.lacunasoftware.signer.documents.GenerationDocumentResult;
+import com.lacunasoftware.signer.documents.MoveDocumentBatchRequest;
+import com.lacunasoftware.signer.documents.MoveDocumentRequest;
 import com.lacunasoftware.signer.flowactions.DocumentFlowEditResponse;
 import com.lacunasoftware.signer.folders.FolderCreateRequest;
+import com.lacunasoftware.signer.folders.FolderDeleteRequest;
 import com.lacunasoftware.signer.folders.FolderInfoModel;
+import com.lacunasoftware.signer.folders.FolderOrganizationModel;
 import com.lacunasoftware.signer.javaclient.exceptions.RestException;
 import com.lacunasoftware.signer.javaclient.folders.FolderDetailsModel;
 import com.lacunasoftware.signer.javaclient.models.UploadModel;
@@ -48,7 +62,17 @@ import com.lacunasoftware.signer.javaclient.responses.CompleteSignatureResponse;
 import com.lacunasoftware.signer.javaclient.responses.PaginatedSearchResponse;
 import com.lacunasoftware.signer.javaclient.responses.StartSignatureResponse;
 import com.lacunasoftware.signer.notifications.CreateFlowActionReminderRequest;
+import com.lacunasoftware.signer.notifications.EmailListNotificationRequest;
+import com.lacunasoftware.signer.organizations.OrganizationUserModel;
+import com.lacunasoftware.signer.organizations.OrganizationUserPostRequest;
+import com.lacunasoftware.signer.organizations.contacts.BatchCreateContactsRequest;
+import com.lacunasoftware.signer.organizations.contacts.ContactModel;
+import com.lacunasoftware.signer.organizations.contacts.CreateContactRequest;
+import com.lacunasoftware.signer.organizations.contacts.UpdateContactRequest;
 import com.lacunasoftware.signer.refusal.RefusalRequest;
+import com.lacunasoftware.signer.signature.SignaturesInfoRequest;
+import com.lacunasoftware.signer.uploads.UploadBytesModel;
+import com.lacunasoftware.signer.uploads.UploadBytesRequest;
 
 public class SignerClient {
     protected String apiKey;
@@ -94,6 +118,10 @@ public class SignerClient {
 
 	public UploadModel uploadFile(String name, InputStream fileStream, String mimeType) throws RestException {
 		return getRestClient().postMultipart("/api/uploads", fileStream, name, mimeType, UploadModel.class);
+	}
+
+	public UploadBytesModel uploadBytes(UploadBytesRequest request) throws RestException {
+		return getRestClient().post("/api/uploads/bytes", request, UploadBytesModel.class);
 	}
 
 	// endregion
@@ -184,6 +212,75 @@ public class SignerClient {
 		return response;
 	}
 
+	public void addNewEnvelopeVersion(UUID id, EnvelopeAddVersionRequest versionRequest) throws RestException {
+		String requestUri = String.format("api/documents/%s/envelope/versions", id.toString());
+		getRestClient().post(requestUri, versionRequest);
+	}
+
+	public DocumentContentModel getDocumentContentB64(UUID id, DocumentDownloadTypes type) throws RestException {
+		String requestUri = String.format("/api/documents/%s/content-b64?type=%s", id.toString(), type.getValue());
+		return getRestClient().get(requestUri, DocumentContentModel.class);
+	}
+
+	public DocumentSignaturesInfoModel getDocumentSignaturesDetails(UUID id) throws RestException {
+		String requestUri = String.format("/api/documents/%s/signatures-details", id.toString());
+		return getRestClient().get(requestUri, DocumentSignaturesInfoModel.class);
+	}
+
+	public DocumentSignaturesInfoModel getDocumentSignaturesDetailsByKey(String key) throws RestException {
+		String requestUri = String.format("/api/documents/keys/%s/signatures", key);
+		return getRestClient().get(requestUri, DocumentSignaturesInfoModel.class);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<SignerModel> validateSignatures(SignaturesInfoRequest request) throws RestException {
+		return (List<SignerModel>)getRestClient().post("/api/documents/validate-signatures", request, TypeToken.getParameterized(List.class, SignerModel.class));
+	}
+
+	public void updateDocumentNotifiedEmails(UUID id, DocumentNotifiedEmailsEditRequest request) throws RestException {
+		String requestUri = String.format("api/documents/%s/notified-emails", id.toString());
+		getRestClient().put(requestUri, request);
+	}
+
+	public void moveDocumentToFolder(UUID id, MoveDocumentRequest request) throws RestException {
+		String requestUri = String.format("api/documents/%s/folder", id.toString());
+		getRestClient().post(requestUri, request);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<BatchItemResultModel> moveDocumentsToFolder(MoveDocumentBatchRequest request) throws RestException {
+		return (List<BatchItemResultModel>)getRestClient().post("/api/documents/batch/folder", request, TypeToken.getParameterized(List.class, BatchItemResultModel.class));
+	}
+
+	// endregion
+
+	// region DOCUMENT FLOW
+
+	public DocumentFlowModel createDocumentFlowModel(DocumentFlowCreateRequest request) throws RestException {
+		return getRestClient().post("/api/document-flows", request, DocumentFlowModel.class);
+	}
+
+	@SuppressWarnings("unchecked")
+	public PaginatedSearchResponse<DocumentFlowModel> listDocumentFlowModelsPaginated(PaginatedSearchParams searchParams) throws RestException {
+		String requestUri = String.format("/api/document-flows%s", buildSearchPaginatedParamsString(searchParams));
+		return (PaginatedSearchResponse<DocumentFlowModel>)getRestClient().get(requestUri, TypeToken.getParameterized(PaginatedSearchResponse.class, DocumentFlowModel.class));
+	}
+
+	public DocumentFlowDetailsModel getDocumentFlowModelDetails(UUID id) throws RestException {
+		String requestUri = String.format("/api/document-flows/%s", id.toString());
+		return getRestClient().get(requestUri, DocumentFlowDetailsModel.class);
+	}
+
+	public void editDocumentFlowModel(UUID id, DocumentFlowData request) throws RestException {
+		String requestUri = String.format("/api/document-flows/%s", id.toString());
+		getRestClient().put(requestUri, request);
+	}
+
+	public void deleteDocumentFlowModel(UUID id) throws RestException {
+		String requestUri = String.format("/api/document-flows/%s", id.toString());
+		getRestClient().delete(requestUri);
+	}
+
 	// endregion
 
 	// region ACTIONURL
@@ -245,6 +342,16 @@ public class SignerClient {
 		return folderInfo;
 	}
 	
+	public FolderOrganizationModel getFolder(UUID folderId) throws RestException {
+		String requestUri = String.format("/api/folders/%s", folderId.toString());
+		return getRestClient().get(requestUri, FolderOrganizationModel.class);
+	}
+
+	public void deleteFolder(UUID folderId, FolderDeleteRequest request) throws RestException {
+		String requestUri = String.format("/api/folders/%s/delete", folderId.toString());
+		getRestClient().post(requestUri, request);
+	}
+
 	public FolderDetailsModel getFolderDetails(UUID folderId) throws RestException {
 		String requestUri = String.format("/api/folders/%s/details", folderId.toString());
 		FolderDetailsModel folderDetails = getRestClient().get(requestUri, FolderDetailsModel.class);
@@ -279,6 +386,10 @@ public class SignerClient {
 		getRestClient().post("/api/notifications/flow-action-reminder", request);
 	}
 
+	public void notifyPendingUsers(EmailListNotificationRequest request) throws RestException {
+		getRestClient().post("/api/users/notify-pending", request);
+	}
+
 
 	public void UpdateInvoiceStatus(int id, InvoicesUpdateInvoicePaymentStatusRequest request) throws RestException, IOException {
 		 getRestClient().putAsJson(String.format("api/invoices/%s/payment", id), request);
@@ -286,10 +397,67 @@ public class SignerClient {
 
 	// endregion
 
+	// region ORGANIZATION CONTACTS
+
+	@SuppressWarnings("unchecked")
+	public PaginatedSearchResponse<ContactModel> listContactsPaginated(PaginatedSearchParams searchParams) throws RestException {
+		String requestUri = String.format("/api/organization/contacts%s", buildSearchPaginatedParamsString(searchParams));
+		return (PaginatedSearchResponse<ContactModel>)getRestClient().get(requestUri, TypeToken.getParameterized(PaginatedSearchResponse.class, ContactModel.class));
+	}
+
+	public ContactModel createContact(CreateContactRequest request) throws RestException {
+		return getRestClient().post("/api/organization/contacts", request, ContactModel.class);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<ContactModel> createContacts(BatchCreateContactsRequest request) throws RestException {
+		return (List<ContactModel>)getRestClient().post("/api/organization/contacts/batch/create", request, TypeToken.getParameterized(List.class, ContactModel.class));
+	}
+
+	public void deleteContacts(List<UUID> contactIds) throws RestException {
+		getRestClient().post("/api/organization/contacts/batch/delete", contactIds);
+	}
+
+	public ContactModel getContact(UUID contactId) throws RestException {
+		String requestUri = String.format("/api/organization/contacts/%s", contactId.toString());
+		return getRestClient().get(requestUri, ContactModel.class);
+	}
+
+	public ContactModel updateContact(UUID contactId, UpdateContactRequest request) throws RestException {
+		String requestUri = String.format("/api/organization/contacts/%s", contactId.toString());
+		return getRestClient().put(requestUri, request, ContactModel.class);
+	}
+
+	public void deleteContact(UUID contactId) throws RestException {
+		String requestUri = String.format("/api/organization/contacts/%s", contactId.toString());
+		getRestClient().delete(requestUri);
+	}
+
+	// endregion
+
+	// region ORGANIZATION USERS
+
+	@SuppressWarnings("unchecked")
+	public PaginatedSearchResponse<OrganizationUserModel> listOrganizationUsersPaginated(PaginatedSearchParams searchParams) throws RestException {
+		String requestUri = String.format("/api/organizations/users%s", buildSearchPaginatedParamsString(searchParams));
+		return (PaginatedSearchResponse<OrganizationUserModel>)getRestClient().get(requestUri, TypeToken.getParameterized(PaginatedSearchResponse.class, OrganizationUserModel.class));
+	}
+
+	public OrganizationUserModel createOrganizationUser(OrganizationUserPostRequest request) throws RestException {
+		return getRestClient().post("/api/organizations/users", request, OrganizationUserModel.class);
+	}
+
+	public void deleteOrganizationUser(UUID userId) throws RestException {
+		String requestUri = String.format("/api/organizations/users/%s", userId.toString());
+		getRestClient().delete(requestUri);
+	}
+
+	// endregion
+
 	// region PRIVATE
 
 	private String buildSearchPaginatedParamsString(PaginatedSearchParams searchParams) {
-		return String.format("?q=%s&limit=%s&offset=%s", getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOffset());
+		return String.format("?q=%s&limit=%s&offset=%s&order=%s", getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOffset(), searchParams.getOrder());
 	}
 
 	private String buildSearchDocumentListString(DocumentListParameters searchParams) {
@@ -322,7 +490,7 @@ public class SignerClient {
 	// REGION MarksSessions
 
 	public MarksSessionModel getMarkSessionModel(String id) throws RestException{
-		String requestUri = String.format("/api/marks-session/%s", id);
+		String requestUri = String.format("/api/marks-sessions/%s", id);
 		MarksSessionModel markSession = getRestClient().get(requestUri, MarksSessionModel.class);
 		return markSession;
 	}

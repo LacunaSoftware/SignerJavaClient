@@ -27,6 +27,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import org.threeten.bp.OffsetDateTime;
+import com.lacunasoftware.signer.signature.LivenessAuthenticationModel;
 /**
  * EvidencesModel
  */
@@ -88,6 +89,10 @@ public class EvidencesModel {
   @JsonProperty("fileTicket")
 	@SerializedName("fileTicket")
   private String fileTicket = null;
+
+  @JsonProperty("livenessData")
+	@SerializedName("livenessData")
+  private LivenessAuthenticationModel livenessData = null;
 
   public EvidencesModel ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
@@ -350,6 +355,24 @@ public class EvidencesModel {
   }
 
 
+  public EvidencesModel livenessData(LivenessAuthenticationModel livenessData) {
+    this.livenessData = livenessData;
+    return this;
+  }
+
+   /**
+   * Get livenessData
+   * @return livenessData
+  **/
+  @Schema(description = "")
+  public LivenessAuthenticationModel getLivenessData() {
+    return livenessData;
+  }
+
+  public void setLivenessData(LivenessAuthenticationModel livenessData) {
+    this.livenessData = livenessData;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -372,12 +395,13 @@ public class EvidencesModel {
         Objects.equals(this.evidencesSha256, signatureEvidencesModel.evidencesSha256) &&
         Objects.equals(this.authenticatedPhoneNumber, signatureEvidencesModel.authenticatedPhoneNumber) &&
         Arrays.equals(this.file, signatureEvidencesModel.file) &&
-        Objects.equals(this.fileTicket, signatureEvidencesModel.fileTicket);
+        Objects.equals(this.fileTicket, signatureEvidencesModel.fileTicket) &&
+        Objects.equals(this.livenessData, signatureEvidencesModel.livenessData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress, authenticationTypes, accountVerifiedEmail, authenticatedEmail, authenticatedPhoneNumberLastDigits, authenticatedApplication, authenticatedSelfie, authenticatedPix, geolocation, timestamp, evidencesSha256, authenticatedPhoneNumber, Arrays.hashCode(file), fileTicket);
+    return Objects.hash(ipAddress, authenticationTypes, accountVerifiedEmail, authenticatedEmail, authenticatedPhoneNumberLastDigits, authenticatedApplication, authenticatedSelfie, authenticatedPix, livenessData, geolocation, timestamp, evidencesSha256, authenticatedPhoneNumber, Arrays.hashCode(file), fileTicket);
   }
 
 
@@ -400,6 +424,7 @@ public class EvidencesModel {
     sb.append("    authenticatedPhoneNumber: ").append(toIndentedString(authenticatedPhoneNumber)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("    fileTicket: ").append(toIndentedString(fileTicket)).append("\n");
+    sb.append("    livenessData: ").append(toIndentedString(livenessData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

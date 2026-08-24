@@ -25,7 +25,9 @@ public enum FlowActionType {
   @SerializedName("Approver")
 	APPROVER("Approver"),
   @SerializedName("SignRule")
-	SIGNRULE("SignRule");
+	SIGNRULE("SignRule"),
+  @SerializedName("ApproverRule")
+	APPROVERRULE("ApproverRule");
 
   private String value;
 

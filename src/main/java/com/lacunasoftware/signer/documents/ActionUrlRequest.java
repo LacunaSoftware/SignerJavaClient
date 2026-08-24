@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.UUID;
 /**
  * ActionUrlRequest
  */
@@ -36,6 +37,10 @@ public class ActionUrlRequest {
   @JsonProperty("requireEmailAuthentication")
 	@SerializedName("requireEmailAuthentication")
   private Boolean requireEmailAuthentication = null;
+
+  @JsonProperty("flowActionId")
+	@SerializedName("flowActionId")
+  private UUID flowActionId = null;
 
   public ActionUrlRequest identifier(String identifier) {
     this.identifier = identifier;
@@ -92,6 +97,24 @@ public class ActionUrlRequest {
   }
 
 
+  public ActionUrlRequest flowActionId(UUID flowActionId) {
+    this.flowActionId = flowActionId;
+    return this;
+  }
+
+   /**
+   * The ID of the flow action for which the ticket will be generated. It should only be provided if there are more than one pending action for the participant.
+   * @return flowActionId
+  **/
+  @Schema(description = "The ID of the flow action for which the ticket will be generated. It should only be provided if there are more than one pending action for the participant.")
+  public UUID getFlowActionId() {
+    return flowActionId;
+  }
+
+  public void setFlowActionId(UUID flowActionId) {
+    this.flowActionId = flowActionId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -103,12 +126,13 @@ public class ActionUrlRequest {
     ActionUrlRequest documentsActionUrlRequest = (ActionUrlRequest) o;
     return Objects.equals(this.identifier, documentsActionUrlRequest.identifier) &&
         Objects.equals(this.emailAddress, documentsActionUrlRequest.emailAddress) &&
-        Objects.equals(this.requireEmailAuthentication, documentsActionUrlRequest.requireEmailAuthentication);
+        Objects.equals(this.requireEmailAuthentication, documentsActionUrlRequest.requireEmailAuthentication) &&
+        Objects.equals(this.flowActionId, documentsActionUrlRequest.flowActionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, emailAddress, requireEmailAuthentication);
+    return Objects.hash(identifier, emailAddress, requireEmailAuthentication, flowActionId);
   }
 
 
@@ -120,6 +144,7 @@ public class ActionUrlRequest {
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("    requireEmailAuthentication: ").append(toIndentedString(requireEmailAuthentication)).append("\n");
+    sb.append("    flowActionId: ").append(toIndentedString(flowActionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

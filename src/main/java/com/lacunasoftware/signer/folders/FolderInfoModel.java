@@ -37,6 +37,10 @@ public class FolderInfoModel {
 	@SerializedName("parentId")
   private UUID parentId = null;
 
+  @JsonProperty("organizationName")
+	@SerializedName("organizationName")
+  private String organizationName = null;
+
   public FolderInfoModel id(UUID id) {
     this.id = id;
     return this;
@@ -92,6 +96,24 @@ public class FolderInfoModel {
   }
 
 
+  public FolderInfoModel organizationName(String organizationName) {
+    this.organizationName = organizationName;
+    return this;
+  }
+
+   /**
+   * Get organizationName
+   * @return organizationName
+  **/
+  @Schema(description = "")
+  public String getOrganizationName() {
+    return organizationName;
+  }
+
+  public void setOrganizationName(String organizationName) {
+    this.organizationName = organizationName;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -103,12 +125,13 @@ public class FolderInfoModel {
     FolderInfoModel foldersFolderInfoModel = (FolderInfoModel) o;
     return Objects.equals(this.id, foldersFolderInfoModel.id) &&
         Objects.equals(this.name, foldersFolderInfoModel.name) &&
-        Objects.equals(this.parentId, foldersFolderInfoModel.parentId);
+        Objects.equals(this.parentId, foldersFolderInfoModel.parentId) &&
+        Objects.equals(this.organizationName, foldersFolderInfoModel.organizationName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, parentId);
+    return Objects.hash(id, name, parentId, organizationName);
   }
 
 
@@ -120,6 +143,7 @@ public class FolderInfoModel {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

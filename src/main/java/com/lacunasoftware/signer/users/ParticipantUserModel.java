@@ -20,6 +20,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+import com.lacunasoftware.signer.IdentifierTypes;
+import com.lacunasoftware.signer.users.UserIdentifierModel;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * ParticipantUserModel
  */
@@ -45,6 +49,14 @@ public class ParticipantUserModel {
   @JsonProperty("phone")
 	@SerializedName("phone")
   private String phone = null;
+
+  @JsonProperty("identifierType")
+	@SerializedName("identifierType")
+  private IdentifierTypes identifierType = null;
+
+  @JsonProperty("identifiers")
+	@SerializedName("identifiers")
+  private List<UserIdentifierModel> identifiers = null;
 
   public ParticipantUserModel id(UUID id) {
     this.id = id;
@@ -137,6 +149,50 @@ public class ParticipantUserModel {
   }
 
 
+  public ParticipantUserModel identifierType(IdentifierTypes identifierType) {
+    this.identifierType = identifierType;
+    return this;
+  }
+
+   /**
+   * Get identifierType
+   * @return identifierType
+  **/
+  @Schema(description = "")
+  public IdentifierTypes getIdentifierType() {
+    return identifierType;
+  }
+
+  public void setIdentifierType(IdentifierTypes identifierType) {
+    this.identifierType = identifierType;
+  }
+
+  public ParticipantUserModel identifiers(List<UserIdentifierModel> identifiers) {
+    this.identifiers = identifiers;
+    return this;
+  }
+
+  public ParticipantUserModel addIdentifiersItem(UserIdentifierModel identifiersItem) {
+    if (this.identifiers == null) {
+      this.identifiers = new ArrayList<UserIdentifierModel>();
+    }
+    this.identifiers.add(identifiersItem);
+    return this;
+  }
+
+   /**
+   * Get identifiers
+   * @return identifiers
+  **/
+  @Schema(description = "")
+  public List<UserIdentifierModel> getIdentifiers() {
+    return identifiers;
+  }
+
+  public void setIdentifiers(List<UserIdentifierModel> identifiers) {
+    this.identifiers = identifiers;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -150,12 +206,14 @@ public class ParticipantUserModel {
         Objects.equals(this.name, usersParticipantUserModel.name) &&
         Objects.equals(this.identifier, usersParticipantUserModel.identifier) &&
         Objects.equals(this.email, usersParticipantUserModel.email) &&
-        Objects.equals(this.phone, usersParticipantUserModel.phone);
+        Objects.equals(this.phone, usersParticipantUserModel.phone) &&
+        Objects.equals(this.identifierType, usersParticipantUserModel.identifierType) &&
+        Objects.equals(this.identifiers, usersParticipantUserModel.identifiers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, identifier, email, phone);
+    return Objects.hash(id, name, identifier, email, phone, identifierType, identifiers);
   }
 
 
@@ -169,6 +227,8 @@ public class ParticipantUserModel {
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+    sb.append("    identifierType: ").append(toIndentedString(identifierType)).append("\n");
+    sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

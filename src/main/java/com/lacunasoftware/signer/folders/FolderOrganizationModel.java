@@ -43,6 +43,10 @@ public class FolderOrganizationModel {
 	@SerializedName("parentId")
   private UUID parentId = null;
 
+  @JsonProperty("organizationName")
+	@SerializedName("organizationName")
+  private String organizationName = null;
+
   public FolderOrganizationModel organization(OrganizationInfoModel organization) {
     this.organization = organization;
     return this;
@@ -116,6 +120,24 @@ public class FolderOrganizationModel {
   }
 
 
+  public FolderOrganizationModel organizationName(String organizationName) {
+    this.organizationName = organizationName;
+    return this;
+  }
+
+   /**
+   * Get organizationName
+   * @return organizationName
+  **/
+  @Schema(description = "")
+  public String getOrganizationName() {
+    return organizationName;
+  }
+
+  public void setOrganizationName(String organizationName) {
+    this.organizationName = organizationName;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -128,12 +150,13 @@ public class FolderOrganizationModel {
     return Objects.equals(this.organization, foldersFolderOrganizationModel.organization) &&
         Objects.equals(this.id, foldersFolderOrganizationModel.id) &&
         Objects.equals(this.name, foldersFolderOrganizationModel.name) &&
-        Objects.equals(this.parentId, foldersFolderOrganizationModel.parentId);
+        Objects.equals(this.parentId, foldersFolderOrganizationModel.parentId) &&
+        Objects.equals(this.organizationName, foldersFolderOrganizationModel.organizationName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(organization, id, name, parentId);
+    return Objects.hash(organization, id, name, parentId, organizationName);
   }
 
 
@@ -146,6 +169,7 @@ public class FolderOrganizationModel {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

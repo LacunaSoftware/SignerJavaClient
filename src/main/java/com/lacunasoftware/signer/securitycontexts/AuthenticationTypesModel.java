@@ -53,6 +53,14 @@ public class AuthenticationTypesModel {
 	@SerializedName("email")
   private Boolean email = null;
 
+  @JsonProperty("liveness")
+	@SerializedName("liveness")
+  private Boolean liveness = null;
+
+  @JsonProperty("idScan")
+	@SerializedName("idScan")
+  private Boolean idScan = null;
+
   public AuthenticationTypesModel sms(Boolean sms) {
     this.sms = sms;
     return this;
@@ -180,6 +188,42 @@ public class AuthenticationTypesModel {
   }
 
 
+  public AuthenticationTypesModel liveness(Boolean liveness) {
+    this.liveness = liveness;
+    return this;
+  }
+
+   /**
+   * Get liveness
+   * @return liveness
+  **/
+  @Schema(description = "")
+  public Boolean isLiveness() {
+    return liveness;
+  }
+
+  public void setLiveness(Boolean liveness) {
+    this.liveness = liveness;
+  }
+
+  public AuthenticationTypesModel idScan(Boolean idScan) {
+    this.idScan = idScan;
+    return this;
+  }
+
+   /**
+   * Get idScan
+   * @return idScan
+  **/
+  @Schema(description = "")
+  public Boolean isIdScan() {
+    return idScan;
+  }
+
+  public void setIdScan(Boolean idScan) {
+    this.idScan = idScan;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -195,12 +239,14 @@ public class AuthenticationTypesModel {
         Objects.equals(this.selfie, securityContextsAuthenticationTypesModel.selfie) &&
         Objects.equals(this.datavalid, securityContextsAuthenticationTypesModel.datavalid) &&
         Objects.equals(this.pix, securityContextsAuthenticationTypesModel.pix) &&
-        Objects.equals(this.email, securityContextsAuthenticationTypesModel.email);
+        Objects.equals(this.email, securityContextsAuthenticationTypesModel.email) &&
+        Objects.equals(this.liveness, securityContextsAuthenticationTypesModel.liveness) &&
+        Objects.equals(this.idScan, securityContextsAuthenticationTypesModel.idScan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sms, whatsapp, otp, selfie, datavalid, pix, email);
+    return Objects.hash(sms, whatsapp, otp, selfie, datavalid, pix, email, liveness, idScan);
   }
 
 
@@ -216,6 +262,8 @@ public class AuthenticationTypesModel {
     sb.append("    datavalid: ").append(toIndentedString(datavalid)).append("\n");
     sb.append("    pix: ").append(toIndentedString(pix)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    liveness: ").append(toIndentedString(liveness)).append("\n");
+    sb.append("    idScan: ").append(toIndentedString(idScan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

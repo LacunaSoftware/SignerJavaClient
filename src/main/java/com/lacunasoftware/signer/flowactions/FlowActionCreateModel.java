@@ -28,6 +28,7 @@ import com.lacunasoftware.signer.users.ParticipantUserModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
+import com.lacunasoftware.signer.NotificationLanguage;
 /**
  * FlowActionCreateModel
  */
@@ -117,6 +118,38 @@ public class FlowActionCreateModel {
   @JsonProperty("signatureInitialsMode")
 	@SerializedName("signatureInitialsMode")
   private SignatureInitialsModes signatureInitialsMode = null;
+
+  @JsonProperty("ruleUsers")
+	@SerializedName("ruleUsers")
+  private List<ParticipantUserModel> ruleUsers = null;
+
+  @JsonProperty("numberRequiredActions")
+	@SerializedName("numberRequiredActions")
+  private Integer numberRequiredActions = null;
+
+  @JsonProperty("requireWhatsappAuthenticationToSignElectronically")
+	@SerializedName("requireWhatsappAuthenticationToSignElectronically")
+  private Boolean requireWhatsappAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requireLivenessAuthenticationToSignElectronically")
+	@SerializedName("requireLivenessAuthenticationToSignElectronically")
+  private Boolean requireLivenessAuthenticationToSignElectronically = null;
+
+  @JsonProperty("requireIdScanAuthenticationToSignElectronically")
+	@SerializedName("requireIdScanAuthenticationToSignElectronically")
+  private Boolean requireIdScanAuthenticationToSignElectronically = null;
+
+  @JsonProperty("disableEmailAuthenticationToSignElectronically")
+	@SerializedName("disableEmailAuthenticationToSignElectronically")
+  private Boolean disableEmailAuthenticationToSignElectronically = null;
+
+  @JsonProperty("allowIdrcSignature")
+	@SerializedName("allowIdrcSignature")
+  private Boolean allowIdrcSignature = null;
+
+  @JsonProperty("notificationLanguage")
+	@SerializedName("notificationLanguage")
+  private NotificationLanguage notificationLanguage = null;
 
   public FlowActionCreateModel type(FlowActionType type) {
     this.type = type;
@@ -513,6 +546,158 @@ public class FlowActionCreateModel {
   }
 
 
+  public FlowActionCreateModel ruleUsers(List<ParticipantUserModel> ruleUsers) {
+    this.ruleUsers = ruleUsers;
+    return this;
+  }
+
+  public FlowActionCreateModel addRuleUsersItem(ParticipantUserModel ruleUsersItem) {
+    if (this.ruleUsers == null) {
+      this.ruleUsers = new ArrayList<ParticipantUserModel>();
+    }
+    this.ruleUsers.add(ruleUsersItem);
+    return this;
+  }
+
+   /**
+   * Get ruleUsers
+   * @return ruleUsers
+  **/
+  @Schema(description = "")
+  public List<ParticipantUserModel> getRuleUsers() {
+    return ruleUsers;
+  }
+
+  public void setRuleUsers(List<ParticipantUserModel> ruleUsers) {
+    this.ruleUsers = ruleUsers;
+  }
+
+  public FlowActionCreateModel numberRequiredActions(Integer numberRequiredActions) {
+    this.numberRequiredActions = numberRequiredActions;
+    return this;
+  }
+
+   /**
+   * Number of required action complete rule (if type is SignRule or ApproverRule).
+   * @return numberRequiredActions
+  **/
+  @Schema(description = "Number of required action complete rule (if type is SignRule or ApproverRule).")
+  public Integer getNumberRequiredActions() {
+    return numberRequiredActions;
+  }
+
+  public void setNumberRequiredActions(Integer numberRequiredActions) {
+    this.numberRequiredActions = numberRequiredActions;
+  }
+
+  public FlowActionCreateModel requireWhatsappAuthenticationToSignElectronically(Boolean requireWhatsappAuthenticationToSignElectronically) {
+    this.requireWhatsappAuthenticationToSignElectronically = requireWhatsappAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to confirm a code sent to his Whatsapp number to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)
+   * @return requireWhatsappAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to confirm a code sent to his Whatsapp number to sign electronically. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)")
+  public Boolean isRequireWhatsappAuthenticationToSignElectronically() {
+    return requireWhatsappAuthenticationToSignElectronically;
+  }
+
+  public void setRequireWhatsappAuthenticationToSignElectronically(Boolean requireWhatsappAuthenticationToSignElectronically) {
+    this.requireWhatsappAuthenticationToSignElectronically = requireWhatsappAuthenticationToSignElectronically;
+  }
+
+  public FlowActionCreateModel requireLivenessAuthenticationToSignElectronically(Boolean requireLivenessAuthenticationToSignElectronically) {
+    this.requireLivenessAuthenticationToSignElectronically = requireLivenessAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to perform a liveness test to sign electronically. (If AllowElectronicSignature is true)
+   * @return requireLivenessAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to perform a liveness test to sign electronically. (If AllowElectronicSignature is true)")
+  public Boolean isRequireLivenessAuthenticationToSignElectronically() {
+    return requireLivenessAuthenticationToSignElectronically;
+  }
+
+  public void setRequireLivenessAuthenticationToSignElectronically(Boolean requireLivenessAuthenticationToSignElectronically) {
+    this.requireLivenessAuthenticationToSignElectronically = requireLivenessAuthenticationToSignElectronically;
+  }
+
+  public FlowActionCreateModel requireIdScanAuthenticationToSignElectronically(Boolean requireIdScanAuthenticationToSignElectronically) {
+    this.requireIdScanAuthenticationToSignElectronically = requireIdScanAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Requires the user to perform a photo id scan to sign electronically. (If AllowElectronicSignature is true)
+   * @return requireIdScanAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Requires the user to perform a photo id scan to sign electronically. (If AllowElectronicSignature is true)")
+  public Boolean isRequireIdScanAuthenticationToSignElectronically() {
+    return requireIdScanAuthenticationToSignElectronically;
+  }
+
+  public void setRequireIdScanAuthenticationToSignElectronically(Boolean requireIdScanAuthenticationToSignElectronically) {
+    this.requireIdScanAuthenticationToSignElectronically = requireIdScanAuthenticationToSignElectronically;
+  }
+
+  public FlowActionCreateModel disableEmailAuthenticationToSignElectronically(Boolean disableEmailAuthenticationToSignElectronically) {
+    this.disableEmailAuthenticationToSignElectronically = disableEmailAuthenticationToSignElectronically;
+    return this;
+  }
+
+   /**
+   * Disables e-mail authentication to sign electronically. This option can only be used if SMS or Whatsapp authentication was required. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)
+   * @return disableEmailAuthenticationToSignElectronically
+  **/
+  @Schema(description = "Disables e-mail authentication to sign electronically. This option can only be used if SMS or Whatsapp authentication was required. (If Lacuna.Signer.Api.FlowActions.BaseFlowActionData.AllowElectronicSignature is true)")
+  public Boolean isDisableEmailAuthenticationToSignElectronically() {
+    return disableEmailAuthenticationToSignElectronically;
+  }
+
+  public void setDisableEmailAuthenticationToSignElectronically(Boolean disableEmailAuthenticationToSignElectronically) {
+    this.disableEmailAuthenticationToSignElectronically = disableEmailAuthenticationToSignElectronically;
+  }
+
+  public FlowActionCreateModel allowIdrcSignature(Boolean allowIdrcSignature) {
+    this.allowIdrcSignature = allowIdrcSignature;
+    return this;
+  }
+
+   /**
+   * Allows the user to choose whether to use an IDRC signature or a certificate-based signature. Only available if the instance has IDRC enabled.
+   * @return allowIdrcSignature
+  **/
+  @Schema(description = "Allows the user to choose whether to use an IDRC signature or a certificate-based signature. Only available if the instance has IDRC enabled.")
+  public Boolean isAllowIdrcSignature() {
+    return allowIdrcSignature;
+  }
+
+  public void setAllowIdrcSignature(Boolean allowIdrcSignature) {
+    this.allowIdrcSignature = allowIdrcSignature;
+  }
+
+  public FlowActionCreateModel notificationLanguage(NotificationLanguage notificationLanguage) {
+    this.notificationLanguage = notificationLanguage;
+    return this;
+  }
+
+   /**
+   * Get notificationLanguage
+   * @return notificationLanguage
+  **/
+  @Schema(description = "")
+  public NotificationLanguage getNotificationLanguage() {
+    return notificationLanguage;
+  }
+
+  public void setNotificationLanguage(NotificationLanguage notificationLanguage) {
+    this.notificationLanguage = notificationLanguage;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -542,12 +727,20 @@ public class FlowActionCreateModel {
         Objects.equals(this.requiredCompanyIdentifier, flowActionsFlowActionCreateModel.requiredCompanyIdentifier) &&
         Objects.equals(this.requiredCertificateHolderTypeToSign, flowActionsFlowActionCreateModel.requiredCertificateHolderTypeToSign) &&
         Objects.equals(this.xadesOptions, flowActionsFlowActionCreateModel.xadesOptions) &&
-        Objects.equals(this.signatureInitialsMode, flowActionsFlowActionCreateModel.signatureInitialsMode);
+        Objects.equals(this.signatureInitialsMode, flowActionsFlowActionCreateModel.signatureInitialsMode) &&
+        Objects.equals(this.ruleUsers, flowActionsFlowActionCreateModel.ruleUsers) &&
+        Objects.equals(this.numberRequiredActions, flowActionsFlowActionCreateModel.numberRequiredActions) &&
+        Objects.equals(this.requireWhatsappAuthenticationToSignElectronically, flowActionsFlowActionCreateModel.requireWhatsappAuthenticationToSignElectronically) &&
+        Objects.equals(this.requireLivenessAuthenticationToSignElectronically, flowActionsFlowActionCreateModel.requireLivenessAuthenticationToSignElectronically) &&
+        Objects.equals(this.requireIdScanAuthenticationToSignElectronically, flowActionsFlowActionCreateModel.requireIdScanAuthenticationToSignElectronically) &&
+        Objects.equals(this.disableEmailAuthenticationToSignElectronically, flowActionsFlowActionCreateModel.disableEmailAuthenticationToSignElectronically) &&
+        Objects.equals(this.allowIdrcSignature, flowActionsFlowActionCreateModel.allowIdrcSignature) &&
+        Objects.equals(this.notificationLanguage, flowActionsFlowActionCreateModel.notificationLanguage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, step, user, numberRequiredSignatures, ruleName, allowRuleFlowToContinueIfRefused, title, signRuleUsers, prePositionedMarks, allowElectronicSignature, requireSmsAuthenticationToSignElectronically, requireAuthenticatorAppToSignElectronically, requireSelfieAuthenticationToSignElectronically, requireDatavalidAuthenticationToSignElectronically, requirePixAuthenticationToSignElectronically, requiredCertificateTypeToSign, requireCompanyCertificate, requiredCompanyIdentifier, requiredCertificateHolderTypeToSign, xadesOptions, signatureInitialsMode);
+    return Objects.hash(type, step, user, numberRequiredSignatures, ruleName, allowRuleFlowToContinueIfRefused, title, signRuleUsers, prePositionedMarks, allowElectronicSignature, requireSmsAuthenticationToSignElectronically, requireAuthenticatorAppToSignElectronically, requireSelfieAuthenticationToSignElectronically, requireDatavalidAuthenticationToSignElectronically, requirePixAuthenticationToSignElectronically, requiredCertificateTypeToSign, requireCompanyCertificate, requiredCompanyIdentifier, requiredCertificateHolderTypeToSign, xadesOptions, signatureInitialsMode, ruleUsers, numberRequiredActions, requireWhatsappAuthenticationToSignElectronically, requireLivenessAuthenticationToSignElectronically, requireIdScanAuthenticationToSignElectronically, disableEmailAuthenticationToSignElectronically, allowIdrcSignature, notificationLanguage);
   }
 
 
@@ -577,6 +770,14 @@ public class FlowActionCreateModel {
     sb.append("    requiredCertificateHolderTypeToSign: ").append(toIndentedString(requiredCertificateHolderTypeToSign)).append("\n");
     sb.append("    xadesOptions: ").append(toIndentedString(xadesOptions)).append("\n");
     sb.append("    signatureInitialsMode: ").append(toIndentedString(signatureInitialsMode)).append("\n");
+    sb.append("    ruleUsers: ").append(toIndentedString(ruleUsers)).append("\n");
+    sb.append("    numberRequiredActions: ").append(toIndentedString(numberRequiredActions)).append("\n");
+    sb.append("    requireWhatsappAuthenticationToSignElectronically: ").append(toIndentedString(requireWhatsappAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requireLivenessAuthenticationToSignElectronically: ").append(toIndentedString(requireLivenessAuthenticationToSignElectronically)).append("\n");
+    sb.append("    requireIdScanAuthenticationToSignElectronically: ").append(toIndentedString(requireIdScanAuthenticationToSignElectronically)).append("\n");
+    sb.append("    disableEmailAuthenticationToSignElectronically: ").append(toIndentedString(disableEmailAuthenticationToSignElectronically)).append("\n");
+    sb.append("    allowIdrcSignature: ").append(toIndentedString(allowIdrcSignature)).append("\n");
+    sb.append("    notificationLanguage: ").append(toIndentedString(notificationLanguage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

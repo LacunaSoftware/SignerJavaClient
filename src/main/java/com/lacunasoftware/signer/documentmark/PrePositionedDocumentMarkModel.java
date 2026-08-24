@@ -53,6 +53,10 @@ public class PrePositionedDocumentMarkModel {
 	@SerializedName("pageNumber")
   private Integer pageNumber = null;
 
+  @JsonProperty("fontSize")
+	@SerializedName("fontSize")
+  private Double fontSize = null;
+
   public PrePositionedDocumentMarkModel type(DocumentMarkType type) {
     this.type = type;
     return this;
@@ -180,6 +184,24 @@ public class PrePositionedDocumentMarkModel {
   }
 
 
+  public PrePositionedDocumentMarkModel fontSize(Double fontSize) {
+    this.fontSize = fontSize;
+    return this;
+  }
+
+   /**
+   * The font size of the mark.  The font size adapts dynamically to fit within the dimensions of the mark rectangle.
+   * @return fontSize
+  **/
+  @Schema(description = "The font size of the mark.  The font size adapts dynamically to fit within the dimensions of the mark rectangle.")
+  public Double getFontSize() {
+    return fontSize;
+  }
+
+  public void setFontSize(Double fontSize) {
+    this.fontSize = fontSize;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -195,12 +217,13 @@ public class PrePositionedDocumentMarkModel {
         Objects.equals(this.topLeftY, documentMarkPrePositionedDocumentMarkModel.topLeftY) &&
         Objects.equals(this.width, documentMarkPrePositionedDocumentMarkModel.width) &&
         Objects.equals(this.height, documentMarkPrePositionedDocumentMarkModel.height) &&
-        Objects.equals(this.pageNumber, documentMarkPrePositionedDocumentMarkModel.pageNumber);
+        Objects.equals(this.pageNumber, documentMarkPrePositionedDocumentMarkModel.pageNumber) &&
+        Objects.equals(this.fontSize, documentMarkPrePositionedDocumentMarkModel.fontSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, uploadId, topLeftX, topLeftY, width, height, pageNumber);
+    return Objects.hash(type, uploadId, topLeftX, topLeftY, width, height, pageNumber, fontSize);
   }
 
 
@@ -216,6 +239,7 @@ public class PrePositionedDocumentMarkModel {
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

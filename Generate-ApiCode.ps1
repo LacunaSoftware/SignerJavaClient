@@ -15,7 +15,7 @@ try {
 
 	Write-Host ">>> Generating code ..."
 
-	&java -jar $toolJarPath generate -i https://signer-lac.azurewebsites.net/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
+	&java -jar $toolJarPath generate -i https://www.dropsigner.com/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
 	
 	Write-Host ">>> Copying classes to project ..."
 

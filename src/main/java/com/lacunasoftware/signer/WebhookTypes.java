@@ -35,7 +35,9 @@ public enum WebhookTypes {
   @SerializedName("DocumentExpired")
 	DOCUMENTEXPIRED("DocumentExpired"),
   @SerializedName("DocumentsCreated")
-	DOCUMENTSCREATED("DocumentsCreated");
+	DOCUMENTSCREATED("DocumentsCreated"),
+  @SerializedName("DocumentDeleted")
+	DOCUMENTDELETED("DocumentDeleted");
 
   private String value;
 
