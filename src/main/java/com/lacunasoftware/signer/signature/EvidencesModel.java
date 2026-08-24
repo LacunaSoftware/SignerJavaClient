@@ -401,7 +401,7 @@ public class EvidencesModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress, authenticationTypes, accountVerifiedEmail, authenticatedEmail, authenticatedPhoneNumberLastDigits, authenticatedApplication, authenticatedSelfie, authenticatedPix, geolocation, timestamp, evidencesSha256, authenticatedPhoneNumber, Arrays.hashCode(file), fileTicket);
+    return Objects.hash(ipAddress, authenticationTypes, accountVerifiedEmail, authenticatedEmail, authenticatedPhoneNumberLastDigits, authenticatedApplication, authenticatedSelfie, authenticatedPix, livenessData, geolocation, timestamp, evidencesSha256, authenticatedPhoneNumber, Arrays.hashCode(file), fileTicket);
   }
 
 

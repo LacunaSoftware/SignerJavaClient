@@ -237,9 +237,9 @@ public class SignerClient {
 		return (List<SignerModel>)getRestClient().post("/api/documents/validate-signatures", request, TypeToken.getParameterized(List.class, SignerModel.class));
 	}
 
-	public void updateDocumentNotifiedEmails(UUID id, DocumentNotifiedEmailsEditRequest request) throws RestException, IOException {
+	public void updateDocumentNotifiedEmails(UUID id, DocumentNotifiedEmailsEditRequest request) throws RestException {
 		String requestUri = String.format("api/documents/%s/notified-emails", id.toString());
-		getRestClient().putAsJson(requestUri, request);
+		getRestClient().put(requestUri, request);
 	}
 
 	public void moveDocumentToFolder(UUID id, MoveDocumentRequest request) throws RestException {
@@ -271,9 +271,9 @@ public class SignerClient {
 		return getRestClient().get(requestUri, DocumentFlowDetailsModel.class);
 	}
 
-	public void editDocumentFlowModel(UUID id, DocumentFlowData request) throws RestException, IOException {
+	public void editDocumentFlowModel(UUID id, DocumentFlowData request) throws RestException {
 		String requestUri = String.format("/api/document-flows/%s", id.toString());
-		getRestClient().putAsJson(requestUri, request);
+		getRestClient().put(requestUri, request);
 	}
 
 	public void deleteDocumentFlowModel(UUID id) throws RestException {
@@ -457,7 +457,7 @@ public class SignerClient {
 	// region PRIVATE
 
 	private String buildSearchPaginatedParamsString(PaginatedSearchParams searchParams) {
-		return String.format("?q=%s&limit=%s&offset=%s", getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOffset());
+		return String.format("?q=%s&limit=%s&offset=%s&order=%s", getParameterOrEmpty(searchParams.getQ()), searchParams.getLimit(), searchParams.getOffset(), searchParams.getOrder());
 	}
 
 	private String buildSearchDocumentListString(DocumentListParameters searchParams) {

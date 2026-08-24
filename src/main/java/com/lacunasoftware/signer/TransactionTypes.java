@@ -34,14 +34,14 @@ public enum TransactionTypes {
 	TIMESTAMPER("Timestamper"),
   @SerializedName("Sms")
 	SMS("Sms"),
+  @SerializedName("Whatsapp")
+	WHATSAPP("Whatsapp"),
   @SerializedName("Datavalid")
 	DATAVALID("Datavalid"),
   @SerializedName("PixAuthentication")
 	PIXAUTHENTICATION("PixAuthentication"),
   @SerializedName("Envelope")
 	ENVELOPE("Envelope"),
-  @SerializedName("Whatsapp")
-	WHATSAPP("Whatsapp"),
   @SerializedName("Liveness")
 	LIVENESS("Liveness"),
   @SerializedName("IdScan")

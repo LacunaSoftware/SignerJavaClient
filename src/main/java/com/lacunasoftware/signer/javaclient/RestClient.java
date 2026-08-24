@@ -302,7 +302,7 @@ class RestClient {
 			OutputStream outStream = conn.getOutputStream();
 			if (request != null) {
 				String json = getGson().toJson(request);
-				outStream.write(json.getBytes());
+				outStream.write(json.getBytes("UTF-8"));
 			}
 			outStream.close();
 		} catch (Exception e) {
@@ -311,6 +311,10 @@ class RestClient {
 		checkResponse(verb, requestUrl, conn);
 		conn.disconnect();
 
+	}
+
+	<TRequest> void put(String requestUri, TRequest request) throws RestException {
+		put(requestUri, request, (TypeToken<?>) null);
 	}
 
 	<TRequest, TResponse> TResponse put(String requestUri, TRequest request, Class<TResponse> valueType) throws RestException {
