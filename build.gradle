@@ -120,10 +120,20 @@ task execute(type:JavaExec) {
 tasks.register('centralBundle', Zip) {
     dependsOn tasks.named('publishMavenJavaPublicationToCentralStagingRepository')
     from layout.buildDirectory.dir('staging-deploy')
+    // The Portal builds its own repository metadata and only wants the artifacts.
+    exclude '**/maven-metadata*'
     archiveFileName = "signer-client-${project.version}-bundle.zip"
     destinationDirectory = layout.buildDirectory.dir('central')
 }
 
 signing {
+    // GnuPG 2.1+ stores secret keys in a keybox rather than the secring.gpg file that
+    // signing.secretKeyRingFile expects. Setting signingInMemoryKey to an armoured
+    // private key avoids having to export one; otherwise the signing.* properties in
+    // gradle.properties are used as before.
+    def armouredKey = findProperty('signingInMemoryKey')
+    if (armouredKey) {
+        useInMemoryPgpKeys(armouredKey.toString(), findProperty('signingInMemoryKeyPassword')?.toString())
+    }
     sign publishing.publications.mavenJava
 }   
