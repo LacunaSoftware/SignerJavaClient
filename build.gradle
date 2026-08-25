@@ -100,13 +100,12 @@ publishing {
         }
     }
     repositories {
-        // Legacy OSSRH (s01.oss.sonatype.org) was decommissioned, so releases are no
-        // longer pushed straight from Gradle. Instead we publish into a local staging
-        // layout, zip it, and upload that bundle to the Central Portal. See
-        // `centralBundle` below and RELEASING.md.
         maven {
-            name = 'centralStaging'
-            url = layout.buildDirectory.dir('staging-deploy')
+            url determineRepositoryUrl()
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
         }
     }
 }
@@ -116,24 +115,15 @@ task execute(type:JavaExec) {
     mainClass = 'package.Main'
 }
 
-// Packs the staged artifacts into the single zip the Central Portal expects.
-tasks.register('centralBundle', Zip) {
-    dependsOn tasks.named('publishMavenJavaPublicationToCentralStagingRepository')
-    from layout.buildDirectory.dir('staging-deploy')
-    // The Portal builds its own repository metadata and only wants the artifacts.
-    exclude '**/maven-metadata*'
-    archiveFileName = "signer-client-${project.version}-bundle.zip"
-    destinationDirectory = layout.buildDirectory.dir('central')
+def determineRepositoryUrl() {
+    def version = project.version.toString()
+    if (version.endsWith('SNAPSHOT')) {
+        return "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+    } else {
+        return "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+    }
 }
 
 signing {
-    // GnuPG 2.1+ stores secret keys in a keybox rather than the secring.gpg file that
-    // signing.secretKeyRingFile expects. Setting signingInMemoryKey to an armoured
-    // private key avoids having to export one; otherwise the signing.* properties in
-    // gradle.properties are used as before.
-    def armouredKey = findProperty('signingInMemoryKey')
-    if (armouredKey) {
-        useInMemoryPgpKeys(armouredKey.toString(), findProperty('signingInMemoryKeyPassword')?.toString())
-    }
     sign publishing.publications.mavenJava
 }   
